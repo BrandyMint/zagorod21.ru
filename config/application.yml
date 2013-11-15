@@ -1,11 +1,11 @@
 defaults: &defaults
   app:
-    title: RailsApp
+    title: "zagorod21.ru"
 
-    asset_host: http://RailsApp.icfdev.ru/
+    asset_host: http://zagorod21.ru/
 
     default_url_options: &default_url_options
-      host: HOSTNAME
+      host: zagorod21.ru
       port: 80
 
   action_mailer: &action_mailer
@@ -14,8 +14,8 @@ defaults: &defaults
       <<: *default_url_options
 
   mailer_defaults:
-    from: 'noreply@HOSTNAME'
-    host: HOSTNAME
+    <<: *action_mailer
+    from: 'noreply@zagorod21.ru'
 
 development:
   <<: *defaults

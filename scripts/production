@@ -1,0 +1,2 @@
+#!/bin/sh
+exec ssh wwwzagorod21@zagorod21.ru -p229

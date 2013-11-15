@@ -1,9 +1,9 @@
-set :application, 'example.com'
-set :repo_url, 'git@github.com:Example/example.git'
+set :application, 'zagorod21.ru'
+set :repo_url, 'git@github.com:BrandyMint/zagorod.git'
 
 #ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
-set :deploy_to, "/home/www/#{fetch(:application)}"
+set :deploy_to, ->{"/home/wwwzagorod21/#{fetch(:application)}"}
 set :scm, :git
 
 # set :format, :pretty
@@ -11,7 +11,7 @@ set :scm, :git
 # set :pty, true
 
 set :linked_files, %w{config/database.yml}
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
+set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
@@ -31,6 +31,18 @@ namespace :deploy do
     end
   end
 
+  desc 'Notify airbrake'
+  task :notify do
+    on roles(:all) do
+      within release_path do
+        execute :rake, 'airbrake:deploy', "TO=#{fetch(:rails_env)}",
+          "REVISION=\"`head -n1 #{repo_path}/FETCH_HEAD | cut -f1`\"",
+          "REPO=#{fetch(:repo_url)}",
+          "USER=#{ENV['USER'] || ENV['USERNAME']}"
+      end
+    end
+  end
+
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
@@ -41,5 +53,6 @@ namespace :deploy do
   end
 
   after :finishing, 'deploy:cleanup'
+  after :finishing, 'deploy:notify'
 
 end
