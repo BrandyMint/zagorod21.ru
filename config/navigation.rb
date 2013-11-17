@@ -3,7 +3,10 @@
 
 SimpleNavigation::Configuration.run do |navigation|
   navigation.items do |primary|
-    #primary.item :hotels, I18n.t("admin.menu.hotels"), root_url
+    primary.item :resorts, 'Коттеджи', resorts_url
+    primary.item :services, 'Услуги', services_url
+    primary.item :feedback, 'Отзывы', feedback_url
+    primary.item :feedback, 'Контакты', contact_url
 
     primary.dom_class = 'nav navbar-nav pull-right'
 

@@ -5,6 +5,13 @@ Zagorod::Application.routes.draw do
 
   resources :houses, only: [:index, :show]
 
+  resources :resorts, only: :index
+
+  resources :services, only: :index
+
+  get 'feedback', to: 'welcome#feedback'
+  get 'contact', to: 'welcome#contact'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
