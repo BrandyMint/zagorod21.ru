@@ -18,7 +18,7 @@ ActiveAdmin.register House do
 
   index do
     column :preview do |house|
-      image_tag house.preview.file.thumb.url
+      image_tag house.preview.file.thumb.url if house.preview?
     end
     column :title
     column :price_bd

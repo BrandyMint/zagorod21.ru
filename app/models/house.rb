@@ -12,11 +12,4 @@ class House < ActiveRecord::Base
     title
   end
 
-  def preview?
-    false
-  end
-
-  def priview
-    raise 'preview image'
-  end
 end
