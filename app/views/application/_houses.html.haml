@@ -1,0 +1,25 @@
+%table.table.table-condensed
+  %thead
+    %tr
+      %th Дом
+      %th Описание
+      %th Расстояние
+      %th Цена в будни
+      %th Цена в выходные
+      %th Вместимость
+      %th Заказ
+
+  %tbody
+    - @houses.each do |house|
+      - house = HouseDecorator.new house
+      %tr
+        %td= house.preview_image
+        %td= house.title
+        %td
+          = house.range
+          = house.time
+        %td= house.price_bd
+        %td= house.price_wd
+        %td= house.capacity
+
+

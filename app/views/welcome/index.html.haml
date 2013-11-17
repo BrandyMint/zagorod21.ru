@@ -5,10 +5,4 @@
   Аренда загородоных домов с услугами.
 
 
-- @houses.each do |house|
-  .media
-    = link_to house_url(house), class: 'pull-left' do
-      = image_tag house.preview.file.thumb.url, class: 'media-object'
-    .media-body
-      %h4.media-heading= house.title
-      %p= house.description
+= render 'houses', houses: @houses

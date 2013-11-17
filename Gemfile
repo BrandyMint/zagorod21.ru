@@ -55,7 +55,7 @@ gem 'inherited_resources'
 # Вьюхи и презентеры
 gem 'active_link_to'
 
-#gem 'draper'
+gem 'draper'
 #gem 'cells'
 #gem 'breadcrumbs_on_rails'
 #gem 'tabulous'

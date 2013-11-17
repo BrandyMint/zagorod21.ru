@@ -25,6 +25,8 @@ ActiveAdmin.register House do
     column :price_wd
     column :price_bd_hour
     column :capacity
+    column :range
+    column :time
     actions
   end
 
@@ -32,7 +34,7 @@ ActiveAdmin.register House do
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  permit_params :title, :description, :price_wd, :price_bd, :price_bd_hour, :map_iframe, :capacity
+  permit_params :title, :description, :price_wd, :price_bd, :price_bd_hour, :map_iframe, :capacity, :range, :time
   #
   # or
   #

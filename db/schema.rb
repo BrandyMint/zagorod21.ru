@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131117091754) do
+ActiveRecord::Schema.define(version: 20131117101825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,8 @@ ActiveRecord::Schema.define(version: 20131117091754) do
     t.text     "map_iframe"
     t.integer  "preview_id"
     t.integer  "capacity"
+    t.integer  "range"
+    t.integer  "time"
   end
 
   create_table "images", force: true do |t|
