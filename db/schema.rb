@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131117102613) do
+ActiveRecord::Schema.define(version: 20131117103701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,17 +57,42 @@ ActiveRecord::Schema.define(version: 20131117102613) do
     t.decimal  "price_bd_hour"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "map_iframe"
     t.integer  "preview_id"
     t.integer  "capacity"
-    t.integer  "range"
-    t.integer  "time"
+    t.integer  "resort_id"
   end
 
   create_table "images", force: true do |t|
-    t.string   "file",        null: false
+    t.string   "file",          null: false
     t.text     "description"
-    t.integer  "house_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "resource_type", null: false
+    t.integer  "resource_id",   null: false
+  end
+
+  add_index "images", ["resource_type", "resource_id"], name: "index_images_on_resource_type_and_resource_id", using: :btree
+
+  create_table "orders", force: true do |t|
+    t.integer  "house_id"
+    t.string   "phone"
+    t.string   "name"
+    t.string   "state"
+    t.date     "date_from"
+    t.date     "date_to"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "orders", ["house_id"], name: "index_orders_on_house_id", using: :btree
+
+  create_table "resorts", force: true do |t|
+    t.string   "title",       null: false
+    t.text     "description"
+    t.decimal  "distance"
+    t.decimal  "time"
+    t.text     "map_iframe"
+    t.integer  "preview_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

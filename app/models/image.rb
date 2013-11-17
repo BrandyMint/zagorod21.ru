@@ -1,5 +1,5 @@
 class Image < ActiveRecord::Base
-  belongs_to :house
+  belongs_to :resource, polymorphic: true
 
   mount_uploader :file, ImageUploader
 
