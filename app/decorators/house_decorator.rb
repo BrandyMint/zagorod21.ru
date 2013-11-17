@@ -17,8 +17,8 @@ class HouseDecorator < Draper::Decorator
     h.format_money source.price_bd_hour
   end
 
-  def range
-    "#{source.range} км."
+  def distance
+    "#{source.distance} км."
   end
 
   def time

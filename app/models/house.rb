@@ -4,9 +4,11 @@ class House < ActiveRecord::Base
 
   belongs_to :resort
   has_many :images, as: :resource
-  has_one :preview, class_name: 'Image'
+  has_one :preview, class_name: 'Image', as: :resource
 
   validates :title, presence: true, uniqueness: true
+
+  delegate :distance, :time, to: :resort
 
   def to_s
     title
