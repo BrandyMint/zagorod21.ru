@@ -34,7 +34,8 @@ ActiveAdmin.register House do
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  permit_params :title, :description, :price_wd, :price_bd, :price_bd_hour, :map_iframe, :capacity, :range, :time
+  permit_params *House.attribute_names
+  #:title, :description, :price_wd, :price_bd, :price_bd_hour, :map_iframe, :capacity, :range, :time
   #
   # or
   #

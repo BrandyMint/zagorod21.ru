@@ -7,11 +7,16 @@ class House < ActiveRecord::Base
   has_one :preview, class_name: 'Image', as: :resource
 
   validates :title, presence: true, uniqueness: true
+  validates :resort, presence: true
 
   delegate :distance, :time, to: :resort
 
   def to_s
     title
+  end
+
+  def preview
+    read_attribute('preview') || resort.preview
   end
 
 end
