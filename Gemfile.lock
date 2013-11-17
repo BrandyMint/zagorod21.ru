@@ -62,6 +62,12 @@ GIT
       activemodel (>= 4.0.0, < 4.1)
 
 GIT
+  remote: git://github.com/pluginaweek/state_machine.git
+  revision: 8a3ba81801782ac4ef9d4ace1209d8d50ffccdb0
+  specs:
+    state_machine (1.2.0)
+
+GIT
   remote: git://github.com/rails/coffee-rails.git
   revision: c812f4da1f5adc226ef834b57c2498467761cb2c
   specs:
@@ -639,6 +645,7 @@ DEPENDENCIES
   simplecov
   simplecov-rcov
   sprockets-rails!
+  state_machine!
   turbolinks
   turn
   uglifier (~> 1.3)
