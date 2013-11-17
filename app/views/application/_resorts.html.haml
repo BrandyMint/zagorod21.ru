@@ -1,0 +1,12 @@
+.row
+  - @resorts.each do |resort|
+    - resort = ResortDecorator.new resort
+    .col-sm-6.col-md-4
+      .thumbnail
+        = image_tag resort.preview_image
+        .caption
+          %h3= resort.title
+          %p= resort.description
+
+          %p
+            .btn.btn-success Заказать

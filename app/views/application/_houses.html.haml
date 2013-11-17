@@ -13,13 +13,17 @@
     - @houses.each do |house|
       - house = HouseDecorator.new house
       %tr
-        %td= house.preview_image
-        %td= house.title
+        %td
+          = link_to house_url(house) do
+            = house.preview_image
+        %td= link_to house.title, house_url(house)
         %td
           = house.distance
           = house.time
         %td= house.price_bd
         %td= house.price_wd
         %td= house.capacity
+        %td
+          = link_to 'Заказать', '#', class: 'btn btn-success'
 
 
