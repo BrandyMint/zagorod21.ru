@@ -16,6 +16,17 @@ ActiveAdmin.register House do
     end
   end
 
+  index do
+    column :preview do |house|
+      image_tag house.preview.file.thumb.url
+    end
+    column :title
+    column :price_bd
+    column :price_wd
+    column :price_bd_hour
+    actions
+  end
+
   
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
