@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/airbrake/airbrake.git
-  revision: da8dc55d7edd85b8e12558a4c4169073e03ba62c
+  revision: c9098b13342de17b252b373c7af94e9f2f30b383
   specs:
-    airbrake (3.1.12)
+    airbrake (3.1.14)
       builder
       json
 
@@ -36,6 +36,24 @@ GIT
       capistrano
 
 GIT
+  remote: git://github.com/gregbell/active_admin.git
+  revision: 131c3a4ebcf23ec5d60cb926db06a6cdb9311b55
+  specs:
+    activeadmin (1.0.0.pre)
+      arbre (~> 1.0)
+      bourbon
+      coffee-rails
+      devise (~> 3.0)
+      formtastic (~> 2.3.0.rc2)
+      inherited_resources (~> 1.3)
+      jquery-rails
+      jquery-ui-rails
+      kaminari (~> 0.13)
+      rails (>= 3.2, < 4.1)
+      ransack (~> 1.0)
+      sass-rails
+
+GIT
   remote: git://github.com/plataformatec/simple_form.git
   revision: 73005f4fc8b0b4934b2fbe9dd54ea35a1692c84a
   specs:
@@ -52,15 +70,6 @@ GIT
       railties (>= 4.0.0, < 5.0)
 
 GIT
-  remote: git://github.com/rails/sass-rails.git
-  revision: 31f756f208ee71af935454ab4dfb34786d15e891
-  specs:
-    sass-rails (4.0.0)
-      railties (>= 4.0.0, < 5.0)
-      sass (>= 3.1.10)
-      sprockets-rails (~> 2.0.0)
-
-GIT
   remote: git://github.com/rails/sprockets-rails.git
   revision: ec03b0ab6f84f385568b3ae4df77abeef21b06dd
   specs:
@@ -68,13 +77,6 @@ GIT
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
-
-GIT
-  remote: git://github.com/thomas-mcdonald/bootstrap-sass.git
-  revision: 6cc04bda62ed7ccf71d445fa82e706cb696b4fdb
-  specs:
-    bootstrap-sass (3.0.0.0)
-      sass (~> 3.2)
 
 GEM
   remote: https://rubygems.org/
@@ -110,18 +112,26 @@ GEM
       tzinfo (~> 0.3.37)
     addressable (2.3.5)
     ansi (1.4.3)
+    arbre (1.0.1)
+      activesupport (>= 3.0.0)
     arel (4.0.0)
     atomic (1.1.12)
     authority (2.7.0)
       activesupport (>= 3.0.0)
       rake (>= 0.8.7)
     awesome_print (1.1.0)
+    bcrypt-ruby (3.1.2)
     better_errors (0.9.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bond (0.4.3)
+    bootstrap-sass (3.0.2.1)
+      sass (~> 3.2)
+    bourbon (3.1.8)
+      sass (>= 3.2.0)
+      thor
     builder (3.1.4)
     callsite (0.0.11)
     capistrano (3.0.1)
@@ -166,6 +176,12 @@ GEM
     daemons (1.1.9)
     database_cleaner (1.1.1)
     debug_inspector (0.0.2)
+    devise (3.2.1)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
     diff-lcs (1.2.4)
     diffy (3.0.1)
     dotenv (0.8.0)
@@ -193,6 +209,8 @@ GEM
       dotenv (>= 0.7)
       thor (>= 0.13.6)
     formatador (0.2.4)
+    formtastic (2.3.0.rc2)
+      actionpack (>= 3.0)
     fssm (0.2.10)
     gherkin (2.12.0)
       multi_json (~> 1.3)
@@ -258,6 +276,8 @@ GEM
     jquery-turbolinks (1.0.0)
       railties (>= 3.1.0)
       turbolinks
+    jquery-ui-rails (4.1.0)
+      railties (>= 3.1.0)
     json (1.8.0)
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
@@ -302,12 +322,15 @@ GEM
     net-ssh (2.7.0)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
+    orm_adapter (0.5.0)
     pg (0.16.0)
     pg_array_parser (0.0.9)
     poltergeist (1.3.0)
       capybara (~> 2.1.0)
       faye-websocket (>= 0.4.4, < 0.5.0)
       http_parser.rb (~> 0.5.3)
+    polyamorous (0.6.4)
+      activerecord (>= 3.0)
     polyglot (0.3.3)
     posix-spawn (0.3.6)
     pry (0.9.12.2)
@@ -379,6 +402,10 @@ GEM
     rainbow (1.1.4)
     raindrops (0.12.0)
     rake (10.1.0)
+    ransack (1.1.0)
+      actionpack (>= 3.0)
+      activerecord (>= 3.0)
+      polyamorous (~> 0.6.0)
     rb-fsevent (0.9.3)
     rb-inotify (0.9.0)
       ffi (>= 0.5.0)
@@ -429,6 +456,10 @@ GEM
     ruby_parser (3.2.2)
       sexp_processor (~> 4.1)
     sass (3.2.10)
+    sass-rails (4.0.1)
+      railties (>= 4.0.0, < 5.0)
+      sass (>= 3.1.10)
+      sprockets-rails (~> 2.0.0)
     sc-core-ext (1.2.1)
       activesupport (>= 2.3.5)
     sdoc (0.3.20)
@@ -498,6 +529,8 @@ GEM
       activesupport (>= 3.0.0)
     vegas (0.1.11)
       rack (>= 1.0.0)
+    warden (1.2.3)
+      rack (>= 1.0)
     xpath (2.0.0)
       nokogiri (~> 1.3)
     yard (0.8.7)
@@ -508,13 +541,14 @@ PLATFORMS
 DEPENDENCIES
   active_attr
   active_link_to
+  activeadmin!
   airbrake!
   authority
   awesome_print
   better_errors
   binding_of_caller
   bond
-  bootstrap-sass!
+  bootstrap-sass (~> 3.0.2.0)
   capistrano (~> 3.0)
   capistrano-bundler!
   capistrano-rails!
@@ -580,7 +614,7 @@ DEPENDENCIES
   ruby-graphviz
   ruby_gntp
   ruby_parser (>= 2.3.1)
-  sass-rails!
+  sass-rails
   sdoc
   semver2
   settingslogic
