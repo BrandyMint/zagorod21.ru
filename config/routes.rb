@@ -3,6 +3,8 @@ Zagorod::Application.routes.draw do
   ActiveAdmin.routes(self)
   root 'welcome#index'
 
+  resources :houses, only: [:index, :show]
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,4 +1,7 @@
 class House < ActiveRecord::Base
+
+  scope :ordered, -> { order :created_at }
+
   has_many :images
 
   has_one :preview, class_name: 'Image'
