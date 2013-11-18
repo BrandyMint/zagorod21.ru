@@ -1,0 +1,50 @@
+Changelog
+=========
+
+v0.0.1 (2013-11-18)
+-------------------
+
+- Админка для ресортов [Danil Pismenny]
+
+- Ударение на За [Danil Pismenny]
+
+- Базы отдыха блоками [Danil Pismenny]
+
+- Меню [Danil Pismenny]
+
+- Fix footer. [Danil Pismenny]
+
+- Fix Preview in Resort and Hotel. [Danil Pismenny]
+
+- Template: footer. [Danil Pismenny]
+
+- Fix house. [Danil Pismenny]
+
+- Добавил Resort и Resource для картинок [Danil
+  Pismenny]
+
+- Add Order. [Danil Pismenny]
+
+- Добавил услуги [Danil Pismenny]
+
+- Список домой таблицей [Danil Pismenny]
+
+- Add Capacity. [Danil Pismenny]
+
+- Minor. [Danil Pismenny]
+
+- House fix. [Danil Pismenny]
+
+- Публичные вьюхи дома [Danil Pismenny]
+
+- Add PreviewImage to house. [Danil Pismenny]
+
+- Админка для домов и картинок [Danil Pismenny]
+
+- ActiveAdmin. [Danil Pismenny]
+
+- Delete incremental killoff. [Alexey Illarionov]
+
+- Deploy. [Alexey Illarionov]
+
+

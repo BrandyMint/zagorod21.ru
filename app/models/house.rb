@@ -16,7 +16,7 @@ class House < ActiveRecord::Base
   end
 
   def preview
-    read_attribute('preview') || resort.preview
+    read_attribute('preview') || resort.try(:preview) || Image.new
   end
 
 end
