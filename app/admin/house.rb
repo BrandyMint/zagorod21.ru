@@ -1,7 +1,27 @@
 ActiveAdmin.register House do
 
+  form do |f|
+    f.inputs do
+      f.input :title
+      f.input :capacity
+      f.input :description
+    end
+    f.inputs 'Цены' do
+      f.input :price_bd
+      f.input :price_wd
+      f.input :price_bd_hour
+    end
+
+    f.has_many :images do |image|
+      #image.input :file
+      #image.input :description
+    end
+    f.actions
+  end
+
   show do |house|
     attributes_table do
+      row :resort
       row :title
       row :description do
         simple_format house.description
@@ -9,11 +29,8 @@ ActiveAdmin.register House do
       row :image do
         #image_tag house.preview.url if house.preview?
       end
-
-      row :map do
-        house.map_iframe.html_safe
-      end
     end
+    active_admin_comments
   end
 
   index do
@@ -27,6 +44,12 @@ ActiveAdmin.register House do
     column :capacity
     column :distance
     column :time
+    column :images do |house|
+      ul do
+        li link_to "Картинки #{house.images.count}", admin_images_url(q: { house_id_id: house.id})
+        li link_to "Добавить", new_admin_image_url(image: { resource_type: 'House', resource_id: house.id})
+      end
+    end
     actions
   end
 

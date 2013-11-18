@@ -21,7 +21,8 @@ ActiveAdmin.register Image do
 
   form do |f|
     f.inputs do
-      f.input :resource, collection: (Resort.all + House.all), include_blank: false
+      f.input :resource_type
+      f.input :resource_id
       f.input :file
       f.input :description
     end
@@ -31,7 +32,7 @@ ActiveAdmin.register Image do
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  permit_params :file, :description, :house_id
+  permit_params *Image.attribute_names
   #
   # or
   #
