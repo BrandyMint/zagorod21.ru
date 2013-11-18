@@ -7,6 +7,6 @@ class Image < ActiveRecord::Base
   validates :resource, presence: true
 
   after_create do |image|
-    house.update_attribute :preview_id, image.id
+    resource.update_attribute :preview_id, image.id
   end
 end
