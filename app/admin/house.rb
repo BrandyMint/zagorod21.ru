@@ -25,7 +25,7 @@ ActiveAdmin.register House do
     column :price_wd
     column :price_bd_hour
     column :capacity
-    column :range
+    column :distance
     column :time
     actions
   end

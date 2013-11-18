@@ -5,6 +5,10 @@ class HouseDecorator < Draper::Decorator
     h.image_tag source.preview.file.thumb.url if source.preview.present?
   end
 
+  def title
+    source.title? ? source.title : source.resort.title
+  end
+
   def price_bd
     h.format_money source.price_bd
   end
