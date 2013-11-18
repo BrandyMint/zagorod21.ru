@@ -19,6 +19,15 @@ ActiveAdmin.register Image do
     end
   end
 
+  form do |f|
+    f.inputs do
+      f.input :resource, collection: (Resort.all + House.all), include_blank: false
+      f.input :file
+      f.input :description
+    end
+    f.actions
+  end
+
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

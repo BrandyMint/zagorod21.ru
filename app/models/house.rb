@@ -12,7 +12,7 @@ class House < ActiveRecord::Base
   delegate :distance, :time, to: :resort
 
   def to_s
-    title
+    "#{title} (дом)"
   end
 
   def preview
