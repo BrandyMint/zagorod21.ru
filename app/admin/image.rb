@@ -11,7 +11,7 @@ ActiveAdmin.register Image do
   index as: :block do |image|
     div :for => image do
       h3 do
-        link_to image.house, admin_house_url(image.house)
+        link_to image.resource, admin_resource_url(image.resource)
       end
       div do
         image_tag image.file.thumb.url

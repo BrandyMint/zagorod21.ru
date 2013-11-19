@@ -27,7 +27,7 @@ ActiveAdmin.register House do
         simple_format house.description
       end
       row :image do
-        #image_tag house.preview.url if house.preview?
+        image_tag house.preview.file.thumb.url if house.preview.present?
       end
     end
     active_admin_comments

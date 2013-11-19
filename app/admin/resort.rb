@@ -11,7 +11,7 @@ ActiveAdmin.register Resort do
     column :images do |resort|
       ul do
         li link_to "Картинки #{resort.images.count}", admin_images_url(q: { resort_id_id: resort.id})
-        li link_to "Добавить", new_admin_image_url(image: { resource_type: 'resort', resource_id: resort.id})
+        li link_to "Добавить", new_admin_image_url(image: { resource_type: 'Resort', resource_id: resort.id})
       end
     end
     actions
@@ -25,11 +25,11 @@ ActiveAdmin.register Resort do
         simple_format house.description
       end
       row :image do
-        image_tag resort.preview.file.url if resort.preview?
+        image_tag resort.preview.file.thumb.url if resort.preview.present?
       end
 
       row :map do
-        house.map_iframe.html_safe
+        house.map_iframe.try :html_safe
       end
     end
     active_admin_comments
