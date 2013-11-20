@@ -28,6 +28,8 @@ ActiveAdmin.register Resort do
         image_tag resort.preview.file.thumb.url if resort.preview.present?
       end
 
+      row :site
+
       row :map do
         house.map_iframe.try :html_safe
       end
