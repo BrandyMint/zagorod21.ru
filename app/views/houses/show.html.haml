@@ -1,19 +1,24 @@
 .page-header
   %h1= @house.title
 
-%p
-  = @house.description
-  %hr
-  Цена в будни:
-  = format_money @house.price_bd
-  %br
-  Цена на выходные:
-  = format_money @house.price_wd
-  %br
-  Цена в будни за час:
-  = format_money @house.price_bd_hour
+.row
+  .col-sm-6.col-md-4
+    = @house.common_image
+  .col-sm-6.col-md-8
+
+    %p
+      = @house.description
+      %hr
+      Цена в будни:
+      = @house.price_bd
+      %br
+      Цена на выходные:
+      = @house.price_wd
+      %br
+      Цена в будни за час:
+      = @house.price_bd_hour
 
 
-%ul
-  - @house.images.each do |image|
-    %li= image_tag image.file.thumb.url
+    %ul
+      - @house.images.each do |image|
+        %li= image_tag image.file.thumb.url
