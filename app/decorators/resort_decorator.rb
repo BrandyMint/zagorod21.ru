@@ -1,6 +1,10 @@
 class ResortDecorator < Draper::Decorator
   delegate_all
 
+  def common_image
+    h.image_tag source.preview.file.common.url if source.preview.present?
+  end
+
   def basic_image
     h.image_tag source.preview.file.basic.url if source.preview.present?
   end
