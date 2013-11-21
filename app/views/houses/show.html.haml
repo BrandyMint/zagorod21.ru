@@ -22,3 +22,7 @@
     %ul
       - @house.images.each do |image|
         %li= image_tag image.file.thumb.url
+
+.row
+  .col-sm-12
+    = @house.resort.map_iframe.html_safe

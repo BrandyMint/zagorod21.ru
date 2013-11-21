@@ -12,10 +12,10 @@ ActiveAdmin.register House do
       f.input :price_bd_hour
     end
 
-    f.has_many :images do |image|
+    #f.has_many :images do |image|
       #image.input :file
       #image.input :description
-    end
+    #end
     f.actions
   end
 
