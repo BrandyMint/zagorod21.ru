@@ -29,6 +29,8 @@ ActiveAdmin.register Resort do
       end
 
       row :site
+      row :distance
+      row :time
 
       row :map do
         house.map_iframe.try :html_safe

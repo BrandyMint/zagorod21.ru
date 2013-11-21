@@ -42,8 +42,6 @@ ActiveAdmin.register House do
     column :price_wd
     column :price_bd_hour
     column :capacity
-    column :distance
-    column :time
     column :images do |house|
       ul do
         li link_to "Картинки #{house.images.count}", admin_images_url(q: { house_id_id: house.id})
