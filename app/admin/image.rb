@@ -14,7 +14,9 @@ ActiveAdmin.register Image do
         link_to image.resource, admin_resource_url(image.resource)
       end
       div do
-        image_tag image.file.thumb.url
+        link_to image.file.url do
+          image_tag image.file.thumb.url
+        end
       end
     end
   end
@@ -41,5 +43,4 @@ ActiveAdmin.register Image do
   #  permitted << :other if resource.something?
   #  permitted
   # end
-  
 end
