@@ -15,6 +15,7 @@ ActiveAdmin.register Image do
         end
       end
     end
+    active_admin_comments
   end
 
   index as: :block do |image|
