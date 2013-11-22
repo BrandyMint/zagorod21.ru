@@ -1,0 +1,20 @@
+namespace :zagorod do
+
+  desc "Download uploads from remote server"
+  task :pull_uploads do
+    on roles(:db) do |host|
+      run_locally do
+        execute :rsync, "-az", "--stats", "--delete",
+          "--rsh='ssh -p #{host.port || 22} -l #{host.username}'",
+          host.hostname+":"+shared_path.join("public","uploads").to_s+"/",
+          "public/uploads/"
+      end
+    end
+  end
+
+  desc 'Pull database and uploads from remote to local server'
+  task :pull do
+    invoke 'db:pull'
+    invoke 'zagorod:pull_uploads'
+  end
+end
