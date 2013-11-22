@@ -1,3 +1,3 @@
 .fotorama
   - images.each do |image|
-    = image_tag image.file.standard.url
+    = image_tag image.file.send(defined?(version) ? version : :standard).url

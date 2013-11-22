@@ -19,7 +19,8 @@ $ ->
   $('.fotorama').fotorama
     thumbspreview: true
     allowfullscreen: 'native'
-  # $('#freetile').freetile()
+    shadows: false
+  # preview$('#freetile').freetile()
   # $('input.ui-date-picker').datepicker()
   # $('input.ui-datetime-picker').datetimepicker()
   # $('input.select2').select2()

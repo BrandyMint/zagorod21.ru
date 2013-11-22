@@ -3,8 +3,7 @@
     - resort = ResortDecorator.new resort
     .col-sm-6.col-md-4
       .thumbnail
-        = link_to resort_url(resort) do
-          = resort.common_image
+        = render 'fotorama', images: resort.images, version: :common
         .caption
           = link_to resort_url(resort) do
             %h3= resort.title

@@ -12,7 +12,7 @@
   %tbody
     - @houses.each do |house|
       - house = HouseDecorator.new house
-      %tr
+      %tr{id: "house_#{house.id}"}
         %td
           = link_to house_url(house) do
             = house.preview_image
