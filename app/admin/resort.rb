@@ -24,6 +24,9 @@ ActiveAdmin.register Resort do
       row :description do
         simple_format house.description
       end
+      row :summary do
+        simple_format house.description
+      end
       row :image do
         image_tag resort.preview.file.thumb.url if resort.preview.present?
       end

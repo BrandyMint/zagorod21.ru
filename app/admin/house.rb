@@ -7,6 +7,7 @@ ActiveAdmin.register House do
       f.input :title
       f.input :capacity
       f.input :description
+      f.input :summary
     end
     f.inputs 'Цены' do
       f.input :price_bd
@@ -27,6 +28,9 @@ ActiveAdmin.register House do
       row :title
       row :description do
         simple_format house.description
+      end
+      row :summary do
+        simple_format house.summary
       end
       row :image do
         image_tag house.preview.file.thumb.url if house.preview.present?
