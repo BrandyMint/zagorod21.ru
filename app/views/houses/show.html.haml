@@ -1,13 +1,12 @@
 .page-header
   %h1= @house.title
 
+= render 'fotorama', images: @house.images.ordered
 .row
-  .col-sm-6.col-md-4
-    = @house.common_image
   .col-sm-6.col-md-8
 
     %p
-      = @house.description
+      = @house.summary
       %hr
       Цена в будни:
       = @house.price_bd
@@ -18,10 +17,6 @@
       Цена в будни за час:
       = @house.price_bd_hour
 
-
-    %ul
-      - @house.images.each do |image|
-        %li= image_tag image.file.thumb.url
 
 .row
   .col-sm-12

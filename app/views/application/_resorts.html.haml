@@ -3,9 +3,11 @@
     - resort = ResortDecorator.new resort
     .col-sm-6.col-md-4
       .thumbnail
-        = resort.common_image
+        = link_to resort_url(resort) do
+          = resort.common_image
         .caption
-          %h3= resort.title
+          = link_to resort_url(resort) do
+            %h3= resort.title
           %p= resort.description
 
           %p

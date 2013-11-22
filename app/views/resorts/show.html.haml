@@ -1,0 +1,15 @@
+.page-header
+  %h1= @resort.title
+
+= render 'fotorama', images: @resort.images.ordered
+
+.row
+  .col-sm-6.col-md-8
+    %p
+      = @resort.summary
+
+= render 'houses', houses: @houses
+.row
+  .col-sm-12
+    = @resort.map_iframe.html_safe
+

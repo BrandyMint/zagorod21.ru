@@ -18,14 +18,17 @@ ActiveAdmin.register Resort do
 
   end
 
-  show do |house|
+  show do |resort|
     attributes_table do
+      row :link do
+        link_to 'Публичная страница', resort_url(resort)
+      end
       row :title
       row :description do
-        simple_format house.description
+        simple_format resort.description
       end
       row :summary do
-        simple_format house.description
+        simple_format resort.description
       end
       row :image do
         image_tag resort.preview.file.thumb.url if resort.preview.present?
@@ -36,7 +39,15 @@ ActiveAdmin.register Resort do
       row :time
 
       row :map do
-        house.map_iframe.try :html_safe
+        resort.map_iframe.try :html_safe
+      end
+
+      row :resorts do
+        ul do
+          resort.houses.each do |house|
+            li link_to house.title, admin_house_url(house)
+          end
+        end
       end
     end
     active_admin_comments

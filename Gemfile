@@ -14,6 +14,8 @@ gem 'pg_array_parser'
 
 gem 'settingslogic'
 
+gem "fotoramajs", "~> 4.4.8"
+
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 # Авторизация и аутентификация

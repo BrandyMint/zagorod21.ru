@@ -1,6 +1,7 @@
 #= require jquery
 #= require jquery.turbolinks
 #= require turbolinks
+#= require fotorama
 #= require bootstrap
 #= require_tree .
 
@@ -15,6 +16,9 @@
 # require jquery.ui.all
 
 $ ->
+  $('.fotorama').fotorama
+    thumbspreview: true
+    allowfullscreen: 'native'
   # $('#freetile').freetile()
   # $('input.ui-date-picker').datepicker()
   # $('input.ui-datetime-picker').datetimepicker()

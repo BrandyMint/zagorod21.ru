@@ -1,6 +1,8 @@
 class Image < ActiveRecord::Base
   belongs_to :resource, polymorphic: true
 
+  scope :ordered, -> { order :id }
+
   mount_uploader :file, ImageUploader
 
   validates :file, presence: true

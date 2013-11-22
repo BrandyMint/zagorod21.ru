@@ -24,6 +24,9 @@ ActiveAdmin.register House do
 
   show do |house|
     attributes_table do
+      row :link do
+        link_to 'Публичная страница', house_url(house)
+      end
       row :resort
       row :title
       row :description do

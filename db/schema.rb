@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20131122114047) do
     t.integer  "preview_id"
     t.integer  "capacity"
     t.integer  "resort_id"
+    t.text     "summary"
   end
 
   create_table "images", force: true do |t|
