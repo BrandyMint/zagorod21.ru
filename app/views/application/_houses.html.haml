@@ -16,7 +16,10 @@
         %td
           = link_to house_url(house) do
             = house.preview_image
-        %td= link_to house.title, house_url(house)
+        %td
+          = link_to house_url(house) do
+            %h3= house.resort.title
+            = house.title
         %td
           = house.distance
           = house.time
