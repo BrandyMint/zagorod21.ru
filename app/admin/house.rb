@@ -1,7 +1,9 @@
 ActiveAdmin.register House do
 
   form do |f|
+    f.semantic_errors *f.object.errors.keys
     f.inputs do
+      f.input :resort
       f.input :title
       f.input :capacity
       f.input :description

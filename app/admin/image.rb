@@ -2,8 +2,17 @@ ActiveAdmin.register Image do
 
   show do |image|
     attributes_table do
-      row :file do
-        image_tag image.file.standard.url
+      row :resource
+      row :description
+      Image.first.file.versions.keys.each do |version|
+        row version do
+          div do
+            image_tag image.file.send(version).url
+          end
+          div do
+            image.file.send(version).size
+          end
+        end
       end
     end
   end
@@ -14,7 +23,7 @@ ActiveAdmin.register Image do
         link_to image.resource, admin_resource_url(image.resource)
       end
       div do
-        link_to image.file.url do
+        link_to admin_image_url(image) do
           image_tag image.file.thumb.url
         end
       end

@@ -59,5 +59,36 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+  #
+  def geometry
+    return @geometry if @geometry
+
+    # Если вы в загрузке использовать загружаемый файл
+    # есть нет, то используем тот что ухе сохранен
+    image_file = @file ? @file.file : store_path
+
+    return {} unless image_file
+
+    begin
+      i = ::MiniMagick::Image.open(image_file)
+      @geometry = {width: i[:width], height: i[:height]}
+    rescue
+      # Возможны ошибки с открытием файла
+      @geometry = {width: 0, height: 0}
+    end
+  end
+
+  def size
+    return '' if geometry.empty?
+    "#{width}x#{height}"
+  end
+
+  def width
+    geometry[:width]
+  end
+
+  def height
+    geometry[:height]
+  end
 
 end
