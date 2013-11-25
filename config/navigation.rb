@@ -3,7 +3,7 @@
 
 SimpleNavigation::Configuration.run do |navigation|
   navigation.items do |primary|
-    primary.item :resorts, 'Коттеджи', resorts_url
+    primary.item :resorts, 'Базы', resorts_url
     primary.item :services, 'Услуги', services_url
     primary.item :feedback, 'Отзывы', feedback_url
     primary.item :feedback, 'Контакты', contact_url
