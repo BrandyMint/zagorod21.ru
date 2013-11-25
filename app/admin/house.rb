@@ -6,8 +6,8 @@ ActiveAdmin.register House do
       f.input :resort
       f.input :title
       f.input :capacity
-      f.input :description
       f.input :summary
+      f.input :description
     end
     f.inputs 'Цены' do
       f.input :price_bd

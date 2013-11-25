@@ -5,6 +5,9 @@ ActiveAdmin.register Resort do
       image_tag resort.preview.file.thumb.url if resort.preview.present?
     end
     column :title
+    column :summary do |resort|
+      simple_format resort.summary
+    end
     column :houses_count do |resort|
       link_to "Домов: #{resort.houses.count}", admin_houses_url(q: { resort_id_eq: resort.id})
     end

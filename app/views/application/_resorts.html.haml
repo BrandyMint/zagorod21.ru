@@ -7,7 +7,7 @@
         .caption
           = link_to resort_url(resort) do
             %h3= resort.title
-          %p= resort.description
+          %p= simple_format resort.summary
 
           %p
             .btn.btn-success Заказать

@@ -20,6 +20,8 @@
           = link_to house_url(house) do
             %h3= house.resort.title
             = house.title
+            %p
+              %i= simple_format house.summary
         %td
           = house.distance
           = house.time
