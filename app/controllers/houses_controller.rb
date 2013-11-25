@@ -5,7 +5,5 @@ class HousesController < ApplicationController
 
   def show
     @house = HouseDecorator.new House.find params[:id]
-
-    redirect_to resort_url @house.resort, anchor: "house_#{@house.id}"
   end
 end

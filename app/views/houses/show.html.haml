@@ -1,5 +1,6 @@
 .page-header
   %h1= @house.title
+  %small= link_to @house.resort.title, resort_url(@house.resort)
 
 = render 'fotorama', images: @house.images.ordered
 .row

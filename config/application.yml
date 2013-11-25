@@ -1,6 +1,7 @@
 defaults: &defaults
   app:
-    title: "За&#769; город!"
+    #title: "За&#769; город!"
+    title: "За город!"
 
     asset_host: http://zagorod21.ru/
 
