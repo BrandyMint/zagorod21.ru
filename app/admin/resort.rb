@@ -1,6 +1,7 @@
 ActiveAdmin.register Resort do
 
   index do
+    column :active
     column :preview do |resort|
       image_tag resort.preview.file.thumb.url if resort.preview.present?
     end
@@ -23,6 +24,7 @@ ActiveAdmin.register Resort do
 
   show do |resort|
     attributes_table do
+      row :active
       row :link do
         link_to 'Публичная страница', resort_url(resort)
       end

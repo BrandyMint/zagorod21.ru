@@ -3,6 +3,7 @@ ActiveAdmin.register House do
   form do |f|
     f.semantic_errors *f.object.errors.keys
     f.inputs do
+      f.input :active
       f.input :resort
       f.input :title
       f.input :capacity
@@ -24,6 +25,7 @@ ActiveAdmin.register House do
 
   show do |house|
     attributes_table do
+      row :active
       row :link do
         link_to 'Публичная страница', house_url(house)
       end
@@ -43,6 +45,7 @@ ActiveAdmin.register House do
   end
 
   index do
+    column :active
     column :preview do |house|
       image_tag house.preview.file.thumb.url if house.preview.present?
     end

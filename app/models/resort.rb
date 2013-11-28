@@ -1,5 +1,6 @@
 class Resort < ActiveRecord::Base
-  scope :ordered, -> { order :created_at }
+  scope :ordered, -> { active.order(:created_at) }
+  scope :active, -> { where active: true }
 
   has_many :houses
   has_many :images, as: :resource
