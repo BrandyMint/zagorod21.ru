@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 # Use unicorn as the app server
 gem 'unicorn'
 
+gem 'phrasing'
+
 gem 'rails', '4.0.0'
 #gem 'rails',     github: 'rails/rails'
 #gem 'arel',      github: 'rails/arel'

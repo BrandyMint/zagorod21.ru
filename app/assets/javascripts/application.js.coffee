@@ -4,6 +4,7 @@
 #= require fotorama
 #= require bootstrap
 #= require_tree .
+#= require phrasing
 
 # require jquery.freetile
 # require jquery_ujs
