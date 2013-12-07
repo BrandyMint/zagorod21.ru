@@ -3,8 +3,6 @@ source 'https://rubygems.org'
 # Use unicorn as the app server
 gem 'unicorn'
 
-gem 'phrasing'
-
 gem 'rails', '4.0.0'
 #gem 'rails',     github: 'rails/rails'
 #gem 'arel',      github: 'rails/arel'
@@ -23,6 +21,9 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 # Авторизация и аутентификация
 gem 'authority'
 # gem 'rolify'
+
+gem 'meta-tags', :require => 'meta_tags'
+gem 'phrasing'
 
 # Модели, value object и form objects
 # gem 'phony_rails', :git => 'git://github.com/joost/phony_rails.git'

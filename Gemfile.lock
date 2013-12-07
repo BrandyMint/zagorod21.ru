@@ -325,6 +325,8 @@ GEM
       skinny (>= 0.1.2)
       sqlite3-ruby
       thin
+    meta-tags (1.2.6)
+      actionpack
     meta_request (0.2.7)
       callsite
       rack-contrib
@@ -619,6 +621,7 @@ DEPENDENCIES
   kaminari-bootstrap
   launchy (>= 2.1.2)
   mailcatcher
+  meta-tags
   meta_request
   mini_magick
   pg
