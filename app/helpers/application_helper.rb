@@ -1,6 +1,7 @@
 module ApplicationHelper
-  def people_quantity_collection house
-    max = house.present? ? house.capacity : Resort.max_people_capacity
+  def people_quantity_collection house=nil
+    min = House.min_people_capacity
+    max = house.present? ? house.capacity : House.max_people_capacity
     1..max
   end
 

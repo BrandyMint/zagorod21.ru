@@ -6,12 +6,12 @@ class Resort < ActiveRecord::Base
   has_many :images, as: :resource
   has_one :preview, class_name: 'Image', as: :resource
 
-  def self.max_people_capacity
-    maximum :capacity
-  end
-
   def to_s
     "#{title} (база)"
+  end
+
+  def min_people_capacity
+    houses.minimum :capacity
   end
 
   def max_people_capacity

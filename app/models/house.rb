@@ -12,6 +12,14 @@ class House < ActiveRecord::Base
 
   delegate :distance, :time, to: :resort
 
+  def self.min_people_capacity
+    minimum :capacity
+  end
+
+  def self.max_people_capacity
+    maximum :capacity
+  end
+
   def to_s
     "#{title} (дом)"
   end

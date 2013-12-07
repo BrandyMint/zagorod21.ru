@@ -55,13 +55,14 @@ gem 'inherited_resources'
 #gem 'forgery'
 #gem 'ffaker'
 
+#gem 'holidays'
 
 # Вьюхи и презентеры
 gem 'active_link_to'
 
 gem 'draper'
 #gem 'cells'
-#gem 'breadcrumbs_on_rails'
+gem 'breadcrumbs_on_rails'
 #gem 'tabulous'
 # gem 'authbuttons-rails'
 

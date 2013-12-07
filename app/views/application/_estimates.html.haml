@@ -1,0 +1,37 @@
+%table.table.table-condensed
+  %thead
+    %tr
+      %th Дом
+      %th Описание
+      %th Расстояние
+      %th Цена в будни
+      %th Цена в выходные
+      %th Вместимость
+      %th Заказ
+
+  %tbody
+    - @estimates.each do |estimate|
+      - house = HouseDecorator.new estimate.house
+      - e = EstimateDecorator.new estimate
+      %tr{id: "house_#{house.id}"}
+        %td
+          = link_to house_url(house) do
+            = house.preview_image
+        %td.house_summary
+          %h3= link_to house.resort.title, resort_url(house.resort)
+          = link_to house.title, house_url(house)
+          %p
+            %i= simple_format house.summary
+        %td
+          = house.distance
+          = house.time
+        %td= house.price_bd
+        %td= house.price_wd
+        %td= house.capacity
+        %td
+          = e.button
+          %br
+          %small
+            %i= e.description
+
+

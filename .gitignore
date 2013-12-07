@@ -11,6 +11,7 @@ tmp/
 .sass-cache/
 gems.tags
 coverage
+vendor/assets/components/
 spec/reports
 .pt
 gems.tags

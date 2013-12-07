@@ -1,0 +1,10 @@
+= simple_form_for @search_form, url: search_url, method: :get, :html => { :class => 'form-search' } do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :date_from, as: :date_picker
+    = f.input :date_to, as: :date_picker
+    = f.input :people_quantity, collection: people_quantity_collection, include_blank: false
+    = f.input :use_transport, label: 'Транспорт', as: :boolean
+  .form-actions
+    = f.button :submit, :class => 'btn-primary', value: 'Заказать'
+

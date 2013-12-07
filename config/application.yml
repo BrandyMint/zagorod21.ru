@@ -1,4 +1,11 @@
 defaults: &defaults
+  services:
+    transport: 20
+    food_inplace: 1500
+    food_catering: 350
+  default:
+    # Дефолтное количество людей в форме поиска
+    people_quantity: 4
   app:
     #title: "За&#769; город!"
     title: "За город!"
