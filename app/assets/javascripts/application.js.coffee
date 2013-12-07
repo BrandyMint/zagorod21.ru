@@ -1,5 +1,5 @@
 #= require jquery
-#= require jquery.role/lib/jquery.role
+# require jquery.role/lib/jquery.role
 #= require fotorama
 #= require bootstrap
 #= require_tree .
@@ -16,7 +16,7 @@
 # require jquery.ui.all
 
 $ ->
-  $('@tooltip').tooltip()
+  #$('@tooltip').tooltip()
   $('.fotorama').fotorama
     thumbspreview: true
     allowfullscreen: 'native'
