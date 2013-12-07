@@ -9,13 +9,12 @@
     %hr
     .row
       .footer-services-list
-        - @services = [:transport, :food, :catering, :photo, :amusement]
-        - @services.each_with_index do |s, i|
+        - Service.main do |s|
           - s_block_offset = i==0 ? 'col-sm-offset-1' : ''
           %div{ class: "col-sm-2 #{s_block_offset}"}
             .footer-service-item.text-center
               -#= link_to '', class: 'footer-service-link' do
-              %i.icon-size-32=service_icon s
+              %i.icon-size-32=service_icon s.key
               %br
-              %h4= phrase "services.#{s}"
+              %h4= s.title
 

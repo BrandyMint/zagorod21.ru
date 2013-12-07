@@ -1,10 +1,12 @@
 class Service < ActiveRecord::Base
+  scope :main, -> { where main: true }
+
   validates :title, presence: true, uniqueness: true
   validates :price, presence: true
   validates :key, presence: true, uniqueness: true
 
   before_save do
-    self.key = self.title
+    self.key ||= self.title
   end
 
   def self.[] key
