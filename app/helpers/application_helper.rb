@@ -1,6 +1,10 @@
 module ApplicationHelper
-  def format_money price
+  def people_quantity_collection house
+    max = house.present? ? house.capacity : Resort.max_people_capacity
+    1..max
+  end
 
+  def format_money price
     return '-' if price.nil?
 
     if price>1000

@@ -1,4 +1,5 @@
 Zagorod::Application.routes.draw do
+  get "orders/create"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root 'welcome#index'
@@ -8,6 +9,7 @@ Zagorod::Application.routes.draw do
   resources :resorts, only: [:index, :show]
 
   resources :services, only: :index
+  resources :orders, only: [:create, :show]
 
   get 'feedback', to: 'welcome#feedback'
   get 'contact', to: 'welcome#contact'

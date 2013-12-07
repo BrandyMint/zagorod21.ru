@@ -2,6 +2,7 @@
   %h1= @house.title
   %small= link_to @house.resort.title, resort_url(@house.resort)
 
+= render 'orders/form', house: @house
 = render 'fotorama', images: @house.images.ordered
 .row
   .col-sm-6.col-md-8

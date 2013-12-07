@@ -5,15 +5,13 @@
 #
 # = simple_form_for(@user, html: {class: 'form-horizontal' }) do |form|'
 SimpleForm.setup do |config|
-  config.wrappers :bootstrap, tag: 'div', class: 'control-group', error_class: 'error' do |b|
+  config.wrappers :bootstrap, tag: 'div', class: 'input-group', error_class: 'error' do |b|
     b.use :html5
     b.use :placeholder
     b.use :label
-    b.wrapper tag: 'div', class: 'controls' do |ba|
-      ba.use :input
-      ba.use :error, wrap_with: { tag: 'span', class: 'help-inline' }
-      ba.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
-    end
+    b.use :input, input_html: { class: 'form-control' }
+    b.use :error, wrap_with: { tag: 'span', class: 'help-inline' }
+    b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
   end
 
   config.wrappers :prepend, tag: 'div', class: "control-group", error_class: 'error' do |b|
