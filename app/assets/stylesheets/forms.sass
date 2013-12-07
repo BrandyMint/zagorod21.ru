@@ -1,0 +1,66 @@
+// temporary fixes, waiting for simple_form bootstrap3 pull request
+// https://github.com/rafaelfranca/simple_form-bootstrap/pull/28
+
+
+@mixin formControlElement()
+  @extend .form-control
+  .form-inline-controls &
+    width: auto
+    display: inline
+  .input-group &:first-child
+    +border-left-radius($border-radius-base)
+
+select,
+textarea
+  +formControlElement
+@each $type in text, password, datetime, datetime-local, date, month, time, week, number, email, url, search, tel, color
+  input[type="#{$type}"]
+    +formControlElement
+
+.form-group
+  @media screen and (max-width: $screen-xs)
+    margin:
+      bottom: 10px
+    .control-group
+      margin:
+        left: 0
+        right: 0
+    input[type="date"],
+    input[type="time"],
+    input[type="datetime"]
+      min-width: 95%
+      max-width: 100%
+      +box-sizing(border-box)
+
+.control-group
+  @extend .form-group
+  &.error
+    .help-inline
+      @extend small
+      color: $red
+
+.form-group
+  .control-group
+    margin-bottom: 0
+
+form
+  .help-block
+    @extend small
+  label.required
+    abbr
+      display: none
+
+.datepicker-group
+  .input-group-addon
+    cursor: pointer
+    +link-colors($textColor, lighten($textColor,20%))
+
+.numeric-stepper
+  width: 150px
+  .plus, .minus
+    cursor: pointer
+    +link-colors($textColor, lighten($textColor,20%))
+    @extend .user-select-none
+  input
+    text-align: center
+
