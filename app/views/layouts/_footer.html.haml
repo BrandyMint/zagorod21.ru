@@ -6,9 +6,9 @@
       .col-md-6.text-center
         %h3.no-margin-top
           = link_to Settings.app.title.html_safe, root_url, :class => 'footer-brand'
-        = phrase :footer
+        = phrase :footer_subtitle
       .col-md-6.text-center
         %h3.no-margin-top.footer-phone
           %strong= link_to Settings.app.phone.html_safe, "tel:#{Settings.app.phone.html_safe}"
-        заказ домов и коттеджей
+        = phrase :footer_subphone
 

@@ -11,10 +11,7 @@
               %h3.no-margin-top
                 %strong= s.title
               %p
-                %strong
-                  от
-                  = s.price.round
-                  = t 'number.currency.format.unit'
+                %strong= s.price
               %p
                 = s.summary
 
