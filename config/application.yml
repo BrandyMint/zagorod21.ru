@@ -1,4 +1,6 @@
 defaults: &defaults
+  call_phone: "+7 (919) 669-80-00"
+  call_name: "Слава"
   services:
     transport: 20
     food_inplace: 1500
