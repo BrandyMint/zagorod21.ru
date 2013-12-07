@@ -2,7 +2,7 @@ class HouseCalculator
   attr_reader :form_object
   attr_reader :estimation
 
-  delegate :food_state, :people_quantity, :use_transport?, :date_from, :date_to, to: :form_object
+  delegate :days, :food_state, :people_quantity, :use_transport?, :date_from, :date_to, to: :form_object
 
   def initialize house, form_object
     @house = house
@@ -15,10 +15,6 @@ class HouseCalculator
   end
 
   private
-
-  def days
-    (date_to - date_from).to_i
-  end
 
   def summa_of_food
     if food_state.to_sym == :inplace

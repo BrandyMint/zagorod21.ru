@@ -10,6 +10,15 @@ class SearchForm < FormObjectBase
     self.people_quantity ||= Settings.default.people_quantity
     self.food_state ||= 'none'
     self.use_transport = false if self.use_transport.try(:to_i) == 0
+    self.people_quantity = self.people_quantity.to_i
+  end
+
+  def date_from= value
+    super value.present? ? Date.parse(value) : value
+  end
+
+  def date_to= value
+    super value.present? ? Date.parse(value) : value
   end
 
   def use_transport?

@@ -4,7 +4,8 @@
     = f.input :date_from, as: :date_picker
     = f.input :date_to, as: :date_picker
     = f.input :people_quantity, collection: people_quantity_collection, include_blank: false
-    = f.input :use_transport, label: 'Транспорт', as: :boolean
+    = f.input :use_transport, label: "Транспорт в обе стороны (#{Settings.services.transport} за 1 км.)", as: :boolean
+    = f.input :food_state, label: 'Питание', collection: food_states_collection, include_blank: false
   .form-actions
     = f.button :submit, :class => 'btn-primary', value: 'Найти'
 

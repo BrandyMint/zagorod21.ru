@@ -5,6 +5,14 @@ module ApplicationHelper
     1..max
   end
 
+  def food_states_collection
+    [
+      ['без заказного питания', 'none'],
+      ["готовка на месте (от #{Settings.services.food_inplace} в день)", 'inplace'],
+      ["выезное питание (от #{Settings.services.food_catering} за блюдо)", 'catering']
+    ]
+  end
+
   def money price
     return '-' if price.nil?
 
