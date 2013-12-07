@@ -22,9 +22,7 @@
           = link_to house.title, house_url(house)
           %p
             %i= simple_format house.summary
-        %td
-          = house.distance
-          = house.time
+        %td= house.distance
         %td= house.price_bd
         %td= house.price_wd
         %td= house.capacity
