@@ -1,27 +1,17 @@
 module ServicesHelper
-  def service_icon service, color = false
+  def service_icon service
     icon = service
     case service
       when :transport
         icon = :road
-        color = :black
-      when :food
-        color = :orange
       when :catering
         icon = :fire
-        color = :red
       when :photo
         icon = 'camera-1'
-        color = :blue
-      when :amusement
+      when :entertainment
         icon = 'music-1'
-        color = :cyan
     end
-    if color
-      ficon icon, color: color
-    else
-      ficon icon
-    end
+    ficon icon
   end
 
 end
