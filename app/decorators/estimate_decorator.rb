@@ -2,10 +2,26 @@ class EstimateDecorator < Draper::Decorator
   delegate_all
 
   def button
-    h.link_to source.total, h.house_url(source.house, form: source.form_object), class: 'btn btn-success', role: 'tooltip', title: description
+    h.link_to h.money(source.total), h.house_url(source.house, form: source.form_object), class: 'btn btn-success', role: 'tooltip', title: description, data: { html: true }
   end
 
   def description
-    h.simple_format "Сумма за дом: #{amounts[:dates]}\nСумма за транспорт: #{amounts[:transport]}\nСумма за питание: #{amounts[:food]}"
+    buffer = [amount_text("Сумма за дом: ", :dates)]
+    add_amount buffer, "Сумма за транспорт: ", :transport
+    add_amount buffer, "Сумма за питание: ", :food
+
+    return buffer.join('<br/>')
+  end
+
+  private
+
+  def add_amount buffer, text, amount
+    str = amount_text text, amount
+    buffer << str if str.present?
+  end
+
+  def amount_text text, amount
+    value = amounts[amount]
+    value.to_i>0 ? "#{text} #{h.money(value)}" : nil
   end
 end

@@ -15,4 +15,10 @@ class SearchForm < FormObjectBase
   def use_transport?
     !!use_transport
   end
+
+  def days
+    (date_to - date_from).to_i
+  rescue
+    1
+  end
 end

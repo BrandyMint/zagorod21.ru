@@ -5,14 +5,9 @@ module ApplicationHelper
     1..max
   end
 
-  def format_money price
+  def money price
     return '-' if price.nil?
 
-    if price>1000
-      "#{number_to_human(price/1000)} тыс.руб."
-    else
-      "#{price.to_i} руб."
-    end
-
+    "<nowrap>#{number_to_currency price, precision: 0}</nowrap>".html_safe
   end
 end

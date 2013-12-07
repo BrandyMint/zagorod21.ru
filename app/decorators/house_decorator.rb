@@ -18,15 +18,19 @@ class HouseDecorator < Draper::Decorator
   end
 
   def price_bd
-    h.format_money source.price_bd
+    h.money source.price_bd
   end
 
   def price_wd
-    h.format_money source.price_wd
+    h.money source.price_wd
   end
 
   def price_bd_hour
-    h.format_money source.price_bd_hour
+    h.money source.price_bd_hour
+  end
+
+  def capacity
+    "#{source.capacity} чел."
   end
 
   def distance
