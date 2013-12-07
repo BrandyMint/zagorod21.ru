@@ -1,0 +1,20 @@
+.footer-services-list
+  .row
+    - Service.main.each do |s|
+      .col-sm-4
+        .footer-service-item
+          .row
+            .col-xs-4
+              .text-right.icon-size-64
+                = service_icon s.key
+            .col-xs-8
+              %h3.no-margin-top
+                %strong= s.title
+              %p
+                %strong
+                  от
+                  = s.price.round
+                  = t 'number.currency.format.unit'
+              %p
+                = s.summary
+

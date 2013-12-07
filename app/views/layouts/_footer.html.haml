@@ -1,31 +1,14 @@
 %footer.footer.application-footer
   .container
-    .row
-      .col-sm-4
-        %h3.no-margins
-          = link_to Settings.app.title.html_safe, root_url, :class => 'footer-brand'
-          %small
-            = phrase :footer
+    = render 'services/services_footer'
     %hr
-    .footer-services-list
-      .row
-        -# Service.main do |s|
-        - for i in 0..4
-          .col-sm-4
-            .footer-service-item
-              .row
-                .col-xs-4
-                  .text-right.icon-size-64
-                    = service_icon :food
-                    -#=service_icon s.key
-                .col-xs-8
-                  %h3.no-margins
-                    Title
-                    -#= s.title
-                  %p
-                    %strong 1000
-                    -# %strong= s.price
-                  %p
-                    summary
-                    -#= s.summary
+    .row
+      .col-md-6.text-center
+        %h3.no-margin-top
+          = link_to Settings.app.title.html_safe, root_url, :class => 'footer-brand'
+        = phrase :footer
+      .col-md-6.text-center
+        %h3.no-margin-top.footer-phone
+          %strong= link_to Settings.app.phone.html_safe, "tel:#{Settings.app.phone.html_safe}"
+        заказ домов и коттеджей
 

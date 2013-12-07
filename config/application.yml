@@ -11,6 +11,7 @@ defaults: &defaults
   app:
     #title: "За&#769; город!"
     title: "За город!"
+    phone: "+7 919 669 80 00"
 
     asset_host: http://zagorod21.ru/
 
