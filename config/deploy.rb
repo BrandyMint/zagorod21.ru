@@ -52,6 +52,16 @@ namespace :deploy do
     end
   end
 
+  desc "Debloy bower"
+  task :bowerinstall do
+    on roles(:web) do
+      within release_path do
+        execute :bower, 'install'
+      end
+    end
+  end
+
+  before :compile_assets, 'bowerinstall'
   after :finishing, 'deploy:cleanup'
   after :finishing, 'deploy:notify'
 
