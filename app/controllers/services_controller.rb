@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
   def index
-    @services = Service.order
+    @services = Service.ordered
   end
 end

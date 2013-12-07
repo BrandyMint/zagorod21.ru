@@ -5,6 +5,10 @@ class WelcomeController < ApplicationController
     @estimates = hsq.perform
   end
 
+  def contact
+
+  end
+
   private
 
   def search_form
