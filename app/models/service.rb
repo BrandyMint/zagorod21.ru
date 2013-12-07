@@ -1,5 +1,5 @@
 class Service < ActiveRecord::Base
-  scope :main, -> { where main: true }
+  scope :main, -> { order(:position).where( main: true ) }
 
   validates :title, presence: true, uniqueness: true
   validates :price, presence: true
