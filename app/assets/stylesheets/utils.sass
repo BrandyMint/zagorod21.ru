@@ -47,6 +47,11 @@ hr.no-shadow
 .user-select-none
   +user-select(none)
 
+@each $align in left, center, right
+  .text-#{$align}
+    text-align: $align
+
+
 @each $margin in top, bottom, right, left
   .no-margin-#{$margin}
     margin-#{$margin}: 0
