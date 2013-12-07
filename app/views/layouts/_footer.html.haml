@@ -7,14 +7,25 @@
           %small
             = phrase :footer
     %hr
-    .row
-      .footer-services-list
-        - Service.main do |s|
-          - s_block_offset = i==0 ? 'col-sm-offset-1' : ''
-          %div{ class: "col-sm-2 #{s_block_offset}"}
-            .footer-service-item.text-center
-              -#= link_to '', class: 'footer-service-link' do
-              %i.icon-size-32=service_icon s.key
-              %br
-              %h4= s.title
+    .footer-services-list
+      .row
+        -# Service.main do |s|
+        - for i in 0..4
+          .col-sm-4
+            .footer-service-item
+              .row
+                .col-xs-4
+                  .text-right.icon-size-64
+                    = service_icon :food
+                    -#=service_icon s.key
+                .col-xs-8
+                  %h3.no-margins
+                    Title
+                    -#= s.title
+                  %p
+                    %strong 1000
+                    -# %strong= s.price
+                  %p
+                    summary
+                    -#= s.summary
 
