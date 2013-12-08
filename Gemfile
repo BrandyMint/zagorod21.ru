@@ -23,7 +23,7 @@ gem 'authority'
 # gem 'rolify'
 
 gem 'meta-tags', :require => 'meta_tags'
-gem 'phrasing'
+gem 'phrasing', :git => 'git://github.com/BrandyMint/phrasing.git'
 
 # Модели, value object и form objects
 # gem 'phony_rails', :git => 'git://github.com/joost/phony_rails.git'
