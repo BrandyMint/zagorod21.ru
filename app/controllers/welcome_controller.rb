@@ -1,17 +1,11 @@
 class WelcomeController < ApplicationController
   def index
-    hsq = HouseSearchQuery.new search_form
-
-    @estimates = hsq.perform
+    hsq = HouseSearchQuery.new search_form, sort_form
+    @estimates = hsq.estimates
   end
 
   def contact
 
   end
 
-  private
-
-  def search_form
-    @search_form ||=  SearchForm.new params[:search_form]
-  end
 end

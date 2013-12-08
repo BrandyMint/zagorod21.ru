@@ -3,12 +3,9 @@
     %tr
       %th Дом
       %th Описание
-      %th Расстояние
-      %th
-        Цена
-        %br
-        %small.text-muted (будни/выходные)
-      %th Вместимость
+      %th= sortable_column :distance
+      %th= sortable_column :price
+      %th= sortable_column :capacity
       %th Заказ
 
   %tbody
