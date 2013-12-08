@@ -4,8 +4,10 @@
       %th Дом
       %th Описание
       %th Расстояние
-      %th Цена в будни
-      %th Цена в выходные
+      %th
+        Цена
+        %br
+        %small.text-muted (будни/выходные)
       %th Вместимость
       %th Заказ
 
@@ -17,15 +19,15 @@
           = link_to house_url(house) do
             = house.preview_image
         %td.house_summary
-          %h3= link_to house.resort.title, resort_url(house.resort)
-          = link_to house.title, house_url(house)
+          = link_to house_url house do
+            %h3= house.title
+            %div= house.resort.title
           %p
             %i= simple_format house.summary
         %td= house.distance
-        %td= house.price_bd
-        %td= house.price_wd
+        %td= house.price
         %td= house.capacity
         %td
-          = link_to 'Заказать', '#', class: 'btn btn-success'
+          = link_to 'Заказать', house_url(house), class: 'btn btn-success'
 
 

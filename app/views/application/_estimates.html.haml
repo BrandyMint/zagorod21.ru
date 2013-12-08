@@ -4,8 +4,7 @@
       %th Дом
       %th Описание
       %th Расстояние
-      %th Цена в будни
-      %th Цена в выходные
+      %th Цена (будни/выходные)
       %th Вместимость
       %th Заказ
 
@@ -23,7 +22,6 @@
           %p
             %i= simple_format house.summary
         %td= house.distance
-        %td= house.price_bd
-        %td= house.price_wd
+        %td= house.price
         %td= house.capacity
         %td= e.button

@@ -17,6 +17,17 @@ class HouseDecorator < Draper::Decorator
     source.title? ? source.title : source.resort.title
   end
 
+  def price
+    if source.price_bd == source.price_wd
+      price_bd
+    else
+      h.content_tag :span, class: :money do
+        h.number_with_precision(source.price_bd, precision: 0, delimiter: ' ') + '-' +
+          price_wd
+      end
+    end
+  end
+
   def price_bd
     h.money source.price_bd
   end
@@ -34,7 +45,7 @@ class HouseDecorator < Draper::Decorator
   end
 
   def distance
-    "#{source.distance} км."
+    "#{h.number_with_precision source.distance, precision: 0} км."
   end
 
   def time
