@@ -134,6 +134,7 @@ group :doc do
 end
 
 group :development do
+  gem 'sprockets_better_errors'
   gem 'ruby-graphviz'
   gem 'rails-erd'
   #gem 'ruby-prof'

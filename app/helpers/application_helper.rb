@@ -1,4 +1,10 @@
 module ApplicationHelper
+  def app_version
+    content_tag :span, :data => { :version => Zagorod.version.to_s } do
+      'v' + Zagorod.version.format( "%M.%m.%p" )
+    end
+  end
+
   def sortable_column column
     column = column.to_s
     label = I18n.t column, scope: :sortable_columns
