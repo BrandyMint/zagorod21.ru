@@ -13,11 +13,11 @@ class House < ActiveRecord::Base
   delegate :distance, :time, to: :resort
 
   def self.min_people_capacity
-    minimum :capacity
+    active.minimum :capacity
   end
 
   def self.max_people_capacity
-    maximum :capacity
+    active.maximum :capacity
   end
 
   def to_s
