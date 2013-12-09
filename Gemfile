@@ -22,6 +22,9 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'authority'
 # gem 'rolify'
 
+# Управление версиями проекта
+gem 'semver2'
+
 gem 'meta-tags', :require => 'meta_tags'
 gem 'phrasing', :git => 'git://github.com/BrandyMint/phrasing.git'
 
@@ -182,9 +185,6 @@ group :development do
 
   # rake и generator комманды в консоли
   gem 'commands'
-
-  # Управление версиями проекта
-  gem 'semver2'
 
   gem "hpricot", ">= 0.8.6"
   gem "ruby_parser", ">= 2.3.1"
