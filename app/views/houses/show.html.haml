@@ -2,24 +2,17 @@
   %h1= @house.title
   %small= link_to @house.resort.title, resort_url(@house.resort)
 
-= render 'orders/form', house: @house
-= render 'fotorama', images: @house.images.ordered
-.row
-  .col-sm-6.col-md-8
-
-    %p
-      = @house.description
-      %hr
-      Цена в будни:
-      = @house.price_bd
-      %br
-      Цена на выходные:
-      = @house.price_wd
-      %br
-      Цена в будни за час:
-      = @house.price_bd_hour
-
 
 .row
-  .col-sm-12
+  .col-sm-6
+    = render 'fotorama', images: @house.images.ordered
+  .col-sm-6
+    = render 'prices', house: @house
+    = render 'orders/form', house: @house.source
+
+.row
+  .col-sm-6
+    -#.col-md-8
+    = simple_format @house.description
+  .col-sm-6
     = @house.resort.map_iframe.html_safe

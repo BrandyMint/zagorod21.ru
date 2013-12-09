@@ -11,14 +11,8 @@ class SearchForm < FormObjectBase
     self.food_state ||= 'none'
     self.use_transport = false if self.use_transport.try(:to_i) == 0
     self.people_quantity = self.people_quantity.to_i
-  end
-
-  def date_from= value
-    super value.present? ? Date.parse(value) : value
-  end
-
-  def date_to= value
-    super value.present? ? Date.parse(value) : value
+    self.date_from = Date.parse(date_from) if date_from.present?
+    self.date_to = Date.parse(date_to) if date_to.present?
   end
 
   def use_transport?
@@ -29,5 +23,9 @@ class SearchForm < FormObjectBase
     (date_to - date_from).to_i
   rescue
     1
+  end
+
+  def to_order
+    to_h
   end
 end

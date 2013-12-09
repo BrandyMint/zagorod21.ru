@@ -1,10 +1,15 @@
-= simple_form_for @order, :html => { :class => 'form-horizontal' } do |f|
-  = f.error_notification
-  .form-inputs
-    = f.input :name, label: false, placeholder: 'Ваше Имя', input_html: { class: 'input-xlarge form-control'}
-    = f.input :date_from
-    = f.input :date_to
-    = f.input :people_quantity, collection: people_quantity_collection(house), include_blank: false
-    = f.input :phone, label: false, placeholder: 'Телефон', input_html: { class: 'input-xlarge form-control'}
-  .form-actions
-    = f.button :submit, :class => 'btn-primary', value: 'Заказать'
+.panel.panel-default
+  .panel-heading Заказать дом
+  = simple_form_for order_form, :html => { :class => 'form-horizontal' } do |f|
+    = f.error_notification
+    .form-inputs
+      = f.input :name, label: false, placeholder: 'Ваше Имя', input_html: { class: 'input-xlarge form-control'}
+      = f.input :phone, label: false, placeholder: 'Телефон', input_html: { class: 'input-xlarge form-control'}
+      = f.input :date_from, as: :date_picker
+      = f.input :date_to, as: :date_picker
+      = f.input :people_quantity, collection: people_quantity_collection(house), include_blank: false
+      = f.input :use_transport, label: "Транспорт в обе стороны (#{Settings.services.transport} за 1 км.)", as: :boolean
+      = f.input :food_state, label: 'Питание', collection: food_states_collection, include_blank: false, as: :radio_buttons
+    .form-actions
+      = f.button :submit, :class => 'btn-primary', value: 'Заказать'
+  .panel-body= phrase :house_order_text
