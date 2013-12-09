@@ -4,7 +4,7 @@ class Estimation
   attr_accessor :form_object
   attr_accessor :amounts
 
-  delegate :days, to: :form_object
+  delegate :days, :date_from, :date_to, to: :form_object
 
   def initialize house, form_object, amounts
     @house = house

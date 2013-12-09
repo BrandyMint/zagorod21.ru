@@ -2,7 +2,8 @@ class EstimateDecorator < Draper::Decorator
   delegate_all
 
   def button
-    h.link_to h.money(source.total), h.house_url(source.house, form: source.form_object), class: 'btn btn-success', role: 'tooltip', title: description, data: { html: true }
+    label = h.money source.total
+    h.link_to label, h.house_url(source.house, form: source.form_object), class: 'btn btn-success', role: 'tooltip', title: description, data: { html: true }
   end
 
   def description

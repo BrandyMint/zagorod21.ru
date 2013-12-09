@@ -4,6 +4,7 @@ ActiveAdmin.register House do
     f.semantic_errors *f.object.errors.keys
     f.inputs do
       f.input :active
+      f.input :selected
       f.input :resort
       f.input :title
       f.input :capacity
@@ -26,6 +27,7 @@ ActiveAdmin.register House do
   show do |house|
     attributes_table do
       row :active
+      row :selected
       row :link do
         link_to 'Публичная страница', house_url(house)
       end

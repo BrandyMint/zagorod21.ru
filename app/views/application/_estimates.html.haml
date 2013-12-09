@@ -12,7 +12,7 @@
     - @estimates.each do |estimate|
       - house = HouseDecorator.new estimate.house
       - e = EstimateDecorator.new estimate
-      %tr{id: "house_#{house.id}"}
+      %tr{id: "house_#{house.id}", class: house.css_class}
         %td
           = link_to house_url(house) do
             = house.preview_image

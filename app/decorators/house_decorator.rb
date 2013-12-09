@@ -1,6 +1,10 @@
 class HouseDecorator < Draper::Decorator
   delegate_all
 
+  def css_class
+    source.selected? ? 'warning' : ''
+  end
+
   def common_image
     h.image_tag source.preview.file.common.url if source.preview.present?
   end

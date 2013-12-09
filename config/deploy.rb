@@ -61,7 +61,7 @@ namespace :deploy do
     end
   end
 
-  #before :compile_assets, 'bowerinstall'
+  before :compile_assets, 'bowerinstall'
   after :finishing, 'deploy:cleanup'
   after :finishing, 'deploy:notify'
 
