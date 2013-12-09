@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def order_form
+    params[:order] ||= {}
     @order ||= Order.new params[:order].permit! #search_form.to_order
   end
 
