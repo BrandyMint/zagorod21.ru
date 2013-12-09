@@ -28,7 +28,13 @@ module ApplicationHelper
   def people_quantity_collection house=nil
     min = House.min_people_capacity
     max = house.present? ? house.capacity : House.max_people_capacity
-    1..max
+    collection = {}
+    for i in min..max
+      g = "чел."
+      caption = "#{i} #{g}"
+      collection[caption] = i
+    end
+    collection
   end
 
   def food_states_collection
