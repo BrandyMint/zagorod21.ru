@@ -1,4 +1,16 @@
 GIT
+  remote: git://github.com/BrandyMint/phrasing.git
+  revision: c89e095c15951b6cbcb20487a38b76b381ce85a2
+  specs:
+    phrasing (3.0.6)
+      haml-rails
+      jquery-cookie-rails
+      jquery-rails
+      rails (>= 3.1.0)
+      railties (>= 3.1)
+      sass
+
+GIT
   remote: git://github.com/airbrake/airbrake.git
   revision: c9098b13342de17b252b373c7af94e9f2f30b383
   specs:
@@ -348,13 +360,6 @@ GEM
     orm_adapter (0.5.0)
     pg (0.16.0)
     pg_array_parser (0.0.9)
-    phrasing (3.0.6)
-      haml-rails
-      jquery-cookie-rails
-      jquery-rails
-      rails (>= 3.1.0)
-      railties (>= 3.1)
-      sass
     poltergeist (1.3.0)
       capybara (~> 2.1.0)
       faye-websocket (>= 0.4.4, < 0.5.0)
@@ -626,7 +631,7 @@ DEPENDENCIES
   mini_magick
   pg
   pg_array_parser
-  phrasing
+  phrasing!
   poltergeist
   pry-developer_tools
   pry-doc
