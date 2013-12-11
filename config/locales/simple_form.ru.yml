@@ -21,11 +21,16 @@ ru:
         sending: Отправляем...
         saving: Сохраняем...
         waiting: Подождите...
-    labels:
+    labels: &labels
       defaults:
         name: Название
         title: Название
+        date_from: Заезд
+        date_to: Выезд
+        people_quantity: Количество гостей
+      
     placeholders:
+      <<: *labels
       defaults:
         title: Название
     hints:

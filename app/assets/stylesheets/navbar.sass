@@ -1,19 +1,3 @@
-.navbar
-  color: $grayLightest
-  -webkit-font-smoothing: antialiased
-  a
-    +link-colors(#fff, rgba(#fff,0.7))
-  .brand
-    font-size: 1.2em
-    line-height: 2.7em
-  .brand-caption
-    line-height: 2.3em
-    vertical-align: bottom
-  .brand-logo
-    margin-right: 8px
-    width: 32px
-    height: 32px
-
 .navbar-toggle
   +link-colors(#fff, rgba(255,255,255,0.7))
   -webkit-font-smoothing: antialiased
@@ -21,34 +5,35 @@
     top: 3px
     bottom: 3px
 
-.welcome-navbar.navbar
-  background: none
-  .nav.navbar-nav
-    & > li
-      float: left
-      & > a
-        color: #fff
-        font-weight: 700
-        -webkit-font-smoothing: antialiased
-        +transition(color 0.2s ease, background 0.2s ease)
-        background: none
-        &:hover
-          color: rgba(255,255,255,0.7)
-          background: none
-    //@media screen and (max-width: $screen-sm)
-      margin: 0
-      width: 100%
-      background: rgba(#fff,0.2)
+.welcome.index
+  .application-navbar.navbar
+    background: rgba(#000, 0.8)
+    .nav.navbar-nav
       & > li
+        float: left
         & > a
-          margin: 10px auto
-          padding: 10px
-          display: block
-          text-align: center
-  .navbar-collapse
-    @media screen and (max-width: $screen-sm)
-      padding: 0
- 
+          color: #fff
+          font-weight: 700
+          -webkit-font-smoothing: antialiased
+          +transition(color 0.2s ease, background 0.2s ease)
+          background: none
+          &:hover
+            color: rgba(255,255,255,0.7)
+            background: none
+      //@media screen and (max-width: $screen-sm)
+        margin: 0
+        width: 100%
+        background: rgba(#fff,0.2)
+        & > li
+          & > a
+            margin: 10px auto
+            padding: 10px
+            display: block
+            text-align: center
+    .navbar-collapse
+      @media screen and (max-width: $screen-sm)
+        padding: 0
+
 .navbar.application-navbar
   @extend .navbar-inverse
   background: $navbarBackgroundColor
@@ -57,6 +42,8 @@
   opacity: 1
   height: auto
   overflow: visible
+  .navbar-brand
+    +link-colors(#fff, #eee)
   &.transparent
     opacity: 0
     height: 0

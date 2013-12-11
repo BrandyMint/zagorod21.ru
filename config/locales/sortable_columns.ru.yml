@@ -2,4 +2,5 @@ ru:
   sortable_columns:
     distance: "Расстояние"
     price_html: "Цена<br/><small class='text-muted'>(будни/выходные)</small>"
-    capacity: "Вместимость<br/>(чел)"
+    capacity: "Вместимость"
+    price: "Цена"
