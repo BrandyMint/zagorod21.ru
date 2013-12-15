@@ -41,7 +41,7 @@ module ApplicationHelper
     [
       ['без заказного питания', 'none'],
       ["готовка на месте (от #{Settings.services.food_inplace} в день)", 'inplace'],
-      ["выезное питание (от #{Settings.services.food_catering} за блюдо)", 'catering']
+      ["выездное питание (от #{Settings.services.food_catering} за блюдо)", 'catering']
     ]
   end
 
