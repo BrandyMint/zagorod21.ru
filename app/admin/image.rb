@@ -18,7 +18,7 @@ ActiveAdmin.register Image do
     active_admin_comments
   end
 
-  index as: :block do |image|
+  index as: :grid, columns: 5 do |image|
     div :for => image do
       h3 do
         link_to image.resource, admin_resource_url(image.resource)
