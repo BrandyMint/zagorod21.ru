@@ -2,25 +2,11 @@
   = f.error_notification
   .form-inputs
     .row
-      .col-sm-5.search-form-date
+      .col-sm-3.search-form-date
         = f.input :date_from, as: :date_picker, label: 'Прибытие', class: 'form-control'
-      .col-sm-5.search-form-date
+      .col-sm-3.search-form-date
         = f.input :date_to, as: :date_picker, label: 'Выезд'
       .col-sm-2
         = f.input :people_quantity, collection: people_quantity_collection, include_blank: false, label: 'Гостей'
-      .col-sm-6
-        %br
-        .form-inline
-          .pull-left= f.input :use_transport, as: :boolean, label: false, class: 'no-margins'
-          .pull-left= f.label :use_transport, label: "Транспорт в обе стороны (#{Settings.services.transport}руб./км)".html_safe
-          .clearfix
-    %hr.small
-    -#= f.label :food_state, label: 'Питание'
-    .form-inline
-      = f.input :food_state, collection: food_states_collection, include_blank: false, as: :radio_buttons, class: 'search-form-radio radio-inline', label: false
-    %hr.small
-  .form-actions
-    .row
-      .col-sm-4.col-sm-offset-4
+      .col-sm-4
         = f.button :submit, :class => 'btn-success btn btn-lg btn-block', value: 'Найти'
-

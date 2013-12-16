@@ -2,7 +2,8 @@
 #= require jquery.role/lib/jquery.role
 #= require fotorama
 #= require bootstrap
-#= require_tree .
+#= require bootstrap-datepicker
+#= require datepicker_defaults
 #= require phrasing
 
 # require jquery.freetile
@@ -27,5 +28,7 @@ $ ->
   # $('input.select2').select2()
   # $('select.select2').select2
   #  width: 'element'
+
+  $('.datepicker').zagorod_picker()
 
   return
