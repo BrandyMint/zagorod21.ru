@@ -106,7 +106,7 @@ gem 'jbuilder', '~> 1.0.1'
 gem 'airbrake', :github => 'airbrake/airbrake'
 
 gem 'bootstrap-sass', '~> 3.0.2.0'
-gem 'compass-rails', '~> 2.0.alpha.0'
+gem 'compass-rails', '~> 1.1.2'
 
 #assets
 # Use edge version of sprockets-rails

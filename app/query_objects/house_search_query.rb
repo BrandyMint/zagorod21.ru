@@ -6,6 +6,7 @@ class HouseSearchQuery
 
     @scope = default_scope
     add_sorting
+    add_filters
   end
 
   def estimates
@@ -42,6 +43,15 @@ class HouseSearchQuery
     else
       @sort_form.column
     end
+  end
+
+  def add_filters
+    @scope = people_filter if @form_object.people_quantity.present?
+    @scope
+  end
+
+  def people_filter
+    @scope.where('capacity >= ?', @form_object.people_quantity) 
   end
 
 end
