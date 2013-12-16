@@ -5,7 +5,7 @@ class House < ActiveRecord::Base
 
   belongs_to :resort
   has_many :images, as: :resource
-  has_one :preview, class_name: 'Image', as: :resource
+  belongs_to :preview, class_name: 'Image'
 
   validates :title, presence: true, uniqueness: { scope: :resort_id }
   validates :resort, presence: true

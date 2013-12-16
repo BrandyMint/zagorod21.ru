@@ -11,4 +11,8 @@ class Image < ActiveRecord::Base
   after_create do |image|
     resource.update_attribute :preview_id, image.id
   end
+
+  def preview_of? resource
+    resource.preview == self
+  end
 end

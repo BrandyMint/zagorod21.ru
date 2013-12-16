@@ -14,7 +14,7 @@ ActiveAdmin.register Resort do
     end
     column :images do |resort|
       ul do
-        li link_to "Картинки #{resort.images.count}", admin_images_url(q: { resource_type_eq: 'Resort', resource_id_eq: resort.id})
+        li link_to "Картинки #{resort.images.count}", admin_resource_images_url(resort)
         li link_to "Добавить", new_admin_image_url(image: { resource_type: 'Resort', resource_id: resort.id})
       end
     end

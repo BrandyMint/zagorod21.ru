@@ -58,7 +58,7 @@ ActiveAdmin.register House do
     column :capacity
     column :images do |house|
       ul do
-        li link_to "Картинки #{house.images.count}", admin_images_url(q: { resource_type_eq: 'House', resource_id_eq: house.id})
+        li link_to "Картинки #{house.images.count}", admin_resource_images_url(house)
         li link_to "Добавить", new_admin_image_url(image: { resource_type: 'House', resource_id: house.id})
       end
     end
