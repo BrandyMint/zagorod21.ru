@@ -11,4 +11,5 @@ $ ->
   $.fn.zagorod_picker = ->
     @datepicker
       language: "ru"
+      autoclose: true
       format: "dd.mm.yyyy"
