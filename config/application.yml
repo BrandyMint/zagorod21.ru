@@ -1,6 +1,7 @@
 defaults: &defaults
   call_phone: "+7 (919) 669-80-00"
   call_name: "Слава"
+  sms_phone: "79033891228"
   services:
     transport: 20
     food_inplace: 1500
@@ -14,6 +15,7 @@ defaults: &defaults
     phone: "+7 919 669 80 00"
 
     asset_host: http://zagorod21.ru/
+    base_url: http://zagorod21.ru
 
     default_url_options: &default_url_options
       host: zagorod21.ru
@@ -27,6 +29,7 @@ defaults: &defaults
   mailer_defaults:
     <<: *action_mailer
     from: 'noreply@zagorod21.ru'
+    to: 'admin@zagorod21.ru'
 
 development:
   <<: *defaults

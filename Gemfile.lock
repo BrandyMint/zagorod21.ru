@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/BrandyMint/littlesms.git
+  revision: 914f9c50c2cf7de09547a45558bfea4b2dee2052
+  specs:
+    littlesms (0.0.1)
+
+GIT
   remote: git://github.com/BrandyMint/phrasing.git
   revision: c89e095c15951b6cbcb20487a38b76b381ce85a2
   specs:
@@ -220,6 +226,8 @@ GEM
     email_spec (1.5.0)
       launchy (~> 2.1)
       mail (~> 2.2)
+    email_validator (1.4.0)
+      activemodel
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (1.4.0)
@@ -604,6 +612,7 @@ DEPENDENCIES
   database_cleaner
   draper
   email_spec (>= 1.2.1)
+  email_validator
   factory_girl_rails
   fakeredis
   foreman
@@ -628,6 +637,7 @@ DEPENDENCIES
   kaminari
   kaminari-bootstrap
   launchy (>= 2.1.2)
+  littlesms!
   mailcatcher
   meta-tags
   meta_request

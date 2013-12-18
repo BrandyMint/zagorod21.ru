@@ -7,7 +7,7 @@
   .col-sm-6
     = render 'fotorama', images: @house.images.ordered
   .col-sm-6
-    = render 'prices', house: @house
+    = render 'houses/prices', house: @house
     = render 'orders/form', house: @house.source
 
 .row

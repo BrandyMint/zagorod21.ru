@@ -131,6 +131,8 @@ gem 'coffee-rails', github: 'rails/coffee-rails'
 
 # gem 'select2-rails'
 gem 'bootstrap-datepicker-rails'
+gem 'email_validator'
+gem 'littlesms', github: 'BrandyMint/littlesms'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

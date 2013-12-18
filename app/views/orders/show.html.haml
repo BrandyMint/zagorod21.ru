@@ -1,0 +1,22 @@
+%h1 Заказ №#{@order.id}
+%p
+  %b На имя:
+  = @order.name
+%p
+  %b Ваш телефон:
+  = @order.phone
+%p
+  %b Время пребывания:
+  с #{@order.date_from} по #{@order.date_to}
+%p
+  %b Всего отдыхающих:
+  = @order.people_quantity
+%p
+  %b Оплата транспорта:
+  = @order.use_transport
+%p
+  %b Питание:
+  = @order.food_state
+%p
+  %b Итого:
+  = @order.money_amount

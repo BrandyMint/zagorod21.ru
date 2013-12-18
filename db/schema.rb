@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131209094018) do
+ActiveRecord::Schema.define(version: 20131217133113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,13 +33,6 @@ ActiveRecord::Schema.define(version: 20131209094018) do
 
   create_table "add_position_to_services", force: true do |t|
     t.integer  "position"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "add_use_transport_to_orders", force: true do |t|
-    t.boolean  "use_transport", default: false,  null: false
-    t.string   "food_state",    default: "none", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -120,6 +113,7 @@ ActiveRecord::Schema.define(version: 20131209094018) do
     t.decimal  "money_amount",                     null: false
     t.boolean  "use_transport",   default: false,  null: false
     t.string   "food_state",      default: "none", null: false
+    t.string   "email"
   end
 
   add_index "orders", ["house_id"], name: "index_orders_on_house_id", using: :btree
