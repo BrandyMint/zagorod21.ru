@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/BrandyMint/littlesms.git
-  revision: 914f9c50c2cf7de09547a45558bfea4b2dee2052
+  revision: aabce5a08fcf964a935fa887a0fc9dc45594bfab
   specs:
     littlesms (0.0.1)
 

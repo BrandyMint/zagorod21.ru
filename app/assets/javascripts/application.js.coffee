@@ -5,6 +5,7 @@
 #= require bootstrap-datepicker
 #= require datepicker_defaults
 #= require phrasing
+#= require isotope/jquery.isotope.min
 
 # require jquery.freetile
 # require jquery_ujs

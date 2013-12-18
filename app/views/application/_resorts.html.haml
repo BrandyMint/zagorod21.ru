@@ -1,7 +1,7 @@
-.row
+.row.isotope
   - @resorts.each do |resort|
     - resort = ResortDecorator.new resort
-    .col-sm-6.col-md-4
+    .col-sm-6.col-md-4.isotope-item
       .thumbnail
         = render 'fotorama', images: resort.images, version: :common
         .caption
@@ -11,3 +11,15 @@
 
           %p
             .btn.btn-success Заказать
+
+:javascript
+window.resorts_count = ParseInt #{@resorts.count}
+window.fororamas_ready = 0;
+$(function(){
+  $('.fotorama').on('fotorama:ready', function () {
+    window.fororamas_ready++;
+    if (window.fotoramas_ready == window.resorts_count){
+      $('.isotope').isotope();
+    }
+  });
+})

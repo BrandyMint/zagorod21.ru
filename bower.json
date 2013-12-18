@@ -2,7 +2,8 @@
   "name": "zagorod",
   "version": "0.1",
   "dependencies": {
-    "jquery.role": "git://github.com/kossnocorp/role"
+    "jquery.role": "git://github.com/kossnocorp/role",
+    "isotope" : "latest"
   },
   "ignore": [
     "**/.*",
