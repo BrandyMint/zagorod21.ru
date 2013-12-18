@@ -79,7 +79,7 @@ gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
 #gem 'cocoon'
 
 gem 'kaminari'
-gem 'kaminari-bootstrap'
+gem 'kaminari-bootstrap', '~> 3.0.1'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
