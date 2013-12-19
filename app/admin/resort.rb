@@ -1,5 +1,20 @@
 ActiveAdmin.register Resort do
 
+  form do |f|
+    f.semantic_errors *f.object.errors.keys
+    f.inputs do
+      f.input :title
+      f.input :summary, as: :html_editor
+      f.input :description, as: :html_editor
+      f.input :distance
+      f.input :time
+      f.input :map_iframe
+      f.input :active
+    end
+
+    f.actions
+  end
+
   index do
     column :active
     column :preview do |resort|
@@ -33,7 +48,7 @@ ActiveAdmin.register Resort do
         simple_format resort.description
       end
       row :summary do
-        simple_format resort.description
+        simple_format resort.summary
       end
       row :image do
         image_tag resort.preview.file.thumb.url if resort.preview.present?
