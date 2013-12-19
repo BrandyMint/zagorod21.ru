@@ -1,0 +1,6 @@
+= simple_form_for Image.new, url: admin_images_path do |f|
+  = f.input_field :resource_id, as: :hidden, value: params[:q][:resource_id_eq]
+  = f.input_field :resource_type, as: :hidden, value: params[:q][:resource_type_eq]
+  = f.input_field :file, multiple: true, name: 'image[file]'
+
+%span#progress

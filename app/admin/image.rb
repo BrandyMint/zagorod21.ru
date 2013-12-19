@@ -32,6 +32,12 @@ ActiveAdmin.register Image do
         image_preview_link(image, resource)
       end if resource.present?
     end
+
+    
+  end
+
+  sidebar :upload_images, :only => :index do
+    render "mass_upload_form"
   end
 
   form do |f|
@@ -41,6 +47,7 @@ ActiveAdmin.register Image do
       f.input :file
       f.input :description
     end
+
     f.actions
   end
 

@@ -17,6 +17,7 @@ gem 'settingslogic'
 gem "fotoramajs", "~> 4.4.8"
 gem 'active_admin_editor'
 
+
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 # Авторизация и аутентификация
@@ -85,6 +86,7 @@ gem 'kaminari-bootstrap', '~> 3.0.1'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
+gem "jquery-fileupload-rails"
 
 #gem 'nilify_blanks', :git => 'git://github.com/rubiety/nilify_blanks.git'
 
@@ -193,7 +195,7 @@ group :development do
   gem "hpricot", ">= 0.8.6"
   gem "ruby_parser", ">= 2.3.1"
 
-  gem "better_errors"
+  #gem "better_errors"
   gem "binding_of_caller"
 
   # Поддержка для rails_panel в chrome
