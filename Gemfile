@@ -195,7 +195,7 @@ group :development do
   gem "hpricot", ">= 0.8.6"
   gem "ruby_parser", ">= 2.3.1"
 
-  #gem "better_errors"
+  gem "better_errors"
   gem "binding_of_caller"
 
   # Поддержка для rails_panel в chrome
