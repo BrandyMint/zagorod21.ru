@@ -6,7 +6,8 @@ class NotificationService
     new_order_email(order)
   end
 
-private
+  private
+
   def new_order_email order
     OrderMailer.new_order_for_admin(order).deliver 
   end
