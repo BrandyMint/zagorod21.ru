@@ -1,19 +1,16 @@
 .footer-services-list
   .row
     - Service.main.each do |s|
-      .col-sm-4
+      .col-sm-3
         .footer-service-item
           .row
-            .col-xs-4
+            .col-xs-3
               .text-right.icon-size-64
                 = service_icon s.key
-            .col-xs-8
+            .col-xs-6
               %h3.no-margin-top
                 %strong= s.title
               %p
-                от
-                %strong= s.price
-                руб.
-              %p
-                = s.summary
+                %strong= s.price.html_safe
+              = simple_format s.summary
 

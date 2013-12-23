@@ -37,6 +37,13 @@ ActiveRecord::Schema.define(version: 20131217133113) do
     t.datetime "updated_at"
   end
 
+  create_table "add_use_transport_to_orders", force: true do |t|
+    t.boolean  "use_transport", default: false,  null: false
+    t.string   "food_state",    default: "none", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "admin_users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
