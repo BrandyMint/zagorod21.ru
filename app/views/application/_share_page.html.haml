@@ -1,0 +1,29 @@
+.row
+  .col-xs-3
+    .fb-share-button{"data-href" => request.original_url, "data-type" => "button_count"}
+  .col-xs-3
+    #vk_like_page
+    :javascript
+      var page_url = "#{request.original_url}";
+      VK.Widgets.Like("vk_like_page", {type: "mini", height: 20, pageUrl: page_url});
+  .col-xs-3
+    %a.twitter-share-button{"data-lang" => "en", "data-related" => "anywhereTheJavascriptAPI", "data-url" => request.original_url, :href => "https://twitter.com/share"} Tweet
+    :javascript
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+  .col-xs-3
+    #page_shareWidget
+    :javascript
+      !function (d, id, did, st) {
+        var js = d.createElement("script");
+        js.src = "http://connect.ok.ru/connect.js";
+        js.onload = js.onreadystatechange = function () {
+        if (!this.readyState || this.readyState == "loaded" || this.readyState == "complete") {
+          if (!this.executed) {
+            this.executed = true;
+            setTimeout(function () {
+              OK.CONNECT.insertShareWidget(id,did,st);
+            }, 0);
+          }
+        }};
+        d.documentElement.appendChild(js);
+      }(document,"page_shareWidget",page_url,"{width:145,height:30,st:'rounded',sz:20,ck:1}");
