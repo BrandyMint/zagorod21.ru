@@ -5,11 +5,11 @@ Zagorod::Application.routes.draw do
   root 'welcome#index'
 
   resources :houses, only: [:index, :show]
-
   resources :resorts, only: [:index, :show]
-
   resources :services, only: :index
   resources :orders, only: [:create, :show]
+
+  get 'pages/:slug' => 'pages#show', as: 'page'
 
   get 'feedback', to: 'welcome#feedback'
   get 'contact', to: 'welcome#contact'
