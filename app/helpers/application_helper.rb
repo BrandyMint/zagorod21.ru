@@ -43,9 +43,9 @@ module ApplicationHelper
 
   def food_states_collection
     [
-      ['без заказного питания', 'none'],
-      ["готовка на месте (от #{Settings.services.food_inplace} в день)", 'inplace'],
-      ["выездное питание (от #{Settings.services.food_catering} за блюдо)", 'catering']
+      [I18n.t('order.food_state.none'), 'none'],
+      [I18n.t('order.food_state.inplace', price: Settings.services.food_inplace), 'inplace'],
+      [I18n.t('order.food_state.catering', price: Settings.services.food_catering), 'catering']
     ]
   end
 

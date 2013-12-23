@@ -6,19 +6,19 @@ class OrdersController < ApplicationController
       NotificationService.new.new_order(@order)
       redirect_to order_path(@order)
     else
-      @house = HouseDecorator.new @order.house
+      @house = @order.house.decorate
       render 'houses/show'
     end
   end
 
   def show
-    @order = Order.find params[:id]
+    @order = Order.find(params[:id]).decorate
   end
 
   private
 
   def order_params
-    params_with_clean_phone.permit(:name, :date_from, :date_to, :house_id, :phone, :people_quantity, :money_amount)
+    params_with_clean_phone.permit(:name, :phone, :email, :date_from, :date_to, :house_id,  :people_quantity, :money_amount, :food_state, :use_transport)
   end
 
   def params_with_clean_phone

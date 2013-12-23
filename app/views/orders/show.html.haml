@@ -4,19 +4,23 @@
   = @order.name
 %p
   %b Ваш телефон:
-  = @order.phone
+  = @order.view_phone
+- if @order.email
+  %p
+    %b Электронная почта:
+    = @order.email
 %p
   %b Время пребывания:
-  с #{@order.date_from} по #{@order.date_to}
+  = @order.stay_dates
 %p
   %b Всего отдыхающих:
   = @order.people_quantity
 %p
-  %b Оплата транспорта:
-  = @order.use_transport
+  %b Транспорт:
+  = @order.transport
 %p
   %b Питание:
-  = @order.food_state
+  = @order.food
 %p
   %b Итого:
   = @order.money_amount
