@@ -54,4 +54,12 @@ module ApplicationHelper
 
     "<nowrap>#{number_to_currency price, precision: 0}</nowrap>".html_safe
   end
+
+  def date_from_placeholder
+    I18n.l Date.today, format: :dots_separated
+  end
+
+  def date_to_placeholder
+    I18n.l (Date.today + 4.day), format: :dots_separated
+  end
 end

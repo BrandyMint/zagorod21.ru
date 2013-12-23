@@ -10,11 +10,8 @@ class DatePickerInput < SimpleForm::Inputs::StringInput
   def input
     input_html_options[:value] = I18n.l object[attribute_name], format: :dots_separated if object[attribute_name].present?
     input_html_options[:readonly] = true
+    @input_html_classes.push('datepicker').push(@attribute_name)
     super
-  end
-
-  def input_html_classes
-    super.push('datepicker')
   end
 
   #protected

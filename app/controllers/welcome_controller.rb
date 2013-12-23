@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-  PER_PAGE = 25
+  PER_PAGE = 8
 
   def index
     hsq = HouseSearchQuery.new search_form, sort_form

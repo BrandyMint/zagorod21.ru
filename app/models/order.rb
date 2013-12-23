@@ -1,9 +1,9 @@
 class Order < ActiveRecord::Base
   belongs_to :house
 
-  validates :name, presence: true
+  validates :name, :money_amount, presence: true
   validates :email, email: true, allow_blank: true
-  validates :phone, presence: true, numericality: { only_integer: true }
+  validates :phone, presence: true,  length: {is: 10}
 
   state_machine do
     state :new

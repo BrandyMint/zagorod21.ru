@@ -1,18 +1,41 @@
-.panel.panel-default
-  .panel-heading Заказать дом
-  = simple_form_for order_form, :html => { :class => 'form-horizontal' } do |f|
+%div.order_block
+  %h2 Заказать дом
+  = simple_form_for order_form, :html => { :class => 'form-horizontal' }, wrapper: :order do |f|
     = f.error_notification
-    .form-inputs
-      = f.input :name, label: false, placeholder: 'Ваше Имя', input_html: { class: 'input-xlarge form-control'}
-      = f.input :phone, label: false, placeholder: 'Телефон', input_html: { class: 'input-xlarge form-control'}
-      = f.input :email, label: false, placeholder: 'Электронная почта', input_html: { class: 'input-xlarge form-control'}
-      = f.input :date_from, as: :date_picker
-      = f.input :date_to, as: :date_picker
-      = f.input :people_quantity, collection: people_quantity_collection(house), include_blank: false
-      = f.input :money_amount, input_html: {value: 10000}
-      = f.input :use_transport, label: "Транспорт в обе стороны (#{Settings.services.transport} за 1 км.)", as: :boolean
-      = f.input :food_state, label: 'Питание', collection: food_states_collection, include_blank: false, as: :radio_buttons
-      = f.input_field :house_id, as: :hidden, value: house.id
+    = f.input :name, placeholder: 'Иван Петров'
+    = f.input :phone, placeholder: '+7 (905) 123-45-67'
+    = f.input :email, placeholder: 'hello@mail.com'
+    .form-group
+      %label Даты пребывания
+      %br
+      = f.input_field :date_from, as: :date_picker, placeholder: date_from_placeholder
+      = f.input_field :date_to, as: :date_picker, placeholder: date_to_placeholder
+    .form-group.form_input_block
+      .col-md-5
+        = f.label :people_quantity
+      .col-md-3
+        = f.input_field :people_quantity, collection: people_quantity_collection(house), include_blank: false
+
+    .form-group.form_input_block
+      .col-md-2
+        = f.label :money_amount
+      .col-md-2{style: "padding-top: 6px;"}
+        10000
+      = f.input_field :money_amount, value: 10000, as: :hidden
+
+    .form-group.form_input_block
+      .col-md-10
+        = f.label :use_transport, I18n.t("simple_form.labels.defaults.use_transport", price: Settings.services.transport)
+      .col-md-2{style: "margin-top: -7px;"}
+        = f.input_field :use_transport, as: :boolean
+
+    = f.input :food_state, label: 'Питание', collection: food_states_collection, include_blank: false, as: :radio_buttons
+    = f.input_field :house_id, as: :hidden, value: house.id
+
     .form-actions
       = f.button :submit, :class => 'btn-primary', value: 'Заказать'
-  .panel-body= phrase :house_order_text
+
+:javascript
+  $(function(){
+    $('#order_phone').mask("+7 (999) 999-99-99")
+  })

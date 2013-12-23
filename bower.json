@@ -3,7 +3,8 @@
   "version": "0.1",
   "dependencies": {
     "jquery.role": "git://github.com/kossnocorp/role",
-    "isotope" : "latest"
+    "isotope" : "latest",
+    "jquery.maskedinput" : "latest"
   },
   "ignore": [
     "**/.*",

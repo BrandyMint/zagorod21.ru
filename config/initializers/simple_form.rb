@@ -5,7 +5,7 @@ SimpleForm.setup do |config|
   # wrapper, change the order or even add your own to the
   # stack. The options given below are used to wrap the
   # whole input.
-  config.wrappers :default, class: :input,
+  config.wrappers :default,
     hint_class: :field_with_hint, error_class: :field_with_errors do |b|
     ## Extensions enabled by default
     # Any of these extensions can be disabled for a
@@ -45,8 +45,24 @@ SimpleForm.setup do |config|
     b.use :error, wrap_with: { tag: :span, class: :error }
   end
 
+  config.wrappers :order, tag: :div, class: 'form-group row',
+                error_class: :error do |b|
+
+  # Form extensions
+  b.use :html5
+  b.optional :pattern
+  b.use :placeholder
+  b.use :readonly
+
+  # Form components
+  b.use :label
+  b.use :input, class: 'form-control'
+  b.use :hint,  wrap_with: { tag: :span, class: :hint }
+  b.use :error, wrap_with: { tag: :span, class: :error }
+end
+
   # The default wrapper to be used by the FormBuilder.
-  config.default_wrapper = :default
+  config.default_wrapper = :order
 
   # Define the way to render check boxes / radio buttons with labels.
   # Defaults to :nested for bootstrap config.
@@ -132,7 +148,7 @@ SimpleForm.setup do |config|
   # config.country_priority = nil
 
   # When false, do not use translations for labels.
-  # config.translate_labels = true
+  config.translate_labels = true
 
   # Automatically discover new inputs in Rails' autoload path.
   # config.inputs_discovery = true

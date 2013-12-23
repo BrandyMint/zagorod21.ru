@@ -5,6 +5,7 @@
 #= require bootstrap-datepicker
 #= require datepicker_defaults
 #= require isotope/jquery.isotope.min
+#= require jquery.maskedinput/jquery.maskedinput.min
 
 # require jquery.freetile
 # require jquery_ujs
@@ -30,5 +31,8 @@ $ ->
   #  width: 'element'
 
   $('.datepicker').zagorod_picker()
+  $('.date_from').on 'changeDate', (e) ->
+      from_date = $(this).datepicker 'getDate'
+      $('.date_to').datepicker('setStartDate', from_date)
 
   return

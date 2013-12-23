@@ -12,4 +12,5 @@ $ ->
     @datepicker
       language: "ru"
       autoclose: true
+      startDate: new Date()
       format: "dd.mm.yyyy"
