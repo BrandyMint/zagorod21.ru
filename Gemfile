@@ -28,7 +28,7 @@ gem 'authority'
 gem 'semver2'
 
 gem 'meta-tags', :require => 'meta_tags'
-gem 'phrasing', :git => 'git://github.com/BrandyMint/phrasing.git'
+#gem 'phrasing', :git => 'git://github.com/BrandyMint/phrasing.git'
 
 # Модели, value object и form objects
 # gem 'phony_rails', :git => 'git://github.com/joost/phony_rails.git'

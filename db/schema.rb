@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131217133113) do
+ActiveRecord::Schema.define(version: 20131223084517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,14 +127,6 @@ ActiveRecord::Schema.define(version: 20131217133113) do
 
   create_table "phrasing_phrase_versions", force: true do |t|
     t.string   "phrasing_phrase_id"
-    t.text     "value"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "phrasing_phrases", force: true do |t|
-    t.string   "locale"
-    t.string   "key"
     t.text     "value"
     t.datetime "created_at"
     t.datetime "updated_at"
