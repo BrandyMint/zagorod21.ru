@@ -11,7 +11,7 @@ class Cora::Repository
   end
 
   def get_phrase key
-    Cora::Phrase.where(key: key, locale: locale).try :value
+    Cora::Phrase.where(key: key, locale: locale).first
   end
 
   private
