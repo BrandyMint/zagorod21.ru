@@ -7,7 +7,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :services, 'Услуги', page_path(slug: 'services')
     #primary.item :feedback, 'Отзывы', feedback_url
 
-    if curren_admin_user.present?
+    if current_admin_user.present?
       primary.item :admin, 'Админка', admin_root_url
     end
 
