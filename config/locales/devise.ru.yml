@@ -4,18 +4,6 @@
 # другие переводы: https://github.com/tigrish/devise-i18n/blob/master/locales/ru.yml
  
 ru:
-  errors:
-    messages:
-      expired: "устарела. Пожалуйста, запросите новую"
-      not_found: "не найдена"
-      already_confirmed: "уже подтверждена. Пожалуйста, попробуйте войти в систему"
-      not_locked: "не заблокирована"
-      not_saved:
-        one: "%{resource}: сохранение не удалось из-за %{count} ошибки"
-        few: "%{resource}: сохранение не удалось из-за %{count} ошибок"
-        many: "%{resource}: сохранение не удалось из-за %{count} ошибок"
-        other: "%{resource}: сохранение не удалось из-за %{count} ошибки"
- 
   devise:
     failure:
       already_authenticated: "Вы уже вошли в систему."
