@@ -1,5 +1,6 @@
 %h2
   Новый заказ на #{@site}
+%p= link_to 'в админке', admin_order_url(@order)
 %p
   %b На имя:
   = @order.name
@@ -14,10 +15,10 @@
   = @order.people_quantity
 %p
   %b Оплата транспорта:
-  = @order.use_transport
+  = @order.transport
 %p
   %b Питание:
-  = @order.food_state
+  = @order.food
 %p
   %b Итого:
   = @order.money_amount
