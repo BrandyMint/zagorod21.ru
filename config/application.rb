@@ -25,5 +25,10 @@ module Zagorod
     config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
 
+    [:cora].each do |dir|
+      config.paths.add "app/#{dir}", glob: "**/*.rb"
+      config.autoload_paths += Dir["#{Rails.root}/app/#{dir}/*"]
+    end
+
   end
 end

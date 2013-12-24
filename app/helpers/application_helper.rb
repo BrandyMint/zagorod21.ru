@@ -1,8 +1,4 @@
 module ApplicationHelper
-  def phrase key, *opts
-    key
-  end
-
   def app_version
     content_tag :span, :data => { :version => Zagorod.version.to_s } do
       'v' + Zagorod.version.format( "%M.%m.%p" )

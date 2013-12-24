@@ -1,0 +1,1 @@
+Cora.config.autocreate = true
