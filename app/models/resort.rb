@@ -3,7 +3,7 @@ class Resort < ActiveRecord::Base
   scope :active, -> { where active: true }
 
   has_many :houses
-  has_many :images, as: :resource
+  has_many :images, as: :resource, dependent: :destroy
   belongs_to :preview, class_name: 'Image'
 
   def to_s

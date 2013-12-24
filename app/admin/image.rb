@@ -69,13 +69,6 @@ ActiveAdmin.register Image do
       super
     end
 
-    def destroy
-      image = Image.find params[:id]
-      resource = image.resource
-      image.destroy
-      redirect_to admin_images_url(q: { resource_type_eq: resource.class.to_s, resource_id_eq: resource.id}), notice: "Изображение удалено."
-    end
-
   private
     def resource_filter?
       params[:q].present? &&

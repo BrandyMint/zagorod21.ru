@@ -3,7 +3,7 @@ class House < ActiveRecord::Base
   scope :active, -> { where active: true }
 
   belongs_to :resort
-  has_many :images, as: :resource
+  has_many :images, as: :resource, dependent: :destroy
   belongs_to :preview, class_name: 'Image'
 
   validates :title, presence: true, uniqueness: { scope: :resort_id }
