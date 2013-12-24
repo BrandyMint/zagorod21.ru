@@ -10,7 +10,7 @@ ActiveAdmin.register Service do
       f.input :price
     end
     f.inputs  do
-      f.input :summary, as: :html_editor
+      f.input :summary
     end
 
     #f.has_many :images do |image|

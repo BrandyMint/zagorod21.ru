@@ -4,8 +4,8 @@ ActiveAdmin.register Resort do
     f.semantic_errors *f.object.errors.keys
     f.inputs do
       f.input :title
-      f.input :summary, as: :html_editor
-      f.input :description, as: :html_editor
+      f.input :summary
+      f.input :description
       f.input :distance
       f.input :time
       f.input :map_iframe

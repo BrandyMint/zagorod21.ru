@@ -4,7 +4,7 @@ ActiveAdmin.register Page do
     f.inputs do
       f.input :title
       f.input :slug
-      f.input :body, as: :html_editor
+      f.input :body
     end
 
     f.actions

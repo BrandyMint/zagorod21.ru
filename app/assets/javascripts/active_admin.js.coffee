@@ -1,5 +1,6 @@
 #= require active_admin/base
 #= require jquery-fileupload/basic
+#= require tinymce
 
 $ ->
   $('#new_image').fileupload
@@ -11,3 +12,11 @@ $ ->
       alert 'Фотография загружена.'
     error: ->
       alert 'При загрузке фотографий вознкли ошибки, обновите страницу и попробуйте еще раз.'
+
+  tinymce.init
+    menubar : false
+    selector: "textarea"
+    theme: "modern"
+    toolbar: "undo redo | bold italic | fontselect |  fontsizeselect | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+    plugins: ['contextmenu','image', 'code', 'link']
+    convert_urls: false
