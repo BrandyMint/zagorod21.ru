@@ -6,7 +6,8 @@ class OrderDecorator < Draper::Decorator
   end
 
   def food
-    I18n.t("order.food_state.#{food_state}", price: Settings.services.send("food_#{food_state}"))
+    price = Settings.services.send("food_#{food_state}") unless food_state == 'none'
+    I18n.t("order.food_state.#{food_state}", price: price)
   end
 
   def stay_dates

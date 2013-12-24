@@ -1,6 +1,7 @@
 ActiveAdmin.register AdminUser do
   index do
     column :email
+    column :phone
     column :current_sign_in_at
     column :last_sign_in_at
     column :sign_in_count
@@ -12,14 +13,16 @@ ActiveAdmin.register AdminUser do
   form do |f|
     f.inputs "Admin Details" do
       f.input :email
+      f.input :phone, hint: 'Только цифры, без +7 и 8. Например: 9054443322'
       f.input :password
       f.input :password_confirmation
+      f.input :accept_orders
     end
     f.actions
   end
   controller do
     def permitted_params
-      params.permit admin_user: [:email, :password, :password_confirmation]
+      params.permit admin_user: [:email, :password, :password_confirmation, :phone, :accept_orders]
     end
   end
 end
