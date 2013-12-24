@@ -23,21 +23,25 @@ ActiveAdmin.register Image do
       h3 do
         link_to image.resource, admin_resource_url(image.resource)
       end
+
       div do
         link_to admin_image_url(image) do
           image_tag image.file.thumb.url
         end
       end
+
       div do
         image_preview_link(image, resource)
-      end if resource.present?
+      end if resource_page
     end
-
-    
   end
 
   sidebar :upload_images, :only => :index do
-    render "mass_upload_form"
+    if resource_page
+      render "mass_upload_form"
+    else
+      'Загрузка изображений доступна только на странице изображений дома/базы.'
+    end
   end
 
   form do |f|
@@ -60,6 +64,7 @@ ActiveAdmin.register Image do
 
   controller do
     def index
+      @resource_page = resource_filter?
       @resource = params[:q][:resource_type_eq].constantize.find params[:q][:resource_id_eq] if resource_filter?
       super
     end
@@ -71,7 +76,7 @@ ActiveAdmin.register Image do
       redirect_to admin_images_url(q: { resource_type_eq: resource.class.to_s, resource_id_eq: resource.id}), notice: "Изображение удалено."
     end
 
-    private
+  private
     def resource_filter?
       params[:q].present? &&
       params[:q][:resource_type_eq] &&
