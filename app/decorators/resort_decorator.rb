@@ -1,6 +1,20 @@
 class ResortDecorator < Draper::Decorator
   delegate_all
 
+  def distance
+    h.distance source.distance
+  end
+
+  def price
+    prices = houses.map{|house| [house.price_bd, house.price_wd]}.flatten.uniq.sort
+
+    if prices.count > 1
+      "#{h.formatted_price(prices.first)} - #{h.money(prices.last)}".html_safe
+    else
+      h.formatted_price(prices.last)
+    end
+  end
+
   def common_image
     h.image_tag source.preview.file.common.url if source.preview.present?
   end

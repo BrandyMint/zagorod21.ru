@@ -9,6 +9,7 @@ ActiveAdmin.register Resort do
       f.input :distance
       f.input :time
       f.input :map_iframe
+      f.input :highlighted
       f.input :active
     end
 
@@ -21,6 +22,7 @@ ActiveAdmin.register Resort do
       image_tag resort.preview.file.thumb.url if resort.preview.present?
     end
     column :title
+    column :highlighted
     column :summary do |resort|
       simple_format resort.summary
     end

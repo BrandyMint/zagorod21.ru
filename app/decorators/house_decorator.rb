@@ -2,7 +2,7 @@ class HouseDecorator < Draper::Decorator
   delegate_all
 
   def css_class
-    source.selected? ? 'warning' : ''
+    resort.highlighted? ? 'warning' : ''
   end
 
   def common_image
@@ -49,14 +49,12 @@ class HouseDecorator < Draper::Decorator
   end
 
   def distance
-    "#{h.number_with_precision source.distance, precision: 0} км."
+    h.distance source.distance
   end
 
   def time
     "#{source.time} мин."
   end
-
-
 
   # Define presentation-specific methods here. Helpers are accessed through
   # `helpers` (aka `h`). You can override attributes, for example:

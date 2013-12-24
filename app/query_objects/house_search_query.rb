@@ -22,7 +22,7 @@ class HouseSearchQuery
   private
 
   def default_scope
-    House.includes(:resort).ordered
+    House.includes(:resort).active
   end
 
   def scope
@@ -30,9 +30,15 @@ class HouseSearchQuery
   end
 
   def add_sorting
-    if @sort_form.valid?
-      @scope = @scope.order "#{sql_column} #{@sort_form.order}"
+    @scope = if @sort_form.valid?
+      @scope.order "#{sql_column} #{@sort_form.order}"
+    else
+      default_sort
     end
+  end
+
+  def default_sort
+    @scope.order("price_bd DESC").order("resorts.highlighted DESC")
   end
 
   def sql_column

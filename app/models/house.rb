@@ -1,6 +1,5 @@
 class House < ActiveRecord::Base
-
-  scope :ordered, -> { active.order(:created_at) }
+  scope :ordered, -> { active.order("price_bd DESC") }
   scope :active, -> { where active: true }
 
   belongs_to :resort

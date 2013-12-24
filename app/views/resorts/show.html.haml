@@ -7,7 +7,12 @@
 .row
   .col-sm-6.col-md-8
     %p
-      = @resort.description
+      %b Расстояние до базы:
+      = @resort.distance
+    %p
+      %b Стоимость проживания в день:
+      = @resort.price
+    %p= @resort.description
 
 = render 'houses', houses: @houses
 .row

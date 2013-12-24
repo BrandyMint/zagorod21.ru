@@ -51,6 +51,14 @@ module ApplicationHelper
     "<nowrap>#{number_to_currency price, precision: 0}</nowrap>".html_safe
   end
 
+  def formatted_price price
+    number_with_precision(price, precision: 0, delimiter: ' ')
+  end
+
+  def distance dist
+    "#{number_with_precision dist, precision: 0} км."
+  end
+
   def date_from_placeholder
     I18n.l Date.today, format: :dots_separated
   end
