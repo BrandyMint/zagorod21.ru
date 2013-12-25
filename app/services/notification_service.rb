@@ -23,6 +23,7 @@ class NotificationService
   end
 
   def send_sms message, phone=Settings.sms_phone
-    LittleSms.send_sms(phone, message)
+    params = Rails.env == 'production' ? {} : {test: 1}
+    LittleSms.send_sms(phone, message, params)
   end
 end

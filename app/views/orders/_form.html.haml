@@ -8,6 +8,7 @@
       %br
       = f.input_field :date_from, as: :date_picker, placeholder: 'приезд', role: 'estimate_sensitive'
       = f.input_field :date_to, as: :date_picker, placeholder: 'отъезд', role: 'estimate_sensitive'
+      = f.error :dates
     .form-group.form_input_block
       .col-md-5
         = f.label :people_quantity
@@ -35,8 +36,7 @@
     %h5.form_split Контактные данные
 
     = f.input :name, placeholder: 'Иван Петров'
-    = f.input :phone, placeholder: '+7 (905) 123-45-67'
-    = f.input :email, placeholder: 'hello@mail.com'
+    = f.input :phone, placeholder: '+7 (905) 123-45-67', input_html: {class: 'masked_phone'}
     
 
     .form-actions
