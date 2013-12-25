@@ -1,15 +1,13 @@
 %div.order_block
   %h2 Заказать дом
-  = simple_form_for order_form, :html => { :class => 'form-horizontal' }, wrapper: :order do |f|
+  = simple_form_for order_form, html: {class: 'form-horizontal', role: "form"}, wrapper: :order do |f|
     = f.error_notification
-    = f.input :name, placeholder: 'Иван Петров'
-    = f.input :phone, placeholder: '+7 (905) 123-45-67', input_html: {class: 'masked_phone'}
-    = f.input :email, placeholder: 'hello@mail.com'
+    %h5.form_split Количество гостей и время пребывания
     .form-group
       %label Даты пребывания
       %br
-      = f.input_field :date_from, as: :date_picker, placeholder: date_from_placeholder, role: 'estimate_sensitive'
-      = f.input_field :date_to, as: :date_picker, placeholder: date_to_placeholder, role: 'estimate_sensitive'
+      = f.input_field :date_from, as: :date_picker, placeholder: 'приезд', role: 'estimate_sensitive'
+      = f.input_field :date_to, as: :date_picker, placeholder: 'отъезд', role: 'estimate_sensitive'
     .form-group.form_input_block
       .col-md-5
         = f.label :people_quantity
@@ -18,6 +16,7 @@
 
       = f.input_field :money_amount, as: :hidden
 
+    %h5.form_split Питание и транспорт
     .form-group.form_input_block
       .col-md-10
         = f.label :use_transport, I18n.t("simple_form.labels.defaults.use_transport", price: Settings.services.transport)
@@ -29,9 +28,16 @@
 
     .form-group.form_input_block
       .col-md-2
-        Итого:
+        %b Итого:
       .col-md-2{style: "font-size: 1.25em"}
         %span#order_price
+
+    %h5.form_split Контактные данные
+
+    = f.input :name, placeholder: 'Иван Петров'
+    = f.input :phone, placeholder: '+7 (905) 123-45-67'
+    = f.input :email, placeholder: 'hello@mail.com'
+    
 
     .form-actions
       = f.button :submit, :class => 'btn-primary', value: 'Заказать'
