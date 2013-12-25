@@ -2,7 +2,10 @@
 
 FactoryGirl.define do
   factory :order do
-    house nil
-    phone "MyString"
+    house
+    phone "1234567890"
+    name 'name'
+    money_amount 10000
+    people_quantity 2
   end
 end

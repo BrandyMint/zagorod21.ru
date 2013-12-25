@@ -10,8 +10,10 @@ describe HousesController do
   end
 
   describe "GET 'show'" do
+    let(:house_id){FactoryGirl.create(:house).id}
+
     it "returns http success" do
-      get 'show'
+      get 'show', id: house_id
       response.should be_success
     end
   end

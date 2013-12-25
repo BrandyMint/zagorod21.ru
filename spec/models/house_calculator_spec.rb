@@ -9,10 +9,10 @@ describe HouseCalculator do
   let(:date_to) { Date.parse('2013-12-07') }
   let(:days) { (date_to - date_from).to_i }
 
-  let(:form_object) { double :form_object,
+  let(:form_object) { double :search_form,
                       food_state: food_state,
                       people_quantity: quantity,
-                      use_transport?: true,
+                      use_transport: true,
                       date_from: date_from,
                       date_to: date_to }
 
@@ -20,6 +20,7 @@ describe HouseCalculator do
   let(:services) { Hashie::Mash.new transport: 20, food_inplace: 1500, food_catering: 350 } 
 
   before do
+    form_object.stub(:days) {(date_to - date_from).to_i}
     Settings.stub(:services) { services }
   end
 
