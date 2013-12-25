@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :search_form, :sort_form, :order_form
 
   before_filter :add_meta_tags
+  HOUSES_PER_PAGE = 8
 
   private
 

@@ -1,9 +1,8 @@
 class WelcomeController < ApplicationController
-  PER_PAGE = 8
 
   def index
     hsq = HouseSearchQuery.new search_form, sort_form
-    @estimates = Kaminari.paginate_array(hsq.estimates).page(params[:page]).per(PER_PAGE)
+    @estimates = Kaminari.paginate_array(hsq.estimates).page(params[:page]).per(HOUSES_PER_PAGE)
     render layout: 'application_wide'
   end
 
