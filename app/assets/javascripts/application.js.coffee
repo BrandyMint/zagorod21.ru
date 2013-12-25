@@ -6,6 +6,7 @@
 #= require datepicker_defaults
 #= require isotope/jquery.isotope.min
 #= require jquery.maskedinput/jquery.maskedinput.min
+#= require spin.js/dist/spin.min
 
 # require jquery.freetile
 # require jquery_ujs
@@ -34,5 +35,6 @@ $ ->
   $('.date_from').on 'changeDate', (e) ->
       from_date = $(this).datepicker 'getDate'
       $('.date_to').datepicker('setStartDate', from_date)
+      $('.date_to').datepicker('show')
 
   return

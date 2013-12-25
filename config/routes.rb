@@ -9,6 +9,10 @@ Zagorod::Application.routes.draw do
   resources :services, only: :index
   resources :orders, only: [:create, :show]
 
+  namespace :api do
+    post 'orders/estimate'
+  end
+
   get 'pages/:slug' => 'pages#show', as: 'page'
 
   get 'feedback', to: 'welcome#feedback'

@@ -4,7 +4,8 @@
   "dependencies": {
     "jquery.role": "git://github.com/kossnocorp/role",
     "isotope" : "latest",
-    "jquery.maskedinput" : "latest"
+    "jquery.maskedinput" : "latest",
+    "spin.js" : "latest"
   },
   "ignore": [
     "**/.*",

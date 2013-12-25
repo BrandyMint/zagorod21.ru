@@ -10,10 +10,3 @@
         = f.input :people_quantity, collection: people_quantity_collection, include_blank: false, label: 'Гостей'
       .col-sm-4
         = f.button :submit, :class => 'btn-success btn btn-lg btn-block search-btn', value: 'Найти'
-
-:javascript
-  $('#search_form_date_from').on('hide', function(){
-    if ($(this).val() != ""){
-      $('#search_form_date_to').datepicker('show');
-    }
-  })
