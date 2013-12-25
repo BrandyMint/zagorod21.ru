@@ -39,4 +39,10 @@ $ ->
       $('.date_to').datepicker('setStartDate', from_date)
       $('.date_to').datepicker('show')
 
+  $('tr.clickable_tr').on 'click', (e) ->
+    e.preventDefault()
+    e.stopPropagation()
+    window.location.href = $(this).data('url')
+
+
   return

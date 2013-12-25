@@ -7,11 +7,10 @@
       %th= sortable_column :price
       %th= sortable_column :capacity
       %th Заказ
-
   %tbody
     - @houses.each do |house|
       - house = HouseDecorator.new house
-      %tr{id: "house_#{house.id}", class: house.css_class}
+      %tr{id: "house_#{house.id}", class: "#{house.css_class} clickable_tr", 'data-url' => house_url(house)}
         %td
           = link_to house_url(house) do
             = house.preview_image
@@ -26,5 +25,7 @@
         %td= house.capacity
         %td
           = link_to 'Заказать', house_url(house), class: 'btn btn-success'
+
+= paginate @houses
 
 
