@@ -26,6 +26,8 @@ module ApplicationHelper
   end
 
   def people_quantity_collection house=nil
+    return [1] if House.count==0
+
     min = House.min_people_capacity
     max = house.present? ? house.capacity : House.max_people_capacity
     collection = {}
