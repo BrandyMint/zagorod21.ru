@@ -18,11 +18,11 @@ ActiveAdmin.register Resort do
 
   index do
     column :active
+    column :highlighted
     column :preview do |resort|
       image_tag resort.preview.file.thumb.url if resort.preview.present?
     end
     column :title
-    column :highlighted
     column :summary do |resort|
       simple_format resort.summary
     end

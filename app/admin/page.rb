@@ -9,5 +9,24 @@ ActiveAdmin.register Page do
 
     f.actions
   end
+
+  index do
+    column :id
+    column :slug
+    column :title
+    column :body do |page|
+      truncate_html page.body.html_safe
+    end
+    actions
+  end
+
+  show do
+    h3 page.title
+    h4 page.slug
+    div do
+      page.body.html_safe
+    end
+  end
+
   permit_params *Page.attribute_names
 end

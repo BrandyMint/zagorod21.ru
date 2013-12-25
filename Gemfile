@@ -14,6 +14,8 @@ gem 'pg_array_parser'
 
 gem 'settingslogic'
 
+gem 'truncate_html'
+
 gem "fotoramajs", "~> 4.4.8"
 gem 'tinymce-rails'
 
