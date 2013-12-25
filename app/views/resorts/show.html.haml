@@ -12,7 +12,7 @@
     %p
       %b Стоимость проживания в день:
       = @resort.price
-    = simple_form @resort.description
+    = simple_format @resort.description
 
 = render 'houses', houses: @houses
 .row
