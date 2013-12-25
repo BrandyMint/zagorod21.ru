@@ -2,7 +2,7 @@ class HouseCalculator
   attr_reader :form_object
   attr_reader :estimation
 
-  delegate :days, :food_state, :people_quantity, :use_transport?, :date_from, :date_to, to: :form_object
+  delegate :days, :food_state, :people_quantity, :use_transport, :date_from, :date_to, to: :form_object
 
   def initialize house, form_object
     @house = house
@@ -27,7 +27,7 @@ class HouseCalculator
   end
 
   def summa_of_transport
-    if use_transport?
+    if use_transport
       2 * @house.resort.distance * Service[:transport]
     else
       0

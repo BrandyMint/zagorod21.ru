@@ -8,32 +8,35 @@
     .form-group
       %label Даты пребывания
       %br
-      = f.input_field :date_from, as: :date_picker, placeholder: date_from_placeholder
-      = f.input_field :date_to, as: :date_picker, placeholder: date_to_placeholder
+      = f.input_field :date_from, as: :date_picker, placeholder: date_from_placeholder, role: 'estimate_sensitive'
+      = f.input_field :date_to, as: :date_picker, placeholder: date_to_placeholder, role: 'estimate_sensitive'
     .form-group.form_input_block
       .col-md-5
         = f.label :people_quantity
       .col-md-3
-        = f.input_field :people_quantity, collection: people_quantity_collection(house), include_blank: false
+        = f.input_field :people_quantity, collection: people_quantity_collection(house), include_blank: false, role: 'estimate_sensitive'
 
-    .form-group.form_input_block
-      .col-md-2
-        = f.label :money_amount
-      .col-md-2{style: "padding-top: 6px;"}
-        10000
-      = f.input_field :money_amount, value: 10000, as: :hidden
+      = f.input_field :money_amount, as: :hidden
 
     .form-group.form_input_block
       .col-md-10
         = f.label :use_transport, I18n.t("simple_form.labels.defaults.use_transport", price: Settings.services.transport)
       .col-md-2{style: "margin-top: -7px;"}
-        = f.input_field :use_transport, as: :boolean
+        = f.input_field :use_transport, as: :boolean, role: 'estimate_sensitive'
 
-    = f.input :food_state, label: 'Питание', collection: food_states_collection, include_blank: false, as: :radio_buttons
+    = f.input :food_state, label: 'Питание', collection: food_states_collection, include_blank: false, as: :radio_buttons, input_html: {role: 'estimate_sensitive'}
     = f.input_field :house_id, as: :hidden, value: house.id
+
+    .form-group.form_input_block
+      .col-md-2
+        Итого:
+      .col-md-2{style: "font-size: 1.25em"}
+        %span#order_price
 
     .form-actions
       = f.button :submit, :class => 'btn-primary', value: 'Заказать'
+
+= javascript_include_tag 'estimate_order'
 
 :javascript
   $(function(){
