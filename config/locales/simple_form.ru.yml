@@ -31,7 +31,7 @@ ru:
         date_to: Выезд
         people_quantity: Количество гостей
         money_amount: Сумма
-        use_transport: "Транспорт в обе стороны (%{price}р. за 1 км.)"
+        use_transport: "Транспорт в обе стороны (%{price} руб)"
       order:
         name: Ваше имя
     placeholders:
