@@ -1,7 +1,7 @@
 export RAILS_ENV=test
 export PGOPTIONS=--client-min-messages=warning
 
-cp -f ./config/database.yml.example ./config/database.yml
+cp -f ./config/database.yml.test ./config/database.yml
 mkdir -p tmp/capybara
 
 #bundle install --without development
