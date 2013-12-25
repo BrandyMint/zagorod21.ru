@@ -1,11 +1,11 @@
 {
   "built_on": "master",
-  "duration": 11.203999966,
-  "full_display_name": "zagorod #6",
-  "id": "2013-12-25_15-36-31",
-  "number": 6,
+  "duration": 29.097999901,
+  "full_display_name": "zagorod #7",
+  "id": "2013-12-25_15-38-22",
+  "number": 7,
   "result": "FAILURE",
   "status_message": "?",
-  "time": "2013-12-25 15:36:31 +0400",
-  "url": "job/zagorod/6/"
+  "time": "2013-12-25 15:38:22 +0400",
+  "url": "job/zagorod/7/"
 }
