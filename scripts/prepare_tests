@@ -1,0 +1,8 @@
+export RAILS_ENV=test
+export PGOPTIONS=--client-min-messages=warning
+
+cp -f ./config/database.yml.example ./config/database.yml
+mkdir -p tmp/capybara
+
+#bundle install --without development
+#bundle install && bundle exec rake db:drop db:create db:migrate && bundle exec rake org:db:drop && bundle exec rake org:db:create && bundle exec rake org:db:migrate && bower install
