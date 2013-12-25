@@ -52,6 +52,11 @@ class HouseDecorator < Draper::Decorator
     h.distance source.distance
   end
 
+  def transfer_price
+    price = 2 * resort.distance * Settings.services.transport
+    h.number_with_precision(price, precision: 0, delimiter: ' ')
+  end
+
   def time
     "#{source.time} мин."
   end
