@@ -1,5 +1,7 @@
 $ ->
   estimate = ->
+    return unless $(this).closest('form').length
+    console.log $(this).closest('form')
     params = $(this).closest('form').serializeArray()
     outputEl = $('span#order_price')
     inputField = $('input#order_money_amount')
