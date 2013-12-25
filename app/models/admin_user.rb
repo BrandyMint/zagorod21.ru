@@ -7,7 +7,7 @@ class AdminUser < ActiveRecord::Base
   scope :order_notify, -> {where(accept_orders: true)}
 
   validate do
-    if accept_orders_changed? && accept_orders && (phone.blank? || email.blank?)
+    if self.class.attribute_names.include?('accept_orders') && accept_orders_changed? && accept_orders && (phone.blank? || email.blank?)
       self.errors.add :accept_orders, 'Чтобы получить сообщений о заказах, необходимо заполнить email и телефон.'
     end
   end
