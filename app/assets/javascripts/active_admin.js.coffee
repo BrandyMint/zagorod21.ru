@@ -17,6 +17,6 @@ $ ->
     menubar : false
     selector: "textarea"
     theme: "modern"
-    toolbar: "undo redo | bold italic | fontselect |  fontsizeselect | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
-    plugins: ['contextmenu','image', 'code', 'link']
+    toolbar: "undo redo | bold italic | styleselect | fontselect | fontsizeselect | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+    plugins: ['contextmenu','image', 'code', 'link', 'preview', 'table']
     convert_urls: false
