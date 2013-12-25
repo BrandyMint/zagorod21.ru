@@ -3,7 +3,7 @@
   = simple_form_for order_form, :html => { :class => 'form-horizontal' }, wrapper: :order do |f|
     = f.error_notification
     = f.input :name, placeholder: 'Иван Петров'
-    = f.input :phone, placeholder: '+7 (905) 123-45-67'
+    = f.input :phone, placeholder: '+7 (905) 123-45-67', input_html: {class: 'masked_phone'}
     = f.input :email, placeholder: 'hello@mail.com'
     .form-group
       %label Даты пребывания
@@ -35,10 +35,3 @@
 
     .form-actions
       = f.button :submit, :class => 'btn-primary', value: 'Заказать'
-
-= javascript_include_tag 'estimate_order'
-
-:javascript
-  $(function(){
-    $('#order_phone').mask("+7 (999) 999-99-99")
-  })

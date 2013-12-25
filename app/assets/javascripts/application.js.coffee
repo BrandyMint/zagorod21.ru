@@ -7,6 +7,7 @@
 #= require isotope/jquery.isotope.min
 #= require jquery.maskedinput/jquery.maskedinput.min
 #= require spin.js/dist/spin.min
+#= require estimate_order
 
 # require jquery.freetile
 # require jquery_ujs
@@ -30,11 +31,18 @@ $ ->
   # $('input.select2').select2()
   # $('select.select2').select2
   #  width: 'element'
+  $('.masked_phone').mask("+7 (999) 999-99-99")
 
   $('.datepicker').zagorod_picker()
   $('.date_from').on 'changeDate', (e) ->
       from_date = $(this).datepicker 'getDate'
       $('.date_to').datepicker('setStartDate', from_date)
       $('.date_to').datepicker('show')
+
+  $('tr.clickable_tr').on 'click', (e) ->
+    e.preventDefault()
+    e.stopPropagation()
+    window.location.href = $(this).data('url')
+
 
   return
