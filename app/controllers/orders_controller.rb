@@ -22,6 +22,8 @@ class OrdersController < ApplicationController
   end
 
   def params_with_clean_phone
+    return params[:order] unless params[:order][:phone]
+
     raw_phone = params[:order][:phone]
     clean_phone = raw_phone[4,3] + raw_phone[9,3] + raw_phone[13,2] + raw_phone[16,2]
     params[:order].merge(phone: clean_phone)
