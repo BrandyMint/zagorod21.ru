@@ -12,6 +12,10 @@
     %p
       %b Стоимость проживания в день:
       = @resort.price
+    %p
+      %b Сайт:
+      = link_to @resort.site, @resort.site
+
     = simple_format @resort.description
 
 = render 'houses', houses: @houses

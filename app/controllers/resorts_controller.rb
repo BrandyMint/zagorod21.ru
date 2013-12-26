@@ -1,6 +1,6 @@
 class ResortsController < ApplicationController
   def index
-    @resorts = Resort.ordered
+    @resorts = Resort.with_active_houses
   end
 
   def show
