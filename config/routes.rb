@@ -3,6 +3,7 @@ Zagorod::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root 'welcome#index'
+  get 'welcome/houses_rows'
 
   resources :houses, only: [:index, :show]
   resources :resorts, only: [:index, :show]
