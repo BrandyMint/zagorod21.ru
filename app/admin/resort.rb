@@ -6,6 +6,7 @@ ActiveAdmin.register Resort do
       f.input :title
       f.input :summary
       f.input :description
+      f.input :site
       f.input :distance
       f.input :time
       f.input :map_iframe
@@ -46,6 +47,7 @@ ActiveAdmin.register Resort do
         link_to 'Публичная страница', resort_url(resort)
       end
       row :title
+      row :site
       row :description do
         simple_format resort.description
       end

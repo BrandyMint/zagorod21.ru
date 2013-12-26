@@ -1,6 +1,7 @@
 class Resort < ActiveRecord::Base
   scope :ordered, -> { active.order(:created_at) }
   scope :active, -> { where active: true }
+  scope :with_active_houses, -> {joins(:houses).where('houses.active' => true).uniq.ordered}
 
   has_many :houses
   has_many :images, as: :resource, dependent: :destroy

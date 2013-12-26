@@ -38,7 +38,7 @@ class HouseSearchQuery
   end
 
   def default_sort
-    @scope.order("price_bd DESC").order("resorts.highlighted DESC")
+    @scope.order("price_bd ASC").order("resorts.highlighted DESC")
   end
 
   def sql_column
