@@ -1,0 +1,19 @@
+- estimates.each do |estimate|
+  - house = HouseDecorator.new estimate.house
+  - e = EstimateDecorator.new estimate
+  = link_to house_url(house), class: 'house' do
+    %table.table.table-condensed.table-hover
+      %tbody
+        %tr{id: "house_#{house.id}", class: house.css_class, style: 'width: 15%'}
+          %td{style: 'width: 15%'}
+            = link_to house_url(house) do
+              = house.preview_image
+          %td.house_summary{style: 'width: 42%'}
+            %h3= link_to house.resort.title, resort_url(house.resort)
+            = link_to house.title, house_url(house)
+            %p
+              %i= simple_format house.summary
+          %td{style: 'width: 10%'}= house.distance
+          %td{style: 'width: 5%'}= house.price
+          %td{style: 'width: 10%'}= house.capacity
+          %td{style: 'width: 13%'}= e.button

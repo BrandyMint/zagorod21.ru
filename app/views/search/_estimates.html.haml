@@ -1,0 +1,13 @@
+%table.table.table-condensed
+  %thead
+    %tr
+      %th{style: 'width: 15%'} Дом
+      %th{style: 'width: 42%'} Описание
+      %th{style: 'width: 10%'}= sortable_column :distance
+      %th{style: 'width: 5%'}= sortable_column :price
+      %th{style: 'width: 10%'}= sortable_column :capacity
+      %th{style: 'width: 13%'} &nbsp;
+
+%div#houses{'data-page' => @page, 'data-complete' => "#{@estimates.empty?}"}
+  = render 'search/estimates_rows', estimates: @estimates
+.spinner
