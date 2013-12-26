@@ -21,10 +21,12 @@
 
 $ ->
   $('@tooltip').tooltip()
-  $('.fotorama').fotorama
+  $(".fotorama").fotorama
+    fit: 'scaledown'
     thumbspreview: true
     shadows: false
-    #allowfullscreen: 'native'
+    allowfullscreen: 'native'
+
   # preview$('#freetile').freetile()
   # $('input.ui-date-picker').datepicker()
   # $('input.ui-datetime-picker').datetimepicker()
