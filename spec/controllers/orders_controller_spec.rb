@@ -12,10 +12,11 @@ describe OrdersController do
   end
 
   describe "GET 'show'" do
-    let(:order_id){FactoryGirl.create(:order).id}
+
+    let(:order){ create :order }
 
     it "returns http success" do
-      get 'show', id: order_id
+      get 'show', id: order.id
       response.should be_success
     end
   end

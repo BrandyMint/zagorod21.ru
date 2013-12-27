@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
       NotificationService.new.new_order(@order)
       redirect_to order_path(@order)
     else
+      raise "Нет дома" unless @order.house.present?
       @house = @order.house.decorate
       render 'houses/show'
     end
@@ -22,8 +23,8 @@ class OrdersController < ApplicationController
   end
 
   def params_with_clean_phone
+    return ActionController::Parameters.new unless params[:order].is_a? Hash
     return params[:order] unless params[:order][:phone]
-
     raw_phone = params[:order][:phone]
     clean_phone = raw_phone[4,3] + raw_phone[9,3] + raw_phone[13,2] + raw_phone[16,2]
     params[:order].merge(phone: clean_phone)

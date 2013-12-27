@@ -5,12 +5,11 @@ describe HouseCalculator do
   let(:house) { double :house, resort: resort, price_wd: 1000, price_bd: 1500 }
   let(:quantity) { 12 }
   let(:food_state) { 'catering' }
-  let(:date_from) { Date.parse('2013-12-06') }
-  let(:date_to) { Date.parse('2013-12-07') }
+  let(:date_from) { '2013-12-06' }
+  let(:date_to) { '2013-12-07' }
   let(:days) { (date_to - date_from).to_i }
 
-  let(:form_object) { double :search_form,
-                      food_state: food_state,
+  let(:form_object) { SearchForm.new food_state: food_state,
                       people_quantity: quantity,
                       use_transport: true,
                       date_from: date_from,
@@ -26,7 +25,7 @@ describe HouseCalculator do
 
   subject { calculator.estimate }
 
-  let(:result) { quantity*days*services.food_catering  + 2*resort.distance*services.transport + house.price_wd + house.price_bd }
+  let(:result) { quantity*form_object.days*services.food_catering  + 2*resort.distance*services.transport + house.price_wd + house.price_bd }
 
   it { should be_a Estimation }
   its(:total) { should eq result }
