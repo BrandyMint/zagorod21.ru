@@ -7,7 +7,8 @@ Zagorod::Application.routes.draw do
 
   resources :houses, only: [:index, :show]
   resources :resorts, only: [:index, :show]
-  resources :services, only: :index
+  #resources :services, only: :index
+  get 'services', to: redirect('/pages/services')
   resources :orders, only: [:create, :show]
 
   namespace :api do
