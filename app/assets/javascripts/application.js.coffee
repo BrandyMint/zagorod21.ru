@@ -7,7 +7,7 @@
 #= require datepicker_defaults
 #= require isotope/jquery.isotope.min
 #= require jquery.maskedinput/jquery.maskedinput.min
-#= require spin.js/dist/spin.min
+#= require spin.js/spin.js
 #= require estimate_order
 #= require infinite_houses
 
