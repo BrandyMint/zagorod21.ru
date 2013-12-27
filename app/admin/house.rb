@@ -8,6 +8,7 @@ ActiveAdmin.register House do
       f.input :resort
       f.input :title
       f.input :capacity
+      f.input :rooms
       f.input :summary
       f.input :description
     end
@@ -33,6 +34,8 @@ ActiveAdmin.register House do
       end
       row :resort
       row :title
+      row :capacity
+      row :rooms
       row :description do
         simple_format house.description
       end
@@ -56,6 +59,7 @@ ActiveAdmin.register House do
     column :price_wd
     column :price_bd_hour
     column :capacity
+    column :rooms
     column :images do |house|
       ul do
         li link_to "Картинки #{house.images.count}", admin_resource_images_url(house)
