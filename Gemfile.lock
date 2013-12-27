@@ -490,6 +490,8 @@ GEM
     ruby_gntp (0.3.4)
     ruby_parser (3.2.2)
       sexp_processor (~> 4.1)
+    sanitize (2.0.6)
+      nokogiri (>= 1.4.4)
     sass (3.2.10)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -663,6 +665,7 @@ DEPENDENCIES
   ruby-graphviz
   ruby_gntp
   ruby_parser (>= 2.3.1)
+  sanitize
   sass-rails
   sdoc
   semver2
