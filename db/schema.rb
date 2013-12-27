@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131224101022) do
+ActiveRecord::Schema.define(version: 20131227073206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,12 @@ ActiveRecord::Schema.define(version: 20131224101022) do
   add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+
+  create_table "add_position_to_services", force: true do |t|
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "admin_users", force: true do |t|
     t.string   "email",                  default: "",    null: false
@@ -50,6 +56,13 @@ ActiveRecord::Schema.define(version: 20131224101022) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "cities", force: true do |t|
+    t.string   "title",      null: false
+    t.string   "slug",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "cora_phrases", force: true do |t|
     t.string   "locale",     default: "en", null: false
@@ -150,7 +163,10 @@ ActiveRecord::Schema.define(version: 20131224101022) do
     t.text     "summary"
     t.boolean  "active",      default: true,  null: false
     t.boolean  "highlighted", default: false
+    t.integer  "city_id"
   end
+
+  add_index "resorts", ["city_id"], name: "index_resorts_on_city_id", using: :btree
 
   create_table "services", force: true do |t|
     t.string   "title",                      null: false

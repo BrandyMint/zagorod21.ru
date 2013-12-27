@@ -11,6 +11,7 @@ defaults: &defaults
   default:
     # Дефолтное количество людей в форме поиска
     people_quantity: 4
+    current_city: 'cheboksary'
   app:
     #title: "За&#769; город!"
     title: "За город!"
