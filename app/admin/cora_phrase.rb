@@ -5,7 +5,7 @@ ActiveAdmin.register Cora::Phrase do
     f.inputs do
       f.input :locale, allow_blank: false, collection: [:en, :ru] # TODO cora_available_locales
       f.input :key
-      f.input :value, as: :html_editor
+      f.input :value
     end
     f.actions
   end
