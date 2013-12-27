@@ -6,7 +6,7 @@ class ResortDecorator < Draper::Decorator
   end
 
   def price
-    prices = houses.map{|house| [house.price_bd, house.price_wd]}.flatten.uniq.sort
+    prices = (houses.map(&:price_bd) + houses.map(&:price_wd)).compact.uniq.sort
 
     if prices.count > 1
       "#{h.formatted_price(prices.first)} - #{h.money(prices.last)}".html_safe
