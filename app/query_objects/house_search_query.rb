@@ -22,7 +22,7 @@ class HouseSearchQuery
   private
 
   def default_scope
-    House.includes(:resort).active
+    House.from(@form_object.city).active
   end
 
   def scope
