@@ -5,8 +5,8 @@ ActiveAdmin.register Resort do
     f.inputs do
       f.input :title
       f.input :city
-      f.input :summary
-      f.input :description
+      f.input :summary, as: :html_editor
+      f.input :description, as: :html_editor
       f.input :site
       f.input :distance
       f.input :time

@@ -9,8 +9,8 @@ ActiveAdmin.register House do
       f.input :title
       f.input :capacity
       f.input :rooms_count
-      f.input :summary
-      f.input :description
+      f.input :summary, as: :html_editor
+      f.input :description, as: :html_editor
     end
     f.inputs 'Цены' do
       f.input :price_bd
