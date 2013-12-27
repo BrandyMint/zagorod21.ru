@@ -14,6 +14,8 @@ gem 'pg_array_parser'
 
 gem 'settingslogic'
 
+gem 'sanitize'
+
 gem 'truncate_html'
 
 gem "fotoramajs", "~> 4.4.8"
