@@ -8,5 +8,6 @@
 
           = render 'search_form'
 .container
-  %h4 #{@matched_houses} из #{@all_houses} домов удовлетворяют вашему запросу
+  - if params[:search_form]
+    %h4 #{@matched_houses} из #{@all_houses} домов удовлетворяют вашему запросу
   = render 'search/estimates'

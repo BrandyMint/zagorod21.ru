@@ -1,4 +1,5 @@
 #= require jquery
+#= require jquery_ujs
 #= require jquery.role/lib/jquery.role
 #= require fotorama
 #= require bootstrap
@@ -11,7 +12,6 @@
 #= require infinite_houses
 
 # require jquery.freetile
-# require jquery_ujs
 # require jquery-ui
 # require jquery.ui.datepicker-ru
 # require select2
