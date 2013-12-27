@@ -1,4 +1,5 @@
 #= require jquery
+#= require jquery_ujs
 #= require jquery.role/lib/jquery.role
 #= require fotorama
 #= require bootstrap
@@ -8,9 +9,9 @@
 #= require jquery.maskedinput/jquery.maskedinput.min
 #= require spin.js/dist/spin.min
 #= require estimate_order
+#= require infinite_houses
 
 # require jquery.freetile
-# require jquery_ujs
 # require jquery-ui
 # require jquery.ui.datepicker-ru
 # require select2
