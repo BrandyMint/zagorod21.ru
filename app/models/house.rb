@@ -1,6 +1,7 @@
 class House < ActiveRecord::Base
   scope :ordered, -> { active.order("price_bd DESC") }
   scope :active, -> { where active: true }
+  scope :from, -> (city) {includes(:resort).where('resorts.city_id' => city.id)}
 
   belongs_to :resort
   has_many :images, as: :resource, dependent: :destroy

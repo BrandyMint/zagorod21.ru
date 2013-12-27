@@ -4,6 +4,7 @@ class SearchForm < FormObjectBase
   property :people_quantity
   property :use_transport # boolean
   property :food_state    # none, inplace, catering
+  property :city
 
   def initialize attrs
     super attrs
@@ -13,6 +14,7 @@ class SearchForm < FormObjectBase
     self.people_quantity = self.people_quantity.to_i
     self.date_from = Date.parse(date_from) if date_from.present?
     self.date_to = Date.parse(date_to) if date_to.present?
+    self.city = City.default_city
   end
 
   def use_transport?

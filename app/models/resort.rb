@@ -6,6 +6,7 @@ class Resort < ActiveRecord::Base
   has_many :houses
   has_many :images, as: :resource, dependent: :destroy
   belongs_to :preview, class_name: 'Image'
+  belongs_to :city
 
   def to_s
     "#{title} (база)"
