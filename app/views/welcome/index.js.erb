@@ -1,0 +1,4 @@
+var html = '<%= j (render "search/estimates_rows", estimates: @estimates) %>';
+$('#houses').append(html);
+$('#houses').attr('data-page', '<%= @page %>');
+$('#houses').attr('data-complete', '<%= @estimates.empty? %>');
