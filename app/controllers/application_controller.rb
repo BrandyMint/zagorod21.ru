@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
   before_filter :add_meta_tags
   HOUSES_PER_PAGE = 8
 
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+  end
+
   private
 
   def current_city
