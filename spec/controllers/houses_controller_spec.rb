@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe HousesController do
+  before do
+    City.stub(:default_city){FactoryGirl.create :city}
+  end
 
   describe "GET 'index'" do
     it "returns http success" do

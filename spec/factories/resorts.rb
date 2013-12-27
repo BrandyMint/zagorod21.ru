@@ -7,5 +7,6 @@ FactoryGirl.define do
     distance "9.99"
     time "9.99"
     map_iframe "MyText"
+    city
   end
 end

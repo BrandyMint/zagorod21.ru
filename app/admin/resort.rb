@@ -4,6 +4,7 @@ ActiveAdmin.register Resort do
     f.semantic_errors *f.object.errors.keys
     f.inputs do
       f.input :title
+      f.input :city
       f.input :summary
       f.input :description
       f.input :site
@@ -24,6 +25,7 @@ ActiveAdmin.register Resort do
       image_tag resort.preview.file.thumb.url if resort.preview.present?
     end
     column :title
+    column :city
     column :summary do |resort|
       simple_format resort.summary
     end
@@ -47,6 +49,7 @@ ActiveAdmin.register Resort do
         link_to 'Публичная страница', resort_url(resort)
       end
       row :title
+      row :city
       row :site
       row :description do
         simple_format resort.description

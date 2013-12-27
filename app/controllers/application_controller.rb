@@ -3,16 +3,19 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :search_form, :sort_form, :order_form
+  helper_method :search_form, :sort_form, :order_form, :current_city
 
   before_filter :add_meta_tags
   HOUSES_PER_PAGE = 8
 
   private
 
+  def current_city
+    City.default_city
+  end
+
   def search_form
     @search_form ||= SearchForm.new params[:search_form]
-
     session[:search_form] = @search_form
   end
 

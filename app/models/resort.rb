@@ -3,9 +3,12 @@ class Resort < ActiveRecord::Base
   scope :active, -> { where active: true }
   scope :with_active_houses, -> {joins(:houses).where('houses.active' => true).uniq.ordered}
 
+  validates :city_id, presence: true
+
   has_many :houses
   has_many :images, as: :resource, dependent: :destroy
   belongs_to :preview, class_name: 'Image'
+  belongs_to :city
 
   def to_s
     "#{title} (база)"
