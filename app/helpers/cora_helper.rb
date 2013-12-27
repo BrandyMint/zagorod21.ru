@@ -4,7 +4,7 @@ module CoraHelper
   end
 
   def phrase key, opts={}
-    (phrase_get(key, opts[:default]) || I18n.t(key, scope: 'cora.phrases') || key.to_s).html_safe
+    (phrase_get(key, opts[:default]) || I18n.t(key, scope: 'cora.phrases') || key.to_s).to_s.html_safe
   end
 
   def phrase_get key, opts={}
