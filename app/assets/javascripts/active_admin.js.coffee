@@ -15,7 +15,7 @@ $ ->
 
   tinymce.init
     menubar : false
-    selector: "textarea"
+    selector: "textarea.wyswing"
     theme: "modern"
     toolbar: "undo redo | bold italic | styleselect | fontselect | fontsizeselect | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
     plugins: ['contextmenu','image', 'code', 'link', 'preview', 'table']
