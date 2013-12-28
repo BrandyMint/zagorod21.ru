@@ -5,7 +5,7 @@
     .row
       .col-md-4
         = render 'socials'
-        &nbsp;
+        %br
         %small.muted= app_version
       .col-md-4.text-center
         %h3.no-margin-top
@@ -16,4 +16,4 @@
           %strong= link_to Settings.app.phone.html_safe, "tel:#{Settings.app.phone.html_safe}"
         = phrase :footer_subphone
 
-= render 'analitycs'
+= render 'layouts/analitycs' if Rails.env.production?

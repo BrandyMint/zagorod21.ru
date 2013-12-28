@@ -1,11 +1,13 @@
 class House < ActiveRecord::Base
+  include Authority::Abilities
+
   scope :ordered, -> { active.order("price_bd DESC") }
   scope :active, -> { where active: true }
   scope :from, -> (city) {includes(:resort).where('resorts.city_id' => city.id)}
 
   belongs_to :resort
-  has_many :images, as: :resource, dependent: :destroy
   belongs_to :preview, class_name: 'Image'
+  has_many :images, as: :resource, dependent: :destroy
 
   validates :title, presence: true, uniqueness: { scope: :resort_id }
   validates :resort, presence: true

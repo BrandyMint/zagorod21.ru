@@ -5,6 +5,10 @@ class ResortDecorator < Draper::Decorator
     h.link_to "Подробнее..", h.resort_url(source)
   end
 
+  def admin_link
+    h.link_to 'edit', h.edit_admin_resort_url(source), class: 'btn btn-small btn-warning' if h.current_user.can_create?(source)
+  end
+
   def distance
     h.distance source.distance
   end

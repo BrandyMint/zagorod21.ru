@@ -27,6 +27,15 @@
                                   PATCH      /admin/pages/:id(.:format)                   admin/pages#update
                                   PUT        /admin/pages/:id(.:format)                   admin/pages#update
                                   DELETE     /admin/pages/:id(.:format)                   admin/pages#destroy
+        batch_action_admin_cities POST       /admin/cities/batch_action(.:format)         admin/cities#batch_action
+                     admin_cities GET        /admin/cities(.:format)                      admin/cities#index
+                                  POST       /admin/cities(.:format)                      admin/cities#create
+                   new_admin_city GET        /admin/cities/new(.:format)                  admin/cities#new
+                  edit_admin_city GET        /admin/cities/:id/edit(.:format)             admin/cities#edit
+                       admin_city GET        /admin/cities/:id(.:format)                  admin/cities#show
+                                  PATCH      /admin/cities/:id(.:format)                  admin/cities#update
+                                  PUT        /admin/cities/:id(.:format)                  admin/cities#update
+                                  DELETE     /admin/cities/:id(.:format)                  admin/cities#destroy
        batch_action_admin_resorts POST       /admin/resorts/batch_action(.:format)        admin/resorts#batch_action
                     admin_resorts GET        /admin/resorts(.:format)                     admin/resorts#index
                                   POST       /admin/resorts(.:format)                     admin/resorts#create
@@ -97,13 +106,15 @@ batch_action_admin_meta_tag_pages POST       /admin/meta_tag_pages/batch_action(
                                   POST       /admin/comments(.:format)                    admin/comments#create
                     admin_comment GET        /admin/comments/:id(.:format)                admin/comments#show
                              root GET        /                                            welcome#index
+              welcome_houses_rows GET        /welcome/houses_rows(.:format)               welcome#houses_rows
                            houses GET        /houses(.:format)                            houses#index
                             house GET        /houses/:id(.:format)                        houses#show
                           resorts GET        /resorts(.:format)                           resorts#index
                            resort GET        /resorts/:id(.:format)                       resorts#show
-                         services GET        /services(.:format)                          services#index
+                         services GET        /services(.:format)                          redirect(301, /pages/services)
                            orders POST       /orders(.:format)                            orders#create
                             order GET        /orders/:id(.:format)                        orders#show
+              api_orders_estimate POST       /api/orders/estimate(.:format)               api/orders#estimate
                              page GET        /pages/:slug(.:format)                       pages#show
                          feedback GET        /feedback(.:format)                          welcome#feedback
                           contact GET        /contact(.:format)                           welcome#contact
