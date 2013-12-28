@@ -3,7 +3,11 @@ class EstimateDecorator < Draper::Decorator
 
   def button
     label = h.money source.total
-    h.link_to label, h.house_url(source.house, order: source.form_object.to_order), class: 'btn btn-success', role: 'tooltip', title: description, data: { html: true }, disable_with: 'Заказываю...'
+    h.link_to label, h.house_url(source.house, order: source.form_object.to_order),
+      class: 'btn btn-success',
+      role: 'tooltip',
+      title: description,
+      data: { html: true }
   end
 
   def description
