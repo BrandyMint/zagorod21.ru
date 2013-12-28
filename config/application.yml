@@ -18,7 +18,6 @@ defaults: &defaults
     phone: "+7 919 669 80 00"
 
     asset_host: http://zagorod21.ru/
-    base_url: http://zagorod21.ru
 
     default_url_options: &default_url_options
       host: zagorod21.ru

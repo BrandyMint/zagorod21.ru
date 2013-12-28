@@ -1,7 +1,11 @@
 Zagorod::Application.routes.draw do
-  get "orders/create"
+
+  self.default_url_options Settings.app.default_url_options.symbolize_keys
+
   devise_for :admin_users, ActiveAdmin::Devise.config
+
   ActiveAdmin.routes(self)
+
   root 'welcome#index'
   get 'welcome/houses_rows'
 
@@ -14,6 +18,8 @@ Zagorod::Application.routes.draw do
   namespace :api do
     post 'orders/estimate'
   end
+
+  resources :orders, only: :create
 
   get 'pages/:slug' => 'pages#show', as: 'page'
 

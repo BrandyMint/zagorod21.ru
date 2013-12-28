@@ -18,12 +18,16 @@ class NotificationService
     from = I18n.l order.date_from, format: :dots_separated
     to = I18n.l order.date_to, format: :dots_separated
     resort = order.house.resort.title
-    admin_url = Settings.app.base_url + admin_order_path(order)
-    "Заказ №#{order.id}. База #{resort}. Пребывание с #{from} по #{to} на #{order.people_quantity} человек. #{admin_url}"
+    house = order.house.title
+
+    # TODO перенести base_url в роуты
+    admin_url = admin_order_url(order)
+    "Заказ №#{order.id}. #{resort} (#{house}). Пребывание с #{from} по #{to} на #{order.people_quantity} человек. #{order.name} #{order.phone}. #{admin_url}"
   end
 
   def send_sms message, phone=Settings.sms_phone
     params = Rails.env == 'production' ? {} : {test: 1}
+    Rails.logger.info "SEND SMS: #{phone}: #{message}"
     LittleSms.send_sms(phone, message, params)
   end
 end
