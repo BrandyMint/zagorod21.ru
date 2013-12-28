@@ -48,4 +48,13 @@ $ ->
     window.location.href = $(this).data('url')
 
 
-  return
+  $('@order-form').submit ()->
+    date_picker = null
+    $(@).find('.datepicker').each ()->
+      if $(this).val() == ""
+        date_picker = $(this)
+        return false
+
+    if date_picker
+      date_picker.datepicker('show')
+      return false

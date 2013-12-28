@@ -1,13 +1,13 @@
 %div.order_block
   %h2 Заказать дом
-  = simple_form_for order_form, html: {class: 'form-horizontal', role: "form"}, wrapper: :order do |f|
+  = simple_form_for order_form, html: {class: 'form-horizontal', role: "form", role: 'order-form'}, wrapper: :order do |f|
     = f.error_notification
     %h5.form_split Количество гостей и время пребывания
     .form-group
       %label Даты пребывания
       %br
-      = f.input_field :date_from, as: :date_picker, placeholder: 'приезд', role: 'estimate_sensitive'
-      = f.input_field :date_to, as: :date_picker, placeholder: 'отъезд', role: 'estimate_sensitive'
+      = f.input_field :date_from, required: false, as: :date_picker, placeholder: 'приезд', role: 'estimate_sensitive'
+      = f.input_field :date_to, required: false, as: :date_picker, placeholder: 'отъезд', role: 'estimate_sensitive'
       = f.error :dates
     .form-group.form_input_block
       .col-md-5
