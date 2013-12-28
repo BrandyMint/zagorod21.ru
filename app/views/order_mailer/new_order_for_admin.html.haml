@@ -1,9 +1,13 @@
 %h2
-  Новый заказ на #{@site}
+  Новый заказ
 %p= link_to 'в админке', admin_order_url(@order)
 %p
   %b На имя:
   = @order.name
+%p
+  %b База отдыха:
+  = @order.resort.title
+  = @order.house.title
 %p
   %b Контактынй телефон:
   = @order.phone

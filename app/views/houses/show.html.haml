@@ -16,5 +16,6 @@
   .col-sm-6
     -#.col-md-8
     = simple_format @house.description
+    = house.rooms_count
   .col-sm-6
     = @house.resort.map_iframe.html_safe

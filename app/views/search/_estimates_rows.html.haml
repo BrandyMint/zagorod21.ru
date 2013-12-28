@@ -13,6 +13,7 @@
             = link_to house.title, house_url(house)
             %p
               %i= simple_format house.summary
+              = house.rooms_count
           %td{style: 'width: 6%'}= house.capacity
           %td{style: 'width: 7%'}= house.rooms_count
           %td{style: 'width: 5%'}= house.price
