@@ -12,7 +12,7 @@ class HouseDecorator < Draper::Decorator
   end
 
   def admin_link
-    h.link_to 'edit', h.edit_admin_house_url(source), class: 'btn btn-small btn-warning' if h.current_user.can_create?(source)
+    h.link_to 'edit', h.edit_admin_house_url(source), class: 'btn btn-small btn-warning' if h.current_user.present? && h.current_user.can_create?(source)
   end
 
   def common_image
