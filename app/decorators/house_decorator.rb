@@ -6,8 +6,8 @@ class HouseDecorator < Draper::Decorator
   end
 
   def rooms_count
-    if rooms_count.present? && rooms_count >0
-      "#{rooms_count} комнат"
+    if source.rooms_count.present? && source.rooms_count >0
+      "#{source.rooms_count} комнат"
     end
   end
 
