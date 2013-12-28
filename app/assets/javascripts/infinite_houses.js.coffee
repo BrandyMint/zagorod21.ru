@@ -1,8 +1,8 @@
 $ ->
   spinnerEl = $('div.spinner').get(0)
-  opts = {lines: 13, width: 14, radius: 3, length: 39, radius: 40}
+  opts = {lines: 13, width: 8, length: 19, radius: 40}
   spinner = new Spinner(opts)
-  
+
   loadComplete = ->
     $('#houses').attr('data-complete') == 'true'
 
@@ -13,8 +13,9 @@ $ ->
     $(window).on 'scroll', loadHouses unless loadComplete()
 
   appendHouses = (html, page) ->
-    $('#houses').append(html);
-    $('#houses').attr('data-page', page);
+    $html = $(html)
+    $('#houses').append $html
+    $('#houses').attr('data-page', page)
 
   loadHouses = ->
     return unless scrolledToFooter()

@@ -1,6 +1,10 @@
 class ResortDecorator < Draper::Decorator
   delegate_all
 
+  def button
+    h.link_to label, h.resort_url(source)
+  end
+
   def distance
     h.distance source.distance
   end

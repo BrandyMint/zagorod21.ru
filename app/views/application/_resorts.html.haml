@@ -9,8 +9,7 @@
             %h3= resort.title
           %p= simple_format resort.summary
 
-          %p
-            .btn.btn-success Заказать
+          %p= resort.button
 
 :javascript
 window.resorts_count = ParseInt #{@resorts.count}
