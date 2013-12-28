@@ -26,6 +26,8 @@ class OrdersController < ApplicationController
     return ActionController::Parameters.new unless params[:order].is_a? Hash
     return params[:order] unless params[:order][:phone]
     raw_phone = params[:order][:phone]
+
+    # TODO Это что за фигня? Все проверки делать в модели валидацией, переворяматирования делать в сеттере
     clean_phone = raw_phone[4,3] + raw_phone[9,3] + raw_phone[13,2] + raw_phone[16,2]
     params[:order].merge(phone: clean_phone)
   end
