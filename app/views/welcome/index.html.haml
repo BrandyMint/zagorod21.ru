@@ -1,12 +1,13 @@
 .welcome-image-container
   .welcome-image-background
-    .row
-      .col-sm-8.col-sm-offset-2
-        .welcome-block-search-form
-          %h1.welcome-block-title= Sanitize.clean(phrase :jumbotron_title)
-          -#%h2.welcome-block-subtitle= phrase :jumbotron_text
+    .container
+      .row
+        .col-sm-10.col-sm-offset-1
+          .welcome-block-search-form
+            %h1.welcome-block-title= Sanitize.clean(phrase :jumbotron_title)
+            -#%h2.welcome-block-subtitle= phrase :jumbotron_text
 
-          = render 'search_form'
+            = render 'search_form'
 .container
   - if params[:search_form]
     %h4 #{@matched_houses} из #{@all_houses} домов удовлетворяют вашему запросу
