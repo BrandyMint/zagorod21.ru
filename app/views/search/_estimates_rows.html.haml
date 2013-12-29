@@ -1,4 +1,5 @@
-- estimates.each do |estimate|
+- index = estimates.length >= 6 ? 5 : estimates.length - 1
+- estimates.each_with_index do |estimate, i|
   - house = HouseDecorator.new estimate.house
   - e = EstimateDecorator.new estimate
   = link_to house_url(house), class: 'house' do
@@ -21,3 +22,5 @@
           %td{style: 'width: 5%'}= house.price
           %td{style: 'width: 10%'}= house.distance
           %td{style: 'width: 10%'}= e.button
+
+  = render 'layouts/order_request' if index == i && params[:page].blank?

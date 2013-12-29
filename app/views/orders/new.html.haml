@@ -1,0 +1,35 @@
+%div.order_block
+  %h2 Заявка на подбор дома
+  = @order.errors.messages.first
+  = simple_form_for @order, url: order_requests_path, html: {class: 'form-horizontal', role: "form order-form"}, wrapper: :order do |f|
+    = f.error_notification
+
+    %h5.form_split Контактные данные
+    = f.input :name, placeholder: 'Иван Петров'
+    = f.input :phone, placeholder: '+7 (905) 123-45-67', input_html: {class: 'masked_phone'}
+ 
+    %h5.form_split Количество гостей и время пребывания
+    .form-group
+      %label Даты пребывания
+      %br
+      = f.input_field :date_from, required: false, as: :date_picker, placeholder: 'приезд' 
+      = f.input_field :date_to, required: false, as: :date_picker, placeholder: 'отъезд'
+      = f.error :dates
+    .form-group.form_input_block
+      .col-md-5
+        = f.label :people_quantity
+      .col-md-3
+        = f.input_field :people_quantity, collection: 1..20, include_blank: false
+
+    %h5.form_split Питание и транспорт
+    .form-group.form_input_block
+      .col-md-10
+        = f.label :use_transport, I18n.t("simple_form.labels.defaults.need_transport") #, price: @house.transfer_price)
+      .col-md-2{style: "margin-top: -7px;"}
+        = f.input_field :use_transport, as: :boolean
+    = f.input :food_state, label: 'Питание', collection: food_states_collection, include_blank: false, as: :radio_buttons
+    = f.input :money_amount, as: :hidden, input_html: {value: "0"}
+
+
+    .form-actions
+      = f.button :submit, class: 'btn-primary', value: 'Заказать', disable_with: 'Заказываю..'
