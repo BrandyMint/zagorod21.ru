@@ -32,6 +32,7 @@ ru:
         people_quantity: Количество гостей
         money_amount: Сумма
         use_transport: "Транспорт в обе стороны (%{price} руб)"
+        need_transport: "Транспорт в обе стороны"
       order:
         name: Ваше имя
     placeholders:

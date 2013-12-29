@@ -14,6 +14,7 @@ Zagorod::Application.routes.draw do
   #resources :services, only: :index
   get 'services', to: redirect('/pages/services')
   resources :orders, only: [:create, :show]
+  resources :order_requests, only: [:create, :new]
 
   namespace :api do
     post 'orders/estimate'
