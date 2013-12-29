@@ -7,7 +7,9 @@ class House < ActiveRecord::Base
 
   belongs_to :resort
   belongs_to :preview, class_name: 'Image'
+
   has_many :images, as: :resource, dependent: :destroy
+  has_many :booked_periods
 
   validates :title, presence: true, uniqueness: { scope: :resort_id }
   validates :resort, presence: true

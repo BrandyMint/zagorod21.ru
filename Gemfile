@@ -41,7 +41,7 @@ gem 'validates'
 gem 'hashie'
 # берется последняя версия для совместимости с rails 4
 gem 'state_machine', :git => 'git://github.com/pluginaweek/state_machine.git'
-# gem 'simple_enum'
+gem 'simple_enum'
 # gem 'enumerize'
 
 # Use ActiveModel has_secure_password

@@ -18,6 +18,4 @@ describe ResortsController do
     end
   end
 
-
-
 end
