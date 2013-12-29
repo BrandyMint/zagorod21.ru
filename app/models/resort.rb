@@ -25,10 +25,8 @@ class Resort < ActiveRecord::Base
   end
 
   def tags
-    tags = []
-    self.houses.each do |house|
-      tags += house.tags
-    end
-    tags.uniq
+    self.houses.map do |house|
+      house.tags
+    end.flatten.uniq
   end
 end
