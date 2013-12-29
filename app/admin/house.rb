@@ -9,6 +9,7 @@ ActiveAdmin.register House do
       f.input :title
       f.input :capacity
       f.input :rooms_count
+      f.input :tag_list, as: :string
       f.input :summary, as: :html_editor
       f.input :description, as: :html_editor
     end
@@ -36,6 +37,7 @@ ActiveAdmin.register House do
       row :title
       row :capacity
       row :rooms_count
+      row :tag_list
       row :description do
         simple_format house.description
       end
@@ -73,7 +75,7 @@ ActiveAdmin.register House do
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  permit_params *House.attribute_names
+  permit_params *House.attribute_names + ["tag_list"]
   #:title, :description, :price_wd, :price_bd, :price_bd_hour, :map_iframe, :capacity, :range, :time
   #
   # or

@@ -10,6 +10,8 @@
               = house.preview_image
           %td.house_summary{style: 'width: 42%'}
             %h3= link_to house.resort.title, resort_url(house.resort)
+            %div
+              %small= house.tags_block
             = link_to house.title, house_url(house)
             %p
               %i= simple_format house.summary
