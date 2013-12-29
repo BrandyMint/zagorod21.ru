@@ -131,6 +131,7 @@ gem 'coffee-rails', github: 'rails/coffee-rails'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+gem 'acts-as-taggable-on'
 
 # Хорошая альтернатива jquery-ui-rails
 #  gem 'jquery-ui-sass-rails'

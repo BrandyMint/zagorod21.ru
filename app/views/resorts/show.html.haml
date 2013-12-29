@@ -1,6 +1,8 @@
 .page-header
   %h1= @resort.title
 
+  = @resort.tags_block
+
 = render 'fotorama', images: @resort.images.ordered
 
 = render 'socials'

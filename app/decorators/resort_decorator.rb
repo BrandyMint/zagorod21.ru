@@ -35,6 +35,10 @@ class ResortDecorator < Draper::Decorator
     h.image_tag source.preview.file.thumb.url if source.preview.present?
   end
 
+  def tags_block
+    h.tag_list source.tags
+  end
+
   # Define presentation-specific methods here. Helpers are accessed through
   # `helpers` (aka `h`). You can override attributes, for example:
   #

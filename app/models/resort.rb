@@ -23,4 +23,12 @@ class Resort < ActiveRecord::Base
   def max_people_capacity
     houses.maximum :capacity
   end
+
+  def tags
+    tags = []
+    self.houses.each do |house|
+      tags += house.tags
+    end
+    tags.uniq
+  end
 end

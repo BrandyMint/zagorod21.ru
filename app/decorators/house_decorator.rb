@@ -31,6 +31,10 @@ class HouseDecorator < Draper::Decorator
     source.title? ? source.title : source.resort.title
   end
 
+  def tags_block
+    h.tag_list source.tags
+  end
+
   def price
     if source.price_bd == source.price_wd
       price_bd
