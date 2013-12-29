@@ -56,5 +56,12 @@ $ ->
         return false
 
     if date_picker
-      date_picker.datepicker('show')
+      $("body").animate({scrollTop: 0},
+        {
+          duration: 200
+          queue: true
+          complete: ()->
+            date_picker.datepicker('show')
+        }
+      )
       return false
