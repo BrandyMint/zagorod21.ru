@@ -7,7 +7,7 @@ $ ->
     $('#houses').attr('data-complete') == 'true'
 
   scrolledToFooter = ->
-    $('body').scrollTop() + $(window.top).height() > $('footer').offset().top
+    $(window).scrollTop() + $(window.top).height() > $('footer').offset().top
 
   listenForScroll = ->
     $(window).on 'scroll', loadHouses unless loadComplete()
@@ -33,4 +33,4 @@ $ ->
         appendHouses(data, page)
         listenForScroll() if data.length > 1
 
-  listenForScroll()
+  listenForScroll() if $('#estimates').length
