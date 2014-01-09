@@ -9,6 +9,7 @@
 #= require jquery.maskedinput/jquery.maskedinput.min
 #= require spin.js/spin.js
 #= require estimate_order
+#= require orders
 #= require infinite_houses
 
 # require jquery.freetile
