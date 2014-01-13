@@ -6,8 +6,8 @@
     .form-group
       %label Даты пребывания
       %br
-      = f.input_field :date_from, required: false, as: :date_picker, placeholder: 'приезд', role: 'estimate_sensitive'
-      = f.input_field :date_to, required: false, as: :date_picker, placeholder: 'отъезд', role: 'estimate_sensitive'
+      = f.input_field :date_from, required: false, as: :date_picker, placeholder: 'приезд', role: 'estimate_sensitive date_from'
+      = f.input_field :date_to, required: false, as: :date_picker, placeholder: 'отъезд', role: 'estimate_sensitive date_to'
       = f.error :dates
     .form-group.form_input_block
       .col-md-5
@@ -35,9 +35,9 @@
 
     %h5.form_split Контактные данные
 
-    = f.input :name, placeholder: 'Иван Петров'
-    = f.input :phone, placeholder: '+7 (905) 123-45-67', input_html: {class: 'masked_phone'}
+    = f.input :name, placeholder: 'Иван Петров', input_html: {role: 'name'}
+    = f.input :phone, placeholder: '+7 (905) 123-45-67', input_html: {class: 'masked_phone', role: 'phone'}
     
 
     .form-actions
-      = f.button :submit, class: 'btn-primary', value: 'Заказать', disable_with: 'Заказываю..'
+      = f.button :submit, class: 'btn-primary', value: 'Заказать', disable_with: 'Заказываю..', role: 'order_submit'
