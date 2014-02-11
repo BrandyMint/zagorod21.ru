@@ -1,20 +1,35 @@
-.navbar.application-navbar.navbar-fixed-top
+%nav.navbar.navbar-inverse.navbar-fixed-top{role: "navigation"}
   .container
     .navbar-header
-      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
+      %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", type: "button"}
+        %span.sr-only Toggle navigation
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
       = link_to Settings.app.title.html_safe, root_url, :class => 'navbar-brand'
-    .navbar-header.hidden-sm.hidden-xs
-      .navbar-brand
-        %small.text-muted
-          Чебоксары
-          &nbsp;&nbsp;
-          = link_to "tel:#{Settings.app.phone.html_safe}", class: 'gray-light-link' do
-            = ficon 'phone-1'
-            = Settings.app.phone.html_safe
-
-    .collapse.navbar-collapse
+      %ul.nav.nav-pills
+        %li.hidden-xs.hidden-sm.navbar-slogan
+          %p= Settings.app.slogan.html_safe
+        %li.left-line.hidden-xs.hidden-sm
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+            Чебоксары
+            %b.caret
+          %ul.dropdown-menu
+            %li
+              %a{href: "#"} 1
+            %li
+              %a{href: "#"} 2
+            %li
+              %a{href: "#"} 3
+        %li.left-line.hidden-xs
+        %li.hidden-xs
+          %p
+            %span.glyphicon.glyphicon-earphone
+            = link_to "tel:#{Settings.app.phone.html_safe}" do
+              = Settings.app.phone.html_safe
+        %li.visible-xs
+          %p
+            %span.glyphicon.glyphicon-earphone
+    .collapse.navbar-collapse.navbar-ex1-collapse
       = render_navigation :expand_all => true, :renderer => :bootstrap
-

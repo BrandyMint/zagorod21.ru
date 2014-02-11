@@ -1,22 +1,33 @@
-%div.order_block
-  %h2 Заказать дом
-  = simple_form_for order_form, html: {class: 'form-horizontal', role: "form", role: 'order-form'}, wrapper: :order do |f|
+= simple_form_for order_form, html: {class: 'form-horizontal', role: "form", role: 'order-form'} do |f|
+  .buy-form.mobile-minus
+    %p.light-h2.visible-xs.visible-sm Заказ дома
     = f.error_notification
-    %h5.form_split Количество гостей и время пребывания
+    = f.error :dates
+    = f.input_field :money_amount, as: :hidden
+    .row
+      .col-md-4
+        .form-group
+          = f.label :date_from, class: 'col-xs-2', required: false
+          .col-xs-10.col-md-12.pr0
+            = f.input_field :date_from, required: false, as: :date_picker, placeholder: I18n.l(Date.today, format: :words), role: 'estimate_sensitive', class: 'form-control'
+      .col-md-4
+        .form-group
+          = f.label :date_to, class: 'col-xs-2', required: false
+          .col-xs-10.col-md-12.pr0
+            = f.input_field :date_to, required: false, as: :date_picker, placeholder: I18n.l(Date.tomorrow, format: :words), role: 'estimate_sensitive', class: 'form-control'
+      .col-md-4
+        .form-group
+          = f.label :people_quantity, class: 'col-xs-2', required: false
+          .col-xs-4.col-md-12
+            = f.input_field :people_quantity, collection: people_quantity_collection(house), include_blank: false, role: 'estimate_sensitive', class: 'form-control'
     .form-group
-      %label Даты пребывания
-      %br
-      = f.input_field :date_from, required: false, as: :date_picker, placeholder: 'приезд', role: 'estimate_sensitive date_from'
-      = f.input_field :date_to, required: false, as: :date_picker, placeholder: 'отъезд', role: 'estimate_sensitive date_to'
-      = f.error :dates
-    .form-group.form_input_block
-      .col-md-5
-        = f.label :people_quantity
-      .col-md-3
-        = f.input_field :people_quantity, collection: people_quantity_collection(house), include_blank: false, role: 'estimate_sensitive'
-
-      = f.input_field :money_amount, as: :hidden
-
+      = f.label :name, class: 'col-xs-12 hidden'
+      .col-xs-12
+        = f.input_field :name, placeholder: 'Ваше имя', required: false, role: 'name', class: 'form-control'
+    .form-group
+      = f.label :phone, class: 'col-xs-12 hidden'
+      .col-xs-12
+        = f.input_field :phone, placeholder: 'Контактный телефон', required: false, class: 'masked_phone form-control', role: 'phone'
     %h5.form_split Питание и транспорт
     .form-group.form_input_block
       .col-md-10
@@ -32,12 +43,6 @@
         %b Итого:
       .col-md-2{style: "font-size: 1.25em"}
         %span#order_price
-
-    %h5.form_split Контактные данные
-
-    = f.input :name, placeholder: 'Иван Петров', input_html: {role: 'name'}
-    = f.input :phone, placeholder: '+7 (905) 123-45-67', input_html: {class: 'masked_phone', role: 'phone'}
-    
-
-    .form-actions
-      = f.button :submit, class: 'btn-primary', value: 'Заказать', disable_with: 'Заказываю..', role: 'order_submit'
+  .buy-button.mobile-minus.mb20
+    .col-xs-10.col-xs-offset-1
+      = f.button :submit, class: 'btn btn-success btn-block bold', value: 'Заказать за 6000 р.', disable_with: 'Заказываю..', role: 'order_submit'

@@ -1,0 +1,27 @@
+= simple_form_for @search_form, url: search_url, method: :get, :html => {class: 'col-md-12', role: "form"} do |f|
+  = f.error_notification
+  .form-group.col-md-2
+    .row
+      = f.label :date_from, class: 'col-xs-2'
+      .col-xs-10.col-md-12
+        = f.input_field :date_from, as: :date_picker, class: 'form-control', placeholder: I18n.l(Date.today, format: :words), type: "text"
+  .form-group.col-md-2
+    .row
+      = f.label :date_to, class: 'col-xs-2'
+      .col-xs-10.col-md-12
+        = f.input_field :date_to, as: :date_picker, class: 'form-control', placeholder: I18n.l(Date.tomorrow, format: :words), type: "text"
+  .form-group.col-md-1
+    .row
+      = f.label :people_quantity, class: 'col-xs-2'
+      .col-xs-4.col-md-12
+        = f.input_field :people_quantity, collection: people_quantity_collection, include_blank: false, class: 'form-control'
+  .form-group.col-md-3
+    .row.form-inline
+      = f.label :price_to, class: 'col-xs-2'
+      .col-xs-7.col-md-12
+        .form-group
+          = f.input_field :price_to, collection: prices_collection, include_blank: false, class: 'form-control'
+  .form-group.col-md-2.col-md-offset-2
+    .row
+      .col-xs-12.text-right
+        = f.submit 'выбрать удобства', class: 'btn btn-default btn-lg', disable_with: 'Ищу...'

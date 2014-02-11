@@ -1,12 +1,14 @@
 ru:
   date:
     order: [day, month, year]
-    month_names: [~, Январь, Февраль, Март, Апрель, Май, Июнь, Июль, Август, Сентябрь, Октябрь, Ноябрь, Декабрь]
+    standalone_month_names: [~, Январь, Февраль, Март, Апрель, Май, Июнь, Июль, Август, Сентябрь, Октябрь, Ноябрь, Декабрь]
+    common_month_names: [~, января, февраля, марта, апреля, мая, июня, июля, августа, сентября, октября, ноября, декабря]
     formats:
       short_human: '%e %B'
       human: '%e %B %Y'
       input: '%e/%m/%Y'
       default: '%e %B %Y'
+      words: "%d %B"
       dots_separated: '%e.%m.%Y'
   time:
     formats:

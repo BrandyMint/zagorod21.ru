@@ -1,0 +1,21 @@
+#house-carousel.carousel.slide.mobile-minus.mb20{"data-ride" => "carousel"}
+  / Indicators
+  %ol.carousel-indicators
+    - images.each_with_index do |image, index|
+      - active = index==0 ? ' active' : ''
+      %li{"data-slide-to" => index, "data-target" => "#house-carousel", "class" => "#{active}"}
+  / Wrapper for slides
+  .carousel-inner
+    - images.each_with_index do |image, index|
+      - active = index==0 ? ' active' : ''
+      = content_tag :div, class: "item#{active}" do
+        = image_tag image.file.standard.url, 'class' => 'photos'
+  / Controls
+  %a.left.carousel-control{"data-slide" => "prev", href: "#house-carousel"}
+    %span.glyphicon.glyphicon-chevron-left
+  %a.right.carousel-control{"data-slide" => "next", href: "#house-carousel"}
+    %span.glyphicon.glyphicon-chevron-right
+.row.visible-md.visible-lg.mb40
+  - images.limit(6).each do |image|
+    .col-xs-2
+      = image_tag image.file.thumb.url, 'data-full' => image.file.url, 'class' => 'photos'

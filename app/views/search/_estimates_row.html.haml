@@ -1,0 +1,15 @@
+.col-xs-12.col-md-4
+  - house = HouseDecorator.new estimates_row.house
+  - e = EstimateDecorator.new estimates_row
+  .house-offer{id: "house_#{house.id}", class: house.css_class}
+    = link_to house_url(house), class: 'house' do
+      = house.common_image class: 'img-responsive'
+    .desc
+      %p.size-16px.bold= house.title
+      %span= house.capacity
+      %br/
+      %span.size-12px.bgrey
+        = house.resort.title
+        %span.fontello-icon-address.bgrey= house.distance
+    .form-group.house-btn
+      = e.button

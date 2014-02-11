@@ -1,1 +1,17 @@
-= render 'houses', houses: @houses
+%section.page-pre-filter-mobile.visible-xs.visible-sm
+  .container
+    .row
+      .col-xs-6
+        %p.light-h2 Все дома
+      .col-xs-6.text-right
+        %button.btn.btn-default{type: "submit"}
+          %span.fontello-icon-list-1
+          фильтр
+%section.page-filter.visible-md.visible-lg
+  .container
+    .row
+      = render 'filter'
+
+/ - if params[:search_form]
+/   %h4 #{@matched_houses} из #{@all_houses} домов удовлетворяют вашему запросу
+= render partial: 'search/estimates', locals: {header: ''}

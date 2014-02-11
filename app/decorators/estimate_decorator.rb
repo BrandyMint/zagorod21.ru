@@ -3,11 +3,10 @@ class EstimateDecorator < Draper::Decorator
 
   def button
     label = h.money source.total
-    h.link_to label, h.house_url(source.house, order: source.form_object.to_order),
-      class: 'btn btn-success',
-      role: 'tooltip',
-      title: description,
-      data: { html: true }
+    h.link_to h.house_url(source.house, order: source.form_object.to_order), class: 'btn btn-success btn-block', title: description do
+      h.content_tag(:span, label, class: 'rline col-xs-5 size-16px') <<
+      h.content_tag(:span, 'Заказать', class: 'size-16px bold col-xs-7')
+    end
   end
 
   def description

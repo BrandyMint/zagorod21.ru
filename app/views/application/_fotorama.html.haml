@@ -1,3 +1,0 @@
-.fotorama
-  - images.each do |image|
-    = image_tag image.file.send(defined?(version) ? version : :standard).url, 'data-full' => image.file.url

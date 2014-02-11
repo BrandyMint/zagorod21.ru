@@ -15,16 +15,16 @@ class HouseDecorator < Draper::Decorator
     h.link_to 'edit', h.edit_admin_house_url(source), class: 'btn btn-small btn-warning' if h.current_user.present? && h.current_user.can_create?(source)
   end
 
-  def common_image
-    h.image_tag source.preview.file.common.url if source.preview.present?
+  def common_image *options
+    h.image_tag(source.preview.file.common.url, *options) if source.preview.present?
   end
 
-  def basic_image
-    h.image_tag source.preview.file.basic.url if source.preview.present?
+  def basic_image *options
+    h.image_tag(source.preview.file.basic.url, *options) if source.preview.present?
   end
 
-  def preview_image
-    h.image_tag source.preview.file.thumb.url if source.preview.present?
+  def preview_image *options
+    h.image_tag(source.preview.file.thumb.url, *options) if source.preview.present?
   end
 
   def title

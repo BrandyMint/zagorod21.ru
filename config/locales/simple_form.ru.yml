@@ -10,7 +10,7 @@ ru:
       # html: '<abbr title="required">*</abbr>'
     include_blank:
       hotel:
-        hotel_kind_id: 'Любой' 
+        hotel_kind_id: 'Любой'
 
     error_notification:
       default_message: "Обнаружены ошибки, пожалуйста, взгляните на них"
@@ -29,7 +29,8 @@ ru:
         title: Название
         date_from: Заезд
         date_to: Выезд
-        people_quantity: Количество гостей
+        price_to: Цена
+        people_quantity: Гостей
         money_amount: Сумма
         use_transport: "Транспорт в обе стороны (%{price} руб)"
       order:

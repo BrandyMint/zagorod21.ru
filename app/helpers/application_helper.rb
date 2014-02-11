@@ -39,6 +39,10 @@ module ApplicationHelper
     collection
   end
 
+  def prices_collection
+    Settings.default.prices.inject({}) {|hsh, price| hsh["до #{price} р./сутки"] = price; hsh}
+  end
+
   def food_states_collection
     [
       [I18n.t('order.food_state.none'), 'none'],

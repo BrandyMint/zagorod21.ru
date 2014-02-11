@@ -1,0 +1,23 @@
+%section.houses-block
+  .container
+    %p.light-h2 Похожие дома
+    .row
+      - @house.resort.houses.limit(3).each do |house|
+        - house = HouseDecorator.new house
+        -# e = EstimateDecorator.new estimates_row
+        .col-xs-12.col-md-4
+          .house-offer
+            = link_to house_url(house) do
+              = house.common_image class: 'img-responsive'
+            .desc
+              %p.size-16px.bold= @house.title
+              %span= house.capacity
+              %br/
+              %span.size-12px.bgrey
+                = house.resort.title
+                %span.fontello-icon-address.bgrey= distance house.resort.distance
+            .form-group.house-btn
+              %button.btn.btn-success.btn-block{type: "submit"}
+                BUTTON
+                / %span.rline.col-xs-5.size-16px 8000 р.
+                / %span.size-16px.bold.col-xs-7 Заказать

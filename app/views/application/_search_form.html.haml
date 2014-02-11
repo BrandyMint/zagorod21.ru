@@ -1,12 +1,26 @@
-= simple_form_for @search_form, url: search_url, method: :get, :html => { :class => 'search-form form-vertical' } do |f|
+= simple_form_for @search_form, url: search_url, method: :get, :html => {class: 'col-md-10 col-md-offset-1', role: "form"} do |f|
   = f.error_notification
-  .form-inputs
+  .form-group.col-md-2
     .row
-      .col-sm-3.search-form-date
-        = f.input :date_from, as: :date_picker, label: 'Прибытие', class: 'form-control'
-      .col-sm-3.search-form-date
-        = f.input :date_to, as: :date_picker, label: 'Выезд'
-      .col-sm-2
-        = f.input :people_quantity, collection: people_quantity_collection, include_blank: false, label: 'Гостей'
-      .col-sm-4
-        = f.submit 'Найти', class: 'btn-success btn btn-lg btn-block search-btn', disable_with: 'Ищу...'
+      = f.label :date_from, class: 'col-xs-2'
+      .col-xs-10.col-md-12
+        = f.input_field :date_from, as: :date_picker, class: 'form-control', placeholder: I18n.l(Date.today, format: :words), type: "text"
+  .form-group.col-md-2
+    .row
+      = f.label :date_to, class: 'col-xs-2'
+      .col-xs-10.col-md-12
+        = f.input_field :date_to, as: :date_picker, class: 'form-control', placeholder: I18n.l(Date.tomorrow, format: :words), type: "text"
+  .form-group.col-md-2
+    .row
+      = f.label :people_quantity, class: 'col-xs-2'
+      .col-xs-4.col-md-12
+        = f.input_field :people_quantity, collection: people_quantity_collection, include_blank: false, class: 'form-control'
+  .form-group.col-md-3
+    .row
+      = f.label :price_to, class: 'col-xs-2'
+      .col-xs-7.col-md-12
+        = f.input_field :price_to, collection: prices_collection, include_blank: false, class: 'form-control'
+  .form-group.col-md-3
+    .row
+      .col-xs-12
+        = f.submit 'Найти', class: 'btn btn-success btn-lg size-16px col-xs-12', disable_with: 'Ищу...'

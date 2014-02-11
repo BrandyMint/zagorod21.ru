@@ -1,0 +1,6 @@
+.text-center.mb20
+  %span.size-12px.bgrey Есть вопросы? звоните!
+  %br/
+  %span.size-12px.bgrey
+    = link_to "tel:#{Settings.app.phone.html_safe}" do
+      = Settings.app.phone.html_safe

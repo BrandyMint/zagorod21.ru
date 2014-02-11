@@ -1,22 +1,57 @@
-.page-header
-  %h1= @house.title
-  %small
-    = link_to @house.resort.title, resort_url(@house.resort)
-    %div= @house.tags_block
+%section.zakaz-doma.visible-xs.visible-sm
+  .container
+    .row
+      .col-xs-12
+        %a.size-1-1.col-xs-10.col-xs-push-1.zakaz.bold{href: "#"} Заказать этот дом
+%section.house-main-content
+  .container
+    .row
+      .col-xs-12.col-md-8.mb40
+        %p.size-12px.visible-xs.visible-sm.mt15
+          = @house.resort.title
+          %span.fontello-icon-address.bgrey= distance @house.resort.distance
+        .size-20px.bold.visible-xs.visible-sm.mb30= @house.title
+        .clearfix
+          .row
+            .size-25px.bold.visible-md.visible-lg.mt30.mb20.col-md-8
+              Заказать
+              = @house.title
+        %p.size-12px.mb20.visible-md.visible-lg
+          = @house.resort.title
+          %span.fontello-icon-address.bgrey= distance @house.resort.distance
+        .clearfix.mobile-minus.choice.nav-tabs
+          %a.col-xs-6.active{href: "#house-carousel", data: {toggle: 'tab'} } Фотографии
+          %a.col-xs-6{href: "#house-maps", data: {toggle: 'tab'} } Карта
+        .tab-content
+          .tab-pane#house-carousel.active
+            = render 'carousel', images: @house.images.ordered
+          .tab-pane#house-maps
+            = @house.resort.map_iframe.html_safe
+        .row.visible-xs.visible-sm.mb20
+          = render 'houses/detail/xs_prices'
 
-.row
-  .col-sm-6
-    = render 'fotorama', images: @house.images.ordered
-  .col-sm-6
-    = @house.admin_link
-    = render 'socials'
-    = render 'houses/prices', house: @house
-    = render 'orders/form', house: @house.source
+        %table.table
+          %tr
+            %td.size-12px.bgrey
+              Вместимость
+            %td.bold
+              = @house.capacity
+          %tr
+            %td.size-12px.bgrey
+              Спальных мест
+            %td.bold
+              BEDS
+        %p.size-12px-m.mb20
+          = simple_format @house.description
+        = render 'houses/detail/comfort'
 
-.row
-  .col-sm-6
-    -#.col-md-8
-    = simple_format @house.description
-    = @house.rooms_count
-  .col-sm-6
-    = @house.resort.map_iframe.html_safe
+      .col-xs-12.col-md-4
+        = @house.admin_link
+        = render 'houses/detail/prices'
+        = render 'orders/form', house: @house.source
+        = render 'application/sidebar/phone'
+        = render 'application/sidebar/socials'
+        = render 'application/sidebar/also'
+
+= render 'houses/detail/similar_houses'
+= render 'houses/detail/resort'

@@ -12,13 +12,18 @@ $ ->
   listenForScroll = ->
     $(window).on 'scroll', loadHouses unless loadComplete()
 
+  listenMoreBtn = ->
+    $('@more-btn').on 'click', (e) ->
+      e.preventDefault()
+      loadHouses() # unless loadComplete()
+
   appendHouses = (html, page) ->
     $html = $(html)
     $('#houses').append $html
     $('#houses').attr('data-page', page)
 
   loadHouses = ->
-    return unless scrolledToFooter()
+    # return unless scrolledToFooter()
     page = 1 + parseInt $('#houses').attr('data-page')
     $.ajax
       url: '/welcome/houses_rows'
@@ -27,10 +32,11 @@ $ ->
       dataType: 'html'
       beforeSend: ->
         spinner.spin(spinnerEl)
-        $(window).off 'scroll'
+        # $(window).off 'scroll'
       success: (data, status, jqXHR) ->
         spinner.stop()
         appendHouses(data, page)
-        listenForScroll() if data.length > 1
+        # listenForScroll() if data.length > 1
 
-  listenForScroll() if $('#estimates').length
+  # listenForScroll() if $('#estimates').length
+  listenMoreBtn() if $('@more-btn').length

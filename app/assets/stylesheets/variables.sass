@@ -1,63 +1,20 @@
-@charset "UTF-8"
-$gray: rgb(100,100,100)
-$grayLight: lighten($gray,30%)
-$grayLighter: lighten($gray,40%)
-$grayLightest: lighten($gray,50%)
-$grayLightestBackground: lighten($grayLightest,5%)
-$grayDark: darken($gray,10%)
-$grayDarker: darken($gray,20%)
-$grayDarkest: rgb(20,20,20)
+$bgreen: #50b848
+$bgreen_l: lighten($bgreen, 10%)
+$bgreen_d: darken($bgreen, 10%)
+$bgrey: #f2f2f2
+$bgrey_d2: #E5E5E5
+$bgrey_d: darken($bgrey_d2, 40%)
+$bgrey_d1: darken($bgrey, 20%)
+$bfont: #333333
 
-$greenLight: rgba(143,200,0,1)
-$greenDark: rgba(115,160,0,1)
-$greenLightTransparent: rgba(143,200,0,0.75)
+$bwhite: #fff
+$bwhite_d: darken($bwhite, 5%)
+$weight-bold: 600
+$weight-lite: 300
+$weight-normal: 400
+$slogan-size: 11px
+$slogan-size-center-min: 20px
+$slogan-size-center-max: 36px
+$slogan-padding: $slogan-size * 1.636
 
-$blue: #08c
-$blueBrandColor: #1A94C4
-$white: #fff
-$black: #000
-$red: #E65151
-$green: #44ff67
-$orange: #ffae00
-$cyan: #39f3ff
-$purple: #b739ff
-
-$purple: rgb(158, 0, 93)
-
-$blueMuted: adjust-hue(saturate(darken($white,50%),30%), 200%)
-
-$textColor: $grayDark
-$textColorDark: $grayDarker
-
-
-// bootstrap migrating from 2.3.2 to 3.0.0
-$linkColor: $link-color
-$linkColorHover: $link-hover-color
-
-$baseFontSize: $font-size-base
-
-$bodyBackground: #fff
-
-$headingsColor: $textColor
-$headingsFontWeight: bold
-
-
-$navbarBackgroundColor: darken($grayDark, 10%)
-
-$navbarBackgroundTop: $navbarBackgroundColor
-$navbarBackgroundBottom: darken($navbarBackgroundTop,10%)
-
-$navbarText: lighten($textColor,30%)
-$navbarTextShadowColor: rgba(0,0,0,0.3)
-$navbarLinkColor: lighten($navbarText, 10%)
-$navbarLinkColorHover: lighten($blueBrandColor, 40%)
-$navbarLinkColorActive: #fff
-//$navbarLinkBackgroundHover: rgba(lighten($navbarBackgroundColor,10%),.5)
-$navbarLinkBackgroundHover: transparent
-$navbarLinkBackgroundActive: rgba(0,0,0,0.25)
-
-$btnPrimaryBackground: $blue
-$btnPrimaryBackgroundHighlight: adjust-hue($btnPrimaryBackground, 10%)
-
-$hrBorder: #dddddd
-$rowHoverBackground:  hsl(200,100%,95%)
+$large-size: 992px

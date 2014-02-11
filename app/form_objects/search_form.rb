@@ -5,10 +5,12 @@ class SearchForm < FormObjectBase
   property :use_transport # boolean
   property :food_state    # none, inplace, catering
   property :city
+  property :price_to
 
   def initialize attrs
     super attrs
     self.people_quantity ||= Settings.default.people_quantity
+    self.price_to ||= Settings.default.price_to
     self.food_state ||= 'none'
     self.use_transport = false if self.use_transport.try(:to_i) == 0
     self.people_quantity = self.people_quantity.to_i

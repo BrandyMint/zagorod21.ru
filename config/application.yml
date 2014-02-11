@@ -11,10 +11,17 @@ defaults: &defaults
   default:
     # Дефолтное количество людей в форме поиска
     people_quantity: 4
+    price_to: 8000
+    prices:
+      - 6000
+      - 7000
+      - 8000
+      - 9000
     current_city: 'cheboksary'
   app:
     #title: "За&#769; город!"
-    title: "За город"
+    title: "За город!"
+    slogan: "ГОСТЕВЫЕ ДОМИКИ В АРЕНДУ"
     phone: "+7 919 669 80 00"
 
     asset_host: http://zagorod21.ru/

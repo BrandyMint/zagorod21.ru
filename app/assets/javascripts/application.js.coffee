@@ -66,3 +66,8 @@ $ ->
         }
       )
       return false
+
+  tabs = $('.choice a')
+  $('a[data-toggle="tab"]').on 'shown.bs.tab', (e) ->
+    tabs.removeClass('active')
+    $(e.target).toggleClass('active')

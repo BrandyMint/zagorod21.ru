@@ -20,6 +20,8 @@ Zagorod::Application.routes.draw do
   end
 
   resources :orders, only: :create
+  resources :food, only: :index
+  resources :transport, only: :index
 
   get 'pages/:slug' => 'pages#show', as: 'page'
 

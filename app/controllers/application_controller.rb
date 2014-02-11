@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :search_form, :sort_form, :order_form, :current_city, :current_user
 
   before_filter :add_meta_tags
-  HOUSES_PER_PAGE = 8
+  HOUSES_PER_PAGE = 3
 
   def not_found
     raise ActionController::RoutingError.new('Not Found')
