@@ -20,7 +20,8 @@
             %td
               = link_to @house.resort.site
         .size-12px.mb20
-          != @house.resort.summary
+          %span.visible-xs
+            != @house.resort.summary
           %span.visible-lg.visible-md
             != @house.resort.description
         %table.table.visible-xs.visible-sm

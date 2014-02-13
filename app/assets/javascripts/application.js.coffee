@@ -71,3 +71,9 @@ $ ->
   $('a[data-toggle="tab"]').on 'shown.bs.tab', (e) ->
     tabs.removeClass('active')
     $(e.target).toggleClass('active')
+
+  btnComfort = $('.btn-filter-comfort')
+  $('#comfort-list').on 'show.bs.collapse hide.bs.collapse', (e) ->
+    text = btnComfort.data('text')
+    btnComfort.data('text', btnComfort.html()).html text
+

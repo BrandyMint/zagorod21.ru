@@ -1,7 +1,8 @@
 module HousesHelper
   def tag_list tags
+    content_tag(:ul, '', class: 'col-xs-6 size-12px-m') <<
     tags.map do |tag|
-      link_to tag.name, "#"
-    end.join("&nbsp;").html_safe
+      content_tag(:li, tag)
+    end.join.html_safe
   end
 end

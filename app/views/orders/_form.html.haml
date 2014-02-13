@@ -28,14 +28,13 @@
       = f.label :phone, class: 'col-xs-12 hidden'
       .col-xs-12
         = f.input_field :phone, placeholder: 'Контактный телефон', required: false, class: 'masked_phone form-control', role: 'phone'
-    %h5.form_split Питание и транспорт
+
     .form-group.form_input_block
       .col-md-10
         = f.label :use_transport, I18n.t("simple_form.labels.defaults.use_transport", price: @house.transfer_price)
       .col-md-2{style: "margin-top: -7px;"}
         = f.input_field :use_transport, as: :boolean, role: 'estimate_sensitive'
 
-    = f.input :food_state, label: 'Питание', collection: food_states_collection, include_blank: false, as: :radio_buttons, input_html: {role: 'estimate_sensitive'}
     = f.input_field :house_id, as: :hidden, value: house.id
 
     .form-group.form_input_block

@@ -1,10 +1,12 @@
 class House < ActiveRecord::Base
   include Authority::Abilities
+  include Authority::Abilities
   acts_as_taggable_on :tags
 
   scope :ordered, -> { active.order("price_bd DESC") }
   scope :active, -> { where active: true }
   scope :from, -> (city) {includes(:resort).where('resorts.city_id' => city.id)}
+  default_scope from(City.default_city)
 
   belongs_to :resort
   belongs_to :preview, class_name: 'Image'

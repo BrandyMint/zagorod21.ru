@@ -38,9 +38,9 @@
               = @house.capacity
           %tr
             %td.size-12px.bgrey
-              Спальных мест
+              Количество комнат
             %td.bold
-              BEDS
+              = @house.rooms_count
         %p.size-12px-m.mb20
           = simple_format @house.description
         = render 'houses/detail/comfort'
@@ -53,5 +53,5 @@
         = render 'application/sidebar/socials'
         = render 'application/sidebar/also'
 
-= render 'houses/detail/similar_houses'
+= render_cell :similar_houses, :show, house: @house.source
 = render 'houses/detail/resort'

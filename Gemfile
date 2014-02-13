@@ -71,7 +71,7 @@ gem 'inherited_resources'
 gem 'active_link_to'
 
 gem 'draper'
-#gem 'cells'
+gem 'cells'
 gem 'breadcrumbs_on_rails'
 #gem 'tabulous'
 # gem 'authbuttons-rails'
@@ -240,15 +240,15 @@ group :test do
   gem 'guard-bundler'
   gem 'guard-cucumber'
   gem 'guard-ctags-bundler'
-  
+
   gem 'simplecov', :require => false
   gem 'simplecov-rcov', :require => false
-  
+
   gem "database_cleaner"
   gem "capybara"
   gem 'capybara-screenshot'
   gem 'poltergeist'
-  
+
   gem "launchy", ">= 2.1.2"
   gem 'turn', :require => false
   #gem "test_active_admin", :git => "git://github.com/BrandyMint/test_active_admin.git"
