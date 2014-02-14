@@ -1,1 +1,41 @@
-= @food
+%section
+  .container
+    .row
+      .col-xs-12.col-md-8
+        .meat.mb20.mobile-minus
+          %p.size-20px.bold
+            Еда и выездное
+            %br/
+            обслуживание
+          %a.btn.btn-success{href: "#"} Заказать еду
+        %p.mb40
+          Собрали компанию, нашли подходящее место — выходные обещают быть отличными! Но как же добраться дл базы отдыха? Далеко не всегда можно уместиться всей компанией в личные автомобили. Воспользуйтесь нашим транспортом! Мы возьмем на себя быструю и комфортную поездку в обе стороны.
+        .row.mb40
+          .col-xs-12.mb20
+            %img.img-responsive{alt: "peugeot", src: "assets/eda.jpg"}/
+      .col-xs-12.col-md-4
+        .right-price.visible-lg.visible-md.text-center
+          .bold.size-18px
+            Закажите еду
+            %br/
+        .buy-form.mobile-minus
+          %form.form-horizontal{role: "form"}
+            .row
+              .col-md-12
+                .form-group
+                  .col-xs-12
+                    %input#date-in.form-control{placeholder: "29 декабря 11:00", type: "text"}/
+            .form-group
+              %label.col-xs-12.control-label.hidden{for: "your-name"}
+              .col-xs-12
+                %input#your-name.form-control{placeholder: "Ваше имя", type: "tel"}/
+            .form-group
+              %label.col-xs-12.control-label.hidden{for: "your-phone"}
+              .col-xs-12
+                %input#your-phone.form-control{placeholder: "Контактный телефон", type: "tel"}/
+        .buy-button.mobile-minus.mb20
+          .row
+            .col-xs-10.col-xs-offset-1
+              %button.btn.btn-success.btn-block.bold{type: "submit"} Заказать
+        = render 'application/sidebar/phone'
+        = render 'application/sidebar/socials'

@@ -27,7 +27,7 @@ Zagorod::Application.routes.draw do
 
   get 'feedback', to: 'welcome#feedback'
   get 'contact', to: 'welcome#contact'
-  get 'search', to: 'welcome#index'
+  get 'search', to: 'houses#index'
 
 
   # Example of regular route:

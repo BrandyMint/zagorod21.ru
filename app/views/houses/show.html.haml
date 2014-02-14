@@ -2,7 +2,7 @@
   .container
     .row
       .col-xs-12
-        %a.size-1-1.col-xs-10.col-xs-push-1.zakaz.bold{href: "#"} Заказать этот дом
+        %a.size-1-1.col-xs-10.col-xs-push-1.zakaz.bold{href: "#new_order"} Заказать этот дом
 %section.house-main-content
   .container
     .row
@@ -20,12 +20,12 @@
           = @house.resort.title
           %span.fontello-icon-address.bgrey= distance @house.resort.distance
         .clearfix.mobile-minus.choice.nav-tabs
-          %a.col-xs-6.active{href: "#house-carousel", data: {toggle: 'tab'} } Фотографии
-          %a.col-xs-6{href: "#house-maps", data: {toggle: 'tab'} } Карта
+          %a.col-xs-6.active{href: "#house-carousel-tab", data: {toggle: 'tab'} } Фотографии
+          %a.col-xs-6{href: "#house-maps-tab", data: {toggle: 'tab'} } Карта
         .tab-content
-          .tab-pane#house-carousel.active
+          .tab-pane#house-carousel-tab.active
             = render 'carousel', images: @house.images.ordered
-          .tab-pane#house-maps
+          .tab-pane#house-maps-tab
             = @house.resort.map_iframe.html_safe
         .row.visible-xs.visible-sm.mb20
           = render 'houses/detail/xs_prices'

@@ -10,6 +10,7 @@
 = render 'filter'
 
 
-- if params[:search_form]
-  %h4 #{@matched_houses} из #{@all_houses} домов удовлетворяют вашему запросу
+.container
+  - if params[:search_form]
+    %h4 #{@matched_houses} из #{@all_houses} домов удовлетворяют вашему запросу
 = render partial: 'search/estimates', locals: {header: ''}

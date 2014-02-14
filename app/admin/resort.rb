@@ -7,6 +7,7 @@ ActiveAdmin.register Resort do
       f.input :city
       f.input :summary, as: :html_editor
       f.input :description, as: :html_editor
+      f.input :price_range
       f.input :site
       f.input :distance
       f.input :time
@@ -80,7 +81,7 @@ ActiveAdmin.register Resort do
     active_admin_comments
   end
 
-  
+
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -93,5 +94,5 @@ ActiveAdmin.register Resort do
   #  permitted << :other if resource.something?
   #  permitted
   # end
-  
+
 end

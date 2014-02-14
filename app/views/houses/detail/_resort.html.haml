@@ -13,7 +13,7 @@
             %td.size-12px.bgrey
               Стоимость
             %td.bold
-              = @house.price
+              = @house.resort.price_range
           %tr.visible-lg.visible-md
             %td.size-12px.bgrey
               Сайт
@@ -30,7 +30,3 @@
               Рассказать друзьям
             %td.bold
               = render 'socials'
-              / %span.pull-right
-              /   %a.fontello-icon-twitter.icon.bgrey{href: "#"}
-              /   %a.fontello-icon-facebook.icon.bgrey{href: "#"}
-              /   %a.fontello-icon-vkontakte.icon.bgrey{href: "#"}

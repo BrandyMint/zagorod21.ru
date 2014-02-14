@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :search_form, :sort_form, :order_form, :current_city, :current_user
 
-  before_filter :add_meta_tags
+  before_filter :add_meta_tags, :set_current_city
   HOUSES_PER_PAGE = 3
 
   def not_found
@@ -20,7 +20,11 @@ class ApplicationController < ActionController::Base
   end
 
   def current_city
-    City.default_city
+    session[:current_city]
+  end
+
+  def set_current_city
+    session[:current_city] = City.where(id: params[:city]).first || City.default_city
   end
 
   def search_form

@@ -15,7 +15,19 @@
     %span.glyphicon.glyphicon-chevron-left
   %a.right.carousel-control{"data-slide" => "next", href: "#house-carousel"}
     %span.glyphicon.glyphicon-chevron-right
-.row.visible-md.visible-lg.mb40
-  - images.limit(6).each do |image|
-    .col-xs-2
-      = image_tag image.file.thumb.url, 'data-full' => image.file.url, 'class' => 'photos'
+
+#house-thumbnails.row.visible-md.visible-lg.mb40.carousel
+  .carousel-inner
+    - counter = 0
+    - images.each_slice(6).each_with_index do |images_block, index|
+      - active = index==0 ? ' active' : ''
+      = content_tag :div, class: "item #{active}" do
+        - images_block.each do |image|
+          .col-xs-2
+            = image_tag image.file.thumb.url, "class" => "photos", "data-slide-to" => counter, "data-target" => "#house-carousel"
+          - counter += 1
+        .clearfix
+  %a.left.carousel-control{"data-slide" => "prev", href: "#house-thumbnails"}
+    %span.glyphicon.glyphicon-chevron-left
+  %a.right.carousel-control{"data-slide" => "next", href: "#house-thumbnails"}
+    %span.glyphicon.glyphicon-chevron-right

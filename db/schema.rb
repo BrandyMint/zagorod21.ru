@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131229081216) do
+ActiveRecord::Schema.define(version: 20140214123852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -135,6 +135,12 @@ ActiveRecord::Schema.define(version: 20131229081216) do
     t.datetime "updated_at"
   end
 
+  create_table "notes", force: true do |t|
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "orders", force: true do |t|
     t.integer  "house_id"
     t.string   "phone"
@@ -180,6 +186,7 @@ ActiveRecord::Schema.define(version: 20131229081216) do
     t.boolean  "active",      default: true,  null: false
     t.boolean  "highlighted", default: false
     t.integer  "city_id"
+    t.string   "price_range"
   end
 
   add_index "resorts", ["city_id"], name: "index_resorts_on_city_id", using: :btree

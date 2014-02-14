@@ -1,11 +1,10 @@
 #= require jquery
 #= require jquery_ujs
 #= require jquery.role/lib/jquery.role
-#= require fotorama
 #= require bootstrap
 #= require bootstrap-datepicker
 #= require datepicker_defaults
-#= require isotope/jquery.isotope.min
+# require isotope/jquery.isotope.min
 #= require jquery.maskedinput/jquery.maskedinput.min
 #= require spin.js/spin.js
 #= require estimate_order
@@ -23,11 +22,11 @@
 
 $ ->
   $('@tooltip').tooltip()
-  $(".fotorama").fotorama
-    fit: 'scaledown'
-    thumbspreview: true
-    shadows: false
-    allowfullscreen: 'native'
+  # $(".fotorama").fotorama
+  #   fit: 'scaledown'
+  #   thumbspreview: true
+  #   shadows: false
+  #   allowfullscreen: 'native'
 
   # preview$('#freetile').freetile()
   # $('input.ui-date-picker').datepicker()
@@ -77,3 +76,12 @@ $ ->
     text = btnComfort.data('text')
     btnComfort.data('text', btnComfort.html()).html text
 
+  $("#house-thumbnails").on "slid", "", ->
+    $this = $(this)
+    controls = $this.children(".carousel-control").show()
+    controls.show()
+    if $this.find(".item:first").hasClass("active")
+      controls.filter(".left").hide()
+    else if $this.find(".item:last").hasClass("active")
+      controls.filter(".right").hide()
+    return
