@@ -6,6 +6,7 @@ class SearchForm < FormObjectBase
   property :food_state    # none, inplace, catering
   property :city
   property :price_to
+  property :comfort
 
   def initialize attrs
     super attrs

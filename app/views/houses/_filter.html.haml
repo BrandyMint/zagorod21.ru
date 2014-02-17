@@ -31,58 +31,14 @@
                 %button.btn.btn-default.btn-lg.btn-filter-comfort{type: "button", data: {toggle: 'collapse', target: "#comfort-list", text: 'скрыть удобства'} } выбрать удобства
           %p.clearfix
           .row#comfort-list.collapse
-            .col-xs-6.col-md-2
-              %input#Checkbox1{checked: "checked", type: "checkbox", value: "Баня"}/
-              %label.checkbox{for: "Checkbox1"}
-                %span
-                Баня
-              %input#Checkbox2{type: "checkbox", value: "Рядом лес"}/
-              %label.checkbox{for: "Checkbox2"}
-                %span
-                Рядом лес
-              %input#Checkbox3{type: "checkbox", value: "Wi-Fi"}/
-              %label.checkbox{for: "Checkbox3"}
-                %span
-                Wi-Fi
-            .col-xs-6.col-md-2
-              %input#Checkbox4{type: "checkbox", value: "Мангал"}/
-              %label.checkbox{for: "Checkbox4"}
-                %span
-                Мангал
-              %input#Checkbox5{type: "checkbox", value: "Телевизор"}/
-              %label.checkbox{for: "Checkbox5"}
-                %span
-                Телевизор
-              %input#Checkbox6{type: "checkbox", value: "Рыжая баба"}/
-              %label.checkbox{for: "Checkbox6"}
-                %span
-                Рыжая баба
-            .col-xs-6.col-md-2.visible-md.visible-lg
-              %input#Checkbox11{checked: "checked", type: "checkbox", value: "Баня"}/
-              %label.checkbox{for: "Checkbox11"}
-                %span
-                Баня
-              %input#Checkbox12{type: "checkbox", value: "Рядом лес"}/
-              %label.checkbox{for: "Checkbox12"}
-                %span
-                Рядом лес
-              %input#Checkbox13{type: "checkbox", value: "Wi-Fi"}/
-              %label.checkbox{for: "Checkbox13"}
-                %span
-                Wi-Fi
-            .col-xs-6.col-md-2.visible-md.visible-lg
-              %input#Checkbox14{type: "checkbox", value: "Мангал"}/
-              %label.checkbox{for: "Checkbox14"}
-                %span
-                Мангал
-              %input#Checkbox15{type: "checkbox", value: "Телевизор"}/
-              %label.checkbox{for: "Checkbox15"}
-                %span
-                Телевизор
-              %input#Checkbox16{type: "checkbox", value: "Рыжая баба"}/
-              %label.checkbox{for: "Checkbox16"}
-                %span
-                Рыжая баба
+            - ActsAsTaggableOn::Tag.distinct.find_in_batches(batch_size: 3) do |tags|
+              -#.visible-md.visible-lg
+              .col-xs-6.col-md-2
+                - tags.each do |tag|
+                  %input{id: "Checkbox#{tag.id}", name: "search_form[comfort][]", type: "checkbox", value: "#{tag}"}/
+                  %label.checkbox{for: "Checkbox#{tag.id}"}
+                    %span
+                    = tag
   .container
     .row
       .col-xs-12.col-md-4.col-md-offset-4

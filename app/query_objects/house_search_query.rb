@@ -54,6 +54,7 @@ class HouseSearchQuery
   def add_filters
     @scope = people_filter if @form_object.people_quantity.present?
     @scope = price_filter if @form_object.price_to.present?
+    @scope = tags_filter if @form_object.comfort.present?
     @scope
   end
 
@@ -63,6 +64,10 @@ class HouseSearchQuery
 
   def price_filter
     @scope.where('price_bd <= ?', @form_object.price_to)
+  end
+
+  def tags_filter
+    @scope.tagged_with(@form_object.comfort, :any => true)
   end
 
 end
