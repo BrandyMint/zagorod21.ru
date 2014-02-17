@@ -3,7 +3,6 @@ $ ->
   opts = {lines: 13, width: 8, length: 19, radius: 40}
   spinner = new Spinner(opts)
   houses = $('#houses')
-  more = $('@more-btn')
   housesHeight = houses.offset().top + houses.height() if houses.length
 
   loadComplete = ->
@@ -16,12 +15,6 @@ $ ->
     if houses.length
       $(window).on 'scroll', loadHouses unless loadComplete()
 
-  listenMoreBtn = ->
-    if more.length
-      more.on 'click', (e) ->
-        e.preventDefault()
-        loadHouses() # unless loadComplete()
-
   appendHouses = (html, page) ->
     $html = $(html)
     houses.append $html
@@ -30,10 +23,12 @@ $ ->
   loadHouses = ->
     return unless scrolledToFooter()
     page = 1 + parseInt houses.attr('data-page')
+    query = searchQuery()
+    query['page'] = page
     $.ajax
       url: '/welcome/houses_rows'
       type: 'GET'
-      data: {page: page}
+      data: query
       dataType: 'html'
       beforeSend: ->
         spinner.spin(spinnerEl)
@@ -43,5 +38,11 @@ $ ->
         appendHouses(data, page)
         listenForScroll() if data.length > 1
 
+  searchQuery = ->
+    queryDict = {}
+    if window.location.search
+      for item in decodeURIComponent(window.location.search).substr(1).split("&")
+        queryDict[item.split("=")[0]] = item.split("=")[1]
+    queryDict
+
   listenForScroll()
-  listenMoreBtn()

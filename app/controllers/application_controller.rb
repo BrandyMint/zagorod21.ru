@@ -1,12 +1,13 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+  include ApplicationHelper
   protect_from_forgery with: :exception
 
   helper_method :search_form, :sort_form, :order_form, :current_city, :current_user
 
   before_filter :add_meta_tags, :set_current_city
-  HOUSES_PER_PAGE = 3
+  HOUSES_PER_PAGE = 9
 
   def not_found
     raise ActionController::RoutingError.new('Not Found')
@@ -19,17 +20,10 @@ class ApplicationController < ActionController::Base
     current_admin_user
   end
 
-  def current_city
-    session[:current_city]
-  end
-
   def set_current_city
-    session[:current_city] = City.where(id: params[:city]).first || City.default_city
-  end
-
-  def search_form
-    @search_form ||= SearchForm.new params[:search_form]
-    session[:search_form] = @search_form
+    new_city = City.where(id: params[:city]).first
+    session[:current_city] = new_city if new_city
+    session[:current_city] ||= City.default_city
   end
 
   def sort_form

@@ -29,15 +29,15 @@
       .col-xs-12
         = f.input_field :phone, placeholder: 'Контактный телефон', required: false, class: 'masked_phone form-control', role: 'phone'
 
-    .form-group.form_input_block
-      .col-md-12{style: "margin-top: -7px;"}
-        %input#order_use_transport{type: "checkbox", name: 'order[use_transport]', value: "1", role: 'estimate_sensitive'}/
-        %label.checkbox{for: "order_use_transport"}
-          %span
-          = I18n.t("simple_form.labels.defaults.use_transport", price: @house.transfer_price)
+    -# .form-group.form_input_block
+    -#   .col-md-12{style: "margin-top: -7px;"}
+    -#     %input#order_use_transport{type: "checkbox", name: 'order[use_transport]', value: "1", role: 'estimate_sensitive'}/
+    -#     %label.checkbox{for: "order_use_transport"}
+    -#       %span
+    -#       = I18n.t("simple_form.labels.defaults.use_transport", price: @house.transfer_price)
 
     = f.input_field :house_id, as: :hidden, value: house.id
 
   .buy-button.mobile-minus.mb20
     .col-xs-10.col-xs-offset-1
-      = f.button :submit, class: 'btn btn-success btn-block bold', value: 'Заказать', disable_with: 'Заказываю..', role: 'order_submit'
+      = f.button :submit, class: 'btn btn-success btn-block bold', value: 'Заказать', data: {disable_with: 'Заказываю...'}, role: 'order_submit'

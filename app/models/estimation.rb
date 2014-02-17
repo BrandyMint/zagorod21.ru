@@ -1,4 +1,4 @@
-class Estimation 
+class Estimation
   attr_accessor :total
   attr_accessor :house
   attr_accessor :form_object

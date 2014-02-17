@@ -5,8 +5,8 @@ class House < ActiveRecord::Base
 
   scope :ordered, -> { active.order("price_bd DESC") }
   scope :active, -> { where active: true }
-  scope :from, -> (city) {includes(:resort).where('resorts.city_id' => city.id)}
-  default_scope from(City.default_city)
+  scope :exclude, ->(house) { where "houses.id != #{house.id}" }
+  scope :from, ->(city) {includes(:resort).where('resorts.city_id' => city.id)}
 
   belongs_to :resort
   belongs_to :preview, class_name: 'Image'

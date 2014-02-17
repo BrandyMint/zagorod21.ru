@@ -64,4 +64,14 @@ module ApplicationHelper
   def distance dist
     "#{number_with_precision dist, precision: 0} км."
   end
+
+  def current_city
+    session[:current_city]
+  end
+
+  def search_form
+    @search_form ||= SearchForm.new params[:search_form]
+    @search_form.city ||= current_city
+    session[:search_form] = @search_form
+  end
 end
