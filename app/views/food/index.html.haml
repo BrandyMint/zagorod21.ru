@@ -18,24 +18,6 @@
           .bold.size-18px
             Закажите еду
             %br/
-        .buy-form.mobile-minus
-          %form.form-horizontal{role: "form"}
-            .row
-              .col-md-12
-                .form-group
-                  .col-xs-12
-                    %input#date-in.form-control{placeholder: "29 декабря 11:00", type: "text"}/
-            .form-group
-              %label.col-xs-12.control-label.hidden{for: "your-name"}
-              .col-xs-12
-                %input#your-name.form-control{placeholder: "Ваше имя", type: "tel"}/
-            .form-group
-              %label.col-xs-12.control-label.hidden{for: "your-phone"}
-              .col-xs-12
-                %input#your-phone.form-control{placeholder: "Контактный телефон", type: "tel"}/
-        .buy-button.mobile-minus.mb20
-          .row
-            .col-xs-10.col-xs-offset-1
-              %button.btn.btn-success.btn-block.bold{type: "submit"} Заказать
+        = render 'form'
         = render 'application/sidebar/phone'
         = render 'application/sidebar/socials'

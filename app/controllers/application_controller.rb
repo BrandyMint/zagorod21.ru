@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
   protect_from_forgery with: :exception
 
-  helper_method :search_form, :sort_form, :order_form, :current_city, :current_user
+  helper_method :search_form, :sort_form, :current_city, :current_user
 
   before_filter :add_meta_tags, :set_current_city
   HOUSES_PER_PAGE = 9
@@ -30,11 +30,6 @@ class ApplicationController < ActionController::Base
     @sort_form ||= SortForm.new params[:sort_form]
 
     session[:sort_form] = @sort_form
-  end
-
-  def order_form
-    params[:order] ||= {}
-    @order ||= Order.new params[:order].permit(Order.attribute_names) #search_form.to_order
   end
 
   def add_meta_tags

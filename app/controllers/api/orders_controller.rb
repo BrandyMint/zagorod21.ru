@@ -1,5 +1,5 @@
 class Api::OrdersController < ApplicationController
-  skip_before_filter :verify_authenticity_token  
+  skip_before_filter :verify_authenticity_token
 
   def estimate
     @esimation = HouseCalculator.new(house, form_object).estimate if form_object.valid? && house
@@ -26,7 +26,7 @@ private
   end
 
   def house
-    House.find params[:order][:house_id] if params[:order] && params[:order][:house_id] 
+    House.find params[:house_order][:house_id] if params[:house_order] && params[:house_order][:house_id]
   end
 
   def form_object
@@ -34,6 +34,6 @@ private
   end
 
   def order_params
-    params[:order].permit(:date_from, :date_to, :use_transport, :food_state) if params[:order]
+    params[:house_order].permit(:date_from, :date_to, :use_transport, :food_state) if params[:house_order]
   end
 end

@@ -1,15 +1,11 @@
 class Order < ActiveRecord::Base
-  belongs_to :house
 
-  validates :name, :money_amount, presence: true
-  validates :date_from, :date_to, presence: true
-  delegate :resort, to: :house
-  validate do
-    self.errors.add :dates, 'Необходимо выбрать даты пребывания' unless date_from && date_from
+  validates :name, presence: true
+  validates :phone, presence: true, length: {is: 10}
+
+  def phone= phone
+    super phone[4,3].to_s + phone[9,3].to_s + phone[13,2].to_s + phone[16,2].to_s
   end
-
-  validates :email, email: true, allow_blank: true
-  validates :phone, presence: true,  length: {is: 10}
 
   state_machine do
     state :new

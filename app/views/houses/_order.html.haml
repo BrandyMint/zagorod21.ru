@@ -1,9 +1,9 @@
-= simple_form_for order_form, html: {class: 'form-horizontal', role: "form", role: 'order-form'} do |f|
+= simple_form_for @house_order, url: houses_path, html: {class: 'form-horizontal', role: 'order-form'} do |f|
   .buy-form.mobile-minus
     %p.light-h2.visible-xs.visible-sm Заказ дома
     = f.error_notification
     = f.error :dates
-    = f.input_field :money_amount, as: :hidden
+    = f.hidden_field :money_amount
     .row
       .col-md-4
         .form-group
@@ -29,14 +29,7 @@
       .col-xs-12
         = f.input_field :phone, placeholder: 'Контактный телефон', required: false, class: 'masked_phone form-control', role: 'phone'
 
-    -# .form-group.form_input_block
-    -#   .col-md-12{style: "margin-top: -7px;"}
-    -#     %input#order_use_transport{type: "checkbox", name: 'order[use_transport]', value: "1", role: 'estimate_sensitive'}/
-    -#     %label.checkbox{for: "order_use_transport"}
-    -#       %span
-    -#       = I18n.t("simple_form.labels.defaults.use_transport", price: @house.transfer_price)
-
-    = f.input_field :house_id, as: :hidden, value: house.id
+    = f.hidden_field :house_id, value: house.id
 
   .buy-button.mobile-minus.mb20
     .col-xs-10.col-xs-offset-1

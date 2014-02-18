@@ -25,7 +25,7 @@
               .col-xs-7.col-md-12
                 .form-group
                   = f.input_field :price_to, collection: prices_collection, include_blank: false, class: 'form-control'
-          - if params[:search_form].try(:[],'comfort').join.present?
+          - if params[:search_form].try(:[],'comfort').try(:join).present?
             - collapse_state = 'in'
             - button_state = ''
             - button_caption = 'скрыть удобства'

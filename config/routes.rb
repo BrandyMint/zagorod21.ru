@@ -9,19 +9,18 @@ Zagorod::Application.routes.draw do
   root 'welcome#index'
   get 'welcome/houses_rows'
 
-  resources :houses, only: [:index, :show]
+
   resources :resorts, only: [:index, :show]
-  #resources :services, only: :index
   get 'services', to: redirect('/pages/services')
-  resources :orders, only: [:create, :show]
+  resources :orders, only: [:show]
 
   namespace :api do
     post 'orders/estimate'
   end
 
-  resources :orders, only: :create
-  resources :food, only: :index
-  resources :transport, only: :index
+  resources :houses
+  resources :food
+  resources :transport
 
   get 'pages/:slug' => 'pages#show', as: 'page'
 

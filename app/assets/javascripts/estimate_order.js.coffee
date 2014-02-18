@@ -2,7 +2,7 @@ $ ->
   estimate = ->
     return unless $(this).closest('form').length
     params = $(this).closest('form').serializeArray()
-    inputField = $('input#order_money_amount')
+    inputField = $('input#house_order_money_amount')
     button = $('@order-form .btn-success')
     spinner = ''
     $.ajax
