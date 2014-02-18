@@ -42,7 +42,7 @@
           %p.clearfix
           .row#comfort-list{class: "collapse #{collapse_state}"}
             - counter = 0
-            - ActsAsTaggableOn::Tag.distinct.find_in_batches(batch_size: 3) do |tags|
+            - ActsAsTaggableOn::Tag.where(active: true).distinct.find_in_batches(batch_size: 3) do |tags|
               - classes = counter < 2 ? ' visible-md visible-lg' : ''
               - counter += 1
               = f.input :comfort, collection: tags, as: :comfort, wrapper_class: "col-xs-6 col-md-2#{classes}"
