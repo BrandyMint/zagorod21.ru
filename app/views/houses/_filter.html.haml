@@ -25,20 +25,27 @@
               .col-xs-7.col-md-12
                 .form-group
                   = f.input_field :price_to, collection: prices_collection, include_blank: false, class: 'form-control'
+          - if params[:search_form].try(:[],'comfort').join.present?
+            - collapse_state = 'in'
+            - button_state = ''
+            - button_caption = 'скрыть удобства'
+            - button_caption2 = 'выбрать удобства'
+          - else
+            - collapse_state = ''
+            - button_state = 'collapsed'
+            - button_caption = 'выбрать удобства'
+            - button_caption2 = 'скрыть удобства'
           .form-group.col-md-2.col-md-offset-2.visible-md.visible-lg
             .row
               .col-xs-12.text-right
-                %button.btn.btn-default.btn-lg.btn-filter-comfort{type: "button", data: {toggle: 'collapse', target: "#comfort-list", text: 'скрыть удобства'} } выбрать удобства
+                %button{type: "button", class: "btn btn-default btn-lg btn-filter-comfort #{button_state}", data: {toggle: 'collapse', target: "#comfort-list", text: "#{button_caption2}"} }= button_caption
           %p.clearfix
-          .row#comfort-list.collapse
+          .row#comfort-list{class: "collapse #{collapse_state}"}
+            - counter = 0
             - ActsAsTaggableOn::Tag.distinct.find_in_batches(batch_size: 3) do |tags|
-              -#.visible-md.visible-lg
-              .col-xs-6.col-md-2
-                - tags.each do |tag|
-                  %input{id: "Checkbox#{tag.id}", name: "search_form[comfort][]", type: "checkbox", value: "#{tag}"}/
-                  %label.checkbox{for: "Checkbox#{tag.id}"}
-                    %span
-                    = tag
+              - classes = counter < 2 ? ' visible-md visible-lg' : ''
+              - counter += 1
+              = f.input :comfort, collection: tags, as: :comfort, wrapper_class: "col-xs-6 col-md-2#{classes}"
   .container
     .row
       .col-xs-12.col-md-4.col-md-offset-4

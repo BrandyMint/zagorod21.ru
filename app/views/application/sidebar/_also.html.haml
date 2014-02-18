@@ -1,4 +1,5 @@
-.border-grey.bgrey.visible-lg.visible-md.mb40
-  .bold.mb15 Кстати говоря
-  %p.size-12px
-    = Note.first.text
+- if Note.exists?
+  .border-grey.bgrey.visible-lg.visible-md.mb40
+    .bold.mb15 Кстати говоря
+    %p.size-12px
+      = Note.first.text
