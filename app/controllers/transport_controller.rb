@@ -15,7 +15,7 @@ class TransportController < ApplicationController
 
     if @transport_order.save
       # NotificationService.new.new_order(@transport_order)
-      redirect_to transport_index_path
+      redirect_to order_path(@transport_order)
     else
       render 'index'
     end

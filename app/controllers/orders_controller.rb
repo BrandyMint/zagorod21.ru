@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   def show
-    @order = Order.find(params[:id]).decorate
+    @order = OrderDecorator.new Order.find(params[:id])
   end
 
 end

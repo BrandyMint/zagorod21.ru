@@ -7,7 +7,9 @@ class HouseDecorator < Draper::Decorator
 
   def rooms_count
     if source.rooms_count.present? && source.rooms_count >0
-      "#{source.rooms_count} комнат"
+      "#{source.rooms_count}"
+    else
+      "-"
     end
   end
 
@@ -59,7 +61,7 @@ class HouseDecorator < Draper::Decorator
   end
 
   def capacity
-    "#{source.capacity} чел."
+    source.capacity.present? ? "#{source.capacity} чел." : "-"
   end
 
   def distance
@@ -75,13 +77,16 @@ class HouseDecorator < Draper::Decorator
     "#{source.time} мин."
   end
 
-  # Define presentation-specific methods here. Helpers are accessed through
-  # `helpers` (aka `h`). You can override attributes, for example:
-  #
-  #   def created_at
-  #     helpers.content_tag :span, class: 'time' do
-  #       object.created_at.strftime("%a %m/%d/%y")
-  #     end
-  #   end
+  def resort_price_range
+    source.resort.price_range.present? ? source.resort.price_range : '-'
+  end
+
+  def resort_site
+    source.resort.site.present? ? h.link_to(source.resort.site, nil, rel: 'nofollow') : '-'
+  end
+
+  def resort_distance
+    source.resort.distance.present? ? source.resort.distance : '-'
+  end
 
 end

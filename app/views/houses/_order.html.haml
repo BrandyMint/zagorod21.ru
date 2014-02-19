@@ -1,8 +1,7 @@
 = simple_form_for @house_order, url: houses_path, html: {class: 'form-horizontal', role: 'order-form'} do |f|
+  = f.error_notification
   .buy-form.mobile-minus
     %p.light-h2.visible-xs.visible-sm Заказ дома
-    = f.error_notification
-    = f.error :dates
     = f.hidden_field :money_amount
     .row
       .col-md-4
@@ -20,14 +19,18 @@
           = f.label :people_quantity, class: 'col-xs-2', required: false
           .col-xs-4.col-md-12
             = f.input_field :people_quantity, collection: people_quantity_collection(house), include_blank: false, role: 'estimate_sensitive', class: 'form-control'
+      .col-md-12
+        = f.error :dates
     .form-group
       = f.label :name, class: 'col-xs-12 hidden'
       .col-xs-12
-        = f.input_field :name, placeholder: 'Ваше имя', required: false, role: 'name', class: 'form-control'
+        = f.input_field :name, placeholder: 'Ваше имя', required: false, role: 'name', class: 'form-control', autofocus: :autofocus
+        = f.error :name
     .form-group
       = f.label :phone, class: 'col-xs-12 hidden'
       .col-xs-12
         = f.input_field :phone, placeholder: 'Контактный телефон', required: false, class: 'masked_phone form-control', role: 'phone'
+        = f.error :phone
 
     = f.hidden_field :house_id, value: house.id
 

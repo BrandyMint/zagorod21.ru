@@ -15,7 +15,7 @@ class FoodController < ApplicationController
 
     if @food_order.save
       # NotificationService.new.new_order(@food_order)
-      redirect_to food_index_path
+      redirect_to order_path(@food_order)
     else
       render 'index'
     end

@@ -1,22 +1,20 @@
 = simple_form_for @food_order, url: food_index_path, html: {class: 'form-horizontal', role: 'order-form'} do |f|
   = f.error_notification
   .buy-form.mobile-minus
-    .row
-      .col-md-12
-        .form-group
-          .col-xs-12
-            = f.error :date_from
-            = f.input_field :date_from, required: false, as: :date_picker, placeholder: I18n.l(Date.today, format: :words), class: 'form-control'
     .form-group
-      = f.error :name
+      .col-xs-12
+        = f.input_field :date_from, required: false, as: :time_picker, placeholder: I18n.l(Time.now, format: :timepicker), class: 'form-control'
+        = f.error :date_from
+    .form-group
       = f.label :name, class: 'col-xs-12 hidden'
       .col-xs-12
-        = f.input_field :name, placeholder: 'Ваше имя', required: false, role: 'name', class: 'form-control'
+        = f.input_field :name, placeholder: 'Ваше имя', required: false, role: 'name', class: 'form-control', autofocus: :autofocus
+        = f.error :name
     .form-group
-      = f.error :phone
       = f.label :phone, class: 'col-xs-12 hidden'
       .col-xs-12
         = f.input_field :phone, placeholder: 'Контактный телефон', required: false, class: 'masked_phone form-control', role: 'phone'
+        = f.error :phone
   .buy-button.mobile-minus.mb20
     .col-xs-10.col-xs-offset-1
       = f.button :submit, class: 'btn btn-success btn-block bold', value: 'Заказать', data: {disable_with: 'Заказываю...'}, role: 'order_submit'

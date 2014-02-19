@@ -1,9 +1,9 @@
-class HouseOrderDecorator < Draper::Decorator
+class OrderDecorator < Draper::Decorator
   delegate_all
 
   def stay_dates
-    from =  I18n.l date_from, format: :dots_separated
-    to =  I18n.l date_to, format: :dots_separated
+    from = I18n.l source.date_from, format: :dots_separated
+    to = I18n.l source.date_to, format: :dots_separated
     "с #{from} по #{to}"
   end
 

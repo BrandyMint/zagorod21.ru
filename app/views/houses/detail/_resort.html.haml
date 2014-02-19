@@ -8,17 +8,17 @@
             %td.size-12px.bgrey
               Расстояние
             %td.bold
-              = distance @house.resort.distance
+              = distance @house.resort_distance
           %tr
             %td.size-12px.bgrey
               Стоимость
             %td.bold
-              = @house.resort.price_range
+              = @house.resort_price_range
           %tr.visible-lg.visible-md
             %td.size-12px.bgrey
               Сайт
             %td
-              = link_to @house.resort.site
+              = @house.resort_site
         .size-12px.mb20
           %span.visible-xs
             != @house.resort.summary

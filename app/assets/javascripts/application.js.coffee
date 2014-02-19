@@ -3,8 +3,8 @@
 #= require jquery.role/lib/jquery.role
 #= require bootstrap
 #= require bootstrap-datepicker
+#= require bootstrap-datetimepicker/js/bootstrap-datetimepicker
 #= require datepicker_defaults
-# require isotope/jquery.isotope.min
 #= require jquery.maskedinput/jquery.maskedinput.min
 #= require spin.js/spin.js
 #= require estimate_order
@@ -36,6 +36,7 @@ $ ->
   #  width: 'element'
   $('.masked_phone').mask("+7 (999) 999-99-99")
 
+  $('@datetimepicker').zagorod_timepicker()
   $('.datepicker').zagorod_picker()
   $('.date_from').on 'changeDate', (e) ->
       from_date = $(this).datepicker 'getDate'

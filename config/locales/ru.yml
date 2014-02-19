@@ -12,7 +12,9 @@ ru:
       dots_separated: '%e.%m.%Y'
   time:
     formats:
+      dots_separated: '%e.%m.%Y'
       time: "%H:%M"
+      timepicker: '%d %B %H:%M'
       default: "%e %B %Y %H:%M"
       today: 'today at %H:%M'
       this_year: '%e %B at %H:%M'

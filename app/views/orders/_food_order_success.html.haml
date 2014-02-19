@@ -1,0 +1,22 @@
+%section
+  .container
+    .row
+      .col-xs-12.col-md-8
+        %h1 Заказ №#{@order.id}
+        %p
+          %b На имя:
+          = @order.name
+        %p
+          %b Ваш телефон:
+          = @order.view_phone
+        - if @order.email
+          %p
+            %b Электронная почта:
+            = @order.email
+        %p
+          %b Время доставки:
+          = I18n.l @order.source.date_from, format: :timepicker
+        - if @order.money_amount
+          %p
+            %b Итого:
+            = @order.money_amount

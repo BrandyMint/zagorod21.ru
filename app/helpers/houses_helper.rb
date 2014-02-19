@@ -1,7 +1,9 @@
 module HousesHelper
   def tag_list tags
     buffer = ''
-    tags.each_slice( (tags.size/2).round ).each do |tag_block|
+    size = (tags.size/2).round
+    size = size > 0 ? size : 1
+    tags.each_slice(size).each do |tag_block|
       items = tag_block.map do |tag|
         content_tag(:li, tag)
       end.join.html_safe

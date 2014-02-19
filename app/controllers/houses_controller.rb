@@ -8,7 +8,7 @@ class HousesController < ApplicationController
 
   def show
     @house_order ||= HouseOrder.new
-    @house = HouseDecorator.new House.find params[:id]
+    @house ||= decorate_house params[:id]
   end
 
   def create
@@ -18,7 +18,8 @@ class HousesController < ApplicationController
       NotificationService.new.new_order(@house_order)
       redirect_to order_path(@house_order)
     else
-      redirect_to :back
+      @house = decorate_house @house_order.house_id
+      render 'show'
     end
   end
 
@@ -26,6 +27,10 @@ class HousesController < ApplicationController
 
   def order_params
     params.require(:house_order).permit!
+  end
+
+  def decorate_house id
+    House.find(id).decorate
   end
 
 end
