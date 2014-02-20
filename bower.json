@@ -3,7 +3,6 @@
   "version": "0.1",
   "dependencies": {
     "jquery.role": "git://github.com/kossnocorp/role",
-    "isotope" : "latest",
     "jquery.maskedinput" : "latest",
     "spin.js" : "latest",
     "bootstrap-datetimepicker": "git://github.com/smalot/bootstrap-datetimepicker.git"

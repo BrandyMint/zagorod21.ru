@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
   protect_from_forgery with: :exception
 
-  helper_method :search_form, :sort_form, :current_city, :current_user
+  helper_method :sort_form, :current_city, :current_user
 
   before_filter :add_meta_tags, :set_current_city
   HOUSES_PER_PAGE = 9

@@ -10,12 +10,11 @@ class SearchForm < FormObjectBase
 
   def initialize attrs
     super attrs
-    self.price_to ||= Settings.default.price_to
     self.food_state ||= 'none'
     self.use_transport = false if self.use_transport.try(:to_i) == 0
     self.people_quantity = self.people_quantity.to_i
     self.date_from = Date.parse(date_from) if date_from.present?
-    self.date_to = Date.parse(date_to) if date_to.present?
+    self.date_to = date_to.present? ? Date.parse(date_to) : self.date_from
   end
 
   def use_transport?

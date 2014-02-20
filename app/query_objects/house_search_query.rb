@@ -54,7 +54,7 @@ class HouseSearchQuery
   def add_filters
     @scope = people_filter if @form_object.people_quantity.present?
     @scope = price_filter if @form_object.price_to.present?
-    @scope = tags_filter if @form_object.comfort.present?
+    @scope = comfort_filter if @form_object.comfort.try(:join).present?
     @scope
   end
 
@@ -63,11 +63,27 @@ class HouseSearchQuery
   end
 
   def price_filter
-    @scope.where('price_bd <= ?', @form_object.price_to)
+    if @form_object.price_to.to_sym == :max
+      condition = '>='
+      price = Settings.default.prices.last
+    else
+      condition = '<'
+      price = @form_object.price_to.to_i
+      price = Settings.default.prices.include?(price) ? price : Settings.default.prices.last
+    end
+
+    field = covers_weekend? ? 'price_wd' : 'price_bd'
+    @scope.where("#{field} #{condition} ?", price)
   end
 
-  def tags_filter
+  def comfort_filter
     @scope.tagged_with(@form_object.comfort, :any => true)
+  end
+
+  private
+
+  def covers_weekend?
+    (@form_object.date_from..@form_object.date_to).any?(&:is_weekend?) if @form_object.date_from.present?
   end
 
 end

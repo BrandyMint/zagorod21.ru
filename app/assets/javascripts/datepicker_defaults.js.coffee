@@ -11,7 +11,7 @@ $ ->
 
   $.fn.datetimepicker.dates["ru"] = $.fn.datepicker.dates["ru"]
 
-  $.fn.zagorod_picker = ->
+  $.fn.zagorod_datepicker = ->
     @datepicker
       language: "ru"
       autoclose: true

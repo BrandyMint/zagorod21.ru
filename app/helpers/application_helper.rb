@@ -40,7 +40,10 @@ module ApplicationHelper
   end
 
   def prices_collection
-    Settings.default.prices.inject({}) {|hsh, price| hsh["до #{price} р./сутки"] = price; hsh}
+    prices = {'любая' => ''}
+    prices.merge!( Settings.default.prices.inject({}) {|hsh, price| hsh["до #{price} р./сутки"] = price; hsh} )
+    prices["свыше #{prices.values.last} р./сутки"] = :max
+    prices
   end
 
   def food_states_collection

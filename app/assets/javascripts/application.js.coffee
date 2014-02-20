@@ -37,11 +37,19 @@ $ ->
   $('.masked_phone').mask("+7 (999) 999-99-99")
 
   $('@datetimepicker').zagorod_timepicker()
-  $('.datepicker').zagorod_picker()
-  $('.date_from').on 'changeDate', (e) ->
-      from_date = $(this).datepicker 'getDate'
-      $('.date_to').datepicker('setStartDate', from_date)
-      $('.date_to').datepicker('show')
+  $('.datepicker').zagorod_datepicker()
+
+  date_from = $('.date_from')
+  date_to = $('.date_to')
+
+  setDateTo = ->
+    date_to.datepicker('setStartDate', date_from.datepicker('getDate'))
+
+  setDateTo() if date_from.val()
+
+  date_from.on 'changeDate', (e) ->
+    setDateTo().datepicker('show')
+
 
   $('tr.clickable_tr').on 'click', (e) ->
     e.preventDefault()

@@ -45,6 +45,6 @@ class HouseCalculator
   end
 
   def summa_of_date date
-    date.wday>=6 ? @house.price_wd : @house.price_bd
+    date.is_weekend? ? @house.price_wd : @house.price_bd
   end
 end

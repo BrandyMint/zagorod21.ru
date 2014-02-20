@@ -1,4 +1,4 @@
-= simple_form_for @search_form, url: search_url, method: :get, :html => {id: 'filter', class: 'collapse in', role: "form"} do |f|
+= simple_form_for @search_form, url: houses_url, method: :get, :html => {id: 'filter', class: 'collapse in', role: "form"} do |f|
   .page-filter
     .container
       .row
@@ -25,7 +25,7 @@
               .col-xs-7.col-md-12
                 .form-group
                   = f.input_field :price_to, collection: prices_collection, include_blank: false, class: 'form-control'
-          - if params[:search_form].try(:[],'comfort').try(:join).present?
+          - if @search_form.comfort.try(:join).present?
             - collapse_state = 'in'
             - button_state = ''
             - button_caption = 'скрыть удобства'

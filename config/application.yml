@@ -11,12 +11,10 @@ defaults: &defaults
   default:
     # Дефолтное количество людей в форме поиска
     people_quantity: 4
-    price_to: 8000
     prices:
       - 6000
-      - 7000
       - 8000
-      - 9000
+      - 10000
     current_city: 'cheboksary'
   app:
     #title: "За&#769; город!"
