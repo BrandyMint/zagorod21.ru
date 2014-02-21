@@ -7,7 +7,7 @@ class HousesController < ApplicationController
   end
 
   def show
-    @house_order ||= HouseOrder.new
+    @house_order ||= HouseOrder.new order_preset
     @house ||= decorate_house params[:id]
   end
 
@@ -24,6 +24,10 @@ class HousesController < ApplicationController
   end
 
   private
+
+  def order_preset
+    order_params if params.try(:[], 'house_order').present?
+  end
 
   def order_params
     params.require(:house_order).permit!

@@ -29,6 +29,6 @@ class SearchForm < FormObjectBase
   end
 
   def to_order
-    to_h
+    to_h.slice('date_from','date_to','people_quantity')
   end
 end
