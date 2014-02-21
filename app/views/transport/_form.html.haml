@@ -27,7 +27,7 @@
     .form-group
       = f.label :phone, class: 'col-xs-12 hidden'
       .col-xs-12
-        = f.input_field :phone, placeholder: 'Контактный телефон', required: false, class: 'masked_phone form-control', role: 'phone'
+        = f.input_field :phone, placeholder: 'Контактный телефон', required: false, class: 'masked_phone form-control', role: 'phone', maxlength: ""
         = f.error :phone
   .buy-button.mobile-minus.mb20
     .col-xs-10.col-xs-offset-1

@@ -7,6 +7,7 @@ class SearchForm < FormObjectBase
   property :city
   property :price_to
   property :comfort
+  property :selected
 
   def initialize attrs
     super attrs

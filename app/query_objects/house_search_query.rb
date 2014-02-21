@@ -55,6 +55,7 @@ class HouseSearchQuery
     @scope = people_filter if @form_object.people_quantity.present?
     @scope = price_filter if @form_object.price_to.present?
     @scope = comfort_filter if @form_object.comfort.try(:join).present?
+    @scope = selected_filter if @form_object.selected.present?
     @scope
   end
 
@@ -78,6 +79,10 @@ class HouseSearchQuery
 
   def comfort_filter
     @scope.tagged_with(@form_object.comfort, :any => true)
+  end
+
+  def selected_filter
+    @scope.selected
   end
 
   private

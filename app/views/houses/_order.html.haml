@@ -29,7 +29,7 @@
     .form-group
       = f.label :phone, class: 'col-xs-12 hidden'
       .col-xs-12
-        = f.input_field :phone, placeholder: 'Контактный телефон', required: false, class: 'masked_phone form-control', role: 'phone'
+        = f.input_field :phone, placeholder: 'Контактный телефон', required: false, class: 'masked_phone form-control', role: 'phone', maxlength: ""
         = f.error :phone
 
     = f.hidden_field :house_id, value: house.id

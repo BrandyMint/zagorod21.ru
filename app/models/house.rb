@@ -5,6 +5,7 @@ class House < ActiveRecord::Base
 
   scope :ordered, -> { active.order("price_bd DESC") }
   scope :active, -> { where active: true }
+  scope :selected, -> { where selected: true }
   scope :exclude, ->(house) { where "houses.id != #{house.id}" }
   scope :from, ->(city) {includes(:resort).where('resorts.city_id' => city.id)}
 
