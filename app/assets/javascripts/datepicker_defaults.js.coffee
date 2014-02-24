@@ -23,4 +23,4 @@ $ ->
       language: "ru"
       autoclose: true
       startDate: new Date()
-      format: "dd MM hh:ii"
+      format: "dd MM hh:ii",

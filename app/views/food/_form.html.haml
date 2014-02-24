@@ -3,12 +3,12 @@
   .buy-form.mobile-minus
     .form-group
       .col-xs-12
-        = f.input_field :date_from, required: false, as: :time_picker, placeholder: I18n.l(Time.now, format: :timepicker), class: 'form-control'
+        = f.input_field :date_from, required: false, as: :time_picker, placeholder: "Дата и время доставки", class: 'form-control'
         = f.error :date_from
     .form-group
       = f.label :name, class: 'col-xs-12 hidden'
       .col-xs-12
-        = f.input_field :name, placeholder: 'Ваше имя', required: false, role: 'name', class: 'form-control', autofocus: :autofocus
+        = f.input_field :name, placeholder: 'Ваше имя', required: false, role: 'name', class: 'form-control'
         = f.error :name
     .form-group
       = f.label :phone, class: 'col-xs-12 hidden'

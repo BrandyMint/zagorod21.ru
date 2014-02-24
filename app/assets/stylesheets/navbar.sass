@@ -1,30 +1,33 @@
 .navbar-inverse
-  opacity: 0.9
-  background-color: $bgreen
-  border-color: $bgreen
+  background: url(asset-path('navbar-texture.png', image)) repeat 0 0
+  border: 0
+  .navbar-collapse
+    border: 0
+    +box-shadow(none)
   a
     color: $bwhite
-
-.navbar-inverse
-  .nav-pills
-    color: $bwhite
-    li > p
-      padding-top: 15px
-    .glyphicon-earphone
-      margin-left: 15px
-
-.navbar-inverse
   .navbar-slogan
     font:
       size: $slogan-size
       weight: $weight-lite
     p
+      letter-spacing: 1px
       padding-top: $slogan-padding !important
   .navbar-brand
     color: $bwhite
     font-weight: $weight-bold
+  .nav-pills
+    color: $bwhite
+    padding-left: 100px
+    .dropdown
+      margin-top: 5px
+    li > p
+      padding-top: 15px
+    .glyphicon-earphone
+      margin-left: 15px
+      @media screen and (max-width: 768px)
+        margin-left: 3px
 
-.navbar-inverse
   .navbar-nav > li > a
     color: $bwhite
   .navbar-right
@@ -35,11 +38,6 @@
       background-color: $bwhite
       width: 15px
 
-.navbar-inverse
-  .nav-pills
-    padding-left: 100px
-    .dropdown
-      margin-top: 5px
   .left-line
     border-left: 1px solid $bgreen_l
     height: 30px

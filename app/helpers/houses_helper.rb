@@ -7,7 +7,7 @@ module HousesHelper
       items = tag_block.map do |tag|
         content_tag(:li, tag)
       end.join.html_safe
-      buffer << content_tag(:ul, items, class: 'col-xs-6 size-12px-m')
+      buffer << content_tag(:ul, items, class: 'tags col-xs-6 size-12px-m')
     end
     buffer.html_safe
   end

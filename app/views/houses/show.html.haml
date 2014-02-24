@@ -6,23 +6,33 @@
 %section.house-main-content
   .container
     .row
-      .col-xs-12.col-md-8.mb40
+      .col-xs-12.col-md-8.mb90
         %p.size-12px.visible-xs.visible-sm.mt15
           = @house.resort.title
-          %span.fontello-icon-address.bgrey= distance @house.resort.distance
+          ! &nbsp;
+          %span.fontello-icon-address.distance
+            %span.size-11px
+              = distance @house.resort.distance
         .size-20px.bold.visible-xs.visible-sm.mb30= @house.title
-        .clearfix
-          .row
-            .size-25px.bold.visible-md.visible-lg.mt30.mb20.col-md-8
-              Заказать
-              = @house.title
+
+        .row
+          %h1.size-25px.bold.visible-md.visible-lg.mt30.mb20.col-md-8
+            Заказать
+            = @house.title
         %p.size-12px.mb20.visible-md.visible-lg
           = @house.resort.title
-          %span.fontello-icon-address.bgrey= distance @house.resort.distance
+          ! &nbsp;
+          %span.fontello-icon-address.distance
+            %span.size-11px
+              = distance @house.resort.distance
         .clearfix.mobile-minus.choice.nav-tabs
-          %a.col-xs-6.active{href: "#house-carousel-tab", data: {toggle: 'tab'} } Фотографии
-          %a.col-xs-6{href: "#house-maps-tab", data: {toggle: 'tab'} } Карта
-        .tab-content
+          %a.col-xs-6.active{href: "#house-carousel-tab", data: {toggle: 'tab'} }
+            %i.fontello-icon-picture.size-18px
+            Фотографии
+          %a.col-xs-6{href: "#house-maps-tab", data: {toggle: 'tab'} }
+            %i.fontello-icon-globe.size-18px
+            Карта
+        .tab-content.mb40
           .tab-pane#house-carousel-tab.active
             = render 'carousel', images: @house.images.ordered
           .tab-pane#house-maps-tab
@@ -32,16 +42,16 @@
 
         %table.table
           %tr
-            %td.size-12px.bgrey
+            %td.size-14px.bgrey
               Вместимость
-            %td.bold
+            %td.size-16px.bold
               = @house.capacity
           %tr
-            %td.size-12px.bgrey
+            %td.size-14px.bgrey
               Количество комнат
-            %td.bold
+            %td.size-16px.bold
               = @house.rooms_count
-        %p.size-12px-m.mb20
+        .desc.size-12px-m.mb20
           = simple_format @house.description
         = render 'houses/detail/comfort'
 

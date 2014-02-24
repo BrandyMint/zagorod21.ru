@@ -78,7 +78,7 @@ class HouseSearchQuery
   end
 
   def comfort_filter
-    @scope.tagged_with(@form_object.comfort, :any => true)
+    @scope.tagged_with(@form_object.comfort)
   end
 
   def selected_filter

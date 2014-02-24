@@ -4,13 +4,14 @@
       .col-xs-6
         %p.light-h2 Все дома
       .col-xs-6.text-right
-        %button.btn.btn-success.btn-filter-collapse{type: "submit", data: {toggle: "collapse", target: "#filter"} }
+        %button.btn.btn-success.btn-filter-collapse.collapsed{type: "submit", data: {toggle: "collapse", target: "#filter"} }
           %span.fontello-icon-list-1
           фильтр
 = render 'filter'
 
 
-.container
-  - if params[:search_form]
-    %h4 #{@matched_houses} из #{@all_houses} домов удовлетворяют вашему запросу
+.houses-found
+  .container
+    - if params[:search_form]
+      %h4 #{@matched_houses} из #{@all_houses} домов удовлетворяют вашему запросу
 = render partial: 'search/estimates', locals: {header: ''}

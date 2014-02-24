@@ -65,7 +65,7 @@ module ApplicationHelper
   end
 
   def distance dist
-    "#{number_with_precision dist, precision: 0} км."
+    "#{number_with_precision dist, precision: 0} км"
   end
 
   def current_city
@@ -76,5 +76,15 @@ module ApplicationHelper
     @search_form ||= SearchForm.new params[:search_form]
     @search_form.city ||= current_city
     session[:search_form] = @search_form
+  end
+
+  def more_houses
+    unless request.url.include?('houses')
+      "<div class=\"row\">
+        <div class=\"col-xs-12 col-md-4 col-md-offset-4\">
+          <a href=\"#{houses_path}\" class=\"btn btn-default btn-lg btn-block more-btn\">Показать ещё</a>
+        </div>
+      </div>".html_safe
+    end
   end
 end

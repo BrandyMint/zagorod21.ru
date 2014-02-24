@@ -43,7 +43,8 @@ $ ->
   date_to = $('.date_to')
 
   setDateTo = ->
-    date_to.datepicker('setStartDate', date_from.datepicker('getDate'))
+    return date_to.datepicker('setStartDate', date_from.datepicker('getDate')) if date_to.length
+    []
 
   setDateTo() if date_from.val()
 

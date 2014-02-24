@@ -4,12 +4,12 @@
     .row
       = f.label :date_from, class: 'col-xs-2'
       .col-xs-10.col-md-12
-        = f.input_field :date_from, as: :date_picker, class: 'form-control', placeholder: I18n.l(Date.today, format: :words), type: "text"
+        = f.input_field :date_from, as: :date_picker, class: 'form-control', value: I18n.l(Date.today, format: :dots_separated), type: "text"
   .form-group.col-md-2
     .row
       = f.label :date_to, class: 'col-xs-2'
       .col-xs-10.col-md-12
-        = f.input_field :date_to, as: :date_picker, class: 'form-control', placeholder: I18n.l(Date.tomorrow, format: :words), type: "text"
+        = f.input_field :date_to, as: :date_picker, class: 'form-control', value: I18n.l(Date.tomorrow, format: :dots_separated), type: "text"
   .form-group.col-md-2
     .row
       = f.label :people_quantity, class: 'col-xs-2'

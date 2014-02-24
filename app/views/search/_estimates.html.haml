@@ -1,8 +1,9 @@
 - if @estimates.present?
   %section.houses-block
-    .container.mb40
+    .container
       - if header.present?
         %p.light-h2= header
       .row#houses{'data-page' => @page}
         = render partial: 'search/estimates_row', collection: @estimates
+      = more_houses
   .spinner

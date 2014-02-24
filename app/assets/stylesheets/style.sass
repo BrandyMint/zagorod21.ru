@@ -5,7 +5,7 @@ body
   min-width: 320px
 
 .bgrey
-  color: $bgrey_d
+  color: $light-grey
 
 .mt6
   margin-top: 6px
@@ -13,6 +13,8 @@ body
   margin-top: 15px
 .mt30
   margin-top: 30px
+.mb5
+  margin-bottom: 5px
 .mb15
   margin-bottom: 15px
 .mb20
@@ -21,6 +23,8 @@ body
   margin-bottom: 30px
 .mb40
   margin-bottom: 40px
+.mb90
+  margin-bottom: 90px
 
 @media screen and (min-width: 768px)
   .pr0
@@ -66,76 +70,112 @@ body
     font-weight: 400
   @media screen and (min-width: $large-size)
     margin-top: 230px
-    margin-bottom: 200px
+    margin-bottom: 176px
     background-color: transparent
     label
       color: $bwhite
     .btn-lg
-      padding: 6px 16px
+      padding: 8px 16px 7px
       font-size: 15px
-      margin-top: 25px
+      margin-top: 23px
 
+#filter
+  border-bottom: 1px solid $bgrey_d1
+  @media screen and (min-width: $large-size)
+    display: block
 
 
 
 .services
+  padding: 50px 15px 90px
   p
-    margin: 25px 0 25px 0
-    line-height: 22px
+    position: relative
+    margin: 37px 0 25px 0
+    line-height: 30px
+    z-index: 1
     font:
-      size: 20px
+      size: 24px
       weight: $weight-bold
-  padding: 20px 15px 30px 15px
+  .overlay
+    position: absolute
+    display: block
+    height: 241px
+    left: 0
+    top: 0
+    background: rgba(0,0,0,0.3)
+    z-index: 0
   .btn
-    margin-top: -10px
-    margin-left: 20%
-    margin-right: 20%
-  .col-xs-12
-    margin-bottom: 5px
+    display: inline-block
+    float: none
 
 .transfer, .meat, .celebrity
+  position: relative
   padding: 25px 0px
-  height: 195px
+  height: 241px
   color: $bwhite
   text-align: center
+  background-repeat: no-repeat
+  background-position: 0 0
+  background-size: cover
 
 .transfer
-  background: url(asset-path('mobile-2.png', image)) no-repeat 0% 0%/cover
+  background-image: url(asset-path('mobile-2.png', image))
 .meat
-  background: url(asset-path('mobile-3.png', image)) no-repeat 0% 0%/cover
+  background-image: url(asset-path('mobile-3.png', image))
 .celebrity
-  background: url(asset-path('mobile-4.png', image)) no-repeat 0% 0%/cover
+  background-image: url(asset-path('mobile-4.png', image))
 
 
+.desc
+  line-height: 24px
 
-
+.houses-found
+  background-color: $bgrey
+  h4
+    padding-top: 30px
 .houses-block
   background-color: $bgrey
+  padding-bottom: 20px
   .light-h2
-    margin: 30px 0
+    margin: 40px 0
   .house-offer
-    @include border-top-radius(4px)
-    @include border-bottom-radius(4px)
+    +border-top-radius(4px)
+    +border-bottom-radius(4px)
+    margin-bottom: 30px
     background-color: $bwhite
     .img-responsive
-      @include border-top-radius(4px)
-      @include border-bottom-radius(0px)
-      margin-bottom: 10px
+      +border-top-radius(4px)
+      +border-bottom-radius(0px)
+    .house,
     .desc
-      margin: 0 15px
-      min-height: 100px
-  .house-btn
+      display: block
+    .desc
+      line-height: 100%
+      margin: 15px 15px 0
+      min-height: 115px
+      text-decoration: none
+      color: $text-color
+    .title
+      color: $black
+      margin: 0 0 5px
+      line-height: 1.45
+    .capacity
+      color: $capacity-color
+  .btn-house
+    padding: 0
+    overflow: hidden
+    +border-top-radius(0px)
+    +border-bottom-radius(4px)
+    span
+      padding: 14px 0 13px
+      margin-bottom: 1px
     .rline
       border-right: 1px solid $bgreen_l
   .more-btn
     margin: 30px 0
-  .btn-success
-    margin-top: 10px
-    overflow: hidden
-    @include border-top-radius(0px)
-    @include border-bottom-radius(4px)
 
-
+.distance
+  color: $distance-color
 
 
 .houses.index .page-pre-filter-mobile,
@@ -148,7 +188,6 @@ body
 
 .houses.index .page-filter,
 .catalog-page-filter .page-filter
-  border-bottom: 1px solid $bgrey_d1
   background-color: $bgrey_d2
   margin-bottom: 0px
   margin-top: 0px
@@ -164,6 +203,12 @@ body
     padding: 10px 0
   .btn-filter-collapse.collapsed
     @extend .btn-default
+    text-shadow: none
+    border: 1px solid $btn-default-border
+
+.btn-filter-comfort
+  padding: 8px 16px !important
+  font-size: 13px !important
 
 
 
@@ -184,32 +229,48 @@ body
     font-weight: bold
 
 .house-main-content
-  ul
+  .light-h2
+    margin: 40px 0
+  .table td
+    padding-left: 0
+    &.bold
+      color: $black
+  .desc
+    margin: 40px 0
+  .tags
     display: inline-block
     vertical-align: top
   li
-    line-height: 1.7em
+    line-height: 34px
+    // line-height: 1.7em
   .photos
     width: 100%
   .choice
-    border-bottom: 0
+    border: 0
     a
       color: $bfont
       padding-bottom: 5px
       text-decoration: none
+      border-bottom: 5px solid $bgrey_d2
+      font-size: 16px
+      line-height: 26px
+      &:hover
+        color: $bgreen
       &.active
         font-weight: bold
-        border-bottom: 3px solid $bgreen
+        border-color: $bgreen
         color: $bgreen
 
 .right-price
   margin: 70px 0 30px 30px
+  color: $black
 
 .buy-form
   background-color: $bgrey
   padding: 20px 15px 15px 15px
   label
     font-weight: $weight-normal
+    margin-bottom: 8px !important
   input, select
     border: none
   .checkbox span
@@ -223,6 +284,7 @@ body
 .buy-button
   @include border-bottom-radius(4px)
   border: 1px solid $bgrey_d2
+  border-top: 0
   overflow: hidden
   .btn
     margin: 15px 0 20px 0
@@ -233,13 +295,20 @@ body
 .border-grey
   @include border-top-radius(4px)
   @include border-bottom-radius(4px)
-  border: 1px solid $bgrey_d2
+  border: 1px solid $bgrey
   padding: 30px 30px
 
 .base-block
-  padding-top: 30px
+  padding-top: 80px
   @media screen and (min-width: 768px)
     padding: 80px 0 50px 0
+  .table td
+    padding-left: 0
+    &.bold
+      color: $black
+  .reg-h2
+    color: $black
+    margin: 0 0 30px
 
 
 
@@ -271,6 +340,11 @@ body
   .right
     right: $grid-gutter-width / 2
 
+#house-carousel
+  .carousel-inner > .item
+    max-height: 600px
+    overflow: hidden
+
 .help-inline
   color: $brand-danger
   font-size: 11px
@@ -283,3 +357,13 @@ body
     overflow: hidden
     white-space: nowrap
     text-overflow: ellipsis
+
+.table
+  & > thead,
+  & > tbody,
+  & > tfoot
+    & > tr
+      & > th
+      & > td
+        border-top: 0
+        border-bottom: 1px solid $table-border-color

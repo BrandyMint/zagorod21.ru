@@ -3,23 +3,23 @@
     .row
       .col-xs-12.col-md-6
         .reg-h2.mb20= @house.resort.title
-        %table.table
+        %table.table.mb30
           %tr
-            %td.size-12px.bgrey
+            %td.size-14px.bgrey
               Расстояние
             %td.bold
               = distance @house.resort_distance
           %tr
-            %td.size-12px.bgrey
+            %td.size-14px.bgrey
               Стоимость
             %td.bold
               = @house.resort_price_range
           %tr.visible-lg.visible-md
-            %td.size-12px.bgrey
+            %td.size-14px.bgrey
               Сайт
             %td
               = @house.resort_site
-        .size-12px.mb20
+        .desc.mb20
           %span.visible-xs
             != @house.resort.summary
           %span.visible-lg.visible-md

@@ -14,7 +14,7 @@
         %li.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
             = current_city.title
-            %b.caret
+            %b.fontello-icon-down-open-mini
           %ul.dropdown-menu
             - City.find_each do |city|
               %li
@@ -27,6 +27,6 @@
               = Settings.app.phone.html_safe
         %li.visible-xs
           %p
-            %span.glyphicon.glyphicon-earphone
+            = link_to '', "tel:#{Settings.app.phone.html_safe}", class: 'glyphicon glyphicon-earphone'
     .collapse.navbar-collapse.navbar-ex1-collapse
       = render_navigation :expand_all => true, :renderer => :bootstrap

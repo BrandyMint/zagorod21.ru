@@ -16,3 +16,23 @@ input[type="checkbox"]
 
 .checkbox
   padding-left: 0px
+
+.btn-success
+  border: 0
+  border-bottom: 1px solid #378b36
+  text-shadow: -1px 1px 1px #3f9a2e
+
+.form-control,
+.control-label
+  color: $black
+  font-size: 13px
+
+=appearance($a)
+  appearance: $a
+  -webkit-appearance: $a
+  -moz-appearance: $a
+
+select.form-control
+  +appearance(none)
+  background-size: auto 100%
+  background: url(asset-path("select-down-icon.svg", image)) right no-repeat #fff
