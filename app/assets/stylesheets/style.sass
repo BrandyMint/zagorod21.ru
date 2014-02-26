@@ -68,6 +68,9 @@ body
   margin-top: 162px
   label
     font-weight: 400
+  @media screen and (max-width: $screen-md-min)
+    label
+      padding-top: 7px
   @media screen and (min-width: $large-size)
     margin-top: 230px
     margin-bottom: 176px
@@ -79,10 +82,28 @@ body
       font-size: 15px
       margin-top: 23px
 
+.affix-wrapper
+  position: relative
+  display: block
+  &.filter
+    @media screen and (min-width: $screen-md-min)
+      width: 100%
+      height: 190px
+
 #filter
   border-bottom: 1px solid $bgrey_d1
+  background: #fff
   @media screen and (min-width: $large-size)
     display: block
+
+  position: fixed !important
+  width: 100%
+  top: 50px
+  z-index: 10
+  @media screen and (max-width: $screen-md-min)
+    position: static !important
+    width: auto !important
+    top: 0
 
 
 
@@ -131,6 +152,7 @@ body
 
 .houses-found
   background-color: $bgrey
+  padding-bottom: 20px
   h4
     padding-top: 30px
 .houses-block
@@ -286,6 +308,7 @@ body
   border: 1px solid $bgrey_d2
   border-top: 0
   overflow: hidden
+  background: #fff
   .btn
     margin: 15px 0 20px 0
     padding: 10px 12px
@@ -367,3 +390,13 @@ body
       & > td
         border-top: 0
         border-bottom: 1px solid $table-border-color
+
+#new_house_order
+  &.affix
+    position: fixed !important
+    top: 51px
+    z-index: 10
+    @media screen and (max-width: $screen-md-min)
+      position: static !important
+      width: auto !important
+      top: 0

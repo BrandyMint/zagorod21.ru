@@ -18,14 +18,12 @@
             .row
               = f.label :people_quantity, class: 'col-xs-2'
               .col-xs-7.col-md-12
-                .form-group
-                  = f.input_field :people_quantity, collection: people_quantity_collection, include_blank: false, class: 'form-control'
+                = f.input_field :people_quantity, collection: people_quantity_collection, include_blank: false, class: 'form-control'
           .form-group.col-md-3
             .row.form-inline
               = f.label :price_to, class: 'col-xs-2'
               .col-xs-7.col-md-12
-                .form-group
-                  = f.input_field :price_to, collection: prices_collection, include_blank: false, class: 'form-control'
+                = f.input_field :price_to, collection: prices_collection, include_blank: false, class: 'form-control'
           - if @search_form.comfort.try(:join).present?
             - collapse_state = 'in'
             - button_state = ''

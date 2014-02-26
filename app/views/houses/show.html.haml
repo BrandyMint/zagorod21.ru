@@ -27,10 +27,10 @@
               = distance @house.resort.distance
         .clearfix.mobile-minus.choice.nav-tabs
           %a.col-xs-6.active{href: "#house-carousel-tab", data: {toggle: 'tab'} }
-            %i.fontello-icon-picture.size-18px
+            %i.fontello-icon-picture
             Фотографии
           %a.col-xs-6{href: "#house-maps-tab", data: {toggle: 'tab'} }
-            %i.fontello-icon-globe.size-18px
+            %i.fontello-icon-globe
             Карта
         .tab-content.mb40
           .tab-pane#house-carousel-tab.active
@@ -55,7 +55,7 @@
           = simple_format @house.description
         = render 'houses/detail/comfort'
 
-      .col-xs-12.col-md-4
+      .sidebar.col-xs-12.col-md-4
         = @house.admin_link
         = render 'houses/detail/prices'
         = render 'order', house: @house.source
