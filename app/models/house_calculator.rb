@@ -35,10 +35,10 @@ class HouseCalculator
   end
 
   def summa_by_dates
-    return @house.price_wd if date_from.blank? || date_to.blank?
+    return @house.price_wd if date_from.blank?
 
     summa = 0
-    (date_from..date_to).map { |d|
+    (date_from..end_of_range).map { |d|
       summa += summa_of_date(d)
     }
     return summa
@@ -46,5 +46,9 @@ class HouseCalculator
 
   def summa_of_date date
     date.is_weekend? ? @house.price_wd : @house.price_bd
+  end
+
+  def end_of_range
+    date_from == date_to ? date_to : date_to - 1.day
   end
 end
