@@ -1,6 +1,5 @@
 class House < ActiveRecord::Base
   include Authority::Abilities
-  include Authority::Abilities
   acts_as_taggable_on :tags
 
   scope :ordered, -> { active.order("price_bd DESC") }

@@ -1,0 +1,38 @@
+%section.transport
+  .container
+    .row
+      .col-xs-12.col-md-8
+        .transfer.mb20.mobile-minus{style: "background-image: url('#{@page.images.first.file.standard.url}')" }
+          %p.size-20px.bold
+            Трансфер
+            %br/
+            до места отдыха
+          %div.visible-xs
+            %a.btn.btn-success{href: "#new_order"} Заказать автобус
+        .desc.mb40
+          != @page.body
+        .row.mb40
+          .col-xs-12.col-md-6.text-center.mb20
+            %img{alt: "peugeot", src: "assets/peugeot.png"}/
+          .col-xs-12.col-md-6.mt15
+            %p
+              %span.size-16px.bold Peugeot Boxer, 14 мест
+              %br/
+              кондиционер, музыка, тонировка,все дела
+        .row
+          .col-xs-12.col-md-6.text-center.mb20
+            %img{alt: "peugeot", src: "assets/peugeot.png"}/
+          .col-xs-12.col-md-6.mt15
+            %p
+              %span.size-16px.bold Peugeot Boxer, 14 мест
+              %br/
+              кондиционер, музыка, тонировка,все дела
+      .col-xs-12.col-md-4
+        .right-price.visible-lg.visible-md.text-center
+          .bold.size-18px
+            Закажите машину
+            %br/
+            к месту отдыха и обратно
+        = render 'transport/form'
+        = render 'application/sidebar/phone'
+        = render 'application/sidebar/socials'

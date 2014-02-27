@@ -4,6 +4,8 @@ module ActiveAdmin::ViewsHelper
       admin_house_url resource
     elsif resource.is_a? Resort
       admin_resort_url resource
+    elsif resource.is_a? Page
+      admin_page_url resource
     else
       raise "Unknown resource #{resource}"
     end

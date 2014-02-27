@@ -109,6 +109,8 @@ body
 
 .services
   padding: 50px 15px 90px
+  @media screen and (max-width: $screen-md-min)
+    padding-bottom: 40px
   p
     position: relative
     margin: 37px 0 25px 0
@@ -128,6 +130,13 @@ body
   .btn
     display: inline-block
     float: none
+  .transfer
+    background-image: url(asset-path('mobile-2.png', image))
+  .meat
+    background-image: url(asset-path('mobile-3.png', image))
+  .celebrity
+    background-image: url(asset-path('mobile-4.png', image))
+
 
 .transfer, .meat, .celebrity
   position: relative
@@ -138,13 +147,6 @@ body
   background-repeat: no-repeat
   background-position: 0 0
   background-size: cover
-
-.transfer
-  background-image: url(asset-path('mobile-2.png', image))
-.meat
-  background-image: url(asset-path('mobile-3.png', image))
-.celebrity
-  background-image: url(asset-path('mobile-4.png', image))
 
 
 .desc
@@ -353,6 +355,8 @@ body
 
 
 #house-thumbnails
+  .item img
+    cursor: pointer
   .carousel-control
     width: 35px
     .glyphicon-chevron-left,

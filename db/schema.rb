@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140219120004) do
+ActiveRecord::Schema.define(version: 20140227085219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -159,9 +159,11 @@ ActiveRecord::Schema.define(version: 20140219120004) do
   add_index "orders", ["house_id"], name: "index_orders_on_house_id", using: :btree
 
   create_table "pages", force: true do |t|
-    t.string "title", null: false
-    t.string "slug",  null: false
-    t.text   "body",  null: false
+    t.string  "title",      null: false
+    t.string  "slug",       null: false
+    t.text    "body",       null: false
+    t.string  "template"
+    t.integer "preview_id"
   end
 
   create_table "phrasing_phrase_versions", force: true do |t|

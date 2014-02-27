@@ -1,5 +1,7 @@
-= simple_form_for @food_order, url: food_index_path, html: {class: 'form-horizontal', role: 'order-form'} do |f|
+= simple_form_for @order, url: food_index_path, html: {class: 'form-horizontal', role: 'order-form'} do |f|
   = f.error_notification
+  = f.hidden_field :type, value: 'FoodOrder'
+  %input{:type => "hidden", :name => "slug", :value => "food"}
   .buy-form.mobile-minus
     .form-group
       .col-xs-12

@@ -3,9 +3,9 @@
 
 SimpleNavigation::Configuration.run do |navigation|
   navigation.items do |primary|
-    primary.item :resorts, 'Дома', houses_url
-    primary.item :resorts, 'Транспорт', transport_index_url
-    primary.item :resorts, 'Еда', food_index_url
+    primary.item :houses_url, 'Дома', houses_url
+    primary.item :transport_url, 'Транспорт', transport_index_url
+    primary.item :food_url, 'Еда', food_index_url
     # primary.item :services, 'Услуги', page_path(slug: 'services')
     # primary.item :feedback, 'Отзывы', feedback_url
 
