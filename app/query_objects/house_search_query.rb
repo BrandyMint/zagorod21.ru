@@ -88,7 +88,11 @@ class HouseSearchQuery
   private
 
   def covers_weekend?
-    (@form_object.date_from..@form_object.date_to).any?(&:is_weekend?) if @form_object.date_from.present?
+    (@form_object.date_from..end_of_range).any?(&:is_weekend?) if @form_object.date_from.present?
+  end
+
+  def end_of_range
+    @form_object.date_from == @form_object.date_to ? @form_object.date_to : @form_object.date_to - 1.day
   end
 
 end

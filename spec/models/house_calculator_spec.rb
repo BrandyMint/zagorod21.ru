@@ -1,30 +1,38 @@
 require 'spec_helper'
 
 describe HouseCalculator do
-  let(:resort) { double :resort, distance: 30 }
   let(:house) { double :house, resort: resort, price_wd: 1000, price_bd: 1500 }
-  let(:quantity) { 12 }
-  let(:food_state) { 'catering' }
-  let(:date_from) { '2013-12-06' }
-  let(:date_to) { '2013-12-07' }
 
-  let(:form_object) { SearchForm.new food_state: food_state,
-                      people_quantity: quantity,
-                      use_transport: true,
-                      date_from: date_from,
-                      date_to: date_to }
+  context 'when date_from == date_to and date_from is weekday' do
+    let(:date_from) { '2013-12-06' }
+    let(:date_to) { '2013-12-06' }
+    let(:house_price) { house.price_bd }
 
-  let(:calculator) { HouseCalculator.new house, form_object }
-  let(:services) { Hashie::Mash.new transport: 20, food_inplace: 1500, food_catering: 350 } 
-
-  before do
-    Settings.stub(:services) { services }
+    house_estimation_test
   end
 
-  subject { calculator.estimate }
+  context 'when date_from == date_to and date_from is weekend' do
+    let(:date_from) { '2013-12-07' }
+    let(:date_to) { '2013-12-07' }
+    let(:house_price) { house.price_wd }
 
-  let(:result) { quantity*form_object.days*services.food_catering  + 2*resort.distance*services.transport + house.price_wd + house.price_bd }
+    house_estimation_test
+  end
 
-  it { should be_a Estimation }
-  its(:total) { should eq result }
+  context 'when date_from is weekday and date_end is weekend with 1 day interval' do
+    let(:date_from) { '2013-12-06' }
+    let(:date_to) { '2013-12-07' }
+    let(:house_price) { house.price_bd }
+
+    house_estimation_test
+  end
+
+  context 'when date_from is weekday and date_end is weekend with 2 days interval' do
+    let(:date_from) { '2013-12-06' }
+    let(:date_to) { '2013-12-08' }
+    let(:house_price) { house.price_bd + house.price_wd }
+
+    house_estimation_test
+  end
+
 end

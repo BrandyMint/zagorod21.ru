@@ -11,7 +11,7 @@ Zagorod::Application.routes.draw do
 
   resources :houses
   resources :orders
-  # resources :resorts, only: [:index, :show]
+  resources :resorts, only: [:index, :show]
 
   namespace :api do
     post 'orders/estimate'
@@ -20,8 +20,11 @@ Zagorod::Application.routes.draw do
   get "/:slug" => "pages#index"
   post "/:slug" => "pages#create"
 
-  Page.find_each do |page|
-    resources page.slug, controller: :pages, only: [:index, :create]
+  begin
+    Page.find_each do |page|
+      resources page.slug, controller: :pages, only: [:index, :create]
+    end
+  rescue
   end
 
   # Example of regular route:

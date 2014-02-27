@@ -2,18 +2,9 @@ require 'spec_helper'
 
 describe OrdersController do
 
-  describe "GET 'create'" do
-    let(:order_params){{house_id: FactoryGirl.create(:house).id}}
+  describe "#show" do
 
-    it "returns http success" do
-      get 'create', order: order_params
-      response.should be_success
-    end
-  end
-
-  describe "GET 'show'" do
-
-    let(:order){ create :order }
+    let(:order){ create :house_order }
 
     it "returns http success" do
       get 'show', id: order.id

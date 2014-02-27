@@ -2,14 +2,14 @@ require 'spec_helper'
 
 describe ResortsController do
 
-  describe "GET 'index'" do
+  describe "#index" do
     it "returns http success" do
       get 'index'
       response.should be_success
     end
   end
 
-  describe "GET 'show'" do
+  describe "#show" do
     let(:resort_id){FactoryGirl.create(:resort).id}
 
     it "returns http success" do

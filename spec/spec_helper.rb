@@ -65,7 +65,7 @@ Spork.prefork do
     end
     config.before(:each) do
       DatabaseCleaner.start
-      #Warden.test_reset! 
+      #Warden.test_reset!
     end
     config.after(:each) do
       DatabaseCleaner.clean
@@ -85,5 +85,56 @@ Spork.each_run do
     #Dir[Rails.root + "app/**/*.rb"].each do |file|
       #load file
     #end
+  end
+end
+
+def search_form
+  SearchForm.new food_state: food_state,
+                people_quantity: quantity,
+                use_transport: true,
+                price_to: price_to,
+                date_from: date_from,
+                date_to: date_to,
+                city: city
+end
+
+def house_estimation_test
+  let(:resort) { double :resort, distance: 30 }
+  let(:quantity) { 12 }
+  let(:price_to) { 1 }
+  let(:food_state) { 'catering' }
+  let(:city) { create :city }
+
+  let(:form_object) { search_form }
+
+  let(:calculator) { HouseCalculator.new house, form_object }
+  let(:services) { Hashie::Mash.new transport: 20, food_inplace: 1500, food_catering: 350 }
+
+  before do
+    Settings.stub(:services) { services }
+  end
+
+  subject { calculator.estimate }
+  let(:result) { quantity*form_object.days*services.food_catering  + 2*resort.distance*services.transport + house_price }
+
+  it { should be_a Estimation }
+  its(:total) { should eq result }
+end
+
+def search_test
+  let(:resort) { create :resort, distance: 30 }
+  let(:city) { resort.city }
+  let(:food_state) { 'catering' }
+
+  before do
+    create_houses
+  end
+
+  let(:sort_form) { SortForm.new }
+  subject(:query) { HouseSearchQuery.new(search_form, sort_form) }
+
+  it { should be_a HouseSearchQuery }
+  it "should return houses" do
+    query.instance_variable_get("@scope").map(&:id).should =~ expected_houses_ids
   end
 end
