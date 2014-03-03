@@ -2,4 +2,15 @@
   .container
     .row
       .col-xs-12.col-md-8
-        = @page.body.html_safe
+        %h1.size-25px.bold.mt40.mb40= @page.title
+        - if @page.carousel
+          = render 'images'
+        .desc.mt30.mb40
+          != @page.body
+      .col-xs-12.col-md-4
+        .right-price.visible-lg.visible-md.text-center
+          .bold.size-18px
+            -# caption
+            %br/
+        = render 'application/sidebar/socials'
+        = render 'application/sidebar/phone'

@@ -1,0 +1,2 @@
+class RentOrder < Order
+end

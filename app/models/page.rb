@@ -10,6 +10,8 @@ class Page < ActiveRecord::Base
   end
 
   def images
-    super.order('id asc').where.not(id: preview.id)
+    scope = super
+    scope = scope.where.not(id: preview.id) if template.present?
+    scope
   end
 end

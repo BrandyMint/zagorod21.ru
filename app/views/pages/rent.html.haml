@@ -4,11 +4,11 @@
       .col-xs-12.col-md-8
         .meat.mb20.mobile-minus{style: "background-image: url('#{@page.preview.file.standard.url}')" }
           %p.size-20px.bold
-            Услуги
+            Сдать дом
             %br/
-            фотографа
+            в аренду
           %div.visible-xs
-            %a.btn.btn-success{href: "#new_order"} Заказать фото
+            %a.btn.btn-success{href: "#new_order"} Сдать в аренду
         .desc.mb40
           != @page.body
         .row.mb40
@@ -18,8 +18,8 @@
       .col-xs-12.col-md-4
         .right-price.visible-lg.visible-md.text-center
           .bold.size-18px
-            Закажите услуги фотографа
+            Предложите аренду
             %br/
-        = render 'pages/forms/photo'
+        = render 'pages/forms/rent'
         = render 'application/sidebar/phone'
         = render 'application/sidebar/socials'
