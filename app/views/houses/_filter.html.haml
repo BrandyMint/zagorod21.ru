@@ -40,11 +40,8 @@
                 %button{type: "button", class: "btn size-12px btn-default btn-lg btn-filter-comfort #{button_state}", data: {toggle: 'collapse', target: "#comfort-list", text: "#{button_caption2}"} }= button_caption
           %p.clearfix
           .row#comfort-list{class: "collapse #{collapse_state}"}
-            - counter = 0
             - ActsAsTaggableOn::Tag.where(active: true).distinct.find_in_batches(batch_size: 3) do |tags|
-              - classes = counter > 1 ? ' visible-md visible-lg' : ''
-              - counter += 1
-              = f.input :comfort, collection: tags, as: :comfort, wrapper_class: "col-xs-6 col-md-2#{classes}"
+              = f.input :comfort, collection: tags, as: :comfort, wrapper_class: "col-xs-6 col-md-2"
   .container
     .row
       .col-xs-12.col-md-4.col-md-offset-4
