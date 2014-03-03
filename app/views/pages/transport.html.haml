@@ -2,7 +2,7 @@
   .container
     .row
       .col-xs-12.col-md-8
-        .transfer.mb20.mobile-minus{style: "background-image: url('#{@page.images.first.file.standard.url}')" }
+        .transfer.mb20.mobile-minus{style: "background-image: url('#{@page.preview.file.standard.url}')" }
           %p.size-20px.bold
             Трансфер
             %br/
@@ -11,6 +11,8 @@
             %a.btn.btn-success{href: "#new_order"} Заказать автобус
         .desc.mb40
           != @page.body
+        - if @page.carousel
+          = render 'images'
         .row.mb40
           .col-xs-12.col-md-6.text-center.mb20
             %img{alt: "peugeot", src: "assets/peugeot.png"}/

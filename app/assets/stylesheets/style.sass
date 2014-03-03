@@ -355,13 +355,16 @@ body
 
 
 #house-thumbnails
-  .item img
-    cursor: pointer
   .carousel-control
     width: 35px
     .glyphicon-chevron-left,
     .glyphicon-chevron-right
       top: 40%
+  .item
+    img
+      cursor: pointer
+    & > div
+      overflow: hidden
   .left
     left: $grid-gutter-width / 2
   .right

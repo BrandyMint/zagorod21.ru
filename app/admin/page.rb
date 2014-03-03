@@ -2,6 +2,7 @@ ActiveAdmin.register Page do
   form do |f|
     f.semantic_errors *f.object.errors.keys
     f.inputs do
+      f.input :carousel
       f.input :title
       f.input :slug
       f.input :body, as: :html_editor
@@ -21,6 +22,7 @@ ActiveAdmin.register Page do
     column :body do |page|
       truncate_html page.body.html_safe
     end
+    column :carousel
     column :images do |page|
       ul do
         li link_to "Картинки #{page.images.count}", admin_resource_images_url(page)

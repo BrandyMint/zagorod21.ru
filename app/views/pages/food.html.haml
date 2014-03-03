@@ -2,7 +2,7 @@
   .container
     .row
       .col-xs-12.col-md-8
-        .meat.mb20.mobile-minus{style: "background-image: url('#{@page.images.first.file.standard.url}')" }
+        .meat.mb20.mobile-minus{style: "background-image: url('#{@page.preview.file.standard.url}')" }
           %p.size-20px.bold
             Еда и выездное
             %br/
@@ -13,8 +13,8 @@
           != @page.body
         .row.mb40
           .col-xs-12.mb20
-            - @page.images.order('id asc').offset(1).each do |image|
-              = image_tag image.file.standard.url, class: 'img-responsive'
+          - if @page.carousel
+            = render 'images'
       .col-xs-12.col-md-4
         .right-price.visible-lg.visible-md.text-center
           .bold.size-18px

@@ -86,14 +86,16 @@ $ ->
     text = btnComfort.data('text')
     btnComfort.data('text', btnComfort.html()).html text
 
-  $("#house-thumbnails").on "slid", "", ->
+  thumbs = $('#house-thumbnails')
+  thumbsControls = thumbs.find('.carousel-control')
+  thumbsControls.hide() if thumbs.find('.item').length < 2
+  thumbs.on "slid", "", ->
     $this = $(this)
-    controls = $this.children(".carousel-control").show()
-    controls.show()
+    thumbsControls.show()
     if $this.find(".item:first").hasClass("active")
-      controls.filter(".left").hide()
+      thumbsControls.filter(".left").hide()
     else if $this.find(".item:last").hasClass("active")
-      controls.filter(".right").hide()
+      thumbsControls.filter(".right").hide()
     return
 
   $("[data-clampedwidth]").each ->

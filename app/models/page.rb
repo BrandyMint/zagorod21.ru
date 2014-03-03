@@ -8,4 +8,8 @@ class Page < ActiveRecord::Base
   def preview
     super || Image.new
   end
+
+  def images
+    super.order('id asc').where.not(id: preview.id)
+  end
 end

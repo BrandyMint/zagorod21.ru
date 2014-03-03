@@ -1,0 +1,4 @@
+- if @page.images.size > 1
+  = render 'carousel', images: @page.images
+- elsif @page.images.size > 0
+  = image_tag @page.images.first.file.standard.url, class: 'img-responsive'
