@@ -42,7 +42,13 @@ $ ->
     queryDict = {}
     if window.location.search
       for item in decodeURIComponent(window.location.search).substr(1).split("&")
-        queryDict[item.split("=")[0]] = item.split("=")[1]
+        kv = item.split("=")
+        multi = kv[0].split("[]")
+        if multi.length > 1
+          queryDict[multi[0]] = [] if queryDict[multi[0]] is undefined
+          queryDict[multi[0]].push kv[1]
+        else
+          queryDict[kv[0]] = kv[1]
     queryDict
 
   listenForScroll()
