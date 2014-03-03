@@ -6,12 +6,11 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :houses_url, 'Дома', houses_url
     primary.item :transport_url, 'Транспорт', transport_index_url
     primary.item :food_url, 'Еда', food_index_url
-    # primary.item :services, 'Услуги', page_path(slug: 'services')
     # primary.item :feedback, 'Отзывы', feedback_url
 
-    if current_admin_user.present?
-      primary.item :admin, 'Админка', admin_root_url, class: 'visible-lg'
-    end
+    # if current_admin_user.present?
+    #   primary.item :admin, 'Админка', admin_root_url, class: 'visible-lg'
+    # end
 
     primary.dom_class = 'nav navbar-nav navbar-right'
 

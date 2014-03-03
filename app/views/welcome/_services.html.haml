@@ -3,7 +3,7 @@
     .row
       .col-xs-12.col-md-4.mb5
         .light-h2.text-center.visible-md.visible-lg Заказать машину
-        .transfer.col-xs-12
+        .transfer.col-xs-12{style: "background-image: url('#{Page.find_by_slug('transport').preview.file.standard.url}')" }
           .overlay.col-xs-12
           %p
             Трансфер
@@ -12,19 +12,19 @@
           %a.btn.btn-success.col-xs-5{href: transport_index_path} Подробнее
       .col-xs-12.col-md-4.mb5
         .light-h2.text-center.visible-md.visible-lg Кейтеринг и доставка еды
-        .meat.col-xs-12
+        .meat.col-xs-12{style: "background-image: url('#{Page.find_by_slug('food').preview.file.standard.url}')" }
           .overlay.col-xs-12
           %p
             Еда и выездное
-            %br>/
+            %br/
             обслуживание
           %a.btn.btn-success.col-xs-5{href: food_index_path} Подробнее
       .col-xs-12.col-md-4.mb5
         .light-h2.text-center.visible-md.visible-lg Лучшие впечатления
-        .celebrity.col-xs-12
+        .celebrity.col-xs-12{style: "background-image: url('#{Page.find_by_slug('photo').preview.file.standard.url}')" }
           .overlay.col-xs-12
           %p
-            Организация
-            %br>/
-            праздников
-          %a.btn.btn-success.col-xs-5{href: services_path} Подробнее
+            Услуги
+            %br/
+            фотографа
+          %a.btn.btn-success.col-xs-5{href: photo_index_path} Подробнее

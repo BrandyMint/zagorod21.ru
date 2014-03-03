@@ -6,7 +6,7 @@ ActiveAdmin.register Page do
       f.input :title
       f.input :slug
       f.input :body, as: :html_editor
-      f.input :template, collection: [:food,:transport]
+      f.input :template, collection: Page.all.map(&:slug)
     end
 
     f.actions

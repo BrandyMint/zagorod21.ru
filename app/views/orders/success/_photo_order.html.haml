@@ -1,0 +1,27 @@
+%section.order-success
+  .container
+    .row
+      .col-xs-12.col-md-8.center
+        %h1
+          Заказ принят! Мы свяжемся с вами
+          %br/
+          в ближайшее время и уточним детали.
+        %h2 Заказ №#{@order.id}
+        %table.table
+          %tr
+            %td На имя
+            %td.bold= @order.name
+          %tr
+            %td Ваш телефон
+            %td.bold= @order.view_phone
+          - if @order.email.present?
+            %tr
+              %td Электронная почта
+              %td.bold= @order.email
+          %tr
+            %td Время визита
+            %td.bold= I18n.l @order.source.date_from, format: :timepicker
+          - if @order.source.money_amount
+            %tr
+              %td Итого
+              %td.bold= @order.money_amount
