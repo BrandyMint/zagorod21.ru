@@ -13,7 +13,7 @@ class Resort < ActiveRecord::Base
   validates :city_id, presence: true
 
   def to_s
-    "#{title} (база)"
+    "#{title}"
   end
 
   def min_people_capacity

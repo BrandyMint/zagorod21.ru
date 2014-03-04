@@ -7,6 +7,7 @@ ActiveAdmin.register House do
       f.input :selected
       f.input :resort
       f.input :title
+      f.input :accusative_title
       f.input :capacity
       f.input :rooms_count
       f.input :tag_list, as: :string
@@ -71,7 +72,7 @@ ActiveAdmin.register House do
     actions
   end
 
-  
+
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -85,5 +86,5 @@ ActiveAdmin.register House do
   #  permitted << :other if resource.something?
   #  permitted
   # end
-  
+
 end

@@ -28,7 +28,7 @@ class House < ActiveRecord::Base
   end
 
   def to_s
-    "#{title} (дом)"
+    "#{title}"
   end
 
   def preview
