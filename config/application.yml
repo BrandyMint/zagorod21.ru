@@ -3,7 +3,7 @@ defaults: &defaults
   call_name: "Слава"
 
   # Номер телефонов для отправки уведомлений о заказах
-  sms_phone: "79033891228,79196698080,79023270747"
+  sms_phone: ""
   services:
     transport: 20
     food_inplace: 1500
