@@ -87,7 +87,7 @@ class HouseDecorator < Draper::Decorator
   end
 
   def resort_site
-    source.resort.site.present? ? h.link_to(source.resort.site, nil, rel: 'nofollow') : '-'
+    source.resort.site.present? ? h.link_to(source.resort.site, source.resort.site, rel: 'nofollow', target: '_blank') : '-'
   end
 
   def resort_distance
