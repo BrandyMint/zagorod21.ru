@@ -6,6 +6,7 @@ mini_magic*
 profiles/*
 log/*
 public/assets/
+public/sitemaps/
 tags
 tmp/
 .sass-cache/

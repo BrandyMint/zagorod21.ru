@@ -8,6 +8,7 @@ Zagorod::Application.routes.draw do
 
   root 'welcome#index'
   get 'welcome/houses_rows'
+  get "sitemap.xml", to: "welcome#sitemap", format: :xml, as: :sitemap
 
   resources :houses
   resources :orders

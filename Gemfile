@@ -141,6 +141,7 @@ gem 'acts-as-taggable-on'
 gem 'bootstrap-datepicker-rails'
 gem 'email_validator'
 gem 'littlesms', git: 'git://github.com/BrandyMint/littlesms.git'
+gem 'dynamic_sitemaps'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

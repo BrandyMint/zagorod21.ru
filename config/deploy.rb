@@ -52,7 +52,7 @@ namespace :deploy do
     end
   end
 
-  desc "Debloy bower"
+  desc "Deploy bower"
   task :bowerinstall do
     on roles(:web) do
       within release_path do
@@ -61,7 +61,17 @@ namespace :deploy do
     end
   end
 
+  desc "Generate sitemap"
+  task :sitemapgenerate do
+    on roles(:web) do
+      within release_path do
+        execute :rake, "sitemap:generate"
+      end
+    end
+  end
+
   before :compile_assets, 'bowerinstall'
+  before :compile_assets, 'sitemapgenerate'
   after :finishing, 'deploy:cleanup'
   after :finishing, 'deploy:notify'
 
