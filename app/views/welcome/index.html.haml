@@ -4,6 +4,10 @@
   .container
     .row
       = render 'search_form'
+  .text-center.all-houses.visible-md.visible-lg
+    %a{:href => houses_path}
+      посмотреть все предложения
+      %i.fontello-icon-angle-right
 
 = render 'services'
 = render partial: 'search/estimates', locals: {header: 'Лучшие предложения'}
