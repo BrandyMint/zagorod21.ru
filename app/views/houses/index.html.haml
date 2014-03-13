@@ -1,13 +1,16 @@
-%section.page-pre-filter-mobile.visible-xs.visible-sm
+%section.page-pre-filter-mobile
   .container
     .row
       .col-xs-6
         %p.light-h2 Все дома
       .col-xs-6.text-right
-        %button.btn.btn-success.btn-filter-collapse.collapsed{type: "submit", data: {toggle: "collapse", target: "#filter"} }
+        %button.btn.btn-success.btn-filter-collapse{type: "submit", role: "filter-collapse", data: {toggle: "collapse", target: "#filter"} }
           %span.fontello-icon-list-1
           фильтр
-.affix-wrapper.filter
+        %btn.btn.btn-success.btn-filter-collapse.mobile.collapsed{type: "submit", role: "filter-collapse-mobile", data: {toggle: "collapse", target: "#filter"} }
+          %span.fontello-icon-list-1
+          фильтр
+.affix-wrapper.filter.collapse.in
   = render 'filter'
 
 

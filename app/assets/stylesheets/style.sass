@@ -98,25 +98,40 @@ body
   position: relative
   display: block
   &.filter
+    height: 63px
+    +transition(height .35s ease)
+    &.in
+      height: 253px
+      +transition(height .35s ease)
     @media screen and (min-width: $screen-md-min)
       width: 100%
-      height: 190px
+    @media screen and (max-width: $screen-md-min)
+      height: auto !important
 
 #filter
   border-bottom: 1px solid $bgrey_d1
   background: #fff
-  @media screen and (min-width: $large-size)
-    display: block
+  overflow: hidden
 
   position: fixed !important
   width: 100%
-  top: 50px
+  top: 113px
   z-index: 10
   @media screen and (max-width: $screen-md-min)
     position: static !important
     width: auto !important
     top: 0
 
+.page-pre-filter-mobile
+  position: fixed !important
+  width: 100%
+  top: 50px
+  background: #fff
+  z-index: 10
+
+.btn-filter-comfort
+  padding: 8px 16px !important
+  font-size: 13px !important
 
 
 .services
@@ -230,18 +245,20 @@ body
   .btn-filter
     margin: 15px 0
     padding: 10px 0
-  .btn-filter-collapse.collapsed
-    @extend .btn-default
-    text-shadow: none
-    border: 1px solid $btn-default-border
-
-.btn-filter-comfort
-  padding: 8px 16px !important
-  font-size: 13px !important
-
-
-
-
+  .btn-filter-collapse
+    @media screen and (min-width: $screen-md-min)
+      display: inline-block
+    @media screen and (max-width: $screen-md-min)
+      display: none
+    &.mobile
+      @media screen and (min-width: $screen-md-min)
+        display: none
+      @media screen and (max-width: $screen-md-min)
+        display: inline-block
+    &.collapsed
+      @extend .btn-default
+      text-shadow: none
+      border: 1px solid $btn-default-border
 
 
 .zakaz-doma

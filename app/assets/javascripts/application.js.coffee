@@ -81,10 +81,10 @@ $ ->
     tabs.removeClass('active')
     $(e.target).toggleClass('active')
 
-  btnComfort = $('.btn-filter-comfort')
-  $('#comfort-list').on 'show.bs.collapse hide.bs.collapse', (e) ->
-    text = btnComfort.data('text')
-    btnComfort.data('text', btnComfort.html()).html text
+  $('.btn-filter-comfort').on 'click', (e) ->
+    text = $(this).data('text')
+    $(this).data('text', $(this).html()).html text
+    e.preventDefault()
 
   thumbs = $('#house-thumbnails')
   thumbsControls = thumbs.find('.carousel-control')
@@ -109,4 +109,41 @@ $ ->
     resizeFn()
     $(window).resize resizeFn
     return
+
+
+  filter = $('#filter')
+  $document = $(document)
+
+  # mobile filter
+  if $document.width() < 991
+    $('@filter-collapse-mobile').on 'click.bs.collapse.data-api', (e)->
+      if $document.scrollTop() > filter.height()
+        $document.scrollTop(0)
+        return false if !$(this).hasClass('collapsed')
+
+  # desktop filter
+  if $document.width() > 991
+    filter.addClass('in')
+    filterBtn = $('@filter-collapse')
+    filterWrapper = $('.affix-wrapper.filter')
+    filterOffset = 80
+    deltaTop = 0
+
+    $document.on 'scroll', (e)->
+      top = $(this).scrollTop()
+      if top > filterOffset && deltaTop < top
+        filter.collapse('hide')
+      else if top < filterOffset && deltaTop > top
+        filter.collapse('show')
+      deltaTop = top
+
+    filter
+    .on 'show.bs.collapse', (e)->
+      if $(e.target).attr('id') == 'filter'
+        filterWrapper.addClass('in')
+        filterBtn.removeClass('collapsed')
+    .on 'hide.bs.collapse', (e)->
+      if $(e.target).attr('id') == 'filter'
+        filterWrapper.removeClass('in')
+        filterBtn.addClass('collapsed')
 

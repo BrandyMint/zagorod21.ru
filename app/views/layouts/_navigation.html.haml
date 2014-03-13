@@ -10,7 +10,7 @@
       %ul.nav.nav-pills
         %li.hidden-xs.hidden-sm.navbar-slogan
           %p= Settings.app.slogan.html_safe
-        %li.left-line.hidden-xs.hidden-sm
+        %li.left-line.visible-lg
         %li.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
             = current_city.title
@@ -20,12 +20,12 @@
               %li
                 %a{href: "?city=#{city.id}"}= city.title
         %li.left-line.visible-lg
-        %li.hidden-xs
+        %li.hidden-xs.hidden-sm
           %p
             %span.glyphicon.glyphicon-earphone
             = link_to "tel:#{Settings.app.phone.html_safe}" do
               = Settings.app.phone.html_safe
-        %li.visible-xs
+        %li.visible-xs.visible-sm
           %p
             = link_to '', "tel:#{Settings.app.phone.html_safe}", class: 'glyphicon glyphicon-earphone'
     .collapse.navbar-collapse.navbar-ex1-collapse
