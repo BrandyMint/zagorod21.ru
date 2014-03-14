@@ -30,7 +30,7 @@ module ApplicationHelper
 
     min = House.min_people_capacity
     max = house.present? ? house.capacity : House.max_people_capacity
-    collection = {}
+    collection = {'неизвестно' => ''}
     for i in min..max
       g = "чел."
       caption = "#{i} #{g}"

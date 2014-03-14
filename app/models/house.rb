@@ -8,6 +8,7 @@ class House < ActiveRecord::Base
   scope :exclude, ->(house) { where "houses.id != #{house.id}" }
   scope :from, ->(city) {includes(:resort).where('resorts.city_id' => city.id)}
 
+  belongs_to :category
   belongs_to :resort
   belongs_to :preview, class_name: 'Image'
 

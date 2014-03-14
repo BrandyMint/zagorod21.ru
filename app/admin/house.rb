@@ -3,6 +3,7 @@ ActiveAdmin.register House do
   form do |f|
     f.semantic_errors *f.object.errors.keys
     f.inputs do
+      f.input :category, include_blank: false
       f.input :active
       f.input :selected
       f.input :resort
@@ -29,6 +30,7 @@ ActiveAdmin.register House do
 
   show do |house|
     attributes_table do
+      row :category
       row :active
       row :selected
       row :link do
@@ -53,6 +55,7 @@ ActiveAdmin.register House do
   end
 
   index do
+    column :category
     column :active
     column :preview do |house|
       image_tag house.preview.file.thumb.url if house.preview.present?

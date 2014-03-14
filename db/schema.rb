@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140304065436) do
+ActiveRecord::Schema.define(version: 20140314081540) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,12 @@ ActiveRecord::Schema.define(version: 20140304065436) do
   add_index "booked_periods", ["house_id", "date_from", "date_to"], name: "index_booked_periods_on_house_id_and_date_from_and_date_to", using: :btree
   add_index "booked_periods", ["house_id"], name: "index_booked_periods_on_house_id", using: :btree
 
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "cities", force: true do |t|
     t.string   "title",      null: false
     t.string   "slug",       null: false
@@ -105,6 +111,7 @@ ActiveRecord::Schema.define(version: 20140304065436) do
     t.boolean  "selected",         default: false, null: false
     t.integer  "rooms_count"
     t.string   "accusative_title"
+    t.integer  "category_id",                      null: false
   end
 
   create_table "images", force: true do |t|
