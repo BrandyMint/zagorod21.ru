@@ -70,6 +70,8 @@ body
   margin-top: 162px
   label
     font-weight: 400
+    &.control-label
+      padding-left: 27px
   @media screen and (max-width: $screen-md-min)
     label
       padding-top: 7px
@@ -101,7 +103,7 @@ body
     height: 63px
     +transition(height .35s ease)
     &.in
-      height: 253px
+      height: 198px //270
       +transition(height .35s ease)
     @media screen and (min-width: $screen-md-min)
       width: 100%
@@ -116,8 +118,12 @@ body
 
   position: fixed !important
   width: 100%
-  top: 113px
+  top: 130px
   z-index: 10
+  .form-group
+    padding-left: 0
+    @media screen and (min-width: $screen-lg-min)
+      width: 160px
   @media screen and (max-width: $screen-md-min)
     position: static !important
     width: auto !important
@@ -127,13 +133,31 @@ body
   position: fixed !important
   width: 100%
   top: 50px
-  background: #fff
+  background: $bgrey
+  border-bottom: 1px solid $bgrey_d1
+
   z-index: 10
+  +transition(top .35s ease)
 
 .btn-filter-comfort
-  padding: 8px 16px !important
+  padding: 8px 10px 8px 16px !important
   font-size: 13px !important
+  i
+    font-size: 14px
 
+.categories-switch
+  a
+    font-size: 16px
+    padding: 29px 15px 28px
+    text-decoration: none
+    color: $text-color
+    &:hover
+      color: $link-color
+    &.active
+      color: $link-color
+      padding-bottom: 24px
+      font-weight: bold
+      border-bottom: 4px solid $link-color
 
 .services
   padding: 50px 15px 90px
@@ -176,11 +200,50 @@ body
 .houses-found
   background-color: $bgrey
   padding-bottom: 20px
+  &.table-view
+    background: #fff
   h4
     padding-top: 30px
 .houses-block
   background-color: $bgrey
   padding-bottom: 20px
+  &.table-view
+    background: #fff
+  .table
+    th,
+    td
+      padding: 8px 17px 8px 0
+    th
+      text-transform: uppercase
+      font-size: 10px
+      line-height: 30px
+      font-weight: normal
+      letter-spacing: 1px
+      border-bottom-width: 1px
+    td
+      font-size: 13px
+      &.bold
+        font-size: 15px
+        font-weight: bold
+        color: $black
+      &.text-right
+        padding-right: 0
+    a
+      text-decoration: none
+    .category
+      vertical-align: middle
+      text-align: center
+      i
+        font-size: 20px
+        color: $house-icon-color
+    .name
+      a
+        font-size: 15px
+        color: $black
+        font-weight: bold
+      span
+        display: block
+        margin-top: 5px
   .light-h2
     margin: 40px 0
   .house-offer
@@ -223,10 +286,6 @@ body
   color: $distance-color
 
 
-.houses.index .page-pre-filter-mobile,
-.catalog-page-filter .page-pre-filter-mobile
-  padding: 15px 0 5px 0
-
 .houses.index
   .houses-block
     padding-top: 30px
@@ -247,18 +306,17 @@ body
     margin: 15px 0
     padding: 10px 0
   .btn-filter-collapse
-    @media screen and (min-width: $screen-md-min)
-      display: inline-block
-    @media screen and (max-width: $screen-md-min)
-      display: none
-    &.mobile
-      @media screen and (min-width: $screen-md-min)
-        display: none
-      @media screen and (max-width: $screen-md-min)
-        display: inline-block
+    color: $reset-btn-color
+    padding: 6px 8px
+    margin-top: 23px
+    margin-left: 10px
+    &.btn-success
+      color: #fff
+      border-bottom: 0
     &.collapsed
       @extend .btn-default
       text-shadow: none
+      color: $btn-default-color
       border: 1px solid $btn-default-border
 
 
@@ -458,15 +516,40 @@ body
   float: none
   margin: 0 auto
 
+.datepicker
+  padding: 6px 12px
+
 .datepicker-wrapper
   position: relative
   .reset-picker
     position: absolute
     display: block
-    right: 6px
+    right: 1px
     top: 7px
     padding: 0
     color: $reset-btn-color
     border: 0
     outline: none
     background: none
+
+.pagination
+  li
+    display: inline-block
+    margin: 0 3px
+    & > a
+      color: $pagination-color
+      border-radius: 4px
+    &.next,
+    &.prev
+      & > a
+        padding: 3px 13px 5px
+        font-size: 17px
+    &.active > a
+      font-weight: bold
+    &.gap
+      font-weight: bold
+      span
+        border: 0
+        padding: 6px 10px
+        &:hover
+          background: none

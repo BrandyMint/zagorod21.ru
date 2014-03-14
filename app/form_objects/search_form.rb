@@ -8,9 +8,11 @@ class SearchForm < FormObjectBase
   property :price_to
   property :comfort
   property :selected
+  property :category
 
   def initialize attrs
     super attrs
+    self.category = Category.where(id: category).first || Category.first
     self.food_state ||= 'none'
     self.use_transport = false if self.use_transport.try(:to_i) == 0
     self.people_quantity = self.people_quantity.to_i

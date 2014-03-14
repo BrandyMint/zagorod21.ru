@@ -1,0 +1,13 @@
+- house = HouseDecorator.new estimates_table_row.house
+- e = EstimateDecorator.new estimates_table_row
+%tr
+  %td.category= house.category_icon
+  %td.name
+    = link_to house.title, e.order_url
+    %br/
+    %span= house.resort.title
+  %td= house.distance
+  %td= house.capacity
+  %td.bold= house.price_bd
+  %td.bold= house.price_wd
+  %td.text-right= link_to 'заказать', e.order_url

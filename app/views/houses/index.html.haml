@@ -1,21 +1,22 @@
 %section.page-pre-filter-mobile
   .container
     .row
-      .col-xs-6
-        %p.light-h2 Все дома
+      .col-xs-6.categories-switch
+        - Category.find_each do |category|
+          - active = @search_form.category.id == category.id ? ' active' : ''
+          = link_to category.name, current_url({search_form: {category: category.id}}, [:search_form, :view]), class: "pull-left#{active}"
+
       .col-xs-6.text-right
         %button.btn.btn-success.btn-filter-collapse{type: "submit", role: "filter-collapse", data: {toggle: "collapse", target: "#filter"} }
           %span.fontello-icon-list-1
           фильтр
-        %btn.btn.btn-success.btn-filter-collapse.mobile.collapsed{type: "submit", role: "filter-collapse-mobile", data: {toggle: "collapse", target: "#filter"} }
-          %span.fontello-icon-list-1
-          фильтр
+        = view_mode_switch
 .affix-wrapper.filter.collapse.in
   = render 'filter'
 
 
-.houses-found
+%div{class: "houses-found #{houses_view_mode}-view"}
   .container
     - if params[:search_form]
       %h4 #{@matched_houses} из #{@all_houses} домов удовлетворяют вашему запросу
-= render partial: 'search/estimates', locals: {header: ''}
+= render partial: "search/estimates_#{houses_view_mode}", locals: {header: ''}

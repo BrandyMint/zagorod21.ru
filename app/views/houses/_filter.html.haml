@@ -19,30 +19,32 @@
               = f.label :people_quantity, class: 'col-xs-2'
               .col-xs-7.col-md-12
                 = f.input_field :people_quantity, collection: people_quantity_collection, include_blank: false, class: 'form-control'
-          .form-group.col-md-3
+          .form-group.col-md-2
             .row.form-inline
               = f.label :price_to, class: 'col-xs-2'
               .col-xs-7.col-md-12
                 = f.input_field :price_to, collection: prices_collection, include_blank: false, class: 'form-control'
+          .form-group.col-md-2
+            .row.form-inline
+              .col-xs-7.col-md-12
+                = f.submit 'Найти', class: 'btn btn-success btn-lg bold size-16px col-xs-12', data: {disable_with: 'Ищу...'}
           - if @search_form.comfort.try(:join).present?
             - collapse_state = 'in'
             - button_state = ''
-            - button_caption = 'скрыть удобства'
-            - button_caption2 = 'выбрать удобства'
+            - button_caption = 'удобства <i class="fontello-icon-up-open-mini"></i>'
+            - button_caption2 = 'удобства <i class="fontello-icon-down-open-mini"></i>'
           - else
             - collapse_state = ''
             - button_state = 'collapsed'
-            - button_caption = 'выбрать удобства'
-            - button_caption2 = 'скрыть удобства'
-          .form-group.col-md-3.visible-md.visible-lg
+            - button_caption = 'удобства <i class="fontello-icon-down-open-mini"></i>'
+            - button_caption2 = 'удобства <i class="fontello-icon-up-open-mini"></i>'
+          .form-group.pull-right.visible-md.visible-lg
             .row
               .col-xs-12.text-right
-                %button{type: "button", class: "btn size-12px btn-default btn-lg btn-filter-comfort #{button_state}", data: {toggle: 'collapse', target: "#comfort-list", text: "#{button_caption2}"} }= button_caption
+                %button{type: "button", class: "btn size-12px btn-default btn-lg btn-filter-comfort #{button_state}", data: {toggle: 'collapse', target: "#comfort-list", text: "#{button_caption2}"} }
+                  != button_caption
           %p.clearfix
           .row#comfort-list{class: "collapse #{collapse_state}"}
             - ActsAsTaggableOn::Tag.where(active: true).distinct.find_in_batches(batch_size: 3) do |tags|
               = f.input :comfort, collection: tags, as: :comfort, wrapper_class: "col-xs-6 col-md-2"
-  .container
-    .row
-      .col-xs-12.col-md-4.col-md-offset-4
-        = f.submit 'Найти', class: 'btn btn-success bold btn-block btn-filter', data: {disable_with: 'Ищу...'}
+

@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :sort_form, :current_city, :current_user
 
-  before_filter :add_meta_tags, :set_current_city
+  before_filter :add_meta_tags, :set_user_params
   HOUSES_PER_PAGE = 9
 
   def not_found
@@ -20,10 +20,20 @@ class ApplicationController < ActionController::Base
     current_admin_user
   end
 
+  def set_user_params
+    set_current_city
+    set_houses_view_mode
+  end
+
   def set_current_city
     new_city = City.where(id: params[:city]).first
     session[:current_city] = new_city if new_city
     session[:current_city] ||= City.default_city
+  end
+
+  def set_houses_view_mode
+    session[:houses_view_mode] = params[:view] if ['table','blocks'].include?(params[:view])
+    session[:houses_view_mode] ||= 'blocks'
   end
 
   def sort_form

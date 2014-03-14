@@ -11,4 +11,20 @@ module HousesHelper
     end
     buffer.html_safe
   end
+
+  def view_mode_switch
+    str = ''
+    if houses_view_mode == 'table'
+      str << link_to( "<span class=\"fontello-icon-th-list\"></span>".html_safe, current_url({view: :table}, :search_form), class: "btn btn-success btn-filter-collapse" )
+      str << link_to( "<span class=\"fontello-icon-th-large\"></span>".html_safe, current_url({view: :blocks}, :search_form), class: "btn btn-default btn-filter-collapse" )
+    else
+      str << link_to( "<span class=\"fontello-icon-th-list\"></span>".html_safe, current_url({view: :table}, :search_form), class: "btn btn-default btn-filter-collapse" )
+      str << link_to( "<span class=\"fontello-icon-th-large\"></span>".html_safe, current_url({view: :blocks}, :search_form), class: "btn btn-success btn-filter-collapse" )
+    end
+    str.html_safe
+  end
+
+  def sortable_th attribute
+    House.human_attribute_name(attribute)
+  end
 end

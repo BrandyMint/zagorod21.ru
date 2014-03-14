@@ -94,4 +94,8 @@ class HouseDecorator < Draper::Decorator
     source.resort.distance.present? ? source.resort.distance : '-'
   end
 
+  def category_icon
+    "<i class=\"fontello-icon-home-1\"></i>".html_safe
+  end
+
 end

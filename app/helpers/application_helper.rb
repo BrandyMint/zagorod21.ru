@@ -72,6 +72,10 @@ module ApplicationHelper
     session[:current_city]
   end
 
+  def houses_view_mode
+    session[:houses_view_mode]
+  end
+
   def search_form
     @search_form ||= SearchForm.new params[:search_form]
     @search_form.city ||= current_city
@@ -86,5 +90,11 @@ module ApplicationHelper
         </div>
       </div>".html_safe
     end
+  end
+
+  def current_url(overwrite={}, only='')
+    new_params = {}
+    old_params = only.present? ? params.slice(only) : params
+    url_for :only_path => false, :params => new_params.merge(old_params).merge(overwrite)
   end
 end

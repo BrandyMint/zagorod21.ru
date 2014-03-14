@@ -3,7 +3,7 @@ class HousesController < ApplicationController
   include Concerns::HouseSearchConcern
 
   def index
-    search_for_houses
+    search_for_houses houses_count
   end
 
   def show
@@ -31,6 +31,11 @@ class HousesController < ApplicationController
 
   def decorate_house id
     House.find(id).decorate
+  end
+
+  def houses_count
+    return {show: 5} if houses_view_mode == 'table'
+    {}
   end
 
 end

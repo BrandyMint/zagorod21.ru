@@ -1,0 +1,18 @@
+- if @estimates.present?
+  %section.houses-block.table-view
+    .container
+      - if header.present?
+        %p.light-h2= header
+      %table.table
+        %thead
+          %tr
+            %th= sortable_th('category')
+            %th= sortable_th('title')
+            %th= sortable_th('distance')
+            %th= sortable_th('capacity')
+            %th= sortable_th('price_bd')
+            %th= sortable_th('price_wd')
+            %th
+        %tbody
+          = render partial: 'search/estimates_table_row', collection: @estimates
+      = paginate @estimates

@@ -25,7 +25,8 @@ class WelcomeController < ApplicationController
   private
 
   def filter
-    {selected: true} unless request.referer.include?('houses')
+    return {selected: true} unless request.referer.include?('houses')
+    {}
   end
 
 end
