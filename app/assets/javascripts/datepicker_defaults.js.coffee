@@ -26,3 +26,6 @@ $ ->
       format: "dd MM hh:ii"
       minuteStep: 30
       # minView: 'day'
+
+  $('@reset-date').on 'click', ->
+    $(this).siblings('input').val('')

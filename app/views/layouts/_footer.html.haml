@@ -1,19 +1,20 @@
-/ %footer.footer.application-footer
-/   .container
-/     = render 'layouts/services_footer'
-/     %hr
-/     .row
-/       .col-md-4
-/         = render 'socials'
-/         %br
-/         %small.muted= app_version
-/       .col-md-4.text-center
-/         %h3.no-margin-top
-/           = link_to Settings.app.title.html_safe, root_url, :class => 'footer-brand'
-/         = phrase :footer_subtitle
-/       .col-md-4.text-center
-/         %h3.no-margin-top.footer-phone
-/           %strong= link_to Settings.app.phone.html_safe, "tel:#{Settings.app.phone.html_safe}"
-/         = phrase :footer_subphone
+- if false
+  %footer.footer.application-footer
+    .container
+      = render 'layouts/services_footer'
+      %hr
+      .row
+        .col-md-4
+          = render 'socials'
+          %br
+          %small.muted= app_version
+        .col-md-4.text-center
+          %h3.no-margin-top
+            = link_to Settings.app.title.html_safe, root_url, :class => 'footer-brand'
+          = phrase :footer_subtitle
+        .col-md-4.text-center
+          %h3.no-margin-top.footer-phone
+            %strong= link_to Settings.app.phone.html_safe, "tel:#{Settings.app.phone.html_safe}"
+          = phrase :footer_subphone
 
 = render 'layouts/analytics' if Rails.env.production?
