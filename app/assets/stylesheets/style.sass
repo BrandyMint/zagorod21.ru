@@ -72,9 +72,10 @@ body
     font-weight: 400
     &.control-label
       padding-left: 27px
-  @media screen and (max-width: $screen-md-min)
-    label
-      padding-top: 7px
+      @media screen and (max-width: $screen-md-min)
+        padding-top: 7px
+      @media screen and (max-width: $screen-sm-min)
+        padding-left: 15px
   @media screen and (min-width: $large-size)
     margin-top: 230px
     background-color: transparent
@@ -110,6 +111,9 @@ body
     @media screen and (max-width: $screen-md-min)
       min-height: 63px
       height: auto !important
+    @media screen and (max-width: $screen-sm-min)
+      min-height: 51px
+      height: auto !important
 
 #filter
   border-bottom: 1px solid $bgrey_d1
@@ -128,6 +132,45 @@ body
     position: static !important
     width: auto !important
     top: 0
+  @media screen and (max-width: $screen-md-min)
+    margin-top: 80px
+    padding-bottom: 71px
+  @media screen and (max-width: $screen-sm-min)
+    margin-top: 51px
+  .submit-mobile
+    position: fixed
+    display: block
+    width: 100%
+    left: 0
+    bottom: 0
+    background: #fff
+    &.absolute
+      position: absolute
+
+.navbar-categories
+  z-index: 1030
+  margin-bottom: 0
+  background: $bgrey
+  .navbar-toggle
+    background: $bgrey_d2 !important
+    .icon-bar
+      background: $text-color !important
+    &.collapsed
+      background: none !important
+  .navbar-nav
+    .active a
+      background: $bgrey_d2 !important
+      color: $text-color !important
+      border-color: $bgreen
+      &:hover
+        background: $bgrey_d2 !important
+        color: $text-color !important
+    li a
+      border-left: 4px solid transparent
+      color: $text-color !important
+      &:hover
+        background: $bgrey_d2 !important
+        color: $text-color !important
 
 .page-pre-filter-mobile
   position: fixed !important
@@ -313,6 +356,8 @@ body
     &.btn-success
       color: #fff
       border-bottom: 0
+    @media screen and (max-width: $screen-sm-min)
+      margin-top: 9px
     &.collapsed
       @extend .btn-default
       text-shadow: none

@@ -111,10 +111,21 @@ $ ->
 
 
   filter = $('#filter')
+  houses = $('.houses-found')
   $document = $(document)
 
   # mobile filter
   if $document.width() < 991
+    housesOffset = houses.offset().top + $(window).height() + houses.height()
+    submitBtn = $('.submit-mobile')
+
+    $document.on 'scroll', (e)->
+      top = $(this).scrollTop()
+      if top > housesOffset
+        submitBtn.addClass('absolute')
+      else
+        submitBtn.removeClass('absolute')
+
     $('@filter-collapse-mobile').on 'click.bs.collapse.data-api', (e)->
       if $document.scrollTop() > filter.height()
         $document.scrollTop(0)

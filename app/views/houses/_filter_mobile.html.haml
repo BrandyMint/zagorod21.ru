@@ -1,0 +1,19 @@
+%section.page-pre-filter-mobile
+  .container
+    .row
+      %nav.navbar.navbar-inverse.navbar-categories{role: "navigation"}
+        .container
+          %button.navbar-toggle.pull-left.collapsed{type: "button", data: {toggle: "collapse", target: ".collapse-categories"} }
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %button.btn.btn-success.btn-filter-collapse.collapsed{type: "button", role: "filter-collapse-mobile", data: {toggle: "collapse", target: "#filter"} }
+            %span.fontello-icon-list-1
+            фильтр
+          .collapse.navbar-collapse.collapse-categories
+            %ul.nav.navbar-nav.navbar-right
+              - Category.find_each do |category|
+                - active = @search_form.category.id == category.id ? ' active' : ''
+                %li{class: "#{active}"}
+                  = link_to category.name, current_url({search_form: {category: category.id}}, [:search_form, :view])
