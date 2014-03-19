@@ -13,8 +13,8 @@
         %li.left-line.visible-lg
         %li.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-            = current_city.title
-            %b.fontello-icon-down-open-mini
+            %span= current_city.title
+            %i.fontello-icon-down-open-mini
           %ul.dropdown-menu
             - City.find_each do |city|
               %li

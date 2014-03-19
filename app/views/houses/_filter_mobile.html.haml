@@ -11,6 +11,8 @@
           %button.btn.btn-success.btn-filter-collapse.collapsed{type: "button", role: "filter-collapse-mobile", data: {toggle: "collapse", target: "#filter"} }
             %span.fontello-icon-list-1
             фильтр
+          = link_to houses_url, class: 'btn btn-default pull-right', alt: 'Сбросить все фильтры' do
+            %i.fontello-icon-cancel-circled
           .collapse.navbar-collapse.collapse-categories
             %ul.nav.navbar-nav.navbar-right
               - Category.find_each do |category|

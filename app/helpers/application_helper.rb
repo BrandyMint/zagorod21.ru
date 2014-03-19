@@ -78,7 +78,7 @@ module ApplicationHelper
 
   def search_form
     @search_form ||= SearchForm.new params[:search_form]
-    @search_form.city ||= current_city
+    @search_form.city = current_city
     session[:search_form] = @search_form
   end
 

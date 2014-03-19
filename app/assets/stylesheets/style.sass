@@ -38,7 +38,13 @@ body
     margin-left: -15px
 
 
-
+@media screen and (max-width: $screen-sm-min)
+  .navbar-header
+    .dropdown-toggle
+      padding: 10px
+      i
+        box-sizing: content-box
+        display: inline
 
 .index-page-header
   background-image: url(asset-path('mobile-1.png', image))
@@ -151,6 +157,9 @@ body
   z-index: 1030
   margin-bottom: 0
   background: $bgrey
+  .btn
+    +navbar-vertical-align(34px)
+    color: $text-color
   .navbar-toggle
     background: $bgrey_d2 !important
     .icon-bar
@@ -159,14 +168,16 @@ body
       background: none !important
   .navbar-nav
     .active a
-      background: $bgrey_d2 !important
-      color: $text-color !important
+      background: none !important
+      color: $bgreen !important
+      font-weight: bold
       border-color: $bgreen
       &:hover
         background: $bgrey_d2 !important
-        color: $text-color !important
+        color: $bgreen !important
     li a
       border-left: 4px solid transparent
+      font-weight: normal
       color: $text-color !important
       &:hover
         background: $bgrey_d2 !important
@@ -180,7 +191,8 @@ body
   border-bottom: 1px solid $bgrey_d1
 
   z-index: 10
-  +transition(top .35s ease)
+  @media screen and (min-width: $screen-md-min)
+    +transition(top .35s ease)
 
 .btn-filter-comfort
   padding: 8px 10px 8px 16px !important
@@ -351,13 +363,12 @@ body
   .btn-filter-collapse
     color: $reset-btn-color
     padding: 6px 8px
-    margin-top: 23px
     margin-left: 10px
+    @media screen and (min-width: $screen-md-min)
+      margin-top: 23px
     &.btn-success
       color: #fff
       border-bottom: 0
-    @media screen and (max-width: $screen-sm-min)
-      margin-top: 9px
     &.collapsed
       @extend .btn-default
       text-shadow: none

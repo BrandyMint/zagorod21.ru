@@ -26,7 +26,7 @@
                 = f.input_field :price_to, collection: prices_collection, include_blank: false, class: 'form-control'
           .form-group.col-md-2.hidden-xs.hidden-sm
             .row.form-inline
-              .col-xs-7.col-md-12
+              .col-md-12
                 = f.submit 'Найти', class: 'btn btn-success btn-lg bold size-16px col-xs-12', data: {disable_with: 'Ищу...'}
           - if @search_form.comfort.try(:join).present?
             - collapse_state = 'in'
@@ -50,6 +50,6 @@
 
     .container.submit-mobile.visible-xs.visible-sm
       .row
-        .col-xs-12.col-md-4.col-md-offset-4
+        .col-xs-12.col-sm-12
           = f.submit 'Найти', class: 'btn btn-success bold btn-block btn-filter', data: {disable_with: 'Ищу...'}
 
