@@ -54,3 +54,5 @@ $ ->
     resizeFn()
     $(window).resize resizeFn
     return
+
+  $('@tr-link').on 'click', -> window.location = $(this).data('url')

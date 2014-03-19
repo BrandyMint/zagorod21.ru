@@ -5,6 +5,7 @@ FactoryGirl.define do
 
   factory :house do
     title
+    category
     description "MyText"
     price_bd 5
     price_wd 12

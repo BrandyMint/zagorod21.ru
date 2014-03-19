@@ -1,9 +1,10 @@
 class HousesController < ApplicationController
 
   include Concerns::HouseSearchConcern
+  before_filter :set_search_params
 
   def index
-    search_for_houses houses_count
+    search_for_houses @search_params
   end
 
   def show
@@ -33,9 +34,12 @@ class HousesController < ApplicationController
     House.find(id).decorate
   end
 
-  def houses_count
-    return {show: 5} if houses_view_mode == 'table'
-    {}
+  def set_search_params
+    @search_params = {}
+
+    if houses_view_mode == 'table'
+      @search_params = {show: 30}
+    end
   end
 
 end

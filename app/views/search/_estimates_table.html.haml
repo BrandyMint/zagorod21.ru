@@ -3,15 +3,14 @@
     .container
       - if header.present?
         %p.light-h2= header
-      %table.table
+      %table.table.table-striped
         %thead
           %tr
-            %th= sortable_th('category')
-            %th= sortable_th('title')
-            %th= sortable_th('distance')
-            %th= sortable_th('capacity')
-            %th= sortable_th('price_bd')
-            %th= sortable_th('price_wd')
+            %th= sortable_column('title')
+            %th= sortable_column('distance')
+            %th= sortable_column('capacity')
+            %th= sortable_column('price_bd')
+            %th= sortable_column('price_wd')
             %th
         %tbody
           = render partial: 'search/estimates_table_row', collection: @estimates

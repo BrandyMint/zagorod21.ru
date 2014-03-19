@@ -5,6 +5,10 @@ class HouseDecorator < Draper::Decorator
     resort.highlighted? ? 'warning' : ''
   end
 
+  def house_css_class
+    source.selected? ? 'warning' : ''
+  end
+
   def rooms_count
     if source.rooms_count.present? && source.rooms_count >0
       "#{source.rooms_count}"

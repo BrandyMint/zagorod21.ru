@@ -24,7 +24,7 @@ $ ->
     filter.addClass('in')
     filterBtn = $('@filter-collapse')
     filterWrapper = $('.affix-wrapper.filter')
-    filterOffset = 150
+    filterOffset = 70
     deltaTop = 0
 
     $document.on 'scroll', (e)->

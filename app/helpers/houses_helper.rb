@@ -15,11 +15,11 @@ module HousesHelper
   def view_mode_switch
     str = ''
     if houses_view_mode == 'table'
-      str << link_to( "<span class=\"fontello-icon-th-list\"></span>".html_safe, current_url({view: :table}, :search_form), class: "btn btn-success btn-filter-collapse" )
-      str << link_to( "<span class=\"fontello-icon-th-large\"></span>".html_safe, current_url({view: :blocks}, :search_form), class: "btn btn-default btn-filter-collapse" )
+      str << link_to( "<span class=\"fontello-icon-th-list\"></span>".html_safe, current_url({view: :table}, :search_form), class: "btn btn-success btn-filter-collapse", title: I18n.t('viewmode.table') )
+      str << link_to( "<span class=\"fontello-icon-th-large\"></span>".html_safe, current_url({view: :blocks}, :search_form), class: "btn btn-default btn-filter-collapse", title: I18n.t('viewmode.blocks') )
     else
-      str << link_to( "<span class=\"fontello-icon-th-list\"></span>".html_safe, current_url({view: :table}, :search_form), class: "btn btn-default btn-filter-collapse" )
-      str << link_to( "<span class=\"fontello-icon-th-large\"></span>".html_safe, current_url({view: :blocks}, :search_form), class: "btn btn-success btn-filter-collapse" )
+      str << link_to( "<span class=\"fontello-icon-th-list\"></span>".html_safe, current_url({view: :table}, :search_form), class: "btn btn-default btn-filter-collapse", title: I18n.t('viewmode.table') )
+      str << link_to( "<span class=\"fontello-icon-th-large\"></span>".html_safe, current_url({view: :blocks}, :search_form), class: "btn btn-success btn-filter-collapse", title: I18n.t('viewmode.blocks') )
     end
     str.html_safe
   end

@@ -95,11 +95,13 @@ def search_form
                 price_to: price_to,
                 date_from: date_from,
                 date_to: date_to,
-                city: city
+                city: city,
+                category: category
 end
 
 def house_estimation_test
   let(:resort) { double :resort, distance: 30 }
+  let(:category) { create :category, name: 'All houses' }
   let(:quantity) { 12 }
   let(:price_to) { 1 }
   let(:food_state) { 'catering' }
@@ -123,6 +125,7 @@ end
 
 def search_test
   let(:resort) { create :resort, distance: 30 }
+  let(:category) { create :category, name: 'All houses' }
   let(:city) { resort.city }
   let(:food_state) { 'catering' }
 

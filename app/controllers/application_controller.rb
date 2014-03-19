@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :add_meta_tags, :set_user_params
   HOUSES_PER_PAGE = 9
+  VIEW_MODES = ['table','blocks']
 
   def not_found
     raise ActionController::RoutingError.new('Not Found')
@@ -33,7 +34,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_houses_view_mode
-    session[:houses_view_mode] = params[:view] if ['table','blocks'].include?(params[:view])
+    session[:houses_view_mode] = params[:view] if VIEW_MODES.include?(params[:view])
     session[:houses_view_mode] ||= 'blocks'
   end
 

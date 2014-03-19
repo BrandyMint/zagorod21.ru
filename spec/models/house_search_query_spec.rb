@@ -3,10 +3,10 @@ require 'spec_helper'
 describe HouseSearchQuery do
 
   let(:create_houses) do
-    create :house, id: 1, resort: resort, price_bd: 1000, price_wd: 1500, capacity: 2
-    create :house, id: 2, resort: resort, price_bd: 5000, price_wd: 6000, capacity: 10
-    create :house, id: 3, resort: resort, price_bd: 6500, price_wd: 8100, capacity: 8
-    create :house, id: 4, resort: resort, price_bd: 14000, price_wd: 22000, capacity: 2
+    create :house, id: 1, resort: resort, category: category, price_bd: 1000, price_wd: 1500, capacity: 2
+    create :house, id: 2, resort: resort, category: category, price_bd: 5000, price_wd: 6000, capacity: 10
+    create :house, id: 3, resort: resort, category: category, price_bd: 6500, price_wd: 8100, capacity: 8
+    create :house, id: 4, resort: resort, category: category, price_bd: 14000, price_wd: 22000, capacity: 2
   end
   let(:date_from) { '2013-12-06' }
   let(:date_to) { '2013-12-06' }

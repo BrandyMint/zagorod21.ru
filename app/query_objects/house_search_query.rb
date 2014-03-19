@@ -38,16 +38,14 @@ class HouseSearchQuery
   end
 
   def default_sort
-    @scope.order("price_bd ASC").order("resorts.highlighted DESC")
+    @scope.order("price_bd ASC").order("resorts.highlighted DESC").order("selected DESC")
   end
 
   def sql_column
-    if @sort_form.column == 'price'
-      'price_bd'
-    elsif @sort_form.column == 'distance'
+    if @sort_form.column == 'distance'
       'resorts.distance'
     else
-      @sort_form.column
+      "houses.#{@sort_form.column}"
     end
   end
 

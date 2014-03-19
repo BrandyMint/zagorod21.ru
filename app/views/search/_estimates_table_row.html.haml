@@ -1,7 +1,6 @@
 - house = HouseDecorator.new estimates_table_row.house
 - e = EstimateDecorator.new estimates_table_row
-%tr
-  %td.category= house.category_icon
+%tr{class: house.house_css_class, role: 'tr-link', data: {url: e.order_url}}
   %td.name
     = link_to house.title, e.order_url
     %br/

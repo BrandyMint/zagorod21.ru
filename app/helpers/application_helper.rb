@@ -7,7 +7,7 @@ module ApplicationHelper
 
   def sortable_column column
     column = column.to_s
-    label = I18n.t column, scope: :sortable_columns
+    label = House.human_attribute_name(column)
 
     new_sort_form = sort_form.dup
     new_sort_form.column = column
@@ -22,7 +22,7 @@ module ApplicationHelper
 
   def order_icon order
     return '' if order.blank?
-    order=='asc' ? '&uarr;' : '&darr;'
+    order=='asc' ? '&darr;' : '&uarr;'
   end
 
   def people_quantity_collection house=nil

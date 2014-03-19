@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe HouseCalculator do
-  let(:house) { double :house, resort: resort, price_wd: 1000, price_bd: 1500 }
+  let(:house) { double :house, resort: resort, category: category, price_wd: 1000, price_bd: 1500 }
 
   context 'when date_from == date_to and date_from is weekday' do
     let(:date_from) { '2013-12-06' }

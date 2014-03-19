@@ -4,11 +4,10 @@ class SortForm < FormObjectBase
 
   ORDERS = %w[asc desc]
 
-  SORTABLE_COLUMNS = %w[price distance capacity]
+  SORTABLE_COLUMNS = %w[title price_bd price_wd distance capacity selected]
 
   def valid?
-    SORTABLE_COLUMNS.include? self.column
-    ORDERS.include? self.order
+    SORTABLE_COLUMNS.include?(self.column) && ORDERS.include?(self.order)
   end
 
   def reverse_order!
