@@ -76,7 +76,8 @@ class HouseSearchQuery
   end
 
   def comfort_filter
-    @scope.tagged_with(@form_object.comfort)
+    names = ActsAsTaggableOn::Tag.where(id: @form_object.comfort.reject{|c| c.to_i == 0}).distinct.map(&:name)
+    @scope.tagged_with(names)
   end
 
   def selected_filter

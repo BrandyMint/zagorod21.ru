@@ -3,6 +3,10 @@ $ ->
   houses = $('.houses-found')
   $document = $(document)
 
+  $('@filter-form').on 'submit', ->
+    $("[name^=search_form\\[comfort\\]]").each ->
+      $(this).attr('disabled','disabled') if $(this).val() == ''
+
   # mobile
   if $document.width() < 991
     if houses.length
