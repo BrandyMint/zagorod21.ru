@@ -1,5 +1,5 @@
-- house = HouseDecorator.new estimates_row.house
-- e = EstimateDecorator.new estimates_row
+- house = HouseDecorator.new blocks_row.house
+- e = EstimateDecorator.new blocks_row
 .col-xs-12.col-md-4
   .house-offer{id: "house_#{house.id}", class: house.css_class}
     = link_to e.order_url, class: 'house' do

@@ -1,4 +1,4 @@
-- if @estimates.present?
+- if @search_result.present?
   %section.houses-block.table-view
     .container
       - if header.present?
@@ -14,5 +14,5 @@
             %th= sortable_column('price_wd')
             %th
         %tbody
-          = render partial: 'search/estimates_table_row', collection: @estimates
-      = paginate @estimates
+          = render partial: 'search/table_row', collection: @search_result.estimates
+      = paginate @search_result.estimates

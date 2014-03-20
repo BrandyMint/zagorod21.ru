@@ -1,0 +1,9 @@
+- if @search_result.present?
+  %section.houses-block
+    .container
+      - if header.present?
+        %p.light-h2= header
+      .row#houses{'data-page' => @search_result.page}
+        = render partial: 'search/blocks_row', collection: @search_result.estimates
+      = more_houses
+  .spinner

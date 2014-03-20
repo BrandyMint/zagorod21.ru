@@ -9,6 +9,5 @@
 
 %div{class: "houses-found #{houses_view_mode}-view"}
   .container
-    - if params[:search_form]
-      %h4 #{@matched_houses} из #{@all_houses} домов удовлетворяют вашему запросу
-= render partial: "search/estimates_#{houses_view_mode}", locals: {header: ''}
+    = search_result_message
+= render partial: "search/#{houses_view_mode}", locals: {header: ''}

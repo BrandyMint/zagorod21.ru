@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   has_mobile_fu false
 
-  helper_method :sort_form, :current_city, :current_user
+  helper_method :current_city, :current_user
 
   before_filter :add_meta_tags, :set_user_params
   HOUSES_PER_PAGE = 9
@@ -36,12 +36,6 @@ class ApplicationController < ActionController::Base
   def set_houses_view_mode
     session[:houses_view_mode] = params[:view] if VIEW_MODES.include?(params[:view])
     session[:houses_view_mode] ||= 'table'
-  end
-
-  def sort_form
-    @sort_form ||= SortForm.new params[:sort_form]
-
-    session[:sort_form] = @sort_form
   end
 
   def add_meta_tags

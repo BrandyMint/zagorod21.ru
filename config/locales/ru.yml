@@ -54,3 +54,5 @@ ru:
   viewmode:
     table: "в виде таблицы"
     blocks: "в виде блоков"
+  houses_found: "%{found} из %{all} домов удовлетворяют вашему запросу"
+  houses_not_found: "К сожалению, ничего не найдено"

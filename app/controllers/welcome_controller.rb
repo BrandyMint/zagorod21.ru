@@ -1,15 +1,12 @@
 class WelcomeController < ApplicationController
 
-  include Concerns::HouseSearchConcern
-  respond_to :html, :txt
-
   def index
-    search_for_houses show: 3, selected: true
+    @search_result = SearchResult.new search_form, sort_form, {show: 3, selected: true, page: params[:page]}
     render layout: 'application_wide'
   end
 
   def houses_rows
-    search_for_houses filter
+    @search_result = SearchResult.new search_form, sort_form, filter.merge!({page: params[:page]})
     render layout: false
   end
 

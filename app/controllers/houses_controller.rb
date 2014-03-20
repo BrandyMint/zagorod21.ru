@@ -1,10 +1,7 @@
 class HousesController < ApplicationController
 
-  include Concerns::HouseSearchConcern
-  before_filter :set_search_params
-
   def index
-    search_for_houses @search_params
+    @search_result = SearchResult.new search_form, sort_form, search_params
   end
 
   def show
@@ -34,12 +31,10 @@ class HousesController < ApplicationController
     House.find(id).decorate
   end
 
-  def set_search_params
-    @search_params = {}
-
-    if houses_view_mode == 'table'
-      @search_params = {show: 30}
-    end
+  def search_params
+    hash = {page: params[:page]}
+    hash.merge!({show: 30}) if houses_view_mode == 'table'
+    hash
   end
 
 end

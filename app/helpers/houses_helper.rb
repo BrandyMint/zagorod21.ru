@@ -24,7 +24,14 @@ module HousesHelper
     str.html_safe
   end
 
-  def sortable_th attribute
-    House.human_attribute_name(attribute)
+  def search_result_message
+    if params[:search_form]
+      if @search_result.present?
+        "<h4>#{I18n.t('houses_found', found: @search_result.matched_houses, all: @search_result.all_houses)}</h4>"
+      else
+        "<h4>#{I18n.t('houses_not_found')}</h4>"
+      end.html_safe
+    end
   end
+
 end

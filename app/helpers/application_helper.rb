@@ -82,6 +82,11 @@ module ApplicationHelper
     session[:search_form] = @search_form
   end
 
+  def sort_form
+    @sort_form ||= SortForm.new params[:sort_form]
+    session[:sort_form] = @sort_form
+  end
+
   def more_houses
     unless request.url.include?('houses')
       "<div class=\"row\">
