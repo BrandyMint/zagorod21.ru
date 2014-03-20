@@ -9,10 +9,14 @@ module Concerns
         search_form
         @search_form.selected = options.fetch(:selected, nil)
         hsq = HouseSearchQuery.new(@search_form, sort_form).estimates
-        @all_houses = House.by_category(@search_form.category).includes(:resort).active.count
-        @matched_houses = hsq.count
-        @page = params[:page] || 1
-        @estimates = Kaminari.paginate_array(hsq).page(@page).per options.fetch(:show, ApplicationController::HOUSES_PER_PAGE)
+
+        return SearchResult.new(
+          all_houses: House.by_category(@search_form.category).includes(:resort).active.count,
+          matched_houses: hsq.count,
+          page: params[:page] || 1,
+          estimates: Kaminari.paginate_array(hsq).page(@page).per options.fetch(:show, ApplicationController::HOUSES_PER_PAGE),
+        )
+        return hash
       end
     end
 
