@@ -27,9 +27,10 @@ $ ->
     tabs.removeClass('active')
     $(e.target).toggleClass('active')
 
-  $('.btn-filter-comfort').on 'click.bs.collapse.data-api', (e) ->
-    text = $(this).data('text')
-    $(this).data('text', $(this).html()).html text
+  comfortBtn = $('.btn-filter-comfort')
+  $('#comfort-list').on 'show.bs.collapse hide.bs.collapse', (e) ->
+    text = comfortBtn.data('text')
+    comfortBtn.data('text', comfortBtn.html()).html text
 
   thumbs = $('#house-thumbnails')
   thumbsControls = thumbs.find('.carousel-control')

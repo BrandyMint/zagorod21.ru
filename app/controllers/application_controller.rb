@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
 
   def set_houses_view_mode
     session[:houses_view_mode] = params[:view] if VIEW_MODES.include?(params[:view])
-    session[:houses_view_mode] ||= 'blocks'
+    session[:houses_view_mode] ||= 'table'
   end
 
   def sort_form

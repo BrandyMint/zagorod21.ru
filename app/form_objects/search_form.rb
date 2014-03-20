@@ -17,7 +17,7 @@ class SearchForm < FormObjectBase
     self.use_transport = false if self.use_transport.try(:to_i) == 0
     self.people_quantity = self.people_quantity.to_i
     self.date_from = Date.parse(date_from) if date_from.present?
-    self.date_to = date_to.present? ? Date.parse(date_to) : self.date_from
+    self.date_to = Date.parse(date_to) if date_to.present?
   end
 
   def use_transport?

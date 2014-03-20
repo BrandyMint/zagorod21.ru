@@ -8,12 +8,12 @@
         .form-group
           = f.label :date_from, class: 'col-xs-2 control-label', required: false
           .col-xs-10.col-md-12.pr0
-            = f.input_field :date_from, required: false, as: :date_picker,  value: I18n.l(Date.today, format: :dots_separated), class: 'form-control'
+            = f.input_field :date_from, required: false, as: :date_picker, class: 'form-control'
       .col-md-4
         .form-group
           = f.label :date_to, class: 'col-xs-2', required: false
           .col-xs-10.col-md-12.pr0
-            = f.input_field :date_to, required: false, as: :date_picker,  value: I18n.l(Date.tomorrow, format: :dots_separated), class: 'form-control'
+            = f.input_field :date_to, required: false, as: :date_picker, class: 'form-control'
       .col-md-4
         .form-group
           = f.label :people_quantity, class: 'col-xs-2 control-label', required: false
