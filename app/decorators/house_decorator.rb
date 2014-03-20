@@ -38,6 +38,10 @@ class HouseDecorator < Draper::Decorator
     h.image_tag(source.preview.file.thumb.url, *options) if source.preview.present?
   end
 
+  def small_image *options
+    h.image_tag source.preview.file.url(:small), width: 60, height: 60 if source.preview.present?
+  end
+
   def title
     source.title? ? source.title : source.resort.title
   end

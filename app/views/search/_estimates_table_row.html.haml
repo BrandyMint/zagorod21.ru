@@ -1,6 +1,7 @@
 - house = HouseDecorator.new estimates_table_row.house
 - e = EstimateDecorator.new estimates_table_row
 %tr{class: house.house_css_class, role: 'tr-link', data: {url: e.order_url}}
+  %td= house.small_image
   %td.name
     = link_to house.title, e.order_url
     %br/
