@@ -5,19 +5,20 @@ $ ->
 
   # mobile
   if $document.width() < 991
-    submitBtn = $('.submit-mobile')
+    if houses.length
+      submitBtn = $('.submit-mobile')
 
-    $document.on 'scroll', (e)->
-      top = $(this).scrollTop()
-      if top > (houses.offset().top - $(window).height())
-        submitBtn.addClass('absolute').width()
-      else
-        submitBtn.removeClass('absolute').width()
+      $document.on 'scroll', (e)->
+        top = $(this).scrollTop()
+        if top > (houses.offset().top - $(window).height())
+          submitBtn.addClass('absolute').width()
+        else
+          submitBtn.removeClass('absolute').width()
 
-    $('@filter-collapse-mobile').on 'click.bs.collapse.data-api', (e)->
-      if $document.scrollTop() > filter.height()
-        $document.scrollTop(0)
-        return false if !$(this).hasClass('collapsed')
+      $('@filter-collapse-mobile').on 'click.bs.collapse.data-api', (e)->
+        if $document.scrollTop() > filter.height()
+          $document.scrollTop(0)
+          return false if !$(this).hasClass('collapsed')
 
   # desktop
   if $document.width() > 991

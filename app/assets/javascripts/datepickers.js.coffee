@@ -27,26 +27,17 @@ $ ->
       minuteStep: 30
       # minView: 'day'
 
-  hideKeyboard = (element) ->
-    element.attr "readonly", "readonly" # Force keyboard to hide on input field.
-    element.attr "disabled", "true" # Force keyboard to hide on textarea field.
-    setTimeout (->
-      element.blur() #actually close the keyboard
-      # Remove readonly attribute after keyboard is hidden.
-      element.removeAttr "readonly"
-      element.removeAttr "disabled"
-      return
-    ), 100
-
-
   $document = $(document)
 
+  hideKeyboard = (element) ->
+    document.activeElement.blur()
+
   if $document.width() < 991
-    $('@datetimepicker, .datepicker').on 'focus', (e) ->
-      hideKeyboard $(this)
+    $('@datetimepicker-input, @datepicker').on 'focus', (e) ->
+      hideKeyboard()
 
   $('@datetimepicker').zagorod_timepicker()
-  $('.datepicker').zagorod_datepicker()
+  $('@datepicker').zagorod_datepicker()
 
   $('@reset-date').on 'click', ->
     $(this).siblings('input').val('')

@@ -20,5 +20,5 @@ $ ->
         else
           alert(data.message)
 
-  estimate.apply($('[role=estimate_sensitive]').get(0))
-  $('[role=estimate_sensitive]').on 'change', estimate
+  estimate.apply($('.estimate_sensitive').get(0))
+  $('.estimate_sensitive').on 'change', estimate

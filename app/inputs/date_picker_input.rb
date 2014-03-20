@@ -11,10 +11,18 @@ class DatePickerInput < SimpleForm::Inputs::StringInput
     input_html_options[:value] = I18n.l object[attribute_name], format: :dots_separated if object[attribute_name].present?
     input_html_options[:readonly] = false
     input_html_options[:placeholder] = 'Любое время'
+
+    if ApplicationController.ios_device?
+      input_html_options[:type] = :date
+      ios = :ios
+    else
+      input_html_options[:role] = :datepicker
+    end
+
     @input_html_classes.push('datepicker').push(@attribute_name)
 
     str = ''
-    str = '<div class="datepicker-wrapper">'
+    str = "<div class=\"datepicker-wrapper #{ios}\">"
     str << super
     str << '<button class="reset-picker" type="button" role="reset-date"><i class="fontello-icon-cancel-circled-1"></i></button>'
     str << '</div>'

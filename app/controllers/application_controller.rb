@@ -7,13 +7,21 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_city, :current_user
 
-  before_filter :add_meta_tags, :set_user_params
+  before_filter :add_meta_tags, :set_user_params, :detect_ios_device
   HOUSES_PER_PAGE = 9
   VIEW_MODES = ['table','blocks']
 
   def not_found
     raise ActionController::RoutingError.new('Not Found')
     # render :status => 404
+  end
+
+  def detect_ios_device
+    @@ios_device = request.user_agent.scan /(iPad|iPhone|iPod)/
+  end
+
+  def self.ios_device?
+    @@ios_device.present?
   end
 
   private

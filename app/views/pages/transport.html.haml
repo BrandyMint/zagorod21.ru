@@ -7,29 +7,13 @@
             Трансфер
             %br/
             до места отдыха
-          %div.visible-xs
+          %div.visible-xs.visible-sm
             %a.btn.btn-success{href: "#new_order"} Заказать автобус
         .desc.mb40
           != @page.body
         .mb40
           - if @page.carousel
             = render 'images'
-        .row.mb40
-          .col-xs-12.col-md-6.text-center.mb20
-            %img{alt: "peugeot", src: "assets/peugeot.png"}/
-          .col-xs-12.col-md-6.mt15
-            %p
-              %span.size-16px.bold Peugeot Boxer, 14 мест
-              %br/
-              кондиционер, музыка, тонировка,все дела
-        .row
-          .col-xs-12.col-md-6.text-center.mb20
-            %img{alt: "peugeot", src: "assets/peugeot.png"}/
-          .col-xs-12.col-md-6.mt15
-            %p
-              %span.size-16px.bold Peugeot Boxer, 14 мест
-              %br/
-              кондиционер, музыка, тонировка,все дела
       .col-xs-12.col-md-4
         .right-price.visible-lg.visible-md.text-center
           .bold.size-18px
