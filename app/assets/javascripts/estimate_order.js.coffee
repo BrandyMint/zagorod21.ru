@@ -1,7 +1,7 @@
 $ ->
   estimate = ->
-    return unless $(this).closest('form').length
-    params = $(this).closest('form').serializeArray()
+    return unless $(@).closest('form').length
+    params = $(@).closest('form').serializeArray()
     inputField = $('input#house_order_money_amount')
     button = $('@order-form .btn-success')
     spinner = ''
@@ -16,7 +16,7 @@ $ ->
         spinner.stop()
         if data.status == 'success'
           inputField.val(data.data.total)
-          button.val("Заказать за #{data.data.total} р.")
+          button.val("Снять за #{data.data.total} р.")
         else
           alert(data.message)
 

@@ -24,7 +24,7 @@
         %td= house.price
         %td= house.capacity
         %td
-          = link_to 'Заказать', house_url(house), class: 'btn btn-success'
+          = link_to 'Снять', house_url(house), class: 'btn btn-success'
 
 = paginate @houses if @houses.respond_to? :current_page
 

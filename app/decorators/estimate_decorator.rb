@@ -5,7 +5,7 @@ class EstimateDecorator < Draper::Decorator
     label = h.money source.total
     h.link_to order_url, class: 'btn btn-success btn-block btn-house', title: h.sanitize(description) do
       h.content_tag(:span, label, class: 'rline col-xs-5 size-16px') <<
-      h.content_tag(:span, 'Заказать', class: 'size-16px bold col-xs-7')
+      h.content_tag(:span, 'Снять', class: 'size-16px bold col-xs-7')
     end
   end
 
