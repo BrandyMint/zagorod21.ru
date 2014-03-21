@@ -33,7 +33,7 @@ class HousesController < ApplicationController
 
   def search_params
     hash = {page: params[:page]}
-    hash.merge!({show: 30}) if houses_view_mode == 'table'
+    hash.merge!({show: Settings.default.table_view_row_count}) if houses_view_mode == 'table'
     hash
   end
 
