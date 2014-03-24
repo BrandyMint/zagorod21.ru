@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def detect_ios_device
-    @@ios_device = request.user_agent.scan /(iPad|iPhone|iPod)/
+    @@ios_device = request.user_agent.try(:scan, /(iPad|iPhone|iPod)/).present?
   end
 
   def self.ios_device?
