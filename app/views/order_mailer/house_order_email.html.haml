@@ -1,19 +1,19 @@
 %h2
-  Новый заказ
-%p= link_to 'в админке', admin_order_url(@order)
+  Заказ дома
+%p= link_to 'в админке', @order.admin_url
 %p
   %b На имя:
   = @order.name
 %p
   %b База отдыха:
-  = @order.resort.title
-  = @order.house.title
+  = @order.resort
+  = @order.house
 %p
   %b Контактный телефон:
   = @order.phone
 %p
   %b Время пребывания:
-  с #{@order.date_from_day} по #{@order.date_to}
+  #{@order.stay_dates}
 %p
   %b Всего отдыхающих:
   = @order.people_quantity

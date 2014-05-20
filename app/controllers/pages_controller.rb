@@ -12,6 +12,7 @@ class PagesController < ApplicationController
     @order = Order.new order_params
 
     if @order.save
+      NotificationService.new(@order).notify
       redirect_to order_path(@order)
     else
       @order = @order.becomes(Order)

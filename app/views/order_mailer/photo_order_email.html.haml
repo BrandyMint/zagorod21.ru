@@ -1,0 +1,12 @@
+%h2
+  Заказ фото
+%p= link_to 'в админке', @order.admin_url
+%p
+  %b Имя:
+  = @order.name
+%p
+  %b Время визита:
+  = @order.human_time
+%p
+  %b Контактный телефон:
+  = @order.phone

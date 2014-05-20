@@ -22,7 +22,7 @@
               %td.bold= @order.email
           %tr
             %td Время визита
-            %td.bold= I18n.l @order.source.date_from, format: :timepicker
+            %td.bold= @order.human_time
           - if @order.source.money_amount
             %tr
               %td Итого

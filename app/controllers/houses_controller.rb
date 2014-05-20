@@ -13,7 +13,7 @@ class HousesController < ApplicationController
     @house_order = HouseOrder.new order_params
 
     if @house_order.save
-      NotificationService.new.new_order(@house_order)
+      NotificationService.new(@house_order).notify
       redirect_to order_path(@house_order)
     else
       @house = decorate_house @house_order.house_id

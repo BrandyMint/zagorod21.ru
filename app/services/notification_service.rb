@@ -1,33 +1,29 @@
 class NotificationService
-  include Rails.application.routes.url_helpers
 
-  def new_order order
+  def initialize order
+    raise StandardError if order.blank?
+    @order = order
+  end
+
+  def notify
     AdminUser.order_notify.each do |admin|
-      send_sms new_order_message(order), admin.phone
-      new_order_email(order, admin.email)
+      send_sms admin.phone
+      send_email admin.email
     end
   end
 
   private
 
-  def new_order_email order, email
-    OrderMailer.new_order_for_admin(order, email).deliver 
+  def send_sms phone
+    "#{order_type}SMS".constantize.sms @order, phone
   end
 
-  def new_order_message order
-    from = I18n.l order.date_from, format: :dots_separated
-    to = I18n.l order.date_to, format: :dots_separated
-    resort = order.house.resort.title
-    house = order.house.title
-
-    # TODO перенести base_url в роуты
-    admin_url = admin_order_url(order)
-    "Заказ №#{order.id}. #{resort} (#{house}). Пребывание с #{from} по #{to} на #{order.people_quantity} человек. #{order.name} #{order.phone}. #{admin_url}"
+  def send_email email
+    OrderMailer.send("#{order_type.underscore}_email", @order, email).deliver
   end
 
-  def send_sms message, phone=Settings.sms_phone
-    params = Rails.env == 'production' ? {} : {test: 1}
-    Rails.logger.info "SEND SMS: #{phone}: #{message}"
-    LittleSms.send_sms(phone, message, params)
+  def order_type
+    @order.class.name
   end
+
 end

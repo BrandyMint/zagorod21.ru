@@ -1,0 +1,18 @@
+%h2
+  Заказ транспорта
+%p= link_to 'в админке', @order.admin_url
+%p
+  %b На имя:
+  = @order.name
+%p
+  %b Контактный телефон:
+  = @order.phone
+%p
+  %b Заезд:
+  #{@order.date_from_day}
+%p
+  %b Выезд:
+  #{@order.date_to_day}
+%p
+  %b Всего отдыхающих:
+  = @order.people_quantity

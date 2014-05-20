@@ -1,18 +1,37 @@
 class OrderDecorator < Draper::Decorator
+  include Rails.application.routes.url_helpers
   delegate_all
 
   def stay_dates
-    from = I18n.l source.date_from, format: :dots_separated
-    to = I18n.l source.date_to, format: :dots_separated
-    "с #{from} по #{to}"
+    "с #{date_from_day} по #{date_to_day}"
   end
 
   def date_from_day
     I18n.l source.date_from, format: :dots_separated
   end
 
+  def date_to_day
+    I18n.l source.date_to, format: :dots_separated
+  end
+
+  def human_time
+    I18n.l source.date_from, format: :timepicker
+  end
+
   def money_amount
     h.money source.money_amount
+  end
+
+  def house
+    source.house.title
+  end
+
+  def resort
+    source.house.resort.title
+  end
+
+  def admin_url
+    admin_order_url source
   end
 
   def view_phone

@@ -1,0 +1,12 @@
+%h2
+  Предложение аренды
+%p= link_to 'в админке', @order.admin_url
+%p
+  %b Имя:
+  = @order.name
+%p
+  %b Контактный телефон:
+  = @order.phone
+%p
+  %b Комментарий:
+  #{@order.description}
