@@ -37,3 +37,4 @@ config/application.local.yml
 solr/data
 solr/pids
 sunspot-solr.pid
+.ruby-gemset
