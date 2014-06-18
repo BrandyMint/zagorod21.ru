@@ -1,3 +1,4 @@
+lock '3.2.1'
 set :application, 'zagorod21.ru'
 set :repo_url, 'git@github.com:BrandyMint/zagorod.git'
 
@@ -16,9 +17,10 @@ set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/sys
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 set :rbenv_type, :user
-set :rbenv_ruby, '2.0.0-p247'
+set :rbenv_ruby, '2.1.2'
 
 set :bundle_without, %w{development test deploy}.join(' ')
+set :bundle_jobs, 10
 
 namespace :deploy do
 
@@ -72,6 +74,7 @@ namespace :deploy do
 
   before :compile_assets, 'bowerinstall'
   before :compile_assets, 'sitemapgenerate'
+  after :publishing, :restart
   after :finishing, 'deploy:cleanup'
   after :finishing, 'deploy:notify'
 
