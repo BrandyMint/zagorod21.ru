@@ -18,14 +18,9 @@ Zagorod::Application.routes.draw do
     post 'orders/estimate'
   end
 
-  get "/:slug" => "pages#index"
-  post "/:slug" => "pages#create"
-
-  begin
-    Page.find_each do |page|
-      resources page.slug, controller: :pages, only: [:index, :create]
-    end
-  rescue
+  controller :pages, as: :page do
+    get ":slug" => :index
+    post ":slug" => :create
   end
 
   # Example of regular route:
