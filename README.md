@@ -1,13 +1,12 @@
 ## Getting Started
 
 - git clone git@github.com:BrandyMint/zagorod.git && cd zagorod
-- rvm use 2.1.1@zsgorod --ruby-version --create (if used rvm)
-- cp config/database.yml.example config/database.yml
+- bundle install
 - bower install (http://bower.io/)
-- rake db:create
-- rake db:migrate
-- rale db:seed
-- rails s
+- cp config/database.yml.example config/database.yml
+- bin/rake db:create && bin/rake db:migrate
+- bin/rake db:seed
+- bin/rails server
 
 ### DB/Uploads
 
