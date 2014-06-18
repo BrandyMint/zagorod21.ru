@@ -4,9 +4,9 @@
 SimpleNavigation::Configuration.run do |navigation|
   navigation.items do |primary|
     primary.item :houses_url, 'Дома', houses_url
-    primary.item :transport_url, 'Транспорт', transport_index_url
-    primary.item :food_url, 'Еда', food_index_url
-    primary.item :rent_url, 'Сдать дом в аренду', rent_index_url
+    primary.item :transport_url, 'Транспорт', page_url(:transport)
+    primary.item :food_url, 'Еда', page_url(:food)
+    primary.item :rent_url, 'Сдать дом в аренду', page_url(:rent)
     # primary.item :feedback, 'Отзывы', feedback_url
 
     # if current_admin_user.present?

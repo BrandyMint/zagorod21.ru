@@ -1,4 +1,4 @@
-= simple_form_for @order, url: photo_index_path, html: {class: 'form-horizontal', role: 'order-form'} do |f|
+= simple_form_for @order, url: page_path(:photo), html: {class: 'form-horizontal', role: 'order-form'} do |f|
   = f.error_notification
   = f.hidden_field :type, value: 'PhotoOrder'
   %input{:type => "hidden", :name => "slug", :value => "photo"}

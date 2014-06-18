@@ -2,6 +2,9 @@ class WelcomeController < ApplicationController
 
   def index
     @search_result = SearchResult.new search_form, sort_form, {show: 3, selected: true, page: params[:page]}
+    @page_transport = Page.find_by slug: :transport
+    @page_food = Page.find_by slug: :food
+    @page_photo = Page.find_by slug: :photo
     render layout: 'application_wide'
   end
 

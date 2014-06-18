@@ -1,30 +1,33 @@
 %section
   .container.services
     .row
-      .col-xs-12.col-md-4.mb5
-        .light-h2.text-center.visible-md.visible-lg Заказать машину
-        .transfer.col-xs-12{style: "background-image: url('#{Page.find_by_slug('transport').preview.file.standard.url}')" }
-          .overlay.col-xs-12
-          %p
-            Трансфер
-            %br/
-            до места отдыха
-          %a.btn.btn-success.col-xs-5{href: transport_index_path} Подробнее
-      .col-xs-12.col-md-4.mb5
-        .light-h2.text-center.visible-md.visible-lg Кейтеринг и доставка еды
-        .meat.col-xs-12{style: "background-image: url('#{Page.find_by_slug('food').preview.file.standard.url}')" }
-          .overlay.col-xs-12
-          %p
-            Еда и выездное
-            %br/
-            обслуживание
-          %a.btn.btn-success.col-xs-5{href: food_index_path} Подробнее
-      .col-xs-12.col-md-4.mb5
-        .light-h2.text-center.visible-md.visible-lg Лучшие впечатления
-        .celebrity.col-xs-12{style: "background-image: url('#{Page.find_by_slug('photo').preview.file.standard.url}')" }
-          .overlay.col-xs-12
-          %p
-            Услуги
-            %br/
-            фотографа
-          %a.btn.btn-success.col-xs-5{href: photo_index_path} Подробнее
+      - if @page_transport
+        .col-xs-12.col-md-4.mb5
+          .light-h2.text-center.visible-md.visible-lg Заказать машину
+          .transfer.col-xs-12{style: "background-image: url('#{@page_transport.preview.file.standard.url}')" }
+            .overlay.col-xs-12
+            %p
+              Трансфер
+              %br/
+              до места отдыха
+            %a.btn.btn-success.col-xs-5{href: page_path(:transport)} Подробнее
+      - if @page_food
+        .col-xs-12.col-md-4.mb5
+          .light-h2.text-center.visible-md.visible-lg Кейтеринг и доставка еды
+          .meat.col-xs-12{style: "background-image: url('#{@page_food.preview.file.standard.url}')" }
+            .overlay.col-xs-12
+            %p
+              Еда и выездное
+              %br/
+              обслуживание
+            %a.btn.btn-success.col-xs-5{href: page_path(:food)} Подробнее
+      - if @page_photo
+        .col-xs-12.col-md-4.mb5
+          .light-h2.text-center.visible-md.visible-lg Лучшие впечатления
+          .celebrity.col-xs-12{style: "background-image: url('#{@page_photo.preview.file.standard.url}')" }
+            .overlay.col-xs-12
+            %p
+              Услуги
+              %br/
+              фотографа
+            %a.btn.btn-success.col-xs-5{href: page_path(:photo)} Подробнее

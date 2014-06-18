@@ -1,4 +1,4 @@
-= simple_form_for @order, url: transport_index_path, html: {class: 'form-horizontal', role: 'order-form'} do |f|
+= simple_form_for @order, url: page_path(:transport), html: {class: 'form-horizontal', role: 'order-form'} do |f|
   = f.error_notification
   = f.hidden_field :type, value: 'TransportOrder'
   %input{:type => "hidden", :name => "slug", :value => "transport"}
