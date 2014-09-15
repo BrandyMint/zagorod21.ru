@@ -1,6 +1,6 @@
 lock '3.2.1'
 set :application, 'zagorod21.ru'
-set :repo_url, 'git@github.com:BrandyMint/zagorod.git'
+set :repo_url, 'git@github.com:BrandyMint/zagorod21.ru.git'
 
 #ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
