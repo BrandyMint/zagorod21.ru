@@ -15,6 +15,10 @@ set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/sys
 
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
+set :nvm_type, :user # or :system, depends on your nvm setup
+set :nvm_node, File.read('.nvmrc').strip
+set :nvm_map_bins, %w[node yarn]
+
 set :rbenv_type, :user
 set :rbenv_ruby, File.read('.ruby-version').strip
 
