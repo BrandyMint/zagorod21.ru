@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@bower_components/bootstrap-datetimepicker": "git://github.com/smalot/bootstrap-datetimepicker.git#*",
+    "@bower_components/jquery": "jquery/jquery-dist#>=1.8.3",
+    "@bower_components/jquery.maskedinput": "digitalBush/jquery.maskedinput#*",
+    "@bower_components/jquery.role": "git://github.com/kossnocorp/role.git#*",
+    "@bower_components/spin.js": "fgnass/spin.js#*"
+  },
+  "engines": {
+    "yarn": ">= 1.0.0"
+  },
+  "scripts": {
+    "postinstall": "node -e \"try { require('fs').symlinkSync(require('path').resolve('node_modules/@bower_components'), 'vendor/assets/components', 'junction') } catch (e) { }\""
+  }
+}

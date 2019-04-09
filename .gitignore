@@ -37,3 +37,5 @@ config/application.local.yml
 solr/data
 solr/pids
 sunspot-solr.pid
+node_modules/
+vendor/assets/components/
