@@ -39,7 +39,7 @@ Spork.prefork do
 
     config.fail_fast = false
 
-    config.include FactoryGirl::Syntax::Methods
+    config.include FactoryBot::Syntax::Methods
 
 
     # If you're not using ActiveRecord, or you'd prefer not to run each of your
