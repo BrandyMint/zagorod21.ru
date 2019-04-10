@@ -76,17 +76,6 @@ module ApplicationHelper
     session[:houses_view_mode]
   end
 
-  def search_form
-    @search_form ||= SearchForm.new params[:search_form]
-    @search_form.city = current_city
-    session[:search_form] = @search_form
-  end
-
-  def sort_form
-    @sort_form ||= SortForm.new params[:sort_form]
-    session[:sort_form] = @sort_form
-  end
-
   def more_houses
     unless request.url.include?('houses')
       "<div class=\"row\">
@@ -99,7 +88,7 @@ module ApplicationHelper
 
   def current_url(overwrite={}, only='')
     new_params = {}
-    old_params = only.present? ? params.slice(only) : params
+    old_params = only.present? ? params.permit!.slice(only) : params.permit!
     url_for :only_path => false, :params => new_params.merge(old_params).merge(overwrite)
   end
 end

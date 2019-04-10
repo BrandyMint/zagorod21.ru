@@ -1,4 +1,5 @@
 class FormObjectBase < Hashie::Dash
+  include Hashie::Extensions::IndifferentAccess
   extend ActiveModel::Naming
   include ActiveModel::Validations
   include ActiveRecord::Callbacks

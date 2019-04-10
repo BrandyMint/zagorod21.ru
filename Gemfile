@@ -152,8 +152,8 @@ end
 group :development, :test do
   gem 'rb-inotify', '~> 0.9', :require => false
   gem "rspec-rails", ">= 2.11.0"
-
   gem 'pry'
+  gem 'pry-byebug'
 end
 
 group :test do
