@@ -10,7 +10,7 @@ describe ResortsController do
   end
 
   describe "#show" do
-    let(:resort_id){FactoryGirl.create(:resort).id}
+    let(:resort_id){FactoryBot.create(:resort).id}
 
     it "returns http success" do
       get 'show', id: resort_id

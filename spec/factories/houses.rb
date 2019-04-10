@@ -1,6 +1,6 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
-FactoryGirl.define do
+FactoryBot.define do
   sequence(:title) {|n| "House_number#{n}"}
 
   factory :house do

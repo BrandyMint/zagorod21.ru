@@ -4,7 +4,7 @@ describe OrdersController do
 
   describe "#show" do
     before do
-      City.stub(:default_city){FactoryGirl.create :city}
+      City.stub(:default_city){FactoryBot.create :city}
     end
 
     let(:order){ create :house_order }

@@ -1,6 +1,6 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :order, class: 'Order' do
     name 'name'
     phone "+7 (121) 231-23-12"

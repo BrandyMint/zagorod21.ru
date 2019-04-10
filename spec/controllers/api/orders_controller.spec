@@ -11,7 +11,7 @@ describe Api::OrdersController do
     end
 
     context 'proper estimable params' do
-      let(:house){FactoryGirl.create :house}
+      let(:house){FactoryBot.create :house}
       let(:order_params){{
         house_id: house.id,
         date_from: Date.today,

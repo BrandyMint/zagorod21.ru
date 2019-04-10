@@ -1,12 +1,13 @@
 class Api::OrdersController < ApplicationController
-  skip_before_filter :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
 
   def estimate
     @esimation = HouseCalculator.new(house, form_object).estimate if form_object.valid? && house
     render json: response_data
   end
 
-private
+  private
+
   def response_data
     (@esimation && @esimation.total) ? jsend_success : jsend_fail
   end

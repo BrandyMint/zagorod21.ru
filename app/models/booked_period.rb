@@ -11,5 +11,4 @@ class BookedPeriod < ActiveRecord::Base
     return unless date_to.present? && date_from.present?
     self.errors.add :dates, 'Дата нача должна быть меньше даты окончания' unless date_from<=date_to
   end
-
 end

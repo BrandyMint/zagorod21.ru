@@ -93,11 +93,13 @@ gem 'turbolinks'
 gem 'haml-rails'
 
 gem 'bootstrap-sass', '~> 3.0.2.0'
-gem 'compass-rails', '~> 1.1.2'
+gem 'compass-rails'
+
+gem 'devise'
 
 #assets
 # Use edge version of sprockets-rails
-gem 'sprockets-rails', github: 'rails/sprockets-rails'
+gem 'sprockets-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails'
@@ -106,12 +108,14 @@ gem 'sass-rails'
 gem 'uglifier', '~> 1.3'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', github: 'rails/coffee-rails'
+gem 'coffee-rails'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
 gem 'acts-as-taggable-on'
+
+gem 'mini_racer'
 
 # Хорошая альтернатива jquery-ui-rails
 #  gem 'jquery-ui-sass-rails'
@@ -146,13 +150,13 @@ group :development do
 end
 
 group :development, :test do
-  gem 'factory_bot'
-  gem 'factory_bot_rails', github: 'thoughtbot/factory_bot_rails'
   gem 'rb-inotify', '~> 0.9', :require => false
   gem "rspec-rails", ">= 2.11.0"
 end
 
 group :test do
+  gem 'factory_bot'
+  gem 'factory_bot_rails', github: 'thoughtbot/factory_bot_rails'
   gem 'rspec-prof'
   # Start Pry in the context of a failed test
   #gem 'plymouth'

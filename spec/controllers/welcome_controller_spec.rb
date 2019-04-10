@@ -8,7 +8,7 @@ describe WelcomeController do
     let(:city) { resort.city }
 
     before do
-      City.stub(:default_city){FactoryGirl.create :city}
+      City.stub(:default_city){FactoryBot.create :city}
       create :house, id: 1, resort: resort, category: category, price_bd: 1000, price_wd: 1500, capacity: 2
     end
 

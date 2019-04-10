@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_city, :current_user
 
-  before_filter :add_meta_tags, :set_user_params, :detect_ios_device
+  before_action :add_meta_tags, :set_user_params, :detect_ios_device
   HOUSES_PER_PAGE = 9
   VIEW_MODES = ['table','blocks']
 
