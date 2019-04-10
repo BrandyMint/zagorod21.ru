@@ -40,3 +40,6 @@ sunspot-solr.pid
 node_modules/
 vendor/assets/components/
 *.sql
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key

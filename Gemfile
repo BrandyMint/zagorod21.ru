@@ -190,6 +190,7 @@ group :test do
 end
 
 group :deploy do
+  gem 'bugsnag-capistrano', require: false
   gem 'capistrano', :require => false
   gem 'capistrano-rbenv', :require => false
   gem 'capistrano-rails', :require => false
@@ -201,3 +202,5 @@ group :deploy do
   gem 'capistrano-db-tasks', require: false
   gem 'capistrano-shell', require: false
 end
+
+gem "bugsnag", "~> 6.11"
