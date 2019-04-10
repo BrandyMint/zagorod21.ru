@@ -1,0 +1,6 @@
+%section.houses-block
+  .container
+    %p.light-h2 Похожие дома
+    .row
+      - similar_houses_for(house).each do |similar_house|
+        = render partial: 'similar_house', locals: { house: similar_house, form_object: search_form }

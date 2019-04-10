@@ -5,6 +5,17 @@ module ApplicationHelper
     end
   end
 
+  def similar_houses_for(house)
+    resort_houses = house.resort.houses.active.exclude(house)
+    if resort_houses
+      resort_houses.limit(3)
+    else
+      House.active.exclude(house).limit(3)
+    end
+  end
+
+  private
+
   def sortable_column column
     column = column.to_s
     label = House.human_attribute_name(column)

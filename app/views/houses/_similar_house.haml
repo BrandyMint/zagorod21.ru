@@ -1,5 +1,6 @@
-- house = HouseDecorator.new @house
-- e = EstimateDecorator.new @estimation
+- estimation = HouseCalculator.new(house, form_object).estimate
+- house = HouseDecorator.new house
+- e = EstimateDecorator.new estimation
 .col-xs-12.col-md-4
   .house-offer{id: "house_#{house.id}", class: house.css_class}
     = link_to e.order_url, class: 'house' do

@@ -1,6 +1,0 @@
-%section.houses-block
-  .container
-    %p.light-h2 Похожие дома
-    .row
-      - @similar_houses.each do |house|
-        = render_cell :houses_list_item, :show, :house => house, :form_object => search_form
