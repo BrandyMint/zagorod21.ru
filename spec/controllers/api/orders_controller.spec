@@ -5,7 +5,7 @@ describe Api::OrdersController do
     context 'lack of parameters for estimation' do
       it 'return error with message' do
           post :estimate, order: {}
-          response.should be_success
+          response.should be_successful
           response.body.should include('error')
         end
     end
@@ -23,7 +23,7 @@ describe Api::OrdersController do
 
         it 'return success estimation' do
           post :estimate, order: order_params
-          response.should be_success
+          response.should be_successful
           response.body.should include('success')
         end
     end

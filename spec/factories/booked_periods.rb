@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :booked_period do
-    date_from "2013-12-29"
-    date_to "2013-12-29"
-    state_cd 1
+    date_from { Date.parse "2013-12-29" }
+    date_to { Date.parse "2013-12-29" }
+    state_cd { 1 }
   end
 end

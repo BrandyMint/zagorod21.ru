@@ -2,11 +2,11 @@
 
 FactoryBot.define do
   factory :resort do
-    title "MyString"
-    description "MyText"
-    distance "9.99"
-    time "9.99"
-    map_iframe "MyText"
+    title { "MyString" }
+    description { "MyText" }
+    distance { "9.99" }
+    time { "9.99" }
+    map_iframe { "MyText" }
     city
   end
 end

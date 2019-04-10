@@ -1,8 +1,6 @@
 require 'spec_helper'
 
-describe HousesController do
-
-
+describe HousesController, type: :controller do
   before do
     City.stub(:default_city){ FactoryBot.create(:city) }
   end
@@ -11,8 +9,8 @@ describe HousesController do
     let(:order_params){{house_id: FactoryBot.create(:house).id}}
 
     it "returns http success" do
-      get 'create', house_order: order_params
-      response.should be_success
+      get 'create', params: { house_order: order_params }
+      response.should be_successful
     end
   end
 
@@ -22,22 +20,20 @@ describe HousesController do
     let(:city) { resort.city }
 
     before do
-      create :house, id: 1, resort: resort, category: category, price_bd: 1000, price_wd: 1500, capacity: 2
+      create :house, resort: resort, category: category, price_bd: 1000, price_wd: 1500, capacity: 2
     end
 
     it "returns http success" do
       get 'index'
-      response.should be_success
+      response.should be_successful
     end
   end
 
   describe "#show" do
     let(:house) { create :house }
     it "returns http success" do
-      get 'show', id: house.id
-      response.should be_success
+      get 'show', params: { id: house.id }
+      response.should be_successful
     end
   end
-
-
 end

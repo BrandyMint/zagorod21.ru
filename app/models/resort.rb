@@ -3,7 +3,7 @@ class Resort < ActiveRecord::Base
 
   scope :ordered, -> { active.order(:created_at) }
   scope :active, -> { where active: true }
-  scope :with_active_houses, -> {joins(:houses).where('houses.active' => true).uniq.ordered}
+  scope :with_active_houses, -> { joins(:houses).where('houses.active' => true).ordered }
 
   belongs_to :preview, class_name: 'Image'
   belongs_to :city

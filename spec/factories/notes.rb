@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :note do
-    text "MyText"
+    text { "MyText" }
   end
 end

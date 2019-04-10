@@ -158,6 +158,7 @@ group :test do
   gem 'factory_bot'
   gem 'factory_bot_rails', github: 'thoughtbot/factory_bot_rails'
   gem 'rspec-prof'
+  gem 'rspec-its'
   # Start Pry in the context of a failed test
   #gem 'plymouth'
   gem "fakeredis", :require => "fakeredis/rspec"

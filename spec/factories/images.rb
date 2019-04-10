@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :image do
-    file "MyString"
-    description "MyText"
+    file { "MyString" }
+    description { "MyText" }
   end
 end

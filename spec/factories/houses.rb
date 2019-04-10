@@ -6,11 +6,11 @@ FactoryBot.define do
   factory :house do
     title
     category
-    description "MyText"
-    price_bd 5
-    price_wd 12
-    price_bd_hour 1
-    active true
+    description { "MyText" }
+    price_bd { 5 }
+    price_wd { 12 }
+    price_bd_hour { 1 }
+    active { true }
     resort
   end
 end
