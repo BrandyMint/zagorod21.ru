@@ -22,6 +22,7 @@ require 'capistrano-db-tasks'
 require 'capistrano/bundler'
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
+require 'capistrano/faster_assets'
 require 'capistrano/shell'
 require 'capistrano/puma'
 install_plugin Capistrano::Puma

@@ -160,6 +160,8 @@ GEM
       capistrano (~> 3.1)
     capistrano-db-tasks (0.6)
       capistrano (>= 3.0.0)
+    capistrano-faster-assets (1.1.0)
+      capistrano (>= 3.1)
     capistrano-git-with-submodules (2.0.3)
       capistrano (~> 3.7)
     capistrano-nvm (0.0.7)
@@ -603,6 +605,7 @@ DEPENDENCIES
   capistrano
   capistrano-bundler
   capistrano-db-tasks
+  capistrano-faster-assets
   capistrano-git-with-submodules (~> 2.0)
   capistrano-nvm
   capistrano-rails
