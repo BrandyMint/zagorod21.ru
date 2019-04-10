@@ -2,15 +2,15 @@ class ResortDecorator < Draper::Decorator
   delegate_all
 
   def button
-    h.link_to "Подробнее..", h.resort_url(source)
+    h.link_to "Подробнее..", h.resort_url(object)
   end
 
   def admin_link
-    h.link_to 'edit', h.edit_admin_resort_url(source), class: 'btn btn-small btn-warning' if h.current_user.present? && h.current_user.can_create?(source)
+    h.link_to 'edit', h.edit_admin_resort_url(object), class: 'btn btn-small btn-warning' if h.current_user.present? && h.current_user.can_create?(object)
   end
 
   def distance
-    h.distance source.distance
+    h.distance object.distance
   end
 
   def price
@@ -24,19 +24,19 @@ class ResortDecorator < Draper::Decorator
   end
 
   def common_image
-    h.image_tag source.preview.file.common.url if source.preview.present?
+    h.image_tag object.preview.file.common.url if object.preview.present?
   end
 
   def basic_image
-    h.image_tag source.preview.file.basic.url if source.preview.present?
+    h.image_tag object.preview.file.basic.url if object.preview.present?
   end
 
   def preview_image
-    h.image_tag source.preview.file.thumb.url if source.preview.present?
+    h.image_tag object.preview.file.thumb.url if object.preview.present?
   end
 
   def tags_block
-    h.tag_list source.tags
+    h.tag_list object.tags
   end
 
   # Define presentation-specific methods here. Helpers are accessed through

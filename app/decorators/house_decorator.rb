@@ -6,79 +6,79 @@ class HouseDecorator < Draper::Decorator
   end
 
   def house_css_class
-    source.selected? ? 'warning' : ''
+    object.selected? ? 'warning' : ''
   end
 
   def rooms_count
-    if source.rooms_count.present? && source.rooms_count >0
-      "#{source.rooms_count}"
+    if object.rooms_count.present? && object.rooms_count >0
+      "#{object.rooms_count}"
     else
       "-"
     end
   end
 
   def main_title
-    title = source.accusative_title.present? ? source.accusative_title : source.title
+    title = object.accusative_title.present? ? object.accusative_title : object.title
     "Снять #{title}"
   end
 
   def admin_link
-    h.link_to 'edit', h.edit_admin_house_url(source), class: 'btn btn-small btn-warning' if h.current_user.present? && h.current_user.can_create?(source)
+    h.link_to 'edit', h.edit_admin_house_url(object), class: 'btn btn-small btn-warning' if h.current_user.present? && h.current_user.can_create?(object)
   end
 
   def common_image *options
-    h.image_tag(source.preview.file.common.url, *options) if source.preview.present?
+    h.image_tag(object.preview.file.common.url, *options) if object.preview.present?
   end
 
   def basic_image *options
-    h.image_tag(source.preview.file.basic.url, *options) if source.preview.present?
+    h.image_tag(object.preview.file.basic.url, *options) if object.preview.present?
   end
 
   def preview_image *options
-    h.image_tag(source.preview.file.thumb.url, *options) if source.preview.present?
+    h.image_tag(object.preview.file.thumb.url, *options) if object.preview.present?
   end
 
   def small_image *options
-    h.image_tag source.preview.file.url(:small), width: 60, height: 60 if source.preview.present?
+    h.image_tag object.preview.file.url(:small), width: 60, height: 60 if object.preview.present?
   end
 
   def title
-    source.title? ? source.title : source.resort.title
+    object.title? ? object.title : object.resort.title
   end
 
   def tags_block
-    h.tag_list source.tags
+    h.tag_list object.tags
   end
 
   def price
-    if source.price_bd == source.price_wd
+    if object.price_bd == object.price_wd
       price_bd
     else
       h.content_tag :span, class: :money do
-        h.number_with_precision(source.price_bd, precision: 0, delimiter: ' ') + '-' +
+        h.number_with_precision(object.price_bd, precision: 0, delimiter: ' ') + '-' +
           price_wd
       end
     end
   end
 
   def price_bd
-    h.money source.price_bd
+    h.money object.price_bd
   end
 
   def price_wd
-    h.money source.price_wd
+    h.money object.price_wd
   end
 
   def price_bd_hour
-    h.money source.price_bd_hour
+    h.money object.price_bd_hour
   end
 
   def capacity
-    source.capacity.present? ? "#{source.capacity} чел." : "-"
+    object.capacity.present? ? "#{object.capacity} чел." : "-"
   end
 
   def distance
-    h.distance source.distance
+    h.distance object.distance
   end
 
   def transfer_price
@@ -87,19 +87,19 @@ class HouseDecorator < Draper::Decorator
   end
 
   def time
-    "#{source.time} мин."
+    "#{object.time} мин."
   end
 
   def resort_price_range
-    source.resort.price_range.present? ? source.resort.price_range : '-'
+    object.resort.price_range.present? ? object.resort.price_range : '-'
   end
 
   def resort_site
-    source.resort.site.present? ? h.link_to(source.resort.site, source.resort.site, rel: 'nofollow', target: '_blank') : '-'
+    object.resort.site.present? ? h.link_to(object.resort.site, object.resort.site, rel: 'nofollow', target: '_blank') : '-'
   end
 
   def resort_distance
-    source.resort.distance.present? ? source.resort.distance : '-'
+    object.resort.distance.present? ? object.resort.distance : '-'
   end
 
   def category_icon

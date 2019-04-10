@@ -11,7 +11,7 @@ set :deploy_to, -> { "/home/#{fetch(:user)}/#{fetch(:application)}" }
 # set :pty, true
 
 set :linked_files, %w{config/database.yml}
-set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
+set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/uploads}
 
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
@@ -26,6 +26,8 @@ set :bundle_without, %w{development test deploy}.join(' ')
 set :bundle_jobs, 10
 
 set :nginx_server_name,  -> { "#{fetch(:application)}" }
+
+set :assets_dir, %w(public/uploads)
 
 namespace :deploy do
   desc "Generate sitemap"

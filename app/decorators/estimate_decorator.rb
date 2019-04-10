@@ -2,7 +2,7 @@ class EstimateDecorator < Draper::Decorator
   delegate_all
 
   def button
-    label = h.money source.total
+    label = h.money object.total
     h.link_to order_url, class: 'btn btn-success btn-block btn-house', title: h.sanitize(description) do
       h.content_tag(:span, label, class: 'rline col-xs-5 size-16px') <<
       h.content_tag(:span, 'Снять', class: 'size-16px bold col-xs-7')
@@ -10,7 +10,7 @@ class EstimateDecorator < Draper::Decorator
   end
 
   def order_url
-    h.house_url(source.house, house_order: source.form_object.to_order)
+    h.house_url(object.house, house_order: object.form_object.to_order)
   end
 
   def description

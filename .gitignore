@@ -39,3 +39,4 @@ solr/pids
 sunspot-solr.pid
 node_modules/
 vendor/assets/components/
+*.sql

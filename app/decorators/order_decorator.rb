@@ -7,31 +7,31 @@ class OrderDecorator < Draper::Decorator
   end
 
   def date_from_day
-    I18n.l source.date_from, format: :dots_separated
+    I18n.l object.date_from, format: :dots_separated
   end
 
   def date_to_day
-    I18n.l source.date_to, format: :dots_separated
+    I18n.l object.date_to, format: :dots_separated
   end
 
   def human_time
-    I18n.l source.date_from, format: :timepicker
+    I18n.l object.date_from, format: :timepicker
   end
 
   def money_amount
-    h.money source.money_amount
+    h.money object.money_amount
   end
 
   def house
-    source.house.title
+    object.house.title
   end
 
   def resort
-    source.house.resort.title
+    object.house.resort.title
   end
 
   def admin_url
-    admin_order_url source
+    admin_order_url object
   end
 
   def view_phone
