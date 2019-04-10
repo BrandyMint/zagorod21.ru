@@ -23,7 +23,7 @@
           %tr
             %td Время доставки
             %td.bold= @order.human_time
-          - if @order.source.money_amount
+          - if @order.object.money_amount
             %tr
               %td Итого
               %td.bold= @order.money_amount

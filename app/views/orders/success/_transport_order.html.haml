@@ -26,7 +26,7 @@
           %tr
             %td Всего отдыхающих
             %td.bold= @order.people_quantity
-          - if @order.source.money_amount
+          - if @order.object.money_amount
             %tr
               %td Итого
               %td.bold= @order.money_amount

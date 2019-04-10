@@ -57,10 +57,10 @@
       .sidebar.col-xs-12.col-md-4
         = @house.admin_link
         = render 'houses/detail/prices'
-        = render 'order', house: @house.source
+        = render 'order', house: @house.object
         = render 'application/sidebar/phone'
         = render 'application/sidebar/socials'
         = render 'application/sidebar/also'
 
-= render_cell :similar_houses, :show, house: @house.source
+= render_cell :similar_houses, :show, house: @house.object
 = render 'houses/detail/resort'
