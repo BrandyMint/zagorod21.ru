@@ -23,6 +23,7 @@ module Zagorod
     I18n.locale = config.i18n.default_locale = :ru
 
     config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'stolen')
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
 
     [:cora].each do |dir|

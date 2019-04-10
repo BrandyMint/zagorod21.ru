@@ -4,7 +4,7 @@
 #= require bootstrap
 #= require bootstrap-datepicker
 #= require bootstrap-datetimepicker/js/bootstrap-datetimepicker
-#= require jquery.maskedinput/jquery.maskedinput.min
+#= require jquery.maskedinput/dist/jquery.maskedinput.min
 #= require spin.js/spin.js
 #= require estimate_order
 #= require orders
