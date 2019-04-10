@@ -6,6 +6,7 @@ rvm:
 before_script:
   - cp config/database.travis.yml config/database.yml
   - psql -c 'create database zagorod_test' -U postgres
+  - gem install bundler
 script:
   - bundle exec rake
   - RAILS_ENV=production bundle exec rake assets:clean assets:precompile
