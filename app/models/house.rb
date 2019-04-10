@@ -7,7 +7,7 @@ class House < ActiveRecord::Base
   scope :selected, -> { where selected: true }
   scope :exclude, ->(house) { where "houses.id != #{house.id}" }
   scope :by_category, ->(category) { where('houses.category_id' => category.id) }
-  scope :from, ->(city) { includes(:resort).where('resorts.city_id' => city.id) }
+  scope :by_city, ->(city) { includes(:resort).where('resorts.city_id' => city.id) }
 
   belongs_to :category
   belongs_to :resort

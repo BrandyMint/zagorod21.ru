@@ -22,7 +22,7 @@ class HouseSearchQuery
   private
 
   def default_scope
-    House.from(@form_object.city).by_category(@form_object.category).active
+    House.by_city(@form_object.city).by_category(@form_object.category).active
   end
 
   def scope
