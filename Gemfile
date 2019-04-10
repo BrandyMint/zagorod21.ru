@@ -93,6 +93,7 @@ gem 'haml-rails'
 
 gem 'bootstrap-sass', '>= 3.4.1'
 gem 'compass-rails'
+gem 'non-stupid-digest-assets'
 
 gem 'devise'
 

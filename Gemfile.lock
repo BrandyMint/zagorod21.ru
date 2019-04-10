@@ -384,6 +384,8 @@ GEM
       mini_portile2 (~> 2.4.0)
     nokogumbo (2.0.1)
       nokogiri (~> 1.8, >= 1.8.4)
+    non-stupid-digest-assets (1.0.9)
+      sprockets (>= 2.0)
     orm_adapter (0.5.0)
     pg (1.1.4)
     poltergeist (1.18.1)
@@ -641,6 +643,7 @@ DEPENDENCIES
   mini_magick
   mini_racer
   mobile-fu
+  non-stupid-digest-assets
   pg
   poltergeist
   pry
