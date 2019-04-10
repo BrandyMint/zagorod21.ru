@@ -12,8 +12,9 @@ before_script:
   - cp config/database.travis.yml config/database.yml
   - psql -c 'create database zagorod_test' -U postgres
   - bundle exec rake db:schema:load
+  - yarn install
 
 script:
   - bundle exec rake
-  # - RAILS_ENV=production bundle exec rake assets:clean assets:precompile
+  - RAILS_ENV=production bundle exec rake assets:clean assets:precompile
   # - bundle exec rubocop app/
