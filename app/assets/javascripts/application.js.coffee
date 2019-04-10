@@ -3,7 +3,7 @@
 #= require jquery.role/lib/jquery.role
 #= require bootstrap
 #= require bootstrap-datepicker
-#= require bootstrap-datetimepicker/js/bootstrap-datetimepicker
+#= require bootstrap-datetimepicker/js/bootstrap-datetimepicker.min
 #= require jquery.maskedinput/dist/jquery.maskedinput.min
 #= require spin.js/spin.js
 #= require estimate_order
