@@ -1,0 +1,12 @@
+language: ruby
+env:
+ - DB=postgresql
+rvm:
+  - 2.6.2
+before_script:
+  - cp config/database.travis.yml config/database.yml
+  - psql -c 'create database zagorod_test' -U postgres
+script:
+  - bundle exec rake
+  - RAILS_ENV=production bundle exec rake assets:clean assets:precompile
+# - bundle exec rubocop app/
