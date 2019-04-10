@@ -35,5 +35,5 @@ namespace :deploy do
     end
   end
 
-  before :compile_assets, 'sitemapgenerate'
+  after :compile_assets, 'sitemapgenerate'
 end
