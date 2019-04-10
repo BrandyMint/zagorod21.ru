@@ -25,6 +25,8 @@ set :rbenv_ruby, File.read('.ruby-version').strip
 set :bundle_without, %w{development test deploy}.join(' ')
 set :bundle_jobs, 10
 
+set :nginx_server_name,  -> { "#{fetch(:application)}" }
+
 namespace :deploy do
   desc "Generate sitemap"
   task :sitemapgenerate do
