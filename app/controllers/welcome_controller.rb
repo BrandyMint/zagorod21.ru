@@ -22,7 +22,7 @@ class WelcomeController < ApplicationController
   private
 
   def filter
-    return {selected: true} unless request.referer.include?('houses')
+    return {selected: true} unless request.referer.to_s.include?('houses')
     {}
   end
 
