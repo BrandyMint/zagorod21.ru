@@ -1,4 +1,4 @@
-lock '3.11.0'
+lock '3.15.0'
 set :application, 'zagorod21.ru'
 set :repo_url, 'git@github.com:BrandyMint/zagorod21.ru.git'
 
