@@ -1,4 +1,4 @@
-lock '3.15.0'
+ lock '3.15.0'
 set :application, 'zagorod21.ru'
 set :repo_url, 'git@github.com:BrandyMint/zagorod21.ru.git'
 
@@ -28,6 +28,8 @@ set :bundle_jobs, 10
 set :nginx_server_name,  -> { "#{fetch(:application)}" }
 
 set :assets_dir, %w(public/uploads)
+
+after 'deploy:publishing', 'systemd:sidekiq:reload-or-restart'
 
 namespace :deploy do
   desc "Generate sitemap"

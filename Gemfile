@@ -199,7 +199,7 @@ group :deploy do
   gem 'capistrano-yarn', require: false
   gem 'capistrano-faster-assets', require: false
   gem 'capistrano-bundler',  :require => false
-  gem 'capistrano3-puma', github: 'seuros/capistrano-puma', require: false
+  gem 'capistrano-systemd-multiservice', github: 'groovenauts/capistrano-systemd-multiservice', require: false
   gem 'capistrano-db-tasks', require: false
   gem 'capistrano-shell', require: false
 end

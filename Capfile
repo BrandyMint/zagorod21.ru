@@ -24,9 +24,8 @@ require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
 require 'capistrano/faster_assets'
 require 'capistrano/shell'
-require 'capistrano/puma'
-install_plugin Capistrano::Puma
-install_plugin Capistrano::Puma::Nginx
 
 # Loads custom tasks from `lib/capistrano/tasks' if you have any defined.
 Dir.glob('lib/capistrano/tasks/*.cap').each { |r| import r }
+require 'capistrano/systemd/multiservice'
+install_plugin Capistrano::Systemd::MultiService.new_service('puma', service_type: 'user')
