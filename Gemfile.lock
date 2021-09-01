@@ -26,15 +26,6 @@ GIT
     state_machine (1.2.0)
 
 GIT
-  remote: https://github.com/deees/puma-plugin-systemd.git
-  revision: e3b7fc94041c8b437866bbda7880ac09a3dcd229
-  branch: puma-4
-  specs:
-    puma-plugin-systemd (0.1.1)
-      json
-      puma (>= 3.6)
-
-GIT
   remote: https://github.com/gregbell/active_admin.git
   revision: e84c6e541db5ec95ee50455015ca8644a1240b47
   specs:
@@ -470,7 +461,7 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    rdoc (6.3.0)
+    rdoc (6.3.2)
     recipient_interceptor (0.2.0)
       mail
     redis (4.2.5)
@@ -683,7 +674,6 @@ DEPENDENCIES
   pry
   pry-byebug
   puma
-  puma-plugin-systemd!
   rails (~> 5.2)
   rb-fsevent (~> 0.9.1)
   rb-inotify (~> 0.9)
