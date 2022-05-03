@@ -26,15 +26,6 @@ GIT
     state_machine (1.2.0)
 
 GIT
-  remote: https://github.com/deees/puma-plugin-systemd.git
-  revision: e3b7fc94041c8b437866bbda7880ac09a3dcd229
-  branch: puma-4
-  specs:
-    puma-plugin-systemd (0.1.1)
-      json
-      puma (>= 3.6)
-
-GIT
   remote: https://github.com/gregbell/active_admin.git
   revision: e84c6e541db5ec95ee50455015ca8644a1240b47
   specs:
@@ -434,7 +425,7 @@ GEM
     rack (2.2.3)
     rack-mobile-detect (0.4.0)
       rack
-    rack-protection (2.1.0)
+    rack-protection (2.2.0)
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -525,7 +516,7 @@ GEM
     ruby-prof (1.4.2)
     ruby-vips (2.0.17)
       ffi (~> 1.9)
-    ruby2_keywords (0.0.2)
+    ruby2_keywords (0.0.5)
     ruby_parser (3.15.1)
       sexp_processor (~> 4.9)
     sanitize (5.2.3)
@@ -561,10 +552,10 @@ GEM
     simplecov-rcov (0.2.3)
       simplecov (>= 0.4.1)
     simplecov_json_formatter (0.1.2)
-    sinatra (2.1.0)
+    sinatra (2.2.0)
       mustermann (~> 1.0)
       rack (~> 2.2)
-      rack-protection (= 2.1.0)
+      rack-protection (= 2.2.0)
       tilt (~> 2.0)
     skinny (0.2.2)
       eventmachine (~> 1.0)
@@ -683,7 +674,6 @@ DEPENDENCIES
   pry
   pry-byebug
   puma
-  puma-plugin-systemd!
   rails (~> 5.2)
   rb-fsevent (~> 0.9.1)
   rb-inotify (~> 0.9)
