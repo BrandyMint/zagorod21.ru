@@ -26,15 +26,6 @@ GIT
     state_machine (1.2.0)
 
 GIT
-  remote: https://github.com/deees/puma-plugin-systemd.git
-  revision: e3b7fc94041c8b437866bbda7880ac09a3dcd229
-  branch: puma-4
-  specs:
-    puma-plugin-systemd (0.1.1)
-      json
-      puma (>= 3.6)
-
-GIT
   remote: https://github.com/gregbell/active_admin.git
   revision: e84c6e541db5ec95ee50455015ca8644a1240b47
   specs:
@@ -220,7 +211,7 @@ GEM
       sass (>= 3.2, < 3.5)
     compass-rails (2.0.1)
       compass (~> 1.0.0)
-    concurrent-ruby (1.1.7)
+    concurrent-ruby (1.1.10)
     crass (1.0.6)
     cucumber (5.2.0)
       builder (~> 3.2, >= 3.2.4)
@@ -298,8 +289,8 @@ GEM
     formtastic_i18n (0.6.0)
     fotoramajs (4.4.9)
       sprockets (>= 2)
-    globalid (0.4.2)
-      activesupport (>= 4.2.0)
+    globalid (1.0.1)
+      activesupport (>= 5.0)
     haml (5.2.1)
       temple (>= 0.8.0)
       tilt
@@ -320,7 +311,7 @@ GEM
       nokogiri (>= 1.6.0)
       ruby_parser (~> 3.5)
     htmlentities (4.3.4)
-    i18n (1.8.7)
+    i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.1)
       mini_magick (>= 4.9.5, < 5)
@@ -390,7 +381,7 @@ GEM
     mini_portile2 (2.5.0)
     mini_racer (0.3.1)
       libv8 (~> 8.4.255)
-    minitest (5.14.3)
+    minitest (5.17.0)
     mobile-fu (1.4.0)
       rack-mobile-detect
       rails
@@ -600,7 +591,7 @@ GEM
     turbolinks-source (5.2.0)
     turn (0.9.6)
       ansi
-    tzinfo (1.2.9)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
@@ -683,7 +674,6 @@ DEPENDENCIES
   pry
   pry-byebug
   puma
-  puma-plugin-systemd!
   rails (~> 5.2)
   rb-fsevent (~> 0.9.1)
   rb-inotify (~> 0.9)
